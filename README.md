@@ -1,20 +1,16 @@
 # Grok macOS Simulator
 
-Browser-based mockup of a modern macOS desktop (entertainment only).
+Browser-based entertainment mockup of a macOS-style desktop (not a real OS).
 
 ## Features
-- Boot screen
-- Liquid-glass menu bar + Dock
-- Draggable windows for Finder, Safari, Messages, Mail, Photos, Music, Notes, Calendar, App Store, Settings
-- Mock Siri (rule-based replies)
-- CSS app icons + glassmorphism UI
-
-## Structure
-- `index.html` — main page
-- `css/styles.css` + `css/icons.css`
-- `js/main.js`, `js/apps.js`, `js/siri.js`
+- Boot screen with “tiny LLM” note
+- Liquid-glass menu bar & Dock
+- SVG-style app icons (Finder, Safari, Messages, Mail, Photos, Music, Notes, Calendar, Settings, Trash)
+- Draggable / resizable-style windows
+- Mock Siri with simple rule-based replies
+- Dark glassmorphism UI
 
 ## Run
-Open `index.html` in a modern browser.
+Open `index.html` in a modern browser, or use GitHub Pages.
 
-Not real macOS. Approximate mock for fun.
+**Disclaimer:** For entertainment only. Approximate look & feel; not affiliated with Apple. Icons are original SVG approximations.
