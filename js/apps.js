@@ -15,9 +15,9 @@ const appData = {
   },
   safari: {
     title: 'Safari',
-    content: `<div class="browser-bar"><span style="opacity:.5;font-size:12px">← →</span><input value="https://www.apple.com" readonly></div>
+    content: `<div class="browser-bar"><span style="opacity:.5;font-size:12px">← → ↻</span><input value="https://www.apple.com" readonly></div>
       <p style="margin-bottom:10px">Safari mock browser.</p>
-      <p style="opacity:.7;font-size:13px">Lightweight Grok macOS simulator — entertainment only.</p>`
+      <p style="opacity:.7;font-size:13px">Grok macOS simulator — entertainment only. No real browsing.</p>`
   },
   messages: {
     title: 'Messages',
@@ -37,11 +37,16 @@ const appData = {
   },
   notes: {
     title: 'Notes',
-    content: `<textarea class="note-area" placeholder="Start typing a note...">Welcome to Notes.\n\nThis is a simple mockup for the Grok macOS simulator.</textarea>`
+    content: `<textarea class="note-area" placeholder="Start typing a note…">Welcome to Notes.\n\nThis is a simple mockup for the Grok macOS simulator.\n\nEdit freely — nothing is saved.</textarea>`
   },
   calendar: {
     title: 'Calendar',
-    content: `<p><strong>Today</strong></p><p style="margin-top:12px">No events scheduled.</p><p style="margin-top:8px;opacity:.6;font-size:13px">Mock Calendar.</p>`
+    content: (() => {
+      const d = new Date();
+      return `<div class="calendar-day">${d.getDate()}</div>
+        <div class="calendar-label">${d.toLocaleDateString('en-US',{weekday:'long',month:'long',year:'numeric'})}</div>
+        <p style="text-align:center;margin-top:20px;opacity:.6;font-size:13px">No events · Mock Calendar</p>`;
+    })()
   },
   appstore: {
     title: 'App Store',
@@ -51,6 +56,10 @@ const appData = {
       <div class="appstore-card"><h4>Keynote</h4><p>Presentations</p></div>
       <div class="appstore-card"><h4>GarageBand</h4><p>Music creation</p></div>
     </div><p style="margin-top:16px;opacity:.6;font-size:12px">Mock App Store — no real downloads.</p>`
+  },
+  terminal: {
+    title: 'Terminal',
+    content: `<div class="terminal-out">Last login: ${new Date().toLocaleString()}\ngrok@macos ~ % echo "Hello from Grok macOS"\nHello from Grok macOS\ngrok@macos ~ % _</div>`
   },
   settings: {
     title: 'System Settings',
@@ -67,19 +76,21 @@ const appData = {
 };
 
 function openApp(name) {
+  if (name === 'trash') return;
   if (openWindows[name]) {
     openWindows[name].style.zIndex = ++zCounter;
     openWindows[name].style.display = 'flex';
-    document.getElementById('app-name').textContent = appData[name]?.title || name;
+    const nameEl = document.getElementById('app-name');
+    if (nameEl) nameEl.textContent = appData[name]?.title || name;
     return;
   }
   const data = appData[name] || { title: name, content: '<p>App content</p>' };
   const win = document.createElement('div');
   win.className = 'window';
-  win.style.left = (70 + Math.random() * 180) + 'px';
-  win.style.top = (50 + Math.random() * 100) + 'px';
-  win.style.width = name === 'notes' ? '480px' : '540px';
-  win.style.height = name === 'notes' ? '400px' : '360px';
+  win.style.left = (60 + Math.random() * 200) + 'px';
+  win.style.top = (50 + Math.random() * 120) + 'px';
+  win.style.width = name === 'notes' ? '500px' : '560px';
+  win.style.height = name === 'notes' ? '420px' : '380px';
   win.style.zIndex = ++zCounter;
   win.innerHTML = `<div class="window-header">
     <div class="window-controls">
@@ -94,10 +105,30 @@ function openApp(name) {
   win.querySelector('[data-action="close"]').addEventListener('click', () => {
     win.remove();
     delete openWindows[name];
-    document.getElementById('app-name').textContent = 'Finder';
+    const nameEl = document.getElementById('app-name');
+    if (nameEl) nameEl.textContent = 'Finder';
   });
   win.querySelector('[data-action="minimize"]').addEventListener('click', () => {
     win.style.display = 'none';
+  });
+  win.querySelector('[data-action="maximize"]').addEventListener('click', () => {
+    if (win.dataset.max === '1') {
+      win.style.width = win.dataset.ow;
+      win.style.height = win.dataset.oh;
+      win.style.left = win.dataset.ol;
+      win.style.top = win.dataset.ot;
+      win.dataset.max = '0';
+    } else {
+      win.dataset.ow = win.style.width;
+      win.dataset.oh = win.style.height;
+      win.dataset.ol = win.style.left;
+      win.dataset.ot = win.style.top;
+      win.style.left = '40px';
+      win.style.top = '40px';
+      win.style.width = 'calc(100vw - 80px)';
+      win.style.height = 'calc(100vh - 130px)';
+      win.dataset.max = '1';
+    }
   });
 
   const header = win.querySelector('.window-header');
@@ -118,5 +149,6 @@ function openApp(name) {
 
   document.getElementById('windows-container').appendChild(win);
   openWindows[name] = win;
-  document.getElementById('app-name').textContent = data.title;
+  const nameEl = document.getElementById('app-name');
+  if (nameEl) nameEl.textContent = data.title;
 }
