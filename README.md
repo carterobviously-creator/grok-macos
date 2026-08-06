@@ -1,15 +1,20 @@
 # Grok macOS Simulator
 
-Lightweight browser-based mockup of macOS (entertainment only).
+Browser-based mockup of a modern macOS desktop (entertainment only).
 
 ## Features
-- Boot screen with “tiny LLM” loading text
-- Liquid-glass menu bar & Dock
-- Draggable windows: Finder, Safari, Messages, Mail, Photos, Music, Notes, Calendar, Maps, App Store, Settings
-- Mock Siri (rule-based lightweight AI replies)
-- Dark glassmorphism UI
+- Boot screen
+- Liquid-glass menu bar + Dock
+- Draggable windows for Finder, Safari, Messages, Mail, Photos, Music, Notes, Calendar, App Store, Settings
+- Mock Siri (rule-based replies)
+- CSS app icons + glassmorphism UI
+
+## Structure
+- `index.html` — main page
+- `css/styles.css` + `css/icons.css`
+- `js/main.js`, `js/apps.js`, `js/siri.js`
 
 ## Run
 Open `index.html` in a modern browser.
 
-Not a real OS. Approximate and simplified for fun. Icons are stylized approximations, not official Apple assets.
+Not real macOS. Approximate mock for fun.
