@@ -1,16 +1,15 @@
-# Grok macOS Simulator
+# macOS-26-Tahoe-for-the-Web
+![macOS Web Icon](icon/macOSWeb.png)
 
-Browser-based entertainment mockup of a macOS-style desktop. **Not real macOS.**
+Renewed continuation of an old famous project that recreated a macOS BigSur desktop, but now updated to the newest version with fixes, improvements and features!
 
-## Features
-- Boot screen with “tiny LLM” note
-- Liquid-glass menu bar & Dock
-- App icons (Finder, Safari, Messages, Mail, Photos, Music, Notes, Calendar, App Store, Terminal, Settings, Trash)
-- Draggable windows with close / minimize / maximize
-- Mock Siri with rule-based replies
-- Dark glassmorphism UI
+- Compatible with any system
+- Compatible with any browser
+- Progressively Adding Liquid Glass Design Language
+- Progressively Adding functional Apps 
 
-## Run
-Open `index.html` in a modern browser, or enable GitHub Pages.
+THIS PROYECT IS IN PROGRESS AND IS BEING MAINTAINED!
 
-**Disclaimer:** For entertainment only. Approximate look & feel; not affiliated with Apple. Icons are original approximations / emoji-style.
+Also, this project is fanmade, made by @Sunstar16 and it is not affiliated in any way with Apple Inc.
+
+HERE: https://sunstar16.github.io/macOS-26-Tahoe-for-the-Web/
