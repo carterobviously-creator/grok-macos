@@ -142,7 +142,7 @@ const Apps = {
       let res = "";
       if (cmd === "help") res = "help, date, whoami, clear, aura";
       else if (cmd === "date") res = new Date().toString();
-      else if (cmd === "whoami") res = "carter";
+      else if (cmd === "whoami") res = "user";
       else if (cmd === "clear") out.textContent = "";
       else if (cmd === "aura") res = Aura.reply("hello");
       else res = "command not found";
