@@ -1,0 +1,62 @@
+.app-frame { width: 100%; height: 100%; border: 0; background: #fff; }
+.pad { padding: 16px; }
+.finder {
+  display: grid; grid-template-columns: 180px 1fr; height: 100%;
+}
+.finder aside {
+  background: rgba(248,250,252,0.7); padding: 12px; font-size: 13px;
+}
+.finder aside button {
+  display: block; width: 100%; text-align: left;
+  border: 0; background: none; padding: 6px 8px; border-radius: 8px;
+}
+.finder aside button:hover, .finder aside button.on { background: #dbeafe; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); gap: 12px; padding: 16px; }
+.file { text-align: center; font-size: 12px; background: none; border: 0; }
+.file .box {
+  width: 54px; height: 44px; margin: 0 auto 6px; border-radius: 6px;
+  background: linear-gradient(#93c5fd, #3b82f6);
+}
+.notes textarea {
+  width: 100%; height: 100%; min-height: 280px; border: 0; resize: none;
+  padding: 16px; outline: none; background: transparent;
+}
+.calc {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 16px;
+}
+.calc .display {
+  grid-column: 1 / -1; background: #0f172a; color: #fff;
+  border-radius: 10px; padding: 16px; text-align: right; font-size: 28px;
+}
+.calc button { border: 0; border-radius: 10px; padding: 14px; background: #e2e8f0; }
+.store-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 16px; }
+.store-card {
+  border: 1px solid #e2e8f8; border-radius: 14px; padding: 14px; background: #fff;
+}
+.store-card button {
+  margin-top: 8px; border: 0; border-radius: 999px; padding: 6px 12px;
+  background: #2563eb; color: #fff;
+}
+.settings label { display: block; margin: 10px 0; }
+.term {
+  background: #0b1220; color: #86efac; font-family: ui-monospace, monospace;
+  height: 100%; padding: 12px; font-size: 13px;
+}
+.term input {
+  width: 100%; background: transparent; border: 0; color: #86efac; outline: none;
+}
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; padding: 12px; }
+.cal-grid b, .cal-grid span {
+  text-align: center; padding: 8px 0; font-size: 12px; border-radius: 8px;
+}
+.cal-grid .today { background: #2563eb; color: #fff; }
+.music { padding: 24px; text-align: center; }
+.music .art {
+  width: 160px; height: 160px; margin: 0 auto 16px; border-radius: 16px;
+  background: linear-gradient(135deg, #fb7185, #a78bfa);
+}
+.music input { width: 80%; }
+.browser-bar {
+  display: flex; gap: 8px; padding: 8px; background: #e2e8f0;
+}
+.browser-bar input { flex: 1; border-radius: 8px; border: 0; padding: 6px 10px; }

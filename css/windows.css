@@ -1,0 +1,30 @@
+#window-layer { position: absolute; inset: 28px 0 86px; }
+.win {
+  position: absolute;
+  min-width: 360px; min-height: 240px;
+  border-radius: 12px; overflow: hidden;
+  background: rgba(246,248,252,0.92);
+  color: #0f172a;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.5);
+  display: flex; flex-direction: column;
+}
+.win.dark {
+  background: rgba(22,27,40,0.94); color: #e2e8f0;
+}
+.win-titlebar {
+  height: 38px; display: flex; align-items: center; gap: 8px;
+  padding: 0 12px; cursor: grab;
+  background: rgba(255,255,255,0.35);
+}
+.win.dark .win-titlebar { background: rgba(255,255,255,0.04); }
+.traffic { display: flex; gap: 6px; }
+.traffic span {
+  width: 12px; height: 12px; border-radius: 50%; display: block;
+}
+.t-close { background: #ff5f57; }
+.t-min { background: #febc2e; }
+.t-max { background: #28c840; }
+.win-title { font-size: 13px; font-weight: 600; }
+.win-body { flex: 1; overflow: auto; }
+.win.active { outline: 1px solid rgba(147,197,253,0.5); }
