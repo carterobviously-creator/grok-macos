@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumen Desktop — Entertainment Mock</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/boot.css" />
+  <link rel="stylesheet" href="css/desktop.css" />
+  <link rel="stylesheet" href="css/windows.css" />
+  <link rel="stylesheet" href="css/apps.css" />
+</head>
+<body>
+  <div id="boot-screen">
+    <div class="boot-logo" aria-hidden="true">
+      <svg viewBox="0 0 120 120" width="92" height="92">
+        <defs>
+          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#7dd3fc"/>
+            <stop offset="55%" stop-color="#818cf8"/>
+            <stop offset="100%" stop-color="#c4b5fd"/>
+          </linearGradient>
+        </defs>
+        <circle cx="60" cy="60" r="52" fill="none" stroke="url(#lg)" stroke-width="6"/>
+        <path d="M36 68c8-22 20-34 24-36 4 2 16 14 24 36-16-8-32-8-48 0z" fill="url(#lg)"/>
+        <circle cx="60" cy="42" r="6" fill="#e0f2fe"/>
+      </svg>
+    </div>
+    <p class="boot-name">Lumen</p>
+    <div class="boot-bar"><div id="boot-fill"></div></div>
+    <p id="boot-status">Starting desktop environment…</p>
+    <p class="boot-note">Fan recreation for entertainment. Not affiliated with Apple.</p>
+  </div>
+
+  <div id="lock-screen" class="hidden">
+    <div class="lock-time" id="lock-time">9:41</div>
+    <div class="lock-date" id="lock-date">Friday, August 28</div>
+    <button id="unlock-btn" type="button">
+      <span class="avatar">C</span>
+      <span>Carter · Click to enter</span>
+    </button>
+  </div>
+
+  <div id="desktop" class="hidden">
+    <header id="menubar">
+      <div class="left">
+        <button class="apple-like" id="lumen-menu" title="Lumen menu">●</button>
+        <span id="app-title">Finder</span>
+        <nav class="menu-items">
+          <button type="button">File</button>
+          <button type="button">Edit</button>
+          <button type="button">View</button>
+          <button type="button">Go</button>
+          <button type="button">Window</button>
+          <button type="button">Help</button>
+        </nav>
+      </div>
+      <div class="right">
+        <button type="button" id="cc-toggle" title="Control Center">◉</button>
+        <button type="button" id="wifi-ind" title="Network">Wi‑Fi</button>
+        <time id="clock"></time>
+      </div>
+    </header>
+
+    <div id="wallpaper"></div>
+    <div id="window-layer"></div>
+
+    <aside id="control-center" class="hidden glass">
+      <div class="cc-grid">
+        <button class="cc-tile on" data-toggle="wifi">Wi‑Fi</button>
+        <button class="cc-tile on" data-toggle="bt">Bluetooth</button>
+        <button class="cc-tile" data-toggle="air">AirDrop</button>
+        <button class="cc-tile on" id="dnd-btn">Focus</button>
+      </div>
+      <label class="cc-slider">Display <input id="bright" type="range" min="40" max="100" value="92"></label>
+      <label class="cc-slider">Sound <input id="vol" type="range" min="0" max="100" value="55"></label>
+      <p class="cc-hint">Lumen Intelligence · On‑device helper</p>
+    </aside>
+
+    <div id="spotlight" class="hidden glass">
+      <input id="spot-input" placeholder="Search Lumen…" autocomplete="off" />
+      <ul id="spot-results"></ul>
+    </div>
+
+    <div id="assistant" class="hidden glass">
+      <header>
+        <strong>Aura</strong>
+        <span>On‑device helper</span>
+        <button type="button" id="close-aura">✕</button>
+      </header>
+      <div id="aura-log"></div>
+      <form id="aura-form">
+        <input id="aura-input" placeholder="Ask Aura…" autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <nav id="dock" class="glass">
+    </nav>
+  </div>
+
+  <script src="js/icons.js"></script>
+  <script src="js/assistant.js"></script>
+  <script src="js/windows.js"></script>
+  <script src="js/apps.js"></script>
+  <script src="js/desktop.js"></script>
+  <script src="js/boot.js"></script>
+</body>
+</html>
