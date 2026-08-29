@@ -29,7 +29,7 @@
     <p class="boot-name">Lumen</p>
     <div class="boot-bar"><div id="boot-fill"></div></div>
     <p id="boot-status">Starting desktop environment…</p>
-    <p class="boot-note">Fan recreation for entertainment. Not affiliated with Apple.</p>
+    <p class="boot-note">Fan recreation for entertainment. Not affiliated with Apple. Original icons only.</p>
   </div>
 
   <div id="lock-screen" class="hidden">
@@ -47,12 +47,12 @@
         <button class="apple-like" id="lumen-menu" title="Lumen menu">●</button>
         <span id="app-title">Finder</span>
         <nav class="menu-items">
-          <button type="button">File</button>
-          <button type="button">Edit</button>
-          <button type="button">View</button>
-          <button type="button">Go</button>
-          <button type="button">Window</button>
-          <button type="button">Help</button>
+          <button type="button" data-menu="file">File</button>
+          <button type="button" data-menu="edit">Edit</button>
+          <button type="button" data-menu="view">View</button>
+          <button type="button" data-menu="go">Go</button>
+          <button type="button" data-menu="window">Window</button>
+          <button type="button" data-menu="help">Help</button>
         </nav>
       </div>
       <div class="right">
@@ -64,6 +64,8 @@
 
     <div id="wallpaper"></div>
     <div id="window-layer"></div>
+    <div id="toast" class="hidden glass"></div>
+    <div id="ctx" class="hidden glass"></div>
 
     <aside id="control-center" class="hidden glass">
       <div class="cc-grid">
@@ -74,7 +76,8 @@
       </div>
       <label class="cc-slider">Display <input id="bright" type="range" min="40" max="100" value="92"></label>
       <label class="cc-slider">Sound <input id="vol" type="range" min="0" max="100" value="55"></label>
-      <p class="cc-hint">Lumen Intelligence · On‑device helper</p>
+      <label class="cc-slider">Glass tint <input id="tint" type="range" min="0" max="1" step="0.1" value="0"></label>
+      <p class="cc-hint">Lumen Intelligence · On‑device helper (scripted)</p>
     </aside>
 
     <div id="spotlight" class="hidden glass">
@@ -95,8 +98,7 @@
       </form>
     </div>
 
-    <nav id="dock" class="glass">
-    </nav>
+    <nav id="dock" class="glass"></nav>
   </div>
 
   <script src="js/icons.js"></script>

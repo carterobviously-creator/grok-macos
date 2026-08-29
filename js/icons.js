@@ -9,7 +9,7 @@ const Icons = {
     return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="6" y="4" width="16" height="20" rx="2" fill="#fff"/><path d="M9 10h10M9 14h10M9 18h7" stroke="#f59e0b" stroke-width="1.6"/></svg>`, "linear-gradient(#fde68a,#f59e0b)");
   },
   calc() {
-    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="6" y="5" width="16" height="18" rx="2" fill="#fff"/><rect x="8" y="7" width="12" height="4" rx="1" fill="#111"/><circle cx="10" cy="15" r="1.2" fill="#111"/><circle cx="14" cy="15" r="1.2" fill="#111"/><circle cx="18" cy="15" r="1.2" fill="#111"/></svg>`, "linear-gradient(#cbd5e1,#475569)");
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="6" y="5" width="16" height="18" rx="2" fill="#fff"/><rect x="8" y="7" width="12" height="4" rx="1" fill="#111"/></svg>`, "linear-gradient(#cbd5e1,#475569)");
   },
   web() {
     return this.svg(`<svg width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="11" fill="#fff"/><path d="M15 6l3 12-12-3 9-9z" fill="#ef4444"/></svg>`, "linear-gradient(#7dd3fc,#0284c7)");
@@ -21,7 +21,7 @@ const Icons = {
     return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="5" y="10" width="18" height="12" rx="2" fill="#fff"/><path d="M9 10v-2a5 5 0 0110 0v2" stroke="#fff" stroke-width="2" fill="none"/></svg>`, "linear-gradient(#60a5fa,#1d4ed8)");
   },
   calendar() {
-    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="5" y="6" width="18" height="16" rx="2" fill="#fff"/><path d="M5 11h18" stroke="#ef4444"/><text x="14" y="20" text-anchor="middle" font-size="9" fill="#111">28</text></svg>`, "linear-gradient(#fecaca,#ef4444)");
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="5" y="6" width="18" height="16" rx="2" fill="#fff"/><path d="M5 11h18" stroke="#ef4444"/></svg>`, "linear-gradient(#fecaca,#ef4444)");
   },
   music() {
     return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><path d="M10 20a3 3 0 106 0V8l8-2v10" fill="none" stroke="#fff" stroke-width="2"/></svg>`, "linear-gradient(#fb7185,#db2777)");
@@ -34,5 +34,14 @@ const Icons = {
   },
   photos() {
     return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><circle cx="10" cy="12" r="4" fill="#f472b6"/><circle cx="16" cy="11" r="4" fill="#60a5fa"/><circle cx="13" cy="16" r="4" fill="#fbbf24"/></svg>`, "linear-gradient(#fff,#e2e8f0)");
+  },
+  mail() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="4" y="8" width="20" height="13" rx="2" fill="#fff"/><path d="M4 10l10 7 10-7" fill="none" stroke="#2563eb" stroke-width="1.6"/></svg>`, "linear-gradient(#93c5fd,#1d4ed8)");
+  },
+  maps() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><path d="M6 8l8-2 8 2v14l-8 2-8-2z" fill="#fff"/><circle cx="14" cy="14" r="3" fill="#22c55e"/></svg>`, "linear-gradient(#86efac,#16a34a)");
+  },
+  stickies() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="6" y="5" width="16" height="18" rx="2" fill="#fde047"/></svg>`, "linear-gradient(#facc15,#ca8a04)");
   }
 };
