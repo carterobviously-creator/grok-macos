@@ -1,28 +1,24 @@
 # Lumen Desktop
 
-A **browser mock** of a desktop environment inspired by modern glass-style desktops.
+A **browser mock** of a glass-style desktop. Entertainment only.
 
-This is **not macOS**, **not Apple software**, and **not affiliated with Apple**.  
-It does not use official Apple icons, wallpapers, or trademarks as product branding.
+**Not macOS. Not Apple. Not Siri. Not Apple Intelligence.**  
+No official Apple icons, wallpapers, or product marks are used.
 
-Built for entertainment on [carterobviously-creator/grok-macos](https://github.com/carterobviously-creator/grok-macos).
+Live: enable GitHub Pages on `main` / root, then open  
+https://carterobviously-creator.github.io/grok-macos/
 
-## What works
+## Features
 
-- Boot splash with a tiny “on-device helper” load sequence
-- Lock screen → desktop
-- Menu bar, glass dock, window chrome
-- Files, Notes (saved in `localStorage`), Calculator, Web (iframe), Settings
-- Gallery “store” that pins extra apps to the dock
-- Calendar, Music chrome, Photos tiles, Terminal toy
+- Boot + lock + desktop with original “liquid glass” surfaces
+- Draggable windows (close / minimize / maximize)
+- Dock with hover lift and open dots
+- Files, Notes, Calculator, Web, Settings, Gallery store
+- Calendar, Music, Photos, Terminal, Mail, Maps, Stickies
 - Spotlight (`⌘K` / `Ctrl+K`)
-- Aura helper (keyword engine, not a real LLM and not Siri)
+- Control Center + glass transparency slider
+- Aura: local keyword + template helper (not a cloud LLM)
 
-## Run
+## Run locally
 
-Open `index.html` locally, or enable GitHub Pages on this repo (source: `/`, branch `main`).
-
-## Why it is not a 1:1 copy
-
-Apple icons, system wallpapers, Siri, and Apple Intelligence are protected.  
-Lumen uses original SVG glyphs, original names, and a scripted assistant so the project stays a clearly labeled parody mock.
+Open `index.html` in a browser. Prefer a local server if iframes are blocked.
