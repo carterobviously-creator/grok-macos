@@ -14,16 +14,15 @@ const Windows = {
     el.style.left = 80 + Math.random() * 120 + "px";
     el.style.top = 40 + Math.random() * 80 + "px";
     el.style.zIndex = ++this.z;
-    el.innerHTML = `
-      <div class="win-titlebar">
-        <div class="traffic">
-          <span class="t-close" data-act="close"></span>
-          <span class="t-min" data-act="min"></span>
-          <span class="t-max" data-act="max"></span>
-        </div>
-        <div class="win-title">${title}</div>
-      </div>
-      <div class="win-body">${html}</div>`;
+    el.innerHTML =
+      '<div class="win-titlebar">' +
+      '<div class="traffic">' +
+      '<span class="t-close" data-act="close"></span>' +
+      '<span class="t-min" data-act="min"></span>' +
+      '<span class="t-max" data-act="max"></span>' +
+      "</div>" +
+      '<div class="win-title">' + title + "</div></div>" +
+      '<div class="win-body">' + html + "</div>";
     document.getElementById("window-layer").appendChild(el);
     this.list[id] = el;
     this.bind(el, id);
