@@ -47,7 +47,7 @@ const Apps = {
         const k = b.dataset.k;
         if (k === "C") cur = "0";
         else if (k === "=") {
-          try { cur = String(Function("return " + cur)()); } catch (err) { cur = "Err"; }
+          try { cur = String(Function('"use strict"; return (' + cur + ")")()); } catch (err) { cur = "Err"; }
         } else if (k === "+/-") cur = String(-parseFloat(cur));
         else cur = cur === "0" && /[0-9]/.test(k) ? k : cur + k;
         disp.textContent = cur;
@@ -87,7 +87,10 @@ const Apps = {
       ["music", "Music", "Fake player chrome."],
       ["mail", "Mail", "Sample inbox."],
       ["maps", "Maps", "A decorative map."],
-      ["stickies", "Stickies", "Yellow note pad."]
+      ["stickies", "Stickies", "Yellow note pad."],
+      ["weather", "Weather", "Mock forecast card."],
+      ["clock", "Clock", "World clocks."],
+      ["writer", "Writer", "Plain text pad."]
     ];
     Windows.create("store", "Gallery", 560, 440,
       '<div class="store-grid">' +
@@ -123,7 +126,7 @@ const Apps = {
   },
   terminal() {
     Windows.create("terminal", "Terminal", 560, 320,
-      '<div class="term" id="term"><div id="tout">Lumen shell 0.1 — type help</div><div>$ <input id="tin"></div></div>', true);
+      '<div class="term" id="term"><div id="tout">Lumen shell 0.2 — type help</div><div>$ <input id="tin"></div></div>', true);
     const out = document.getElementById("tout");
     const tin = document.getElementById("tin");
     tin.focus();
@@ -131,9 +134,10 @@ const Apps = {
       if (e.key !== "Enter") return;
       const cmd = tin.value.trim();
       let res = "";
-      if (cmd === "help") res = "help, date, whoami, clear, aura";
+      if (cmd === "help") res = "help, date, whoami, clear, aura, apps";
       else if (cmd === "date") res = new Date().toString();
       else if (cmd === "whoami") res = "user";
+      else if (cmd === "apps") res = Object.keys(Desktop.labels).join(", ");
       else if (cmd === "clear") out.textContent = "";
       else if (cmd === "aura") res = Aura.reply("hello");
       else res = "command not found";
@@ -164,5 +168,22 @@ const Apps = {
     Windows.create("stickies", "Stickies", 280, 240, '<div class="stickies"><textarea id="sticky-area">' + saved + "</textarea></div>");
     const area = document.getElementById("sticky-area");
     area.oninput = () => localStorage.setItem("lumen-sticky", area.value);
+  },
+  weather() {
+    Windows.create("weather", "Weather", 360, 280,
+      '<div class="pad"><h2>72°</h2><p>Clear · mock city</p><p>High 76 · Low 58</p><p>This is not live weather data.</p></div>');
+  },
+  clock() {
+    Windows.create("clock", "Clock", 360, 240,
+      '<div class="pad"><p>Local</p><h2 id="clock-app">--</h2><p>UTC offset shown by your browser.</p></div>');
+    const el = document.getElementById("clock-app");
+    const tick = () => { el.textContent = new Date().toLocaleTimeString(); };
+    tick();
+  },
+  writer() {
+    const saved = localStorage.getItem("lumen-writer") || "Untitled draft";
+    Windows.create("writer", "Writer", 560, 400, '<textarea id="writer-area" class="pad" style="width:100%;height:100%;border:0;outline:none;resize:none">' + saved + "</textarea>");
+    const area = document.getElementById("writer-area");
+    area.oninput = () => localStorage.setItem("lumen-writer", area.value);
   }
 };

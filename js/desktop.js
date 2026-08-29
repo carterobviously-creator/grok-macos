@@ -1,11 +1,12 @@
 const Desktop = {
-  pinned: ["finder", "notes", "calc", "web", "store", "settings", "aura"],
+  pinned: ["finder", "notes", "calc", "web", "store", "launch", "settings", "aura"],
   extra: [],
   labels: {
     finder: "Files", notes: "Notes", calc: "Calc", web: "Web",
-    store: "Gallery", settings: "Settings", aura: "Aura",
+    store: "Gallery", settings: "Settings", aura: "Aura", launch: "Launch",
     calendar: "Calendar", music: "Music", photos: "Photos", terminal: "Term",
-    mail: "Mail", maps: "Maps", stickies: "Stickies"
+    mail: "Mail", maps: "Maps", stickies: "Stickies", weather: "Weather",
+    clock: "Clock", writer: "Writer"
   },
   start() {
     this.renderDock();
@@ -13,6 +14,8 @@ const Desktop = {
     setInterval(() => this.tick(), 1000);
     document.getElementById("cc-toggle").onclick = () =>
       document.getElementById("control-center").classList.toggle("hidden");
+    document.getElementById("notify-toggle").onclick = () =>
+      document.getElementById("notify-drawer").classList.toggle("hidden");
     document.querySelectorAll(".cc-tile").forEach((t) => {
       t.onclick = () => t.classList.toggle("on");
     });
@@ -38,13 +41,20 @@ const Desktop = {
         e.preventDefault();
         this.toggleSpot();
       }
+      if (e.key === "F4") {
+        e.preventDefault();
+        this.toggleLaunch();
+      }
       if (e.key === "Escape") {
         document.getElementById("spotlight").classList.add("hidden");
         document.getElementById("control-center").classList.add("hidden");
+        document.getElementById("notify-drawer").classList.add("hidden");
+        document.getElementById("launchpad").classList.add("hidden");
         document.getElementById("ctx").classList.add("hidden");
       }
     });
     document.getElementById("spot-input").addEventListener("input", (e) => this.search(e.target.value));
+    document.getElementById("lp-search").addEventListener("input", (e) => this.fillLaunch(e.target.value));
     document.getElementById("lumen-menu").onclick = () => this.toggleSpot();
     document.getElementById("wallpaper").addEventListener("contextmenu", (e) => {
       e.preventDefault();
@@ -54,6 +64,7 @@ const Desktop = {
       ctx.innerHTML =
         '<button data-act="notes">New note</button>' +
         '<button data-act="stickies">New sticky</button>' +
+        '<button data-act="launch">Launchpad</button>' +
         '<button data-act="spot">Search</button>' +
         '<button data-act="settings">Settings</button>';
       ctx.classList.remove("hidden");
@@ -73,8 +84,12 @@ const Desktop = {
   },
   tick() {
     const n = new Date();
-    document.getElementById("clock").textContent = n.toLocaleString(undefined, {
+    const clock = n.toLocaleString(undefined, {
       weekday: "short", hour: "numeric", minute: "2-digit"
+    });
+    document.getElementById("clock").textContent = clock;
+    document.getElementById("wid-clock").textContent = n.toLocaleTimeString(undefined, {
+      hour: "numeric", minute: "2-digit"
     });
     document.getElementById("lock-time").textContent = n.toLocaleTimeString(undefined, {
       hour: "numeric", minute: "2-digit"
@@ -97,9 +112,35 @@ const Desktop = {
       b.onclick = () => this.openApp(b.dataset.id);
     });
   },
+  fillLaunch(q) {
+    const keys = Object.keys(this.labels).filter((k) => k !== "launch" &&
+      this.labels[k].toLowerCase().indexOf((q || "").toLowerCase()) !== -1);
+    document.getElementById("lp-grid").innerHTML = keys.map((id) => {
+      const icon = Icons[id] ? Icons[id]() : Icons.settings();
+      return '<button data-id="' + id + '">' + icon + this.labels[id] + "</button>";
+    }).join("");
+    document.querySelectorAll("#lp-grid button").forEach((b) => {
+      b.onclick = () => {
+        this.openApp(b.dataset.id);
+        document.getElementById("launchpad").classList.add("hidden");
+      };
+    });
+  },
+  toggleLaunch() {
+    const lp = document.getElementById("launchpad");
+    lp.classList.toggle("hidden");
+    if (!lp.classList.contains("hidden")) {
+      this.fillLaunch("");
+      document.getElementById("lp-search").focus();
+    }
+  },
   openApp(id) {
     if (id === "aura") {
       document.getElementById("assistant").classList.toggle("hidden");
+      return;
+    }
+    if (id === "launch") {
+      this.toggleLaunch();
       return;
     }
     if (Apps[id]) Apps[id]();

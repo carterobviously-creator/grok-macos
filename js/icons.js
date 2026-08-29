@@ -43,5 +43,17 @@ const Icons = {
   },
   stickies() {
     return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="6" y="5" width="16" height="18" rx="2" fill="#fde047"/></svg>`, "linear-gradient(#facc15,#ca8a04)");
+  },
+  launch() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="5" y="5" width="7" height="7" rx="2" fill="#fff"/><rect x="16" y="5" width="7" height="7" rx="2" fill="#fff"/><rect x="5" y="16" width="7" height="7" rx="2" fill="#fff"/><rect x="16" y="16" width="7" height="7" rx="2" fill="#fff"/></svg>`, "linear-gradient(#67e8f9,#0284c7)");
+  },
+  weather() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><circle cx="11" cy="12" r="5" fill="#fde047"/><path d="M10 18h12a4 4 0 000-8" fill="#fff"/></svg>`, "linear-gradient(#7dd3fc,#38bdf8)");
+  },
+  clock() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="9" fill="#fff"/><path d="M14 8v7l4 2" stroke="#0f172a" stroke-width="1.6"/></svg>`, "linear-gradient(#fda4af,#e11d48)");
+  },
+  writer() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="7" y="5" width="14" height="18" rx="2" fill="#fff"/><path d="M10 10h8M10 14h8M10 18h5" stroke="#64748b"/></svg>`, "linear-gradient(#e2e8f0,#94a3b8)");
   }
 };

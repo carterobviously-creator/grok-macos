@@ -29,7 +29,7 @@
     <p class="boot-name">Lumen</p>
     <div class="boot-bar"><div id="boot-fill"></div></div>
     <p id="boot-status">Starting desktop environment…</p>
-    <p class="boot-note">Fan recreation for entertainment. Not affiliated with Apple. Original icons only.</p>
+    <p class="boot-note">Fan recreation for entertainment. Not affiliated with Apple. Original icons only. Aura is a scripted helper, not a downloaded LLM.</p>
   </div>
 
   <div id="lock-screen" class="hidden">
@@ -56,28 +56,44 @@
         </nav>
       </div>
       <div class="right">
+        <button type="button" id="notify-toggle" title="Notifications">○</button>
         <button type="button" id="cc-toggle" title="Control Center">◉</button>
-        <button type="button" id="wifi-ind" title="Network">Wi‑Fi</button>
+        <button type="button" id="wifi-ind" title="Network">Net</button>
         <time id="clock"></time>
       </div>
     </header>
 
     <div id="wallpaper"></div>
+    <div id="widgets" class="glass">
+      <div class="wid-clock" id="wid-clock">--:--</div>
+      <div class="wid-weather">Clear · 72° mock</div>
+    </div>
     <div id="window-layer"></div>
     <div id="toast" class="hidden glass"></div>
     <div id="ctx" class="hidden glass"></div>
 
+    <div id="launchpad" class="hidden">
+      <input id="lp-search" placeholder="Search apps" />
+      <div id="lp-grid"></div>
+    </div>
+
     <aside id="control-center" class="hidden glass">
       <div class="cc-grid">
-        <button class="cc-tile on" data-toggle="wifi">Wi‑Fi</button>
+        <button class="cc-tile on" data-toggle="wifi">Wi-Fi</button>
         <button class="cc-tile on" data-toggle="bt">Bluetooth</button>
-        <button class="cc-tile" data-toggle="air">AirDrop</button>
+        <button class="cc-tile" data-toggle="air">ShareDrop</button>
         <button class="cc-tile on" id="dnd-btn">Focus</button>
       </div>
       <label class="cc-slider">Display <input id="bright" type="range" min="40" max="100" value="92"></label>
       <label class="cc-slider">Sound <input id="vol" type="range" min="0" max="100" value="55"></label>
       <label class="cc-slider">Glass tint <input id="tint" type="range" min="0" max="1" step="0.1" value="0"></label>
-      <p class="cc-hint">Lumen Intelligence · On‑device helper (scripted)</p>
+      <p class="cc-hint">Lumen Intelligence · On-device helper (scripted)</p>
+    </aside>
+
+    <aside id="notify-drawer" class="hidden glass">
+      <h4>Notifications</h4>
+      <p>Gallery has 7 mock apps you can add to the dock.</p>
+      <p>Aura is ready. Ask it to open Notes.</p>
     </aside>
 
     <div id="spotlight" class="hidden glass">
@@ -88,7 +104,7 @@
     <div id="assistant" class="hidden glass">
       <header>
         <strong>Aura</strong>
-        <span>On‑device helper</span>
+        <span>On-device helper</span>
         <button type="button" id="close-aura">✕</button>
       </header>
       <div id="aura-log"></div>
