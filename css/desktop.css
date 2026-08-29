@@ -2,50 +2,48 @@
 #wallpaper {
   position: absolute; inset: 0;
   background:
-    radial-gradient(1200px 600px at 20% 10%, rgba(125,211,252,0.35), transparent 50%),
-    radial-gradient(900px 500px at 80% 20%, rgba(167,139,250,0.4), transparent 45%),
-    radial-gradient(800px 700px at 50% 90%, rgba(56,189,248,0.25), transparent 50%),
+    radial-gradient(1200px 620px at 18% 8%, rgba(125,211,252,0.38), transparent 52%),
+    radial-gradient(900px 520px at 82% 18%, rgba(167,139,250,0.42), transparent 46%),
+    radial-gradient(820px 720px at 50% 92%, rgba(56,189,248,0.22), transparent 50%),
     linear-gradient(180deg, #1e3a5f 0%, #0b1220 45%, #111827 100%);
 }
 #wallpaper.alt {
   background:
-    radial-gradient(900px 500px at 70% 15%, rgba(251,191,36,0.28), transparent),
-    linear-gradient(180deg, #312e81, #0f172a);
+    radial-gradient(900px 500px at 70% 15%, rgba(251,191,36,0.3), transparent),
+    linear-gradient(180deg, #3f2d6b, #0f172a);
 }
-
 #menubar {
   position: relative; z-index: 40;
   height: 28px; display: flex; align-items: center; justify-content: space-between;
-  padding: 0 10px;
-  background: rgba(12,16,28,0.35);
-  backdrop-filter: blur(24px);
+  padding: 0 12px;
+  background: rgba(10,14,26,0.28);
+  backdrop-filter: blur(28px) saturate(160%);
   font-size: 13px;
 }
 #menubar .left, #menubar .right { display: flex; align-items: center; gap: 12px; }
-#menubar button {
-  background: none; border: 0; color: inherit; padding: 0;
-}
+#menubar button { background: none; border: 0; color: inherit; padding: 0; }
 .apple-like { font-size: 11px; opacity: 0.9; }
 #app-title { font-weight: 600; }
 .menu-items { display: flex; gap: 12px; color: #e2e8f0; }
+.menu-items button:hover { opacity: 0.7; }
 
 #dock {
-  position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%);
+  position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%);
   z-index: 50;
   display: flex; align-items: flex-end; gap: 8px;
-  padding: 8px 10px 7px;
-  border-radius: 22px;
+  padding: 8px 12px 8px;
+  border-radius: 24px;
 }
 .dock-item {
   width: 52px; height: 52px; border: 0; padding: 0;
   background: transparent; display: grid; place-items: center;
-  transition: transform 0.16s ease;
+  transition: transform 0.18s cubic-bezier(.2,.8,.2,1);
 }
-.dock-item:hover { transform: translateY(-10px) scale(1.18); }
+.dock-item:hover { transform: translateY(-12px) scale(1.2); }
 .dock-item .icon {
-  width: 52px; height: 52px; border-radius: 13px;
+  width: 52px; height: 52px; border-radius: 14px;
   display: grid; place-items: center;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.28);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,.35);
 }
 .dock-item .dot {
   width: 4px; height: 4px; border-radius: 50%;
@@ -55,54 +53,69 @@
 .dock-sep { width: 1px; height: 36px; background: rgba(255,255,255,0.28); margin: 0 4px 8px; }
 
 #control-center {
-  position: absolute; top: 36px; right: 12px; width: 280px;
-  border-radius: 18px; padding: 14px; z-index: 60; color: #0f172a;
+  position: absolute; top: 36px; right: 12px; width: 292px;
+  border-radius: 20px; padding: 14px; z-index: 60; color: #0f172a;
 }
+body.tinted #control-center { color: #f8fafc; }
 .cc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .cc-tile {
   border: 0; border-radius: 14px; padding: 16px 10px;
   background: rgba(255,255,255,0.45); color: #0f172a;
 }
 .cc-tile.on { background: #2563eb; color: #fff; }
-.cc-slider { display: block; margin-top: 12px; font-size: 12px; color: #1e293b; }
+.cc-slider { display: block; margin-top: 12px; font-size: 12px; }
 .cc-slider input { width: 100%; }
-.cc-hint { font-size: 11px; color: #334155; margin: 12px 0 0; }
+.cc-hint { font-size: 11px; margin: 12px 0 0; opacity: 0.75; }
 
 #spotlight {
-  position: absolute; top: 18%; left: 50%; transform: translateX(-50%);
-  width: min(640px, 90vw); border-radius: 16px; z-index: 70; overflow: hidden;
+  position: absolute; top: 16%; left: 50%; transform: translateX(-50%);
+  width: min(640px, 90vw); border-radius: 18px; z-index: 70; overflow: hidden;
   color: #0f172a;
 }
+body.tinted #spotlight { color: #f8fafc; }
 #spot-input {
   width: 100%; border: 0; outline: none; padding: 16px 18px;
-  background: transparent; font-size: 20px; color: #0f172a;
+  background: transparent; font-size: 20px; color: inherit;
 }
 #spot-results { list-style: none; margin: 0; padding: 0 8px 8px; }
-#spot-results li {
-  padding: 8px 10px; border-radius: 8px; cursor: pointer;
-}
-#spot-results li:hover { background: rgba(37,99,235,0.15); }
+#spot-results li { padding: 8px 10px; border-radius: 8px; cursor: pointer; }
+#spot-results li:hover { background: rgba(37,99,235,0.18); }
 
 #assistant {
   position: absolute; right: 18px; bottom: 88px;
-  width: 340px; height: 420px; border-radius: 20px;
+  width: 340px; height: 430px; border-radius: 20px;
   z-index: 65; display: flex; flex-direction: column; color: #0f172a;
 }
+body.tinted #assistant { color: #f8fafc; }
 #assistant header {
   display: flex; align-items: baseline; gap: 8px;
   padding: 12px 14px; border-bottom: 1px solid rgba(15,23,42,0.08);
 }
-#assistant header span { font-size: 12px; color: #475569; }
-#close-aura { margin-left: auto; border: 0; background: none; }
+#assistant header span { font-size: 12px; opacity: 0.7; }
+#close-aura { margin-left: auto; border: 0; background: none; color: inherit; }
 #aura-log { flex: 1; overflow: auto; padding: 12px; font-size: 13px; }
 .msg { margin: 0 0 10px; padding: 8px 10px; border-radius: 12px; max-width: 92%; }
 .msg.user { margin-left: auto; background: #2563eb; color: #fff; }
-.msg.bot { background: rgba(255,255,255,0.55); }
+.msg.bot { background: rgba(255,255,255,0.5); }
+body.tinted .msg.bot { background: rgba(255,255,255,0.12); }
 #aura-form { display: flex; gap: 6px; padding: 10px; }
 #aura-form input {
   flex: 1; border-radius: 999px; border: 1px solid rgba(15,23,42,0.12);
-  padding: 8px 12px;
+  padding: 8px 12px; background: rgba(255,255,255,0.55);
 }
 #aura-form button {
   border: 0; border-radius: 999px; background: #2563eb; color: #fff; padding: 8px 12px;
 }
+#toast {
+  position: absolute; top: 40px; right: 16px; z-index: 80;
+  padding: 10px 14px; border-radius: 12px; font-size: 13px;
+}
+#ctx {
+  position: absolute; z-index: 90; min-width: 180px; padding: 6px;
+  border-radius: 12px; color: #0f172a;
+}
+#ctx button {
+  display: block; width: 100%; text-align: left; border: 0; background: none;
+  padding: 8px 10px; border-radius: 8px; color: inherit;
+}
+#ctx button:hover { background: rgba(37,99,235,0.15); }
