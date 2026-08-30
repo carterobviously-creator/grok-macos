@@ -67,23 +67,18 @@ const Apps = {
     document.getElementById("urlbar").addEventListener("keydown", (e) => { if (e.key === "Enter") go(); });
   },
   settings() {
-    const cloudOn = localStorage.getItem("lumen-cloud-aura") !== "off";
-    Windows.create("settings", "Settings", 500, 400,
+    Windows.create("settings", "Settings", 500, 360,
       '<div class="pad settings"><h3>Appearance</h3>' +
       '<label><input type="checkbox" id="alt-wall"> Warm wallpaper</label>' +
       '<label>Dock scale <input id="dock-scale" type="range" min="0.8" max="1.3" step="0.05" value="1"></label>' +
       '<h3>Aura</h3>' +
-      '<label><input type="checkbox" id="cloud-aura" ' + (cloudOn ? "checked" : "") + '> Use cloud helper when available (Puter AI)</label>' +
-      '<p>Lumen mock. Entertainment only. Original UI, not an Apple product. Cloud answers may prompt a Puter sign-in.</p></div>');
+      '<p>Offline local phrase helper only. No cloud services.</p>' +
+      '<p>Lumen mock. Entertainment only. Original UI, not an Apple product.</p></div>');
     document.getElementById("alt-wall").onchange = (e) => {
       document.getElementById("wallpaper").classList.toggle("alt", e.target.checked);
     };
     document.getElementById("dock-scale").oninput = (e) => {
       document.getElementById("dock").style.transform = "translateX(-50%) scale(" + e.target.value + ")";
-    };
-    document.getElementById("cloud-aura").onchange = (e) => {
-      localStorage.setItem("lumen-cloud-aura", e.target.checked ? "on" : "off");
-      Desktop.refreshAuraMode();
     };
   },
   store() {
