@@ -27,6 +27,6 @@
     document.getElementById("lock-screen").classList.add("hidden");
     document.getElementById("desktop").classList.remove("hidden");
     Desktop.start();
-    Desktop.addAura("bot", "Aura online. This is a tiny on-device helper. Press Command-K or Ctrl-K to search.");
+    Desktop.addAura("bot", "Aura online. Local helper is ready. Cloud answers use Puter AI when allowed. Press Command-K or Ctrl-K to search.");
   };
 })();

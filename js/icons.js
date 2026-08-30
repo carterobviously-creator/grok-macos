@@ -55,5 +55,8 @@ const Icons = {
   },
   writer() {
     return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="7" y="5" width="14" height="18" rx="2" fill="#fff"/><path d="M10 10h8M10 14h8M10 18h5" stroke="#64748b"/></svg>`, "linear-gradient(#e2e8f0,#94a3b8)");
+  },
+  reminders() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="6" y="5" width="16" height="18" rx="2" fill="#fff"/><path d="M10 12l2 2 5-5" stroke="#16a34a" stroke-width="2" fill="none"/></svg>`, "linear-gradient(#86efac,#16a34a)");
   }
 };

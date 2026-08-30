@@ -29,12 +29,12 @@
     <p class="boot-name">Lumen</p>
     <div class="boot-bar"><div id="boot-fill"></div></div>
     <p id="boot-status">Starting desktop environment…</p>
-    <p class="boot-note">Fan recreation for entertainment. Not affiliated with Apple. Original icons only. Aura is a scripted helper, not a downloaded LLM.</p>
+    <p class="boot-note">Fan recreation for entertainment. Not affiliated with Apple. Original icons only. Aura can use a public cloud helper when available.</p>
   </div>
 
   <div id="lock-screen" class="hidden">
     <div class="lock-time" id="lock-time">9:41</div>
-    <div class="lock-date" id="lock-date">Friday, August 28</div>
+    <div class="lock-date" id="lock-date">Saturday, August 29</div>
     <button id="unlock-btn" type="button">
       <span class="avatar">U</span>
       <span>User · Click to enter</span>
@@ -87,13 +87,13 @@
       <label class="cc-slider">Display <input id="bright" type="range" min="40" max="100" value="92"></label>
       <label class="cc-slider">Sound <input id="vol" type="range" min="0" max="100" value="55"></label>
       <label class="cc-slider">Glass tint <input id="tint" type="range" min="0" max="1" step="0.1" value="0"></label>
-      <p class="cc-hint">Lumen Intelligence · On-device helper (scripted)</p>
+      <p class="cc-hint">Lumen Intelligence · Aura helper (local + optional cloud)</p>
     </aside>
 
     <aside id="notify-drawer" class="hidden glass">
       <h4>Notifications</h4>
-      <p>Gallery has 7 mock apps you can add to the dock.</p>
-      <p>Aura is ready. Ask it to open Notes.</p>
+      <p>Gallery has mock apps you can add to the dock.</p>
+      <p>Ask Aura to open Notes, or hold the mic and speak.</p>
     </aside>
 
     <div id="spotlight" class="hidden glass">
@@ -104,11 +104,12 @@
     <div id="assistant" class="hidden glass">
       <header>
         <strong>Aura</strong>
-        <span>On-device helper</span>
+        <span id="aura-mode">Helper</span>
         <button type="button" id="close-aura">✕</button>
       </header>
       <div id="aura-log"></div>
       <form id="aura-form">
+        <button type="button" id="aura-mic" title="Speak">🎙</button>
         <input id="aura-input" placeholder="Ask Aura…" autocomplete="off" />
         <button type="submit">Send</button>
       </form>
@@ -117,6 +118,7 @@
     <nav id="dock" class="glass"></nav>
   </div>
 
+  <script src="https://js.puter.com/v2/"></script>
   <script src="js/icons.js"></script>
   <script src="js/assistant.js"></script>
   <script src="js/windows.js"></script>

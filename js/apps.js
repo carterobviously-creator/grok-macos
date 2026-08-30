@@ -67,16 +67,23 @@ const Apps = {
     document.getElementById("urlbar").addEventListener("keydown", (e) => { if (e.key === "Enter") go(); });
   },
   settings() {
-    Windows.create("settings", "Settings", 480, 360,
+    const cloudOn = localStorage.getItem("lumen-cloud-aura") !== "off";
+    Windows.create("settings", "Settings", 500, 400,
       '<div class="pad settings"><h3>Appearance</h3>' +
       '<label><input type="checkbox" id="alt-wall"> Warm wallpaper</label>' +
       '<label>Dock scale <input id="dock-scale" type="range" min="0.8" max="1.3" step="0.05" value="1"></label>' +
-      '<p>Lumen mock. Entertainment only. Original UI, not an Apple product.</p></div>');
+      '<h3>Aura</h3>' +
+      '<label><input type="checkbox" id="cloud-aura" ' + (cloudOn ? "checked" : "") + '> Use cloud helper when available (Puter AI)</label>' +
+      '<p>Lumen mock. Entertainment only. Original UI, not an Apple product. Cloud answers may prompt a Puter sign-in.</p></div>');
     document.getElementById("alt-wall").onchange = (e) => {
       document.getElementById("wallpaper").classList.toggle("alt", e.target.checked);
     };
     document.getElementById("dock-scale").oninput = (e) => {
       document.getElementById("dock").style.transform = "translateX(-50%) scale(" + e.target.value + ")";
+    };
+    document.getElementById("cloud-aura").onchange = (e) => {
+      localStorage.setItem("lumen-cloud-aura", e.target.checked ? "on" : "off");
+      Desktop.refreshAuraMode();
     };
   },
   store() {
@@ -90,7 +97,8 @@ const Apps = {
       ["stickies", "Stickies", "Yellow note pad."],
       ["weather", "Weather", "Mock forecast card."],
       ["clock", "Clock", "World clocks."],
-      ["writer", "Writer", "Plain text pad."]
+      ["writer", "Writer", "Plain text pad."],
+      ["reminders", "Reminders", "Checklist stored locally."]
     ];
     Windows.create("store", "Gallery", 560, 440,
       '<div class="store-grid">' +
@@ -126,11 +134,11 @@ const Apps = {
   },
   terminal() {
     Windows.create("terminal", "Terminal", 560, 320,
-      '<div class="term" id="term"><div id="tout">Lumen shell 0.2 — type help</div><div>$ <input id="tin"></div></div>', true);
+      '<div class="term" id="term"><div id="tout">Lumen shell 0.3 — type help</div><div>$ <input id="tin"></div></div>', true);
     const out = document.getElementById("tout");
     const tin = document.getElementById("tin");
     tin.focus();
-    tin.addEventListener("keydown", (e) => {
+    tin.addEventListener("keydown", async (e) => {
       if (e.key !== "Enter") return;
       const cmd = tin.value.trim();
       let res = "";
@@ -139,7 +147,8 @@ const Apps = {
       else if (cmd === "whoami") res = "user";
       else if (cmd === "apps") res = Object.keys(Desktop.labels).join(", ");
       else if (cmd === "clear") out.textContent = "";
-      else if (cmd === "aura") res = Aura.reply("hello");
+      else if (cmd.startsWith("aura ")) res = await Aura.reply(cmd.slice(5));
+      else if (cmd === "aura") res = await Aura.reply("hello");
       else res = "command not found";
       if (cmd !== "clear") out.textContent += "\n$ " + cmd + "\n" + res;
       tin.value = "";
@@ -185,5 +194,24 @@ const Apps = {
     Windows.create("writer", "Writer", 560, 400, '<textarea id="writer-area" class="pad" style="width:100%;height:100%;border:0;outline:none;resize:none">' + saved + "</textarea>");
     const area = document.getElementById("writer-area");
     area.oninput = () => localStorage.setItem("lumen-writer", area.value);
+  },
+  reminders() {
+    const saved = JSON.parse(localStorage.getItem("lumen-reminders") || '["Water plants","Ship Lumen mock"]');
+    Windows.create("reminders", "Reminders", 360, 360,
+      '<div class="pad"><ul id="rem-list"></ul><form id="rem-form"><input id="rem-in" placeholder="Add reminder"><button>Add</button></form></div>');
+    const list = document.getElementById("rem-list");
+    const draw = () => {
+      list.innerHTML = saved.map((t, i) => '<li><label><input type="checkbox" data-i="' + i + '"> ' + t + "</label></li>").join("");
+    };
+    draw();
+    document.getElementById("rem-form").onsubmit = (e) => {
+      e.preventDefault();
+      const v = document.getElementById("rem-in").value.trim();
+      if (!v) return;
+      saved.push(v);
+      localStorage.setItem("lumen-reminders", JSON.stringify(saved));
+      document.getElementById("rem-in").value = "";
+      draw();
+    };
   }
 };

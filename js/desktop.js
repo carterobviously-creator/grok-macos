@@ -6,7 +6,7 @@ const Desktop = {
     store: "Gallery", settings: "Settings", aura: "Aura", launch: "Launch",
     calendar: "Calendar", music: "Music", photos: "Photos", terminal: "Term",
     mail: "Mail", maps: "Maps", stickies: "Stickies", weather: "Weather",
-    clock: "Clock", writer: "Writer"
+    clock: "Clock", writer: "Writer", reminders: "Reminders"
   },
   start() {
     this.renderDock();
@@ -27,15 +27,21 @@ const Desktop = {
     };
     document.getElementById("close-aura").onclick = () =>
       document.getElementById("assistant").classList.add("hidden");
-    document.getElementById("aura-form").onsubmit = (e) => {
+    document.getElementById("aura-form").onsubmit = async (e) => {
       e.preventDefault();
       const input = document.getElementById("aura-input");
       const text = input.value.trim();
       if (!text) return;
-      this.addAura("user", text);
-      this.addAura("bot", Aura.reply(text));
       input.value = "";
+      await this.askAura(text);
     };
+    document.getElementById("aura-mic").onclick = () => {
+      Aura.listen(async (said) => {
+        document.getElementById("aura-input").value = said;
+        await this.askAura(said, true);
+      });
+    };
+    this.refreshAuraMode();
     window.addEventListener("keydown", (e) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
@@ -64,6 +70,7 @@ const Desktop = {
       ctx.innerHTML =
         '<button data-act="notes">New note</button>' +
         '<button data-act="stickies">New sticky</button>' +
+        '<button data-act="reminders">Reminders</button>' +
         '<button data-act="launch">Launchpad</button>' +
         '<button data-act="spot">Search</button>' +
         '<button data-act="settings">Settings</button>';
@@ -81,6 +88,20 @@ const Desktop = {
     document.querySelectorAll(".menu-items button").forEach((b) => {
       b.onclick = () => this.toast(b.textContent + " menu is a mock.");
     });
+  },
+  async askAura(text, speak) {
+    this.addAura("user", text);
+    this.addAura("bot", "…");
+    const log = document.getElementById("aura-log");
+    const pending = log.lastChild;
+    const answer = await Aura.reply(text);
+    pending.textContent = answer;
+    if (speak) Aura.speak(answer);
+  },
+  refreshAuraMode() {
+    const el = document.getElementById("aura-mode");
+    if (!el) return;
+    el.textContent = Aura.cloudEnabled() ? "Cloud + local" : "Local only";
   },
   tick() {
     const n = new Date();
@@ -137,6 +158,7 @@ const Desktop = {
   openApp(id) {
     if (id === "aura") {
       document.getElementById("assistant").classList.toggle("hidden");
+      this.refreshAuraMode();
       return;
     }
     if (id === "launch") {

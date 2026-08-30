@@ -9,9 +9,7 @@
   animation: wallshift 28s ease-in-out infinite alternate;
 }
 @keyframes wallshift {
-  to {
-    filter: hue-rotate(18deg) saturate(1.08);
-  }
+  to { filter: hue-rotate(18deg) saturate(1.08); }
 }
 #wallpaper.alt {
   background:
@@ -140,6 +138,7 @@ body.tinted .msg.bot { background: rgba(255,255,255,0.12); }
 #aura-form button {
   border: 0; border-radius: 999px; background: #2563eb; color: #fff; padding: 8px 12px;
 }
+#aura-mic { min-width: 40px; background: #4f46e5 !important; }
 #toast {
   position: absolute; top: 40px; right: 16px; z-index: 80;
   padding: 10px 14px; border-radius: 12px; font-size: 13px;
