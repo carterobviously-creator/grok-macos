@@ -27,3 +27,8 @@
 .win-title { font-size: 13px; font-weight: 600; }
 .win-body { flex: 1; overflow: auto; }
 .win.active { box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(147,197,253,0.45); }
+.win-resize {
+  position: absolute; right: 0; bottom: 0; width: 16px; height: 16px;
+  cursor: nwse-resize;
+  background: linear-gradient(135deg, transparent 50%, rgba(15,23,42,0.25) 50%);
+}
