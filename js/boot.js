@@ -4,7 +4,7 @@
   const steps = [
     [12, "Loading shell..."],
     [34, "Preparing glass surfaces..."],
-    [58, "Warming tiny on-device helper…"],
+    [58, "Warming offline helper…"],
     [81, "Mounting mock volumes..."],
     [100, "Ready"]
   ];
@@ -27,6 +27,6 @@
     document.getElementById("lock-screen").classList.add("hidden");
     document.getElementById("desktop").classList.remove("hidden");
     Desktop.start();
-    Desktop.addAura("bot", "Aura online. A tiny on-device helper loaded at boot. Cloud answers use Puter AI when allowed. Press Command-K or Ctrl-K. Hold the mic to speak.");
+    Desktop.addAura("bot", "Aura online. Offline local helper only — no cloud. Press Command-K or Ctrl-K to search. Hold the mic to speak.");
   };
 })();

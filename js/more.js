@@ -46,7 +46,6 @@ Object.assign(Apps, {
   activity() {
     Windows.create("activity", "Pulse", 440, 300,
       '<div class="pad"><h3>Pulse</h3><p>CPU mock 12%</p><p>Memory mock 4.1 GB</p><p>Windows open: ' +
-      Object.keys(Windows.list).length + "</p><p>Aura mode: " +
-      (Aura.cloudEnabled() ? "cloud + local" : "local") + "</p></div>");
+      Object.keys(Windows.list).length + "</p><p>Aura mode: offline local</p></div>");
   }
 });

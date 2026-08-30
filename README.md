@@ -12,19 +12,17 @@ Live: https://carterobviously-creator.github.io/grok-macos/
 
 - Boot animation + lock screen + desktop
 - Original liquid-glass surfaces (blur, specular edge, tint slider)
-- Draggable windows with close / minimize / maximize
+- Draggable / resizable windows with close / minimize / zoom
 - Dock with hover lift and open indicators
 - Launchpad (`F4` or dock grid)
 - Files, Notes, Calculator, Web, Settings, Gallery
 - Calendar, Music, Photos, Terminal, Mail, Maps, Stickies
-- Weather, Clock, Writer, Reminders
+- Weather, Clock, Writer, Reminders, Messages, Contacts, Pulse
 - Spotlight (`⌘K` / `Ctrl+K`)
 - Control Center and notification drawer
-- Aura helper: local phrase book plus optional cloud answers via [Puter AI](https://developer.puter.com/)
+- **Aura helper: fully offline local phrase book** (no cloud, no Puter)
 - Mic button uses the browser Speech Recognition API when present
-
-Cloud Aura may ask you to sign in to Puter the first time. Turn it off in Settings if you want local-only replies.
 
 ## Run locally
 
-Open `index.html` in a browser, or serve the folder.
+Open `index.html` in a browser, or serve the folder. Works offline after the page is loaded (except the optional Web app iframe).
