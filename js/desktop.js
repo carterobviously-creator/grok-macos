@@ -101,7 +101,7 @@ const Desktop = {
   refreshAuraMode() {
     const el = document.getElementById("aura-mode");
     if (!el) return;
-    el.textContent = Aura.cloudEnabled() ? "Cloud + local" : "Local only";
+    el.textContent = "Offline";
   },
   tick() {
     const n = new Date();
