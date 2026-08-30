@@ -1,3 +1,13 @@
+Icons.messages = function () {
+  return this.svg('<svg width="28" height="28" viewBox="0 0 28 28"><rect x="4" y="6" width="20" height="14" rx="7" fill="#fff"/></svg>', "linear-gradient(#4ade80,#16a34a)");
+};
+Icons.contacts = function () {
+  return this.svg('<svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="11" r="4" fill="#fff"/><path d="M7 21c1-4 4-6 7-6s6 2 7 6" fill="#fff"/></svg>', "linear-gradient(#fda4af,#fb7185)");
+};
+Icons.activity = function () {
+  return this.svg('<svg width="28" height="28" viewBox="0 0 28 28"><path d="M4 16h4l3-8 4 14 3-6h6" fill="none" stroke="#fff" stroke-width="2"/></svg>', "linear-gradient(#a78bfa,#4f46e5)");
+};
+
 Object.assign(Desktop.labels, {
   messages: "Messages",
   contacts: "Contacts",
