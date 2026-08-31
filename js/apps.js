@@ -95,7 +95,10 @@ const Apps = {
       ["writer", "Writer", "Plain text pad."],
       ["reminders", "Reminders", "Checklist stored locally."],
       ["preview", "Preview", "Look at a sample image card."],
-      ["voice", "Voice Pad", "Type a line and hear it."]
+      ["voice", "Voice Pad", "Type a line and hear it."],
+      ["messages", "Messages", "Demo threads."],
+      ["contacts", "Contacts", "Sample people list."],
+      ["activity", "Pulse", "Fake system meters."]
     ];
     Windows.create("store", "Gallery", 560, 440,
       '<div class="store-grid">' +
@@ -131,7 +134,7 @@ const Apps = {
   },
   terminal() {
     Windows.create("terminal", "Terminal", 560, 320,
-      '<div class="term" id="term"><div id="tout">Lumen shell 0.4 — type help</div><div>$ <input id="tin"></div></div>', true);
+      '<div class="term" id="term"><div id="tout">Lumen shell 0.5 — type help</div><div>$ <input id="tin"></div></div>', true);
     const out = document.getElementById("tout");
     const tin = document.getElementById("tin");
     tin.focus();
