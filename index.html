@@ -59,6 +59,7 @@
         <button type="button" id="notify-toggle" title="Notifications">○</button>
         <button type="button" id="cc-toggle" title="Control Center">◉</button>
         <button type="button" id="wifi-ind" title="Network">Net</button>
+        <span id="batt" title="Battery mock">84%</span>
         <time id="clock"></time>
       </div>
     </header>
@@ -67,8 +68,10 @@
     <div id="widgets" class="glass">
       <div class="wid-clock" id="wid-clock">--:--</div>
       <div class="wid-weather">Clear · 72° mock</div>
+      <div class="wid-hint">F3 Mission · F4 Launch · ⌘K Search</div>
     </div>
     <div id="window-layer"></div>
+    <div id="mission" class="hidden"></div>
     <div id="toast" class="hidden glass"></div>
     <div id="ctx" class="hidden glass"></div>
 
@@ -94,6 +97,7 @@
       <h4>Notifications</h4>
       <p>Gallery has mock apps you can add to the dock.</p>
       <p>Ask Aura to open Notes, or hold the mic and speak.</p>
+      <p>Press F3 for Mission Control.</p>
     </aside>
 
     <div id="spotlight" class="hidden glass">

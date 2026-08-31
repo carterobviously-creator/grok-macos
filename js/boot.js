@@ -2,10 +2,11 @@
   const fill = document.getElementById("boot-fill");
   const status = document.getElementById("boot-status");
   const steps = [
-    [12, "Loading shell..."],
-    [34, "Preparing glass surfaces..."],
-    [58, "Warming offline helper…"],
-    [81, "Mounting mock volumes..."],
+    [10, "Loading shell…"],
+    [28, "Preparing glass surfaces…"],
+    [46, "Loading tiny Aura helper…"],
+    [67, "Wiring offline phrase book…"],
+    [84, "Mounting mock volumes…"],
     [100, "Ready"]
   ];
   let i = 0;
@@ -19,14 +20,14 @@
       setTimeout(() => {
         document.getElementById("boot-screen").classList.add("hidden");
         document.getElementById("lock-screen").classList.remove("hidden");
-      }, 400);
+      }, 380);
     }
-  }, 420);
+  }, 380);
 
   document.getElementById("unlock-btn").onclick = () => {
     document.getElementById("lock-screen").classList.add("hidden");
     document.getElementById("desktop").classList.remove("hidden");
     Desktop.start();
-    Desktop.addAura("bot", "Aura online. Offline local helper only — no cloud. Press Command-K or Ctrl-K to search. Hold the mic to speak.");
+    Desktop.addAura("bot", "Aura online. Offline local helper only — no cloud. Press Command-K or Ctrl-K to search. F3 Mission Control. F4 Launchpad. Mic to speak.");
   };
 })();

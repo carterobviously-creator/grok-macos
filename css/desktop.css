@@ -18,10 +18,11 @@
 }
 #widgets {
   position: absolute; top: 48px; left: 18px; z-index: 8;
-  width: 180px; padding: 14px 16px; border-radius: 18px;
+  width: 200px; padding: 14px 16px; border-radius: 18px;
 }
 .wid-clock { font-size: 28px; font-weight: 300; }
 .wid-weather { font-size: 12px; opacity: 0.8; margin-top: 4px; }
+.wid-hint { font-size: 11px; opacity: 0.65; margin-top: 8px; }
 #menubar {
   position: relative; z-index: 40;
   height: 28px; display: flex; align-items: center; justify-content: space-between;
@@ -36,6 +37,7 @@
 #app-title { font-weight: 600; }
 .menu-items { display: flex; gap: 12px; color: #e2e8f0; }
 .menu-items button:hover { opacity: 0.7; }
+#batt { font-size: 12px; opacity: 0.85; }
 
 #dock {
   position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%);
@@ -98,6 +100,20 @@ body.tinted #control-center, body.tinted #notify-drawer { color: #f8fafc; }
   background: none; border: 0; color: #fff; font-size: 12px;
 }
 #lp-grid .icon { width: 64px; height: 64px; border-radius: 16px; margin: 0 auto 8px; }
+
+#mission {
+  position: absolute; inset: 28px 0 86px; z-index: 54;
+  background: rgba(8,12,24,0.45);
+  backdrop-filter: blur(22px);
+  display: flex; flex-wrap: wrap; gap: 16px; align-content: center; justify-content: center;
+  padding: 24px;
+}
+#mission button {
+  min-width: 180px; min-height: 110px; border: 0; border-radius: 16px;
+  background: rgba(255,255,255,0.16); color: #fff;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+#mission button:hover { transform: scale(1.04); }
 
 #spotlight {
   position: absolute; top: 16%; left: 50%; transform: translateX(-50%);

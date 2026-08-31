@@ -6,7 +6,7 @@ const Aura = {
     if (/(hello|hi|hey)/.test(q)) {
       return "Hi. I am Aura, the offline helper in this Lumen mock. Ask me to open apps, rewrite a sentence, or tell the time.";
     }
-    if (/time|clock/.test(q)) return "It is " + new Date().toLocaleTimeString();
+    if (/time|clock/.test(q) && !/open/.test(q)) return "It is " + new Date().toLocaleTimeString();
     if (/date/.test(q)) {
       return "Today is " + new Date().toLocaleDateString(undefined, {
         weekday: "long", month: "long", day: "numeric"
@@ -33,11 +33,15 @@ const Aura = {
       { re: /message|chat/, id: "messages", msg: "Opening Messages." },
       { re: /contact|people/, id: "contacts", msg: "Opening Contacts." },
       { re: /pulse|activity/, id: "activity", msg: "Opening Pulse." },
-      { re: /launch/, id: "launch", msg: "Opening Launchpad." }
+      { re: /preview/, id: "preview", msg: "Opening Preview." },
+      { re: /voice/, id: "voice", msg: "Opening Voice Pad." },
+      { re: /launch/, id: "launch", msg: "Opening Launchpad." },
+      { re: /mission/, id: "mission", msg: "Opening Mission Control." }
     ];
     for (const item of map) {
       if (item.re.test(q) && (/open|launch|start|show/.test(q) || q.split(" ").length < 4)) {
-        if (typeof Desktop !== "undefined") Desktop.openApp(item.id);
+        if (item.id === "mission" && typeof Desktop !== "undefined") Desktop.toggleMission();
+        else if (typeof Desktop !== "undefined") Desktop.openApp(item.id);
         return item.msg;
       }
     }
@@ -53,7 +57,7 @@ const Aura = {
     if (/weather/.test(q)) return "Mock forecast: clear, 72 degrees with a light breeze.";
     if (/joke/.test(q)) return "Why did the window refuse to close? It had too many tabs open.";
     if (/help|what can/.test(q)) {
-      return "Try: open notes, open weather, rewrite this sentence, what time is it, tell a joke, or press Command-K / F4. You can also use the mic.";
+      return "Try: open notes, open weather, rewrite this sentence, what time is it, tell a joke, mission control, or press Command-K / F3 / F4. You can also use the mic.";
     }
     if (/thank/.test(q)) return "You are welcome.";
     const bits = q.replace(/[^a-z0-9\s]/g, "").split(/\s+/).filter(Boolean);

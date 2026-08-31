@@ -93,7 +93,9 @@ const Apps = {
       ["weather", "Weather", "Mock forecast card."],
       ["clock", "Clock", "World clocks."],
       ["writer", "Writer", "Plain text pad."],
-      ["reminders", "Reminders", "Checklist stored locally."]
+      ["reminders", "Reminders", "Checklist stored locally."],
+      ["preview", "Preview", "Look at a sample image card."],
+      ["voice", "Voice Pad", "Type a line and hear it."]
     ];
     Windows.create("store", "Gallery", 560, 440,
       '<div class="store-grid">' +
@@ -129,7 +131,7 @@ const Apps = {
   },
   terminal() {
     Windows.create("terminal", "Terminal", 560, 320,
-      '<div class="term" id="term"><div id="tout">Lumen shell 0.3 — type help</div><div>$ <input id="tin"></div></div>', true);
+      '<div class="term" id="term"><div id="tout">Lumen shell 0.4 — type help</div><div>$ <input id="tin"></div></div>', true);
     const out = document.getElementById("tout");
     const tin = document.getElementById("tin");
     tin.focus();
@@ -207,6 +209,17 @@ const Apps = {
       localStorage.setItem("lumen-reminders", JSON.stringify(saved));
       document.getElementById("rem-in").value = "";
       draw();
+    };
+  },
+  preview() {
+    Windows.create("preview", "Preview", 420, 320,
+      '<div class="pad"><div style="height:180px;border-radius:16px;background:linear-gradient(135deg,#7dd3fc,#c4b5fd,#fb7185)"></div><p>Sample preview card. Original gradient only.</p></div>');
+  },
+  voice() {
+    Windows.create("voice", "Voice Pad", 400, 240,
+      '<div class="pad"><p>Type a line. Aura will speak it if speech synthesis exists.</p><input id="voice-line" placeholder="Hello from Lumen" style="width:100%;padding:8px;border-radius:8px;border:1px solid #cbd5e1"><p><button id="voice-go">Speak</button></p></div>');
+    document.getElementById("voice-go").onclick = () => {
+      Aura.speak(document.getElementById("voice-line").value || "Hello from Lumen");
     };
   }
 };

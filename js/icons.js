@@ -58,5 +58,11 @@ const Icons = {
   },
   reminders() {
     return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="6" y="5" width="16" height="18" rx="2" fill="#fff"/><path d="M10 12l2 2 5-5" stroke="#16a34a" stroke-width="2" fill="none"/></svg>`, "linear-gradient(#86efac,#16a34a)");
+  },
+  preview() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="5" y="7" width="18" height="14" rx="2" fill="#fff"/><circle cx="11" cy="13" r="2" fill="#38bdf8"/></svg>`, "linear-gradient(#a5b4fc,#6366f1)");
+  },
+  voice() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="12" y="6" width="4" height="10" rx="2" fill="#fff"/><path d="M8 14a6 6 0 0012 0" stroke="#fff" fill="none"/></svg>`, "linear-gradient(#818cf8,#4f46e5)");
   }
 };

@@ -6,7 +6,8 @@ const Desktop = {
     store: "Gallery", settings: "Settings", aura: "Aura", launch: "Launch",
     calendar: "Calendar", music: "Music", photos: "Photos", terminal: "Term",
     mail: "Mail", maps: "Maps", stickies: "Stickies", weather: "Weather",
-    clock: "Clock", writer: "Writer", reminders: "Reminders"
+    clock: "Clock", writer: "Writer", reminders: "Reminders",
+    preview: "Preview", voice: "Voice"
   },
   start() {
     this.renderDock();
@@ -51,11 +52,16 @@ const Desktop = {
         e.preventDefault();
         this.toggleLaunch();
       }
+      if (e.key === "F3") {
+        e.preventDefault();
+        this.toggleMission();
+      }
       if (e.key === "Escape") {
         document.getElementById("spotlight").classList.add("hidden");
         document.getElementById("control-center").classList.add("hidden");
         document.getElementById("notify-drawer").classList.add("hidden");
         document.getElementById("launchpad").classList.add("hidden");
+        document.getElementById("mission").classList.add("hidden");
         document.getElementById("ctx").classList.add("hidden");
       }
     });
@@ -72,6 +78,7 @@ const Desktop = {
         '<button data-act="stickies">New sticky</button>' +
         '<button data-act="reminders">Reminders</button>' +
         '<button data-act="launch">Launchpad</button>' +
+        '<button data-act="mission">Mission Control</button>' +
         '<button data-act="spot">Search</button>' +
         '<button data-act="settings">Settings</button>';
       ctx.classList.remove("hidden");
@@ -79,6 +86,7 @@ const Desktop = {
         b.onclick = () => {
           const act = b.dataset.act;
           if (act === "spot") this.toggleSpot();
+          else if (act === "mission") this.toggleMission();
           else this.openApp(act);
           ctx.classList.add("hidden");
         };
@@ -87,6 +95,30 @@ const Desktop = {
     document.addEventListener("click", () => document.getElementById("ctx").classList.add("hidden"));
     document.querySelectorAll(".menu-items button").forEach((b) => {
       b.onclick = () => this.toast(b.textContent + " menu is a mock.");
+    });
+  },
+  toggleMission() {
+    const layer = document.getElementById("mission");
+    if (!layer.classList.contains("hidden")) {
+      layer.classList.add("hidden");
+      layer.innerHTML = "";
+      return;
+    }
+    const ids = Object.keys(Windows.list);
+    if (!ids.length) {
+      this.toast("No windows open.");
+      return;
+    }
+    layer.innerHTML = ids.map((id) => {
+      const title = Windows.list[id].querySelector(".win-title").textContent;
+      return '<button data-id="' + id + '"><span>' + title + "</span></button>";
+    }).join("");
+    layer.classList.remove("hidden");
+    layer.querySelectorAll("button").forEach((b) => {
+      b.onclick = () => {
+        Windows.focus(b.dataset.id);
+        layer.classList.add("hidden");
+      };
     });
   },
   async askAura(text, speak) {

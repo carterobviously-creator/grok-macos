@@ -15,12 +15,14 @@ Live: https://carterobviously-creator.github.io/grok-macos/
 - Draggable / resizable windows with close / minimize / zoom
 - Dock with hover lift and open indicators
 - Launchpad (`F4` or dock grid)
+- Mission Control (`F3`) to peek at open windows
 - Files, Notes, Calculator, Web, Settings, Gallery
 - Calendar, Music, Photos, Terminal, Mail, Maps, Stickies
 - Weather, Clock, Writer, Reminders, Messages, Contacts, Pulse
+- Preview, Voice Pad
 - Spotlight (`⌘K` / `Ctrl+K`)
 - Control Center and notification drawer
-- **Aura helper: fully offline local phrase book** (no cloud, no Puter)
+- **Aura helper: fully offline local phrase book** (tiny rule model on boot; no cloud)
 - Mic button uses the browser Speech Recognition API when present
 
 ## Run locally
