@@ -64,5 +64,8 @@ const Icons = {
   },
   voice() {
     return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="12" y="6" width="4" height="10" rx="2" fill="#fff"/><path d="M8 14a6 6 0 0012 0" stroke="#fff" fill="none"/></svg>`, "linear-gradient(#818cf8,#4f46e5)");
+  },
+  trash() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="8" y="10" width="12" height="12" rx="2" fill="#fff"/><path d="M7 10h14M11 10V8h6v2" stroke="#fff" stroke-width="1.6" fill="none"/></svg>`, "linear-gradient(#94a3b8,#475569)");
   }
 };

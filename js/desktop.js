@@ -11,6 +11,7 @@ const Desktop = {
   },
   start() {
     this.renderDock();
+    this.renderDeskIcons();
     this.tick();
     setInterval(() => this.tick(), 1000);
     document.getElementById("cc-toggle").onclick = () =>
@@ -97,6 +98,25 @@ const Desktop = {
       b.onclick = () => this.toast(b.textContent + " menu is a mock.");
     });
   },
+  renderDeskIcons() {
+    const box = document.getElementById("desk-icons");
+    if (!box) return;
+    const ids = ["finder", "notes", "photos", "trash"];
+    this.labels.trash = this.labels.trash || "Bin";
+    box.innerHTML = ids.map((id) => {
+      const icon = Icons[id] ? Icons[id]() : Icons.settings();
+      return '<button data-id="' + id + '">' + icon + (this.labels[id] || id) + "</button>";
+    }).join("");
+    box.querySelectorAll("button").forEach((b) => {
+      b.ondblclick = () => {
+        if (b.dataset.id === "trash") {
+          this.toast("Bin is empty (mock).");
+          return;
+        }
+        this.openApp(b.dataset.id);
+      };
+    });
+  },
   toggleMission() {
     const layer = document.getElementById("mission");
     if (!layer.classList.contains("hidden")) {
@@ -133,7 +153,7 @@ const Desktop = {
   refreshAuraMode() {
     const el = document.getElementById("aura-mode");
     if (!el) return;
-    el.textContent = "Offline";
+    el.textContent = AuraModel && AuraModel.ready ? "Offline · loaded" : "Offline";
   },
   tick() {
     const n = new Date();
@@ -166,7 +186,7 @@ const Desktop = {
     });
   },
   fillLaunch(q) {
-    const keys = Object.keys(this.labels).filter((k) => k !== "launch" &&
+    const keys = Object.keys(this.labels).filter((k) => k !== "launch" && k !== "trash" &&
       this.labels[k].toLowerCase().indexOf((q || "").toLowerCase()) !== -1);
     document.getElementById("lp-grid").innerHTML = keys.map((id) => {
       const icon = Icons[id] ? Icons[id]() : Icons.settings();
@@ -219,7 +239,7 @@ const Desktop = {
     }
   },
   search(q) {
-    const keys = Object.keys(this.labels).filter((k) =>
+    const keys = Object.keys(this.labels).filter((k) => k !== "trash" &&
       this.labels[k].toLowerCase().indexOf((q || "").toLowerCase()) !== -1
     );
     document.getElementById("spot-results").innerHTML = keys.map((k) =>

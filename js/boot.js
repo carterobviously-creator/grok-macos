@@ -14,6 +14,7 @@
     const step = steps[i];
     fill.style.width = step[0] + "%";
     status.textContent = step[1];
+    if (step[0] >= 46 && typeof AuraModel !== "undefined") AuraModel.load();
     i += 1;
     if (i >= steps.length) {
       clearInterval(t);

@@ -4,7 +4,7 @@ const Aura = {
     const q = text.toLowerCase().trim();
     if (!q) return "Say something and I will try to help.";
     if (/(hello|hi|hey)/.test(q)) {
-      return "Hi. I am Aura, the offline helper in this Lumen mock. Ask me to open apps, rewrite a sentence, or tell the time.";
+      return "Hi. I am Aura, the offline helper in this Lumen mock. Ask me to open apps, rewrite a sentence, do simple math, or tell the time.";
     }
     if (/time|clock/.test(q) && !/open/.test(q)) return "It is " + new Date().toLocaleTimeString();
     if (/date/.test(q)) {
@@ -12,6 +12,9 @@ const Aura = {
         weekday: "long", month: "long", day: "numeric"
       });
     }
+    if (/battery/.test(q)) return "Battery is " + AuraModel.facts.battery + ".";
+    const math = AuraModel.math(q);
+    if (math && /(what is|whats|calculate|plus|minus|times|divided)/.test(q)) return math;
     const map = [
       { re: /files|finder/, id: "finder", msg: "Opening Files." },
       { re: /notes/, id: "notes", msg: "Opening Notes." },
@@ -52,12 +55,12 @@ const Aura = {
       return words.slice(0, Math.max(6, Math.ceil(words.length * 0.6))).join(" ") + ".";
     }
     if (/who|what are you|siri|apple intelligence|apple|puter|cloud/.test(q)) {
-      return "This is a fan-made desktop mock called Lumen. Aura is an offline local phrase helper. It is not Siri, not Apple Intelligence, and does not call the cloud.";
+      return "This is a fan-made desktop mock called Lumen. Aura is an offline local phrase helper loaded at boot. It is not Siri, not Apple Intelligence, and does not call the cloud.";
     }
-    if (/weather/.test(q)) return "Mock forecast: clear, 72 degrees with a light breeze.";
+    if (/weather/.test(q)) return "Mock forecast: " + AuraModel.facts.weather + ".";
     if (/joke/.test(q)) return "Why did the window refuse to close? It had too many tabs open.";
     if (/help|what can/.test(q)) {
-      return "Try: open notes, open weather, rewrite this sentence, what time is it, tell a joke, mission control, or press Command-K / F3 / F4. You can also use the mic.";
+      return "Try: open notes, open weather, rewrite this sentence, what is 12 times 8, what time is it, tell a joke, mission control, or press Command-K / F3 / F4. You can also use the mic.";
     }
     if (/thank/.test(q)) return "You are welcome.";
     const bits = q.replace(/[^a-z0-9\s]/g, "").split(/\s+/).filter(Boolean);
@@ -67,13 +70,17 @@ const Aura = {
     return "Try asking to open an app or for the time.";
   },
   async reply(text) {
+    if (!AuraModel.ready) await AuraModel.load();
     return this.localReply(text);
   },
   speak(text) {
     if (!window.speechSynthesis) return;
+    const vol = document.getElementById("vol");
+    if (vol && Number(vol.value) === 0) return;
     window.speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(text);
     u.rate = 1.02;
+    if (vol) u.volume = Number(vol.value) / 100;
     window.speechSynthesis.speak(u);
   },
   listen(onText) {
