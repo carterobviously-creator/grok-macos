@@ -1,4 +1,4 @@
-/* Tiny offline phrase model loaded at boot. Not a neural net. */
+/* Tiny offline phrase model loaded at boot. Not a neural net and not a product AI. */
 const AuraModel = {
   ready: false,
   facts: {
