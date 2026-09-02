@@ -2,15 +2,17 @@
 
 A **browser mock** of a glass-style desktop. Entertainment only.
 
-**Not macOS. Not Apple. Not Siri. Not Apple Intelligence.**  
-Official Apple icons, wallpapers, Liquid Glass, App Store, and product chrome are copyrighted and are **not** used.  
-Icons are original SVGs. Wallpaper is an original CSS gradient. Aura is an offline phrase helper loaded at boot — not a cloud LLM and not a neural net.
+**Not macOS. Not Apple. Not Siri. Not Apple Intelligence. Not the App Store.**
+
+Apple product names, official icons, official wallpapers, Liquid Glass, and system chrome are copyrighted. This project does **not** use them. Icons are original SVGs. Wallpaper is an original CSS gradient. Aura is an offline phrase helper loaded at boot — not a cloud LLM and not a neural net.
 
 Live: https://carterobviously-creator.github.io/grok-macos/
 
+About page: [about.html](about.html)
+
 ## Features
 
-- Boot animation (loads a tiny local phrase book) + lock screen + desktop icons
+- Boot animation that loads a tiny local phrase book + lock screen + desktop icons
 - Glass surfaces with blur, specular edge, and a tint slider
 - Draggable / resizable windows with close / minimize / zoom
 - Dock with hover lift and open indicators
@@ -28,3 +30,9 @@ Live: https://carterobviously-creator.github.io/grok-macos/
 ## Run locally
 
 Open `index.html` in a browser, or serve the folder.
+
+```bash
+python3 -m http.server 8080
+```
+
+Then visit `http://localhost:8080`.
