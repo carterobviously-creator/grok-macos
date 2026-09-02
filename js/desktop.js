@@ -9,6 +9,14 @@ const Desktop = {
     clock: "Clock", writer: "Writer", reminders: "Reminders",
     preview: "Preview", voice: "Voice"
   },
+  menus: {
+    file: ["New Window", "Close Window", "Save mock"],
+    edit: ["Undo", "Copy", "Paste"],
+    view: ["Show Launchpad", "Mission Control", "Toggle widgets"],
+    go: ["Files", "Notes", "Gallery", "Settings"],
+    window: ["Minimize", "Cycle windows"],
+    help: ["Aura help", "About Lumen"]
+  },
   start() {
     this.renderDock();
     this.renderDeskIcons();
@@ -58,12 +66,10 @@ const Desktop = {
         this.toggleMission();
       }
       if (e.key === "Escape") {
-        document.getElementById("spotlight").classList.add("hidden");
-        document.getElementById("control-center").classList.add("hidden");
-        document.getElementById("notify-drawer").classList.add("hidden");
-        document.getElementById("launchpad").classList.add("hidden");
-        document.getElementById("mission").classList.add("hidden");
-        document.getElementById("ctx").classList.add("hidden");
+        ["spotlight","control-center","notify-drawer","launchpad","mission","ctx","menu-pop"].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.classList.add("hidden");
+        });
       }
     });
     document.getElementById("spot-input").addEventListener("input", (e) => this.search(e.target.value));
@@ -93,9 +99,62 @@ const Desktop = {
         };
       });
     });
-    document.addEventListener("click", () => document.getElementById("ctx").classList.add("hidden"));
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest("#ctx")) document.getElementById("ctx").classList.add("hidden");
+      if (!e.target.closest(".menu-items") && !e.target.closest("#menu-pop")) {
+        const pop = document.getElementById("menu-pop");
+        if (pop) pop.classList.add("hidden");
+      }
+    });
     document.querySelectorAll(".menu-items button").forEach((b) => {
-      b.onclick = () => this.toast(b.textContent + " menu is a mock.");
+      b.onclick = (e) => {
+        e.stopPropagation();
+        this.showMenu(b.dataset.menu, b);
+      };
+    });
+  },
+  showMenu(key, btn) {
+    let pop = document.getElementById("menu-pop");
+    if (!pop) {
+      pop = document.createElement("div");
+      pop.id = "menu-pop";
+      pop.className = "glass";
+      document.getElementById("desktop").appendChild(pop);
+    }
+    const items = this.menus[key] || ["Mock item"];
+    const r = btn.getBoundingClientRect();
+    pop.style.position = "absolute";
+    pop.style.left = r.left + "px";
+    pop.style.top = "30px";
+    pop.style.zIndex = "95";
+    pop.style.minWidth = "180px";
+    pop.style.padding = "6px";
+    pop.style.borderRadius = "12px";
+    pop.style.color = "#0f172a";
+    pop.innerHTML = items.map((t) => "<button style='display:block;width:100%;text-align:left;border:0;background:none;padding:8px 10px;border-radius:8px'>" + t + "</button>").join("");
+    pop.classList.remove("hidden");
+    pop.querySelectorAll("button").forEach((item) => {
+      item.onclick = () => {
+        const t = item.textContent;
+        pop.classList.add("hidden");
+        if (t === "Show Launchpad") this.toggleLaunch();
+        else if (t === "Mission Control") this.toggleMission();
+        else if (t === "Files") this.openApp("finder");
+        else if (t === "Notes") this.openApp("notes");
+        else if (t === "Gallery") this.openApp("store");
+        else if (t === "Settings") this.openApp("settings");
+        else if (t === "Aura help") { this.openApp("aura"); this.askAura("help"); }
+        else if (t === "About Lumen") this.toast("Lumen mock · entertainment only · not Apple.");
+        else if (t === "New Window") this.openApp("finder");
+        else if (t === "Close Window") {
+          const ids = Object.keys(Windows.list);
+          if (ids.length) Windows.close(ids[ids.length - 1]);
+        } else if (t === "Minimize") {
+          const ids = Object.keys(Windows.list);
+          if (ids.length) Windows.list[ids[ids.length - 1]].style.display = "none";
+        } else if (t === "Toggle widgets") document.getElementById("widgets").classList.toggle("hidden");
+        else this.toast(t + " (mock)");
+      };
     });
   },
   renderDeskIcons() {

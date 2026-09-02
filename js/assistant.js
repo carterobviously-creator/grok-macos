@@ -38,6 +38,9 @@ const Aura = {
       { re: /pulse|activity/, id: "activity", msg: "Opening Pulse." },
       { re: /preview/, id: "preview", msg: "Opening Preview." },
       { re: /voice/, id: "voice", msg: "Opening Voice Pad." },
+      { re: /phone|call/, id: "phone", msg: "Opening Phone." },
+      { re: /flow|shortcut/, id: "flows", msg: "Opening Flows." },
+      { re: /camera/, id: "camera", msg: "Opening Camera." },
       { re: /launch/, id: "launch", msg: "Opening Launchpad." },
       { re: /mission/, id: "mission", msg: "Opening Mission Control." }
     ];
@@ -63,6 +66,8 @@ const Aura = {
       return "Try: open notes, open weather, rewrite this sentence, what is 12 times 8, what time is it, tell a joke, mission control, or press Command-K / F3 / F4. You can also use the mic.";
     }
     if (/thank/.test(q)) return "You are welcome.";
+    const near = AuraModel.nearest(q);
+    if (near) return near;
     const bits = q.replace(/[^a-z0-9\s]/g, "").split(/\s+/).filter(Boolean);
     if (bits.length) {
       return "I heard \"" + bits.slice(0, 8).join(" ") + "\". Offline helper only understood part of that. Try open notes, what time is it, or help.";

@@ -3,15 +3,15 @@
 A **browser mock** of a glass-style desktop. Entertainment only.
 
 **Not macOS. Not Apple. Not Siri. Not Apple Intelligence.**  
-Official Apple icons, wallpapers, Liquid Glass, App Store, and product chrome are copyrighted and are **not** used here.  
-Icons are original SVGs. Wallpaper is an original CSS gradient. Aura is an offline phrase helper loaded at boot — not a cloud LLM.
+Official Apple icons, wallpapers, Liquid Glass, App Store, and product chrome are copyrighted and are **not** used.  
+Icons are original SVGs. Wallpaper is an original CSS gradient. Aura is an offline phrase helper loaded at boot — not a cloud LLM and not a neural net.
 
 Live: https://carterobviously-creator.github.io/grok-macos/
 
 ## Features
 
 - Boot animation (loads a tiny local phrase book) + lock screen + desktop icons
-- Original glass surfaces (blur, specular edge, tint slider)
+- Glass surfaces with blur, specular edge, and a tint slider
 - Draggable / resizable windows with close / minimize / zoom
 - Dock with hover lift and open indicators
 - Launchpad (`F4` or dock grid)
@@ -19,8 +19,9 @@ Live: https://carterobviously-creator.github.io/grok-macos/
 - Files, Notes, Calculator, Web, Settings, Gallery
 - Calendar, Music, Photos, Terminal, Mail, Maps, Stickies
 - Weather, Clock, Writer, Reminders, Messages, Contacts, Pulse
-- Preview, Voice Pad
+- Preview, Voice Pad, Phone, Flows, Camera
 - Spotlight (`⌘K` / `Ctrl+K`)
+- Working menubar dropdowns
 - Control Center and notification drawer
 - Aura helper: offline local phrase book + optional browser speech APIs
 

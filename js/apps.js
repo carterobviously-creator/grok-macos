@@ -98,7 +98,10 @@ const Apps = {
       ["voice", "Voice Pad", "Type a line and hear it."],
       ["messages", "Messages", "Demo threads."],
       ["contacts", "Contacts", "Sample people list."],
-      ["activity", "Pulse", "Fake system meters."]
+      ["activity", "Pulse", "Fake system meters."],
+      ["phone", "Phone", "Mock keypad."],
+      ["flows", "Flows", "Tiny shortcut runner."],
+      ["camera", "Camera", "Decorative viewfinder."]
     ];
     Windows.create("store", "Gallery", 560, 440,
       '<div class="store-grid">' +
@@ -125,7 +128,7 @@ const Apps = {
   },
   music() {
     Windows.create("music", "Music", 360, 380,
-      '<div class="music"><div class="art"></div><strong>Night Drive</strong><p>Demo track · Lumen Radio</p><input type="range" min="0" max="100" value="22"></div>');
+      '<div class="music"><div class="art"></div><strong>Night Drive</strong><p>Demo track \u00b7 Lumen Radio</p><input type="range" min="0" max="100" value="22"></div>');
   },
   photos() {
     const tiles = ["#fb7185", "#60a5fa", "#34d399", "#fbbf24", "#a78bfa", "#f472b6"]
@@ -134,7 +137,7 @@ const Apps = {
   },
   terminal() {
     Windows.create("terminal", "Terminal", 560, 320,
-      '<div class="term" id="term"><div id="tout">Lumen shell 0.5 — type help</div><div>$ <input id="tin"></div></div>', true);
+      '<div class="term" id="term"><div id="tout">Lumen shell 0.6 — type help</div><div>$ <input id="tin"></div></div>', true);
     const out = document.getElementById("tout");
     const tin = document.getElementById("tin");
     tin.focus();
@@ -180,7 +183,7 @@ const Apps = {
   },
   weather() {
     Windows.create("weather", "Weather", 360, 280,
-      '<div class="pad"><h2>72°</h2><p>Clear · mock city</p><p>High 76 · Low 58</p><p>This is not live weather data.</p></div>');
+      '<div class="pad"><h2>72°</h2><p>Clear \u00b7 mock city</p><p>High 76 \u00b7 Low 58</p><p>This is not live weather data.</p></div>');
   },
   clock() {
     Windows.create("clock", "Clock", 360, 240,

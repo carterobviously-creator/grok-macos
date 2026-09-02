@@ -1,7 +1,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; height: 100%; overflow: hidden; }
 body {
-  font-family: "SF Pro Display", "Inter", "Segoe UI", system-ui, sans-serif;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
   color: #f8fafc;
   background: #05070d;
   user-select: none;
@@ -11,18 +11,18 @@ button { cursor: pointer; }
 .hidden { display: none !important; }
 .glass {
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0.08) 42%, rgba(255,255,255,0.12) 100%),
-    rgba(210, 225, 245, 0.12);
-  backdrop-filter: blur(48px) saturate(210%);
-  -webkit-backdrop-filter: blur(48px) saturate(210%);
-  border: 1px solid rgba(255,255,255,0.48);
+    linear-gradient(180deg, rgba(255,255,255,0.46) 0%, rgba(255,255,255,0.1) 38%, rgba(255,255,255,0.16) 100%),
+    rgba(196, 214, 238, 0.16);
+  backdrop-filter: blur(52px) saturate(220%);
+  -webkit-backdrop-filter: blur(52px) saturate(220%);
+  border: 1px solid rgba(255,255,255,0.52);
   box-shadow:
-    0 22px 56px rgba(0,0,0,0.38),
-    inset 0 1px 0 rgba(255,255,255,0.72),
-    inset 0 -1px 0 rgba(255,255,255,0.12),
-    inset 1px 0 0 rgba(255,255,255,0.18);
+    0 24px 60px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.78),
+    inset 0 -1px 0 rgba(255,255,255,0.14),
+    inset 1px 0 0 rgba(255,255,255,0.2);
 }
 body.tinted .glass {
-  background: linear-gradient(180deg, rgba(30,41,59,0.82), rgba(15,23,42,0.7));
+  background: linear-gradient(180deg, rgba(30,41,59,0.86), rgba(15,23,42,0.74));
   color: #f8fafc;
 }
