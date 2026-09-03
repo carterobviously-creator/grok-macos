@@ -19,7 +19,7 @@ const Aura = {
       { re: /files|finder/, id: "finder", msg: "Opening Files." },
       { re: /notes/, id: "notes", msg: "Opening Notes." },
       { re: /calc/, id: "calc", msg: "Opening Calculator." },
-      { re: /web|browser|safari/, id: "web", msg: "Opening Web." },
+      { re: /web|browser/, id: "web", msg: "Opening Web." },
       { re: /settings|prefs/, id: "settings", msg: "Opening Settings." },
       { re: /store|gallery/, id: "store", msg: "Opening Gallery." },
       { re: /calendar/, id: "calendar", msg: "Opening Calendar." },
@@ -41,6 +41,9 @@ const Aura = {
       { re: /phone|call/, id: "phone", msg: "Opening Phone." },
       { re: /flow|shortcut/, id: "flows", msg: "Opening Flows." },
       { re: /camera/, id: "camera", msg: "Opening Camera." },
+      { re: /sketch|draw/, id: "sketch", msg: "Opening Sketch." },
+      { re: /radio/, id: "radio", msg: "Opening Radio." },
+      { re: /board|tic/, id: "board", msg: "Opening Board." },
       { re: /launch/, id: "launch", msg: "Opening Launchpad." },
       { re: /mission/, id: "mission", msg: "Opening Mission Control." }
     ];
@@ -63,7 +66,7 @@ const Aura = {
     if (/weather/.test(q)) return "Mock forecast: " + AuraModel.facts.weather + ".";
     if (/joke/.test(q)) return "Why did the window refuse to close? It had too many tabs open.";
     if (/help|what can/.test(q)) {
-      return "Try: open notes, open weather, rewrite this sentence, what is 12 times 8, what time is it, tell a joke, mission control, or press Command-K / F3 / F4. You can also use the mic.";
+      return "Try: open notes, open sketch, open radio, rewrite this sentence, what is 12 times 8, what time is it, tell a joke, mission control, or press Command-K / F3 / F4. You can also use the mic.";
     }
     if (/thank/.test(q)) return "You are welcome.";
     const near = AuraModel.nearest(q);

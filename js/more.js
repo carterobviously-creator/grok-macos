@@ -16,6 +16,15 @@ Icons.flows = function () {
 Icons.camera = function () {
   return this.svg('<svg width="28" height="28" viewBox="0 0 28 28"><rect x="5" y="9" width="18" height="12" rx="3" fill="#fff"/><circle cx="14" cy="15" r="4" fill="#334155"/></svg>', "linear-gradient(#94a3b8,#334155)");
 };
+Icons.sketch = function () {
+  return this.svg('<svg width="28" height="28" viewBox="0 0 28 28"><path d="M7 20l11-11 3 3-11 11z" fill="#fff"/></svg>', "linear-gradient(#fda4af,#fb7185)");
+};
+Icons.radio = function () {
+  return this.svg('<svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="16" r="6" fill="#fff"/><path d="M8 8l12 4" stroke="#fff" stroke-width="2"/></svg>', "linear-gradient(#c4b5fd,#7c3aed)");
+};
+Icons.board = function () {
+  return this.svg('<svg width="28" height="28" viewBox="0 0 28 28"><rect x="5" y="5" width="18" height="18" rx="2" fill="#fff"/><path d="M14 5v18M5 14h18" stroke="#334155"/></svg>', "linear-gradient(#e2e8f0,#64748b)");
+};
 
 Object.assign(Desktop.labels, {
   messages: "Messages",
@@ -23,7 +32,10 @@ Object.assign(Desktop.labels, {
   activity: "Pulse",
   phone: "Phone",
   flows: "Flows",
-  camera: "Camera"
+  camera: "Camera",
+  sketch: "Sketch",
+  radio: "Radio",
+  board: "Board"
 });
 
 const _open = Desktop.openApp.bind(Desktop);
@@ -62,7 +74,7 @@ Object.assign(Apps, {
   },
   phone() {
     Windows.create("phone", "Phone", 320, 480,
-      '<div class="pad" style="text-align:center"><p>Recents</p><h3>Alex</h3><p>Yesterday \u00b7 mock</h3><p>This keypad does not place real calls.</p>' +
+      '<div class="pad" style="text-align:center"><p>Recents</p><h3>Alex</h3><p>Yesterday \u00b7 mock</p><p>This keypad does not place real calls.</p>' +
       '<div class="calc">' + ["1","2","3","4","5","6","7","8","9","*","0","#"].map((k) => '<button>' + k + '</button>').join('') + '</div></div>');
   },
   flows() {
@@ -74,5 +86,40 @@ Object.assign(Apps, {
   camera() {
     Windows.create("camera", "Camera", 480, 340,
       '<div class="pad"><div style="height:200px;border-radius:16px;background:linear-gradient(135deg,#1e293b,#64748b)"></div><p>No real camera feed. Entertainment mock only.</p></div>');
+  },
+  sketch() {
+    Windows.create("sketch", "Sketch", 520, 400,
+      '<div class="pad"><canvas id="sk" width="480" height="280" style="width:100%;background:#fff;border-radius:12px;cursor:crosshair"></canvas><p><button id="sk-clear">Clear</button></p></div>');
+    const c = document.getElementById("sk");
+    const ctx = c.getContext("2d");
+    let draw = false;
+    c.onmousedown = () => { draw = true; };
+    window.addEventListener("mouseup", () => { draw = false; });
+    c.onmousemove = (e) => {
+      if (!draw) return;
+      const r = c.getBoundingClientRect();
+      ctx.fillStyle = "#0f172a";
+      ctx.beginPath();
+      ctx.arc((e.clientX - r.left) * (c.width / r.width), (e.clientY - r.top) * (c.height / r.height), 2.2, 0, Math.PI * 2);
+      ctx.fill();
+    };
+    document.getElementById("sk-clear").onclick = () => ctx.clearRect(0, 0, c.width, c.height);
+  },
+  radio() {
+    Windows.create("radio", "Radio", 360, 280,
+      '<div class="music"><div class="art" style="background:linear-gradient(135deg,#c4b5fd,#7c3aed)"></div><strong>Lumen FM</strong><p>Demo station \u00b7 no real audio stream</p><input type="range" min="0" max="100" value="40"></div>');
+  },
+  board() {
+    const cells = Array.from({ length: 9 }, (_, i) => '<button data-i="' + i + '" style="height:64px;font-size:22px"></button>').join("");
+    Windows.create("board", "Board", 320, 360,
+      '<div class="pad"><p>Tic-tac-toe mock</p><div class="calc" id="board-grid" style="grid-template-columns:repeat(3,1fr)">' + cells + '</div></div>');
+    let turn = "X";
+    document.querySelectorAll("#board-grid button").forEach((b) => {
+      b.onclick = () => {
+        if (b.textContent) return;
+        b.textContent = turn;
+        turn = turn === "X" ? "O" : "X";
+      };
+    });
   }
 });

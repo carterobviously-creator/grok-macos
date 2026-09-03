@@ -101,7 +101,10 @@ const Apps = {
       ["activity", "Pulse", "Fake system meters."],
       ["phone", "Phone", "Mock keypad."],
       ["flows", "Flows", "Tiny shortcut runner."],
-      ["camera", "Camera", "Decorative viewfinder."]
+      ["camera", "Camera", "Decorative viewfinder."],
+      ["sketch", "Sketch", "Draw on a canvas."],
+      ["radio", "Radio", "Fake station card."],
+      ["board", "Board", "Tic-tac-toe."]
     ];
     Windows.create("store", "Gallery", 560, 440,
       '<div class="store-grid">' +
@@ -137,7 +140,7 @@ const Apps = {
   },
   terminal() {
     Windows.create("terminal", "Terminal", 560, 320,
-      '<div class="term" id="term"><div id="tout">Lumen shell 0.6 — type help</div><div>$ <input id="tin"></div></div>', true);
+      '<div class="term" id="term"><div id="tout">Lumen shell 0.7 \u2014 type help</div><div>$ <input id="tin"></div></div>', true);
     const out = document.getElementById("tout");
     const tin = document.getElementById("tin");
     tin.focus();
@@ -183,7 +186,7 @@ const Apps = {
   },
   weather() {
     Windows.create("weather", "Weather", 360, 280,
-      '<div class="pad"><h2>72°</h2><p>Clear \u00b7 mock city</p><p>High 76 \u00b7 Low 58</p><p>This is not live weather data.</p></div>');
+      '<div class="pad"><h2>72\u00b0</h2><p>Clear \u00b7 mock city</p><p>High 76 \u00b7 Low 58</p><p>This is not live weather data.</p></div>');
   },
   clock() {
     Windows.create("clock", "Clock", 360, 240,

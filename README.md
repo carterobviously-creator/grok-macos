@@ -21,7 +21,7 @@ About page: [about.html](about.html)
 - Files, Notes, Calculator, Web, Settings, Gallery
 - Calendar, Music, Photos, Terminal, Mail, Maps, Stickies
 - Weather, Clock, Writer, Reminders, Messages, Contacts, Pulse
-- Preview, Voice Pad, Phone, Flows, Camera
+- Preview, Voice Pad, Phone, Flows, Camera, Sketch, Radio, Board
 - Spotlight (`⌘K` / `Ctrl+K`)
 - Working menubar dropdowns
 - Control Center and notification drawer
