@@ -29,6 +29,6 @@
     document.getElementById("lock-screen").classList.add("hidden");
     document.getElementById("desktop").classList.remove("hidden");
     Desktop.start();
-    Desktop.addAura("bot", "Aura online. Offline local helper only — no cloud. Press Command-K or Ctrl-K to search. F3 Mission Control. F4 Launchpad. Mic to speak.");
+    Desktop.addAura("bot", "Aura online. Local helper ready. Optional demo API is off until you enable it in Settings. Press Command-K or Ctrl-K to search. F3 Mission Control. F4 Launchpad. Mic to speak.");
   };
 })();
