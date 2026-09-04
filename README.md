@@ -10,30 +10,16 @@ Live: https://carterobviously-creator.github.io/grok-macos/
 
 About page: [about.html](about.html)
 
-## Features
+## Shortcuts
 
-- Boot animation that loads a tiny local phrase book + lock screen + desktop icons
-- Glass surfaces with blur, specular edge, and a tint slider
-- Draggable / resizable windows with close / minimize / zoom
-- Dock with hover magnification and open indicators
-- Launchpad (`F4` or dock grid)
-- Mission Control (`F3`)
-- Lock screen (`⌘L` / `Ctrl+L`)
-- Files, Notes, Calculator, Web, Settings, Gallery
-- Calendar, Music (local oscillator tone), Photos, Terminal, Mail, Maps, Stickies
-- Weather (Open-Meteo sample or offline mock), Clock, Writer, Reminders, Messages, Contacts, Pulse
-- Preview, Voice Pad, Phone, Flows, Camera, Sketch, Radio, Board
-- Spotlight (`⌘K` / `Ctrl+K`)
-- Aura panel (`⌘Space` / `Ctrl+Space`) with mic + optional demo text API
-- Working menubar dropdowns
-- Control Center and notification drawer
+- `Ctrl/Cmd + Space` Aura
+- `Ctrl/Cmd + K` search
+- `Ctrl/Cmd + L` lock
+- `F3` Mission Control
+- `F4` Launchpad
 
 ## Run locally
-
-Open `index.html` in a browser, or serve the folder.
 
 ```bash
 python3 -m http.server 8080
 ```
-
-Then visit `http://localhost:8080`.

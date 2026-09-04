@@ -67,18 +67,25 @@ const Apps = {
     document.getElementById("urlbar").addEventListener("keydown", (e) => { if (e.key === "Enter") go(); });
   },
   settings() {
-    Windows.create("settings", "Settings", 500, 360,
+    const cloudOn = localStorage.getItem("lumen-aura-cloud") === "1";
+    Windows.create("settings", "Settings", 520, 400,
       '<div class="pad settings"><h3>Appearance</h3>' +
       '<label><input type="checkbox" id="alt-wall"> Warm wallpaper</label>' +
       '<label>Dock scale <input id="dock-scale" type="range" min="0.8" max="1.3" step="0.05" value="1"></label>' +
-      '<h3>Aura</h3>' +
-      '<p>Offline local phrase helper only. No cloud services.</p>' +
-      '<p>Lumen mock. Entertainment only. Original UI, not an Apple product.</p></div>');
+      '<h3>Aura helper</h3>' +
+      '<label><input type="checkbox" id="aura-cloud"' + (cloudOn ? " checked" : "") + '> Use optional public text demo for longer answers</label>' +
+      '<p>Local phrase helper always works. The demo API is a third-party text endpoint, not Apple Intelligence and not Siri.</p>' +
+      '<p>Lumen is an original entertainment mock. Original icons and wallpaper only.</p></div>');
     document.getElementById("alt-wall").onchange = (e) => {
       document.getElementById("wallpaper").classList.toggle("alt", e.target.checked);
     };
     document.getElementById("dock-scale").oninput = (e) => {
       document.getElementById("dock").style.transform = "translateX(-50%) scale(" + e.target.value + ")";
+    };
+    document.getElementById("aura-cloud").onchange = (e) => {
+      localStorage.setItem("lumen-aura-cloud", e.target.checked ? "1" : "0");
+      Desktop.refreshAuraMode();
+      Desktop.toast(e.target.checked ? "Aura demo API on" : "Aura offline only");
     };
   },
   store() {
@@ -95,16 +102,7 @@ const Apps = {
       ["writer", "Writer", "Plain text pad."],
       ["reminders", "Reminders", "Checklist stored locally."],
       ["preview", "Preview", "Look at a sample image card."],
-      ["voice", "Voice Pad", "Type a line and hear it."],
-      ["messages", "Messages", "Demo threads."],
-      ["contacts", "Contacts", "Sample people list."],
-      ["activity", "Pulse", "Fake system meters."],
-      ["phone", "Phone", "Mock keypad."],
-      ["flows", "Flows", "Tiny shortcut runner."],
-      ["camera", "Camera", "Decorative viewfinder."],
-      ["sketch", "Sketch", "Draw on a canvas."],
-      ["radio", "Radio", "Fake station card."],
-      ["board", "Board", "Tic-tac-toe."]
+      ["voice", "Voice Pad", "Type a line and hear it."]
     ];
     Windows.create("store", "Gallery", 560, 440,
       '<div class="store-grid">' +
@@ -140,7 +138,7 @@ const Apps = {
   },
   terminal() {
     Windows.create("terminal", "Terminal", 560, 320,
-      '<div class="term" id="term"><div id="tout">Lumen shell 0.7 \u2014 type help</div><div>$ <input id="tin"></div></div>', true);
+      '<div class="term" id="term"><div id="tout">Lumen shell 0.8 \u2014 type help</div><div>$ <input id="tin"></div></div>', true);
     const out = document.getElementById("tout");
     const tin = document.getElementById("tin");
     tin.focus();
@@ -230,5 +228,63 @@ const Apps = {
     document.getElementById("voice-go").onclick = () => {
       Aura.speak(document.getElementById("voice-line").value || "Hello from Lumen");
     };
+  },
+  messages() {
+    Windows.create("messages", "Messages", 420, 360,
+      '<div class="pad"><p><b>Sam</b><br>Lunch tomorrow?</p><p><b>You</b><br>Yes — mock thread only.</p></div>');
+  },
+  contacts() {
+    Windows.create("contacts", "Contacts", 360, 320,
+      '<div class="pad"><p>Alex Rivera — alex@example.com</p><p>Jordan Lee — jordan@example.com</p></div>');
+  },
+  activity() {
+    Windows.create("activity", "Pulse", 360, 260,
+      '<div class="pad"><p>CPU mock 12%</p><p>Memory mock 4.1 GB</p><p>These meters are decorative.</p></div>');
+  },
+  phone() {
+    Windows.create("phone", "Phone", 280, 360, '<div class="pad"><p>Keypad mock. Calls are not real.</p></div>');
+  },
+  flows() {
+    Windows.create("flows", "Flows", 360, 280, '<div class="pad"><button id="flow-notes">Open Notes</button></div>');
+    document.getElementById("flow-notes").onclick = () => Desktop.openApp("notes");
+  },
+  camera() {
+    Windows.create("camera", "Camera", 420, 300, '<div class="pad"><p>Viewfinder mock. No capture.</p></div>');
+  },
+  sketch() {
+    Windows.create("sketch", "Sketch", 480, 360, '<canvas id="sk" width="440" height="280" style="background:#fff;border-radius:8px;width:100%"></canvas>');
+    const c = document.getElementById("sk");
+    const x = c.getContext("2d");
+    let down = false;
+    c.onmousedown = () => { down = true; };
+    c.onmouseup = () => { down = false; };
+    c.onmousemove = (e) => {
+      if (!down) return;
+      const r = c.getBoundingClientRect();
+      x.fillStyle = "#0f172a";
+      x.fillRect((e.clientX - r.left) * c.width / r.width, (e.clientY - r.top) * c.height / r.height, 3, 3);
+    };
+  },
+  radio() {
+    Windows.create("radio", "Radio", 360, 240, '<div class="pad"><strong>Lumen FM</strong><p>Station card only.</p></div>');
+  },
+  board() {
+    Windows.create("board", "Board", 280, 300, '<div class="pad" id="ttt"></div>');
+    const box = document.getElementById("ttt");
+    let cells = Array(9).fill("");
+    let turn = "X";
+    const draw = () => {
+      box.innerHTML = cells.map((v, i) => '<button data-i="' + i + '" style="width:64px;height:64px;margin:4px">' + (v || "·") + "</button>").join("");
+      box.querySelectorAll("button").forEach((b) => {
+        b.onclick = () => {
+          const i = Number(b.dataset.i);
+          if (cells[i]) return;
+          cells[i] = turn;
+          turn = turn === "X" ? "O" : "X";
+          draw();
+        };
+      });
+    };
+    draw();
   }
 };

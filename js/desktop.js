@@ -7,7 +7,9 @@ const Desktop = {
     calendar: "Calendar", music: "Music", photos: "Photos", terminal: "Term",
     mail: "Mail", maps: "Maps", stickies: "Stickies", weather: "Weather",
     clock: "Clock", writer: "Writer", reminders: "Reminders",
-    preview: "Preview", voice: "Voice"
+    preview: "Preview", voice: "Voice", messages: "Messages", contacts: "Contacts",
+    activity: "Pulse", phone: "Phone", flows: "Flows", camera: "Camera",
+    sketch: "Sketch", radio: "Radio", board: "Board", trash: "Bin"
   },
   menus: {
     file: ["New Window", "Close Window", "Save mock"],
@@ -53,9 +55,19 @@ const Desktop = {
     };
     this.refreshAuraMode();
     window.addEventListener("keydown", (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.code === "Space") {
+        e.preventDefault();
+        this.openApp("aura");
+        document.getElementById("aura-input").focus();
+      }
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
         this.toggleSpot();
+      }
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "l") {
+        e.preventDefault();
+        document.getElementById("desktop").classList.add("hidden");
+        document.getElementById("lock-screen").classList.remove("hidden");
       }
       if (e.key === "F4") {
         e.preventDefault();
@@ -161,7 +173,6 @@ const Desktop = {
     const box = document.getElementById("desk-icons");
     if (!box) return;
     const ids = ["finder", "notes", "photos", "trash"];
-    this.labels.trash = this.labels.trash || "Bin";
     box.innerHTML = ids.map((id) => {
       const icon = Icons[id] ? Icons[id]() : Icons.settings();
       return '<button data-id="' + id + '">' + icon + (this.labels[id] || id) + "</button>";
@@ -212,7 +223,7 @@ const Desktop = {
   refreshAuraMode() {
     const el = document.getElementById("aura-mode");
     if (!el) return;
-    el.textContent = AuraModel && AuraModel.ready ? "Offline · loaded" : "Offline";
+    el.textContent = Aura.cloudEnabled() ? "Demo API on" : (AuraModel && AuraModel.ready ? "Offline · loaded" : "Offline");
   },
   tick() {
     const n = new Date();
