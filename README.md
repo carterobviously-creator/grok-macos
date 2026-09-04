@@ -15,14 +15,16 @@ About page: [about.html](about.html)
 - Boot animation that loads a tiny local phrase book + lock screen + desktop icons
 - Glass surfaces with blur, specular edge, and a tint slider
 - Draggable / resizable windows with close / minimize / zoom
-- Dock with hover lift and open indicators
+- Dock with hover magnification and open indicators
 - Launchpad (`F4` or dock grid)
 - Mission Control (`F3`)
+- Lock screen (`⌘L` / `Ctrl+L`)
 - Files, Notes, Calculator, Web, Settings, Gallery
 - Calendar, Music, Photos, Terminal, Mail, Maps, Stickies
 - Weather, Clock, Writer, Reminders, Messages, Contacts, Pulse
 - Preview, Voice Pad, Phone, Flows, Camera, Sketch, Radio, Board
 - Spotlight (`⌘K` / `Ctrl+K`)
+- Aura panel (`⌘Space` / `Ctrl+Space`)
 - Working menubar dropdowns
 - Control Center and notification drawer
 - Aura helper: local phrase book, speech APIs, optional demo text API

@@ -1,2 +1,17 @@
-#aura-mic.listening { box-shadow: 0 0 0 3px rgba(129,140,248,0.6); }
+#aura-mic.listening {
+  box-shadow: 0 0 0 3px rgba(129,140,248,0.7);
+  animation: micPulse 0.9s ease-in-out infinite;
+}
+@keyframes micPulse {
+  50% { transform: scale(1.06); }
+}
 .dock-item { transform-origin: bottom center; will-change: transform; }
+#menu-pop button:hover { background: rgba(37,99,235,0.16); }
+#lock-screen.fade { animation: fadeOut 0.35s ease forwards; }
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+.file .box:hover { filter: brightness(1.08); }
+#rem-form { display: flex; gap: 8px; margin-top: 12px; }
+#rem-form input { flex: 1; padding: 8px; border-radius: 8px; border: 1px solid #cbd5e1; }
+#rem-form button { border: 0; border-radius: 8px; padding: 8px 12px; background: #2563eb; color: #fff; }
