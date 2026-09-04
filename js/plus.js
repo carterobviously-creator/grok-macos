@@ -1,137 +1,93 @@
-/* Extra polish for the Lumen entertainment mock. Original UI only. */
 (function () {
-  const wait = setInterval(() => {
-    if (typeof Desktop === "undefined" || typeof Apps === "undefined") return;
-    clearInterval(wait);
-    wire();
-  }, 40);
-
-  function wire() {
-    const origSettings = Apps.settings;
-    Apps.settings = function () {
-      origSettings();
-      const box = document.querySelector(".settings");
-      if (!box || document.getElementById("aura-cloud")) return;
-      const extra = document.createElement("div");
-      extra.innerHTML =
-        '<label><input type="checkbox" id="aura-cloud"> Enable optional third-party text demo (Pollinations). Not Apple. Not Siri.</label>' +
-        '<label><input type="checkbox" id="speak-aura"> Speak Aura replies</label>' +
-        '<p class="muted">Demo answers are short public-text completions. Desktop commands stay local.</p>';
-      box.appendChild(extra);
-      const cloud = document.getElementById("aura-cloud");
-      const speak = document.getElementById("speak-aura");
-      cloud.checked = localStorage.getItem("lumen-aura-cloud") === "1";
-      speak.checked = localStorage.getItem("lumen-speak") === "1";
-      cloud.onchange = () => {
-        localStorage.setItem("lumen-aura-cloud", cloud.checked ? "1" : "0");
-        Desktop.refreshAuraMode();
-        const mode = document.getElementById("aura-mode");
-        if (mode) mode.textContent = cloud.checked ? "Demo text on" : "Offline · loaded";
-        Desktop.toast(cloud.checked ? "Demo text API on." : "Aura local only.");
-      };
-      speak.onchange = () => localStorage.setItem("lumen-speak", speak.checked ? "1" : "0");
+  const _settings = Apps.settings;
+  Apps.settings = function () {
+    Windows.create("settings", "Settings", 520, 420,
+      '<div class="pad settings">' +
+      '<h3>Appearance</h3>' +
+      '<label><input type="checkbox" id="alt-wall"> Warm wallpaper</label>' +
+      '<label>Dock scale <input id="dock-scale" type="range" min="0.8" max="1.3" step="0.05" value="1"></label>' +
+      '<h3>Aura helper</h3>' +
+      '<label><input type="checkbox" id="aura-cloud"> Use optional public text demo for longer answers</label>' +
+      '<p>Off by default. When on, casual questions may go to a third-party demo API. App commands stay local.</p>' +
+      '<p>Lumen is an entertainment mock. Original icons and wallpaper. Not an Apple product.</p></div>');
+    const alt = document.getElementById("alt-wall");
+    alt.checked = document.getElementById("wallpaper").classList.contains("alt");
+    alt.onchange = (e) => document.getElementById("wallpaper").classList.toggle("alt", e.target.checked);
+    document.getElementById("dock-scale").oninput = (e) => {
+      document.getElementById("dock").style.transform = "translateX(-50%) scale(" + e.target.value + ")";
     };
-
-    const origAsk = Desktop.askAura.bind(Desktop);
-    Desktop.askAura = async function (text, speak) {
-      await origAsk(text, speak || localStorage.getItem("lumen-speak") === "1");
+    const cloud = document.getElementById("aura-cloud");
+    cloud.checked = localStorage.getItem("lumen-aura-cloud") === "1";
+    cloud.onchange = (e) => {
+      localStorage.setItem("lumen-aura-cloud", e.target.checked ? "1" : "0");
+      const mode = document.getElementById("aura-mode");
+      if (mode) mode.textContent = e.target.checked ? "Demo API on" : (AuraModel.ready ? "Offline · loaded" : "Offline");
+      Desktop.toast(e.target.checked ? "Aura demo API enabled." : "Aura is local only.");
     };
+  };
 
-    const origRefresh = Desktop.refreshAuraMode.bind(Desktop);
-    Desktop.refreshAuraMode = function () {
-      origRefresh();
-      const el = document.getElementById("aura-mode");
-      if (el && localStorage.getItem("lumen-aura-cloud") === "1") el.textContent = "Demo text on";
+  Apps.music = function () {
+    Windows.create("music", "Music", 360, 400,
+      '<div class="music"><div class="art"></div><strong>Night Drive</strong><p>Local tone · not a real song</p>' +
+      '<input id="music-pos" type="range" min="0" max="100" value="0">' +
+      '<p><button id="music-play">Play tone</button> <button id="music-stop">Stop</button></p></div>');
+    let ctx, osc, gain, timer;
+    const pos = document.getElementById("music-pos");
+    document.getElementById("music-play").onclick = () => {
+      if (osc) return;
+      ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+      osc = ctx.createOscillator();
+      gain = ctx.createGain();
+      osc.type = "sine";
+      osc.frequency.value = 220;
+      const vol = document.getElementById("vol");
+      gain.gain.value = vol ? Number(vol.value) / 400 : 0.08;
+      osc.connect(gain).connect(ctx.destination);
+      osc.start();
+      let n = Number(pos.value);
+      timer = setInterval(() => { n = (n + 1) % 101; pos.value = n; }, 250);
     };
-
-    const origMusic = Apps.music;
-    Apps.music = function () {
-      origMusic();
-      const wrap = document.querySelector(".music");
-      if (!wrap || document.getElementById("play-tone")) return;
-      const row = document.createElement("p");
-      row.innerHTML = '<button id="play-tone">Play local tone</button> <button id="stop-tone">Stop</button>';
-      wrap.appendChild(row);
-      let ctx, osc, gain;
-      document.getElementById("play-tone").onclick = () => {
-        if (ctx) return;
-        ctx = new (window.AudioContext || window.webkitAudioContext)();
-        osc = ctx.createOscillator();
-        gain = ctx.createGain();
-        osc.type = "sine";
-        osc.frequency.value = 392;
-        gain.gain.value = (Number(document.getElementById("vol")?.value || 40) / 200);
-        osc.connect(gain).connect(ctx.destination);
-        osc.start();
-        Desktop.toast("Local oscillator — not a licensed track.");
-      };
-      document.getElementById("stop-tone").onclick = () => {
-        try { osc && osc.stop(); } catch (e) {}
-        ctx = osc = gain = null;
-      };
+    document.getElementById("music-stop").onclick = () => {
+      if (osc) { try { osc.stop(); } catch (e) {} osc = null; }
+      clearInterval(timer);
     };
+  };
 
-    const origWeather = Apps.weather;
-    Apps.weather = function () {
-      origWeather();
-      const pad = document.querySelector(".win[data-id='weather'] .pad");
-      if (!pad) return;
-      pad.innerHTML = "<h2>…</h2><p>Asking Open-Meteo for a demo city (Austin).</p>";
-      fetch("https://api.open-meteo.com/v1/forecast?latitude=30.27&longitude=-97.74&current=temperature_2m,weather_code")
-        .then((r) => r.json())
-        .then((d) => {
-          const t = Math.round(d.current.temperature_2m);
-          pad.innerHTML = "<h2>" + t + "°C</h2><p>Austin demo via Open-Meteo</p><p>Code " + d.current.weather_code + " · not a branded weather app</p>";
-          AuraModel.facts.weather = t + " C in the demo city";
-        })
-        .catch(() => {
-          pad.innerHTML = "<h2>72°</h2><p>Offline mock forecast.</p>";
-        });
-    };
-
-    const origCam = Apps.camera;
-    Apps.camera = function () {
-      origCam();
-      const pad = document.querySelector(".win[data-id='camera'] .pad");
-      if (!pad || !navigator.mediaDevices) return;
-      pad.innerHTML = '<video id="cam-view" autoplay playsinline style="width:100%;height:200px;object-fit:cover;border-radius:16px;background:#111"></video><p>Optional device camera. Stays in your browser.</p><button id="cam-off">Stop</button>';
-      navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then((stream) => {
-        const v = document.getElementById("cam-view");
-        if (v) v.srcObject = stream;
-        const off = document.getElementById("cam-off");
-        if (off) off.onclick = () => stream.getTracks().forEach((t) => t.stop());
-      }).catch(() => {
-        pad.innerHTML = "<p>Camera permission declined. Decorative viewfinder only.</p>";
+  Apps.weather = function () {
+    Windows.create("weather", "Weather", 380, 300,
+      '<div class="pad" id="wx"><h2>…</h2><p>Asking Open-Meteo for a demo city…</p></div>');
+    const box = document.getElementById("wx");
+    fetch("https://api.open-meteo.com/v1/forecast?latitude=37.77&longitude=-122.42&current=temperature_2m,weather_code")
+      .then((r) => r.json())
+      .then((d) => {
+        const t = Math.round(d.current.temperature_2m);
+        box.innerHTML = "<h2>" + t + "°</h2><p>Live Open-Meteo sample for San Francisco.</p><p>Not a system weather app.</p>";
+      })
+      .catch(() => {
+        box.innerHTML = "<h2>72°</h2><p>Clear · offline mock</p>";
       });
-    };
+  };
 
-    window.addEventListener("keydown", (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.code === "Space") {
-        e.preventDefault();
-        Desktop.openApp("aura");
-        document.getElementById("aura-input")?.focus();
-      }
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "l") {
-        e.preventDefault();
-        document.getElementById("desktop").classList.add("hidden");
-        document.getElementById("lock-screen").classList.remove("hidden");
-      }
+  const dock = document.getElementById("dock");
+  if (dock) {
+    dock.addEventListener("mousemove", (e) => {
+      const items = [...dock.querySelectorAll(".dock-item")];
+      items.forEach((item) => {
+        const r = item.getBoundingClientRect();
+        const dx = Math.abs(e.clientX - (r.left + r.width / 2));
+        const scale = Math.max(1, 1.35 - dx / 180);
+        item.style.transform = "translateY(" + ((scale - 1) * -28) + "px) scale(" + scale + ")";
+      });
     });
-
-    const dock = document.getElementById("dock");
-    if (dock && !dock.dataset.mag) {
-      dock.dataset.mag = "1";
-      dock.addEventListener("mousemove", (e) => {
-        dock.querySelectorAll(".dock-item").forEach((item) => {
-          const r = item.getBoundingClientRect();
-          const dx = Math.abs(e.clientX - (r.left + r.width / 2));
-          const s = Math.max(1, 1.42 - dx / 140);
-          item.style.transform = "translateY(" + ((s - 1) * -28) + "px) scale(" + s + ")";
-        });
-      });
-      dock.addEventListener("mouseleave", () => {
-        dock.querySelectorAll(".dock-item").forEach((item) => { item.style.transform = ""; });
-      });
-    }
+    dock.addEventListener("mouseleave", () => {
+      dock.querySelectorAll(".dock-item").forEach((item) => { item.style.transform = ""; });
+    });
   }
+
+  const _refresh = Desktop.refreshAuraMode.bind(Desktop);
+  Desktop.refreshAuraMode = function () {
+    _refresh();
+    const el = document.getElementById("aura-mode");
+    if (el && localStorage.getItem("lumen-aura-cloud") === "1") el.textContent = "Demo API on";
+  };
 })();

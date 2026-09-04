@@ -20,9 +20,9 @@ About page: [about.html](about.html)
 - Mission Control (`F3`)
 - Lock screen (`⌘L` / `Ctrl+L`)
 - Files, Notes, Calculator, Web, Settings, Gallery
-- Calendar, Music (local tone), Photos, Terminal, Mail, Maps, Stickies
-- Weather (optional Open-Meteo), Clock, Writer, Reminders, Messages, Contacts, Pulse
-- Preview, Voice Pad, Phone, Flows, Camera (optional device camera), Sketch, Radio, Board
+- Calendar, Music (local oscillator tone), Photos, Terminal, Mail, Maps, Stickies
+- Weather (Open-Meteo sample or offline mock), Clock, Writer, Reminders, Messages, Contacts, Pulse
+- Preview, Voice Pad, Phone, Flows, Camera, Sketch, Radio, Board
 - Spotlight (`⌘K` / `Ctrl+K`)
 - Aura panel (`⌘Space` / `Ctrl+Space`) with mic + optional demo text API
 - Working menubar dropdowns
