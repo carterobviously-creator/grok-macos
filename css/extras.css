@@ -6,6 +6,12 @@
   50% { transform: scale(1.06); }
 }
 .dock-item { transform-origin: bottom center; will-change: transform; }
+#dock::after {
+  content: "";
+  position: absolute; left: 18px; right: 18px; bottom: 2px; height: 10px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.28), transparent 70%);
+  pointer-events: none;
+}
 #menu-pop button:hover { background: rgba(37,99,235,0.16); }
 #lock-screen.fade { animation: fadeOut 0.35s ease forwards; }
 @keyframes fadeOut {
@@ -15,3 +21,6 @@
 #rem-form { display: flex; gap: 8px; margin-top: 12px; }
 #rem-form input { flex: 1; padding: 8px; border-radius: 8px; border: 1px solid #cbd5e1; }
 #rem-form button { border: 0; border-radius: 8px; padding: 8px 12px; background: #2563eb; color: #fff; }
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.34), rgba(255,255,255,0.08));
+}
