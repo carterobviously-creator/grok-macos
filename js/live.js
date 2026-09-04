@@ -1,92 +1,64 @@
-(function () {
-  const _unlock = document.getElementById("unlock-btn");
-  if (_unlock) {
-    document.getElementById("lock-screen").addEventListener("click", (e) => {
-      if (e.target.closest("#unlock-btn") || e.target === _unlock) return;
-    });
-  }
-
-  const _camera = Apps.camera;
-  Apps.camera = function () {
-    Windows.create("camera", "Camera", 520, 400,
-      '<div class="pad"><video id="cam-live" autoplay playsinline muted style="width:100%;height:220px;object-fit:cover;border-radius:16px;background:#0f172a"></video><p><button id="cam-start">Use this device camera (optional)</button> <button id="cam-stop">Stop</button></p><p>Permission stays in your browser. Nothing is uploaded.</p></div>');
-    const vid = document.getElementById("cam-live");
-    let stream = null;
-    document.getElementById("cam-start").onclick = async () => {
-      try {
-        stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
-        vid.srcObject = stream;
-      } catch (err) {
-        Desktop.toast("Camera blocked or unavailable.");
-      }
-    };
-    document.getElementById("cam-stop").onclick = () => {
-      if (stream) stream.getTracks().forEach((t) => t.stop());
-      vid.srcObject = null;
-    };
-  };
-
-  const _music = Apps.music;
-  Apps.music = function () {
-    _music();
-    const box = document.querySelector(".music");
-    if (!box || document.getElementById("music-play")) return;
-    const row = document.createElement("p");
-    row.innerHTML = '<button id="music-play">Play tone</button> <button id="music-stop">Stop</button>';
-    box.appendChild(row);
-    let ctx, osc, gain;
-    document.getElementById("music-play").onclick = () => {
-      const AudioCtx = window.AudioContext || window.webkitAudioContext;
-      if (!AudioCtx) return Desktop.toast("No Web Audio in this browser.");
-      ctx = ctx || new AudioCtx();
-      if (osc) osc.stop();
-      osc = ctx.createOscillator();
-      gain = ctx.createGain();
-      const vol = document.getElementById("vol");
-      gain.gain.value = vol ? Number(vol.value) / 200 : 0.2;
-      osc.type = "sine";
-      osc.frequency.value = 220;
-      osc.connect(gain).connect(ctx.destination);
-      osc.start();
-    };
-    document.getElementById("music-stop").onclick = () => {
-      if (osc) { try { osc.stop(); } catch (e) {} osc = null; }
-    };
-  };
-
-  const _weather = Apps.weather;
+(function live() {
+  const origWeather = Apps.weather;
   Apps.weather = function () {
-    Windows.create("weather", "Weather", 380, 300,
-      '<div class="pad"><h2 id="wx-temp">72°</h2><p id="wx-line">Clear · mock city</p><p>High 76 · Low 58</p><p id="wx-note">Offline mock. Optional live lookup uses Open-Meteo.</p><p><button id="wx-live">Try live (approx)</button></p></div>');
-    document.getElementById("wx-live").onclick = async () => {
+    origWeather();
+    const body = document.querySelector('.win[data-id="weather"] .win-body .pad');
+    if (!body) return;
+    const p = document.createElement("p");
+    p.textContent = "Trying live mock city weather…";
+    body.appendChild(p);
+    fetch("https://api.open-meteo.com/v1/forecast?latitude=37.77&longitude=-122.42&current=temperature_2m,weather_code")
+      .then((r) => r.json())
+      .then((d) => {
+        if (!d.current) return;
+        p.textContent = "Open-Meteo sample: " + d.current.temperature_2m + "°C (San Francisco coords). Still a demo.";
+        AuraModel.facts.weather = d.current.temperature_2m + " C sample";
+      })
+      .catch(() => { p.textContent = "Live weather skipped (offline)."; });
+  };
+
+  const origCam = Apps.camera;
+  Apps.camera = function () {
+    origCam();
+    const body = document.querySelector('.win[data-id="camera"] .win-body .pad');
+    if (!body || !navigator.mediaDevices) return;
+    const btn = document.createElement("button");
+    btn.textContent = "Use device camera (optional)";
+    body.appendChild(btn);
+    btn.onclick = async () => {
       try {
-        const pos = await new Promise((res, rej) => {
-          if (!navigator.geolocation) return rej();
-          navigator.geolocation.getCurrentPosition(res, rej, { timeout: 5000 });
-        });
-        const lat = pos.coords.latitude.toFixed(2);
-        const lon = pos.coords.longitude.toFixed(2);
-        const r = await fetch("https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lon + "&current=temperature_2m,weather_code");
-        const j = await r.json();
-        const t = Math.round(j.current.temperature_2m);
-        document.getElementById("wx-temp").textContent = t + "°";
-        document.getElementById("wx-line").textContent = "Near you · Open-Meteo";
-        document.getElementById("wx-note").textContent = "Live sample, not a product forecast.";
-        AuraModel.facts.weather = t + " degrees near you (live sample)";
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        const v = document.createElement("video");
+        v.autoplay = true;
+        v.playsInline = true;
+        v.style.width = "100%";
+        v.style.borderRadius = "16px";
+        v.srcObject = stream;
+        body.prepend(v);
       } catch (e) {
-        Desktop.toast("Live weather skipped. Using mock.");
+        Desktop.toast("Camera permission denied.");
       }
     };
   };
 
-  const _settings = Apps.settings;
-  Apps.settings = function () {
-    _settings();
-    const box = document.querySelector(".settings");
-    if (!box || document.getElementById("aura-hint")) return;
-    const p = document.createElement("p");
-    p.id = "aura-hint";
-    p.textContent = "Turn on the demo API checkbox for longer Aura replies. Local commands still work offline.";
-    box.appendChild(p);
+  const origMusic = Apps.music;
+  Apps.music = function () {
+    origMusic();
+    const body = document.querySelector('.win[data-id="music"] .win-body .music');
+    if (!body) return;
+    const play = document.createElement("button");
+    play.textContent = "Play tone";
+    body.appendChild(play);
+    play.onclick = () => {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.frequency.value = 220;
+      g.gain.value = 0.05;
+      o.connect(g);
+      g.connect(ctx.destination);
+      o.start();
+      setTimeout(() => { o.stop(); ctx.close(); }, 900);
+    };
   };
 })();
