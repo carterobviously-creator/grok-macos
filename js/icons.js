@@ -67,5 +67,32 @@ const Icons = {
   },
   trash() {
     return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="8" y="10" width="12" height="12" rx="2" fill="#fff"/><path d="M7 10h14M11 10V8h6v2" stroke="#fff" stroke-width="1.6" fill="none"/></svg>`, "linear-gradient(#94a3b8,#475569)");
+  },
+  messages() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="5" y="7" width="18" height="12" rx="3" fill="#fff"/><path d="M10 19l2-3h11" fill="#fff"/></svg>`, "linear-gradient(#86efac,#16a34a)");
+  },
+  contacts() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="11" r="4" fill="#fff"/><path d="M6 22c2-5 14-5 16 0" stroke="#fff" fill="none" stroke-width="2"/></svg>`, "linear-gradient(#fdba74,#ea580c)");
+  },
+  activity() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><path d="M4 16h4l3-8 5 14 3-6h5" fill="none" stroke="#fff" stroke-width="2"/></svg>`, "linear-gradient(#67e8f9,#0e7490)");
+  },
+  phone() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="9" y="4" width="10" height="20" rx="2" fill="#fff"/><circle cx="14" cy="20" r="1.2" fill="#0f172a"/></svg>`, "linear-gradient(#86efac,#15803d)");
+  },
+  flows() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><circle cx="8" cy="8" r="3" fill="#fff"/><circle cx="20" cy="14" r="3" fill="#fff"/><circle cx="8" cy="20" r="3" fill="#fff"/><path d="M11 8h6M11 20h6" stroke="#fff"/></svg>`, "linear-gradient(#c4b5fd,#6d28d9)");
+  },
+  camera() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="4" y="9" width="20" height="13" rx="2" fill="#fff"/><circle cx="14" cy="15" r="4" fill="#0f172a"/></svg>`, "linear-gradient(#94a3b8,#1e293b)");
+  },
+  sketch() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><path d="M8 20l10-12 3 3-10 12z" fill="#fff"/></svg>`, "linear-gradient(#fda4af,#e11d48)");
+  },
+  radio() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><rect x="4" y="10" width="20" height="12" rx="2" fill="#fff"/><circle cx="10" cy="16" r="3" fill="#ef4444"/></svg>`, "linear-gradient(#fde68a,#d97706)");
+  },
+  board() {
+    return this.svg(`<svg width="28" height="28" viewBox="0 0 28 28"><path d="M9 6v16M19 6v16M6 11h16M6 17h16" stroke="#fff" stroke-width="2"/></svg>`, "linear-gradient(#67e8f9,#0369a1)");
   }
 };

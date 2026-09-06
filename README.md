@@ -10,13 +10,19 @@ Live: https://carterobviously-creator.github.io/grok-macos/
 
 About page: [about.html](about.html)
 
-## Shortcuts
+## Features
 
-- `Ctrl/Cmd + Space` Aura
-- `Ctrl/Cmd + K` search
-- `Ctrl/Cmd + L` lock
-- `F3` Mission Control
-- `F4` Launchpad
+- Boot screen that loads a tiny local phrase book
+- Lock screen, desktop icons, widgets
+- Glass surfaces with blur + tint slider
+- Dock hover magnification
+- Launchpad (`F4`) and Mission Control (`F3`)
+- Files, Notes, Calculator, Web, Gallery, Settings
+- Calendar, Music, Photos, Terminal, Mail, Maps, Stickies
+- Weather, Clock, Writer, Reminders, Messages, Contacts, Pulse
+- Preview, Voice Pad, Phone, Flows, Camera, Sketch, Radio, Board
+- Aura helper (`⌘/⌃ Space`) with mic + optional demo API
+- Spotlight (`⌘/⌃ K`) and lock (`⌘/⌃ L`)
 
 ## Run locally
 

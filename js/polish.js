@@ -8,8 +8,8 @@
           const r = item.getBoundingClientRect();
           const cx = r.left + r.width / 2;
           const d = Math.abs(e.clientX - cx);
-          const lift = Math.max(0, 18 - d / 8);
-          const scale = 1 + lift / 50;
+          const lift = Math.max(0, 22 - d / 7);
+          const scale = 1 + lift / 42;
           item.style.transform = "translateY(" + (-lift) + "px) scale(" + scale + ")";
         });
       });
@@ -19,19 +19,16 @@
         });
       });
     }
-    window.addEventListener("keydown", (e) => {
-      const meta = e.metaKey || e.ctrlKey;
-      if (meta && e.code === "Space") {
-        e.preventDefault();
-        Desktop.openApp("aura");
-        document.getElementById("aura-input")?.focus();
-      }
-      if (meta && e.key.toLowerCase() === "l") {
-        e.preventDefault();
-        document.getElementById("desktop").classList.add("hidden");
-        document.getElementById("lock-screen").classList.remove("hidden");
-      }
-    });
+    const tint = document.getElementById("tint");
+    const applyTint = (v) => {
+      document.documentElement.style.setProperty("--glass-tint", String(v));
+      document.documentElement.style.setProperty("--glass-blur", (28 + Number(v) * 16) + "px");
+      document.body.classList.toggle("tinted", Number(v) > 0.45);
+    };
+    if (tint) {
+      applyTint(tint.value);
+      tint.addEventListener("input", (e) => applyTint(e.target.value));
+    }
   };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", onReady);
   else onReady();
