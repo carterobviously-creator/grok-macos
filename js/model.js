@@ -14,7 +14,7 @@ const AuraModel = {
       ["help", "Try open notes, open weather, rewrite a sentence, what is 12 times 8, time, joke, mission control."],
       ["joke", "Why did the window refuse to close? It had too many tabs open."],
       ["thanks", "You are welcome."],
-      ["who", "This is Lumen, a fan-made desktop mock. Aura is offline only."],
+      ["who", "This is Lumen, a fan-made desktop mock. Aura is offline only unless you enable the demo API."],
       ["siri", "Aura is not Siri. This mock does not use Apple assistants."],
       ["apple", "Lumen is original. It is not an Apple product."],
       ["time", "Ask me what time it is and I will read your clock."],
@@ -22,7 +22,10 @@ const AuraModel = {
       ["weather", "Mock forecast: clear, 72 degrees."],
       ["good morning", "Good morning. Offline helper ready."],
       ["good night", "Good night. The mock will still be here."],
-      ["name", "I am Aura. The desktop is called Lumen."]
+      ["name", "I am Aura. The desktop is called Lumen."],
+      ["lock", "Press Command-L or Control-L to lock."],
+      ["search", "Press Command-K or Control-K for Spotlight-style search."],
+      ["dock", "Hover the dock to magnify icons. Open apps show a small dot."]
     ];
     this.ready = true;
     return Promise.resolve(true);
