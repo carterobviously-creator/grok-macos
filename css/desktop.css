@@ -2,9 +2,9 @@
 #wallpaper {
   position: absolute; inset: 0;
   background:
-    radial-gradient(1200px 620px at 18% 8%, rgba(125,211,252,0.5), transparent 52%),
-    radial-gradient(900px 520px at 82% 18%, rgba(167,139,250,0.5), transparent 46%),
-    radial-gradient(820px 720px at 50% 92%, rgba(56,189,248,0.28), transparent 50%),
+    radial-gradient(1200px 620px at 18% 8%, rgba(125,211,252,0.55), transparent 52%),
+    radial-gradient(900px 520px at 82% 18%, rgba(167,139,250,0.52), transparent 46%),
+    radial-gradient(820px 720px at 50% 92%, rgba(56,189,248,0.3), transparent 50%),
     linear-gradient(180deg, #1e3a5f 0%, #0b1220 45%, #111827 100%);
   animation: wallshift 28s ease-in-out infinite alternate;
 }
@@ -13,8 +13,19 @@
 }
 #wallpaper.alt {
   background:
-    radial-gradient(900px 500px at 70% 15%, rgba(251,191,36,0.3), transparent),
+    radial-gradient(900px 500px at 70% 15%, rgba(251,191,36,0.32), transparent),
+    radial-gradient(700px 400px at 20% 80%, rgba(244,114,182,0.22), transparent),
     linear-gradient(180deg, #3f2d6b, #0f172a);
+}
+#wallpaper.dusk {
+  background:
+    radial-gradient(800px 480px at 30% 20%, rgba(251,146,60,0.35), transparent),
+    linear-gradient(180deg, #7c2d12, #1c1917 60%, #0c0a09);
+}
+#wallpaper.mint {
+  background:
+    radial-gradient(900px 500px at 80% 10%, rgba(167,243,208,0.35), transparent),
+    linear-gradient(180deg, #115e59, #042f2e);
 }
 #desk-icons {
   position: absolute; top: 48px; right: 22px; z-index: 8;
@@ -35,9 +46,9 @@
   position: relative; z-index: 40;
   height: 28px; display: flex; align-items: center; justify-content: space-between;
   padding: 0 12px;
-  background: rgba(10,14,26,0.18);
-  backdrop-filter: blur(40px) saturate(200%);
-  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  background: rgba(10,14,26,0.12);
+  backdrop-filter: blur(48px) saturate(220%);
+  -webkit-backdrop-filter: blur(48px) saturate(220%);
   font-size: 13px;
 }
 #menubar .left, #menubar .right { display: flex; align-items: center; gap: 12px; }
@@ -50,18 +61,26 @@
 
 .glass {
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.34), rgba(255,255,255,0.08)),
-    rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.42);
+    linear-gradient(180deg, rgba(255,255,255,0.42), rgba(255,255,255,0.08)),
+    rgba(255,255,255,0.09);
+  border: 1px solid rgba(255,255,255,0.48);
   box-shadow:
     0 18px 50px rgba(0,0,0,0.28),
-    inset 0 1px 0 rgba(255,255,255,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.62),
     inset 0 -1px 0 rgba(255,255,255,0.12);
-  backdrop-filter: blur(32px) saturate(200%);
-  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  backdrop-filter: blur(36px) saturate(210%);
+  -webkit-backdrop-filter: blur(36px) saturate(210%);
+  position: relative;
+}
+.glass::after {
+  content: "";
+  pointer-events: none;
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(115deg, rgba(255,255,255,0.28), transparent 36%, transparent 62%, rgba(255,255,255,0.08));
 }
 body.tinted .glass {
-  background: linear-gradient(180deg, rgba(30,41,80,0.55), rgba(15,23,42,0.45));
+  background: linear-gradient(180deg, rgba(30,41,80,0.62), rgba(15,23,42,0.5));
   color: #f8fafc;
 }
 
@@ -81,7 +100,7 @@ body.tinted .glass {
 .dock-item .icon {
   width: 52px; height: 52px; border-radius: 14px;
   display: grid; place-items: center;
-  box-shadow: 0 10px 18px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,.4);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,.45);
 }
 .dock-item .dot {
   width: 4px; height: 4px; border-radius: 50%;

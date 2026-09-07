@@ -1,7 +1,7 @@
 const Aura = {
   speaking: false,
   cloudEnabled() {
-    return localStorage.getItem("lumen-aura-cloud") === "1";
+    return localStorage.getItem("lumen-aura-cloud") !== "0";
   },
   shouldStayLocal(q) {
     return /open |launch |start |show |what time|what is [0-9]|calculate|mission|help\b|who are you|what are you/.test(q.toLowerCase());
@@ -87,7 +87,7 @@ const Aura = {
     if (/weather/.test(q)) return "Mock forecast: " + AuraModel.facts.weather + ".";
     if (/joke/.test(q)) return "Why did the window refuse to close? It had too many tabs open.";
     if (/help|what can/.test(q)) {
-      return "Try: open notes, remind me to water plants, note buy milk, what is 12 times 8, what time is it, tell a joke, mission control. Optional cloud answers can be turned on in Settings.";
+      return "Try: open notes, remind me to water plants, note buy milk, what is 12 times 8, what time is it, tell a joke, mission control. Demo replies stay on unless you turn them off in Settings.";
     }
     if (/thank/.test(q)) return "You are welcome.";
     const near = AuraModel.nearest(q);
