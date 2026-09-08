@@ -1,54 +1,35 @@
-/* Tiny offline phrase model loaded at boot. Not a neural net and not a product AI. */
 const AuraModel = {
   ready: false,
-  facts: {
-    name: "Aura",
-    desktop: "Lumen",
-    weather: "clear, 72 degrees (mock)",
-    battery: "84 percent (mock)"
+  book: {
+    greet: [
+      "Hey. Aura is online as a tiny local helper.",
+      "Hi. I am Aura, a phrase book loaded at boot — not a product AI."
+    ],
+    help: [
+      "Try: open notes, open files, open gallery, weather, time, lock, launchpad.",
+      "Shortcuts: Command-K search, Command-Space Aura, F3 Mission, F4 Launchpad, Command-L lock, Command-W scene."
+    ],
+    time: ["Local clock is on the menu bar and the widget."],
+    weather: ["Mock weather says clear and 72. This is not a live forecast."],
+    joke: ["Why did the window float? It wanted more glass and less gravity."],
+    about: ["Lumen is an entertainment desktop mock. Original icons. No Apple marks."]
   },
-  phrases: [],
   load() {
-    this.phrases = [
-      ["hello", "Hi. I am Aura, the offline helper in this Lumen mock."],
-      ["help", "Try open notes, open weather, rewrite a sentence, what is 12 times 8, time, joke, mission control."],
-      ["joke", "Why did the window refuse to close? It had too many tabs open."],
-      ["thanks", "You are welcome."],
-      ["who", "This is Lumen, a fan-made desktop mock. Aura is offline only unless you enable the demo API."],
-      ["siri", "Aura is not Siri. This mock does not use Apple assistants."],
-      ["apple", "Lumen is original. It is not an Apple product."],
-      ["time", "Ask me what time it is and I will read your clock."],
-      ["open", "Say open notes, open files, open gallery, or open settings."],
-      ["weather", "Mock forecast: clear, 72 degrees."],
-      ["good morning", "Good morning. Offline helper ready."],
-      ["good night", "Good night. The mock will still be here."],
-      ["name", "I am Aura. The desktop is called Lumen."],
-      ["lock", "Press Command-L or Control-L to lock."],
-      ["search", "Press Command-K or Control-K for Spotlight-style search."],
-      ["dock", "Hover the dock to magnify icons. Open apps show a small dot."]
-    ];
     this.ready = true;
     return Promise.resolve(true);
   },
-  math(q) {
-    const m = q.match(/([-+/*()0-9.\s]+)/);
-    if (!m) return null;
-    const expr = m[1].replace(/[^0-9+\-/*().\s]/g, "");
-    if (!/[0-9]/.test(expr)) return null;
-    try {
-      const n = Function('"use strict"; return (' + expr + ")")();
-      if (typeof n === "number" && isFinite(n)) return "That comes to " + n + ".";
-    } catch (e) {}
-    return null;
+  pick(list) {
+    return list[Math.floor(Math.random() * list.length)];
   },
-  nearest(q) {
-    const bits = q.toLowerCase().split(/\s+/);
-    let best = null, score = 0;
-    this.phrases.forEach((p) => {
-      let s = 0;
-      bits.forEach((b) => { if (p[0].indexOf(b) !== -1 || b.indexOf(p[0]) !== -1) s += 1; });
-      if (s > score) { score = s; best = p[1]; }
-    });
-    return score ? best : null;
+  localReply(q) {
+    const t = (q || "").toLowerCase();
+    if (/help|what can/.test(t)) return this.pick(this.book.help);
+    if (/time|clock/.test(t)) return this.pick(this.book.time);
+    if (/weather|temp/.test(t)) return this.pick(this.book.weather);
+    if (/joke|funny/.test(t)) return this.pick(this.book.joke);
+    if (/about|lumen|who are/.test(t)) return this.pick(this.book.about);
+    if (/hello|hi |hey/.test(t)) return this.pick(this.book.greet);
+    if (/open /.test(t)) return "Say the app name after open, or use Spotlight.";
+    return "I only match a small local phrase book unless the optional demo API is on in Settings.";
   }
 };

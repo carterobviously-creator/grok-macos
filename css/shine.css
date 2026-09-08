@@ -1,0 +1,72 @@
+/* Extra glass polish for Lumen mock — original, not Apple Liquid Glass */
+#wallpaper {
+  background:
+    radial-gradient(1200px 700px at 18% 12%, #7dd3fc 0%, transparent 55%),
+    radial-gradient(900px 600px at 88% 18%, #c4b5fd 0%, transparent 50%),
+    radial-gradient(800px 700px at 50% 110%, #67e8f9 0%, transparent 45%),
+    linear-gradient(160deg, #0ea5e9 0%, #6366f1 48%, #0f172a 100%);
+  transition: filter .25s ease, background .6s ease;
+}
+body[data-scene="dusk"] #wallpaper {
+  background:
+    radial-gradient(1000px 600px at 20% 20%, #fb7185 0%, transparent 50%),
+    radial-gradient(800px 500px at 80% 10%, #f59e0b 0%, transparent 45%),
+    linear-gradient(180deg, #7c2d12 0%, #1e1b4b 100%);
+}
+body[data-scene="night"] #wallpaper {
+  background:
+    radial-gradient(700px 500px at 70% 20%, #818cf8 0%, transparent 50%),
+    linear-gradient(180deg, #020617 0%, #1e293b 100%);
+}
+body[data-scene="meadow"] #wallpaper {
+  background:
+    radial-gradient(900px 600px at 30% 10%, #bbf7d0 0%, transparent 50%),
+    linear-gradient(180deg, #38bdf8 0%, #166534 100%);
+}
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,.42), rgba(255,255,255,.18));
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid rgba(255,255,255,.38);
+  box-shadow: 0 18px 50px rgba(15,23,42,.22), inset 0 1px 0 rgba(255,255,255,.55);
+  position: relative;
+}
+.glass::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(115deg, rgba(255,255,255,.35) 0%, transparent 28%, transparent 62%, rgba(255,255,255,.12) 100%);
+}
+body.tinted .glass {
+  background: linear-gradient(180deg, rgba(15,23,42,.55), rgba(15,23,42,.32));
+  color: #f8fafc;
+}
+#dock {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  padding: 8px 14px 10px;
+  border-radius: 22px;
+}
+#dock .dock-item {
+  transition: transform .16s ease;
+}
+#dock:hover .dock-item {
+  transform: scale(.92) translateY(4px);
+}
+#dock .dock-item:hover {
+  transform: scale(1.28) translateY(-10px);
+}
+#dock .dock-item:hover + .dock-item {
+  transform: scale(1.08) translateY(-4px);
+}
+.icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 6px 14px rgba(15,23,42,.2);
+}

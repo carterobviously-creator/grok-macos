@@ -7,8 +7,7 @@ Entertainment only.
 Not Apple.
 Not Siri.
 Not Apple Intelligence.
-Not the App Store.
-**
+Not the App Store.**
 
 Apple product names, official icons, official wallpapers, Liquid Glass, and system chrome are copyrighted.
 This project does **not** use them.
