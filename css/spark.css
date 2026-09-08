@@ -1,0 +1,25 @@
+#wallpaper.aurora {
+  background:
+    radial-gradient(900px 520px at 20% 10%, rgba(52,211,153,0.35), transparent 50%),
+    radial-gradient(800px 480px at 80% 20%, rgba(129,140,248,0.4), transparent 48%),
+    linear-gradient(180deg, #0f172a, #022c22 70%, #020617);
+}
+#dock .dock-item {
+  transform-origin: bottom center;
+  will-change: transform;
+}
+.icon {
+  position: relative;
+  overflow: hidden;
+}
+.icon::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.45), transparent 42%);
+  pointer-events: none;
+}
+#boot-screen {
+  background:
+    radial-gradient(700px 400px at 50% 30%, rgba(129,140,248,0.18), transparent),
+    #05070d;
+}
