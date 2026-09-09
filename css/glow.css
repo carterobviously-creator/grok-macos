@@ -25,11 +25,21 @@
 #dock .dock-item.near {
   transform: translateY(-8px) scale(1.1);
 }
+#dock .dock-item.near-2 {
+  transform: translateY(-4px) scale(1.04);
+}
 #wallpaper.aurora {
   background:
     radial-gradient(900px 480px at 15% 20%, rgba(52,211,153,0.35), transparent 50%),
     radial-gradient(800px 500px at 85% 30%, rgba(129,140,248,0.4), transparent 48%),
     linear-gradient(180deg, #042f2e, #0b1020 70%);
+}
+#wallpaper.lake {
+  background:
+    radial-gradient(1100px 520px at 50% 18%, rgba(186,230,253,0.55), transparent 55%),
+    radial-gradient(900px 640px at 72% 78%, rgba(37,99,235,0.38), transparent 50%),
+    radial-gradient(700px 420px at 18% 82%, rgba(253,224,171,0.28), transparent 48%),
+    linear-gradient(180deg, #7dd3fc 0%, #2563eb 42%, #0f172a 100%);
 }
 #lock-screen {
   background:
