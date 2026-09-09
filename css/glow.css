@@ -1,0 +1,39 @@
+/* Extra glass refraction and dock neighbor scale — original Lumen look */
+.glass {
+  background:
+    linear-gradient(165deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.12) 38%, rgba(180,210,255,0.08) 100%),
+    rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.55);
+  box-shadow:
+    0 22px 60px rgba(0,0,0,0.32),
+    inset 0 1px 0 rgba(255,255,255,0.7),
+    inset 0 -10px 24px rgba(80,140,255,0.08);
+}
+.glass::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 42%;
+  height: 38%;
+  border-radius: inherit;
+  background: radial-gradient(circle at 20% 10%, rgba(255,255,255,0.45), transparent 70%);
+}
+#dock .dock-item {
+  transition: transform 0.18s cubic-bezier(.22,1,.36,1);
+}
+#dock .dock-item.near {
+  transform: translateY(-8px) scale(1.1);
+}
+#wallpaper.aurora {
+  background:
+    radial-gradient(900px 480px at 15% 20%, rgba(52,211,153,0.35), transparent 50%),
+    radial-gradient(800px 500px at 85% 30%, rgba(129,140,248,0.4), transparent 48%),
+    linear-gradient(180deg, #042f2e, #0b1020 70%);
+}
+#lock-screen {
+  background:
+    radial-gradient(900px 500px at 50% 0%, rgba(125,211,252,0.25), transparent),
+    #0b1220;
+}
+.lock-time { letter-spacing: -0.04em; }

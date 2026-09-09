@@ -25,7 +25,10 @@ const AuraModel = {
     ["glass tint", "Open Control Center and drag Glass tint."],
     ["volume", "Sound slider is in Control Center."],
     ["battery", "Battery readout is a mock on the menu bar."],
-    ["who made", "This is a fan recreation in the browser. Entertainment only."]
+    ["who made", "This is a fan recreation in the browser. Entertainment only."],
+    ["intelligence", "Aura can use a small local phrase book plus an optional public text demo. Turn the demo off in Settings."],
+    ["app store gallery", "Gallery is a mock catalog. Install tiles go on the dock."],
+    ["siri", "This mock uses Aura, not a branded assistant."]
   ],
   load() {
     this.ready = true;
