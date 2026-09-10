@@ -1,0 +1,53 @@
+/* Extra Lumen layer — original glass, not a product clone */
+.dock-item {
+  transition: transform 0.16s ease, margin 0.16s ease;
+  transform-origin: bottom center;
+}
+#dock:hover .dock-item {
+  margin: 0 2px;
+}
+.dock-item.hot {
+  transform: scale(1.42) translateY(-10px);
+}
+.dock-item.near {
+  transform: scale(1.18) translateY(-4px);
+}
+.studio-wrap {
+  display: grid;
+  grid-template-columns: 1fr 160px;
+  height: 100%;
+}
+.studio-canvas {
+  background: linear-gradient(160deg, #0f172a, #312e81);
+  border-radius: 12px;
+}
+.journal textarea {
+  width: 100%;
+  height: calc(100% - 36px);
+  border: 0;
+  resize: none;
+  background: transparent;
+  color: inherit;
+  outline: none;
+  font: 15px/1.5 ui-serif, Georgia, serif;
+}
+.task-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(15,23,42,0.08);
+}
+.scene-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.scene-grid button {
+  height: 72px;
+  border: 0;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
