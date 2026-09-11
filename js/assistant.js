@@ -9,6 +9,10 @@ const Aura = {
   localReply(text) {
     const q = text.toLowerCase().trim();
     if (!q) return "Say something and I will try to help.";
+    if (window.VistaAura && typeof VistaAura.extra === "function") {
+      const extra = VistaAura.extra(text);
+      if (extra) return extra;
+    }
     if (/(hello|hi|hey)/.test(q)) {
       return "Hi. I am Aura, the helper in this Lumen mock. Ask me to open apps, do math, take a note, or tell the time.";
     }
