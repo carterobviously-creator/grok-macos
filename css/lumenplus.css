@@ -1,0 +1,40 @@
+/* Extra polish for Lumen — original glass mock, not Apple Liquid Glass */
+#wallpaper.aurora {
+  background:
+    radial-gradient(900px 520px at 20% 30%, rgba(52,211,153,0.35), transparent 50%),
+    radial-gradient(800px 480px at 80% 20%, rgba(167,139,250,0.4), transparent 48%),
+    linear-gradient(180deg, #0f172a, #022c22 70%, #020617);
+}
+#wallpaper.lake {
+  background:
+    radial-gradient(1000px 500px at 50% 0%, rgba(125,211,252,0.45), transparent 55%),
+    linear-gradient(180deg, #164e63, #082f49 55%, #020617);
+}
+.icon {
+  position: relative;
+  overflow: hidden;
+}
+.icon::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(125deg, rgba(255,255,255,0.5), transparent 42%);
+  pointer-events: none;
+}
+#dock .dock-item {
+  transform-origin: 50% 100%;
+}
+body.sheen .glass::before {
+  content: "";
+  position: absolute; width: 180px; height: 180px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.35), transparent 70%);
+  left: var(--mx, 40%); top: var(--my, 20%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+#lock-screen {
+  background:
+    radial-gradient(900px 500px at 50% 0%, rgba(125,211,252,0.35), transparent),
+    linear-gradient(180deg, #0b1220, #111827);
+}
+.lock-time { font-weight: 200; letter-spacing: -2px; }
