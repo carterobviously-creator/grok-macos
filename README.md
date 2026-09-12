@@ -33,6 +33,7 @@ About page: [about.html](about.html)
 - Calendar, Music, Photos, Terminal, Mail, Maps, Stickies
 - Weather, Clock, Writer, Reminders, Messages, Contacts, Pulse
 - Preview, Voice Pad, Phone, Flows, Camera, Sketch, Radio, Board
+- Studio, Journal, System, Brief (Golden layer)
 - Aura helper (`⌘/⌃ Space`) with mic + optional demo API
 - Spotlight (`⌘/⌃ K`) and lock (`⌘/⌃ L`)
 
