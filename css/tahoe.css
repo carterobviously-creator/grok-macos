@@ -1,0 +1,60 @@
+/* Lumen glass polish — original recreation, not Apple Liquid Glass */
+#wallpaper.lake {
+  background:
+    radial-gradient(1000px 540px at 20% 12%, rgba(56,189,248,0.4), transparent 50%),
+    radial-gradient(800px 480px at 88% 78%, rgba(52,211,153,0.28), transparent 46%),
+    linear-gradient(180deg, #0c4a6e 0%, #082f49 55%, #020617 100%);
+}
+#wallpaper.aurora {
+  background:
+    radial-gradient(700px 420px at 15% 70%, rgba(52,211,153,0.35), transparent),
+    radial-gradient(900px 500px at 80% 20%, rgba(167,139,250,0.4), transparent),
+    linear-gradient(180deg, #022c22, #0f172a);
+}
+#menubar {
+  background: transparent;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.35);
+}
+#dock {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.34), rgba(255,255,255,0.08));
+  overflow: visible;
+}
+.dock-item {
+  transform-origin: bottom center;
+  transition: transform 0.18s cubic-bezier(.22,1,.36,1);
+}
+.dock-item .icon {
+  border-radius: 16px;
+  box-shadow:
+    0 12px 22px rgba(0,0,0,0.32),
+    inset 0 1px 0 rgba(255,255,255,.55),
+    inset 0 -8px 16px rgba(255,255,255,0.12);
+}
+.win {
+  box-shadow: 0 28px 80px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.5);
+}
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+.games-grid button {
+  border: 0;
+  border-radius: 16px;
+  padding: 18px 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.28));
+  text-align: left;
+  cursor: pointer;
+}
+.games-grid strong { display: block; margin-bottom: 4px; }
+.games-grid span { font-size: 12px; opacity: 0.7; }
+#aura-orb {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, #a78bfa 45%, #4f46e5);
+  box-shadow: 0 0 16px rgba(167,139,250,0.8);
+  animation: orb 2.4s ease-in-out infinite;
+}
+@keyframes orb {
+  50% { transform: scale(1.15); box-shadow: 0 0 22px rgba(125,211,252,0.9); }
+}
