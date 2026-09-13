@@ -3,11 +3,7 @@
 A **browser mock** of a glass-style desktop.
 Entertainment only.
 
-**Not macOS.
-Not Apple.
-Not Siri.
-Not Apple Intelligence.
-Not the App Store.**
+**Not macOS. Not Apple. Not Siri. Not Apple Intelligence. Not the App Store.**
 
 Apple product names, official icons, official wallpapers, Liquid Glass, and system chrome are copyrighted.
 This project does **not** use them.
@@ -27,18 +23,14 @@ About page: [about.html](about.html)
 - Lock screen, desktop icons, widgets
 - Glass surfaces with blur + tint slider + specular highlight
 - Dock hover magnification with neighbor scale
-- Wallpaper scenes with Ctrl/Cmd+W (harbor, dusk, mint, aurora, lake)
+- Wallpaper scenes with Ctrl/Cmd+W
 - Launchpad (`F4`) and Mission Control (`F3`)
 - Files, Notes, Calculator, Web, Gallery, Settings
 - Calendar, Music, Photos, Terminal, Mail, Maps, Stickies
 - Weather, Clock, Writer, Reminders, Messages, Contacts, Pulse
 - Preview, Voice Pad, Phone, Flows, Camera, Sketch, Radio, Board
-- Studio, Journal, System, Brief (Golden layer)
+- Studio, Journal, System, Brief, Harbor catalog
 - Aura helper (`⌘/⌃ Space`) with mic + optional demo API
 - Spotlight (`⌘/⌃ K`) and lock (`⌘/⌃ L`)
 
-## Run locally
-
-```bash
-python3 -m http.server 8080
-```
+Horizon layer adds a Harbor mock catalog and a slightly smarter offline Aura phrase book.
