@@ -3,7 +3,11 @@
 A **browser mock** of a glass-style desktop.
 Entertainment only.
 
-**Not macOS. Not Apple. Not Siri. Not Apple Intelligence. Not the App Store.**
+**Not macOS.
+Not Apple.
+Not Siri.
+Not Apple Intelligence.
+Not the App Store.**
 
 Apple product names, official icons, official wallpapers, Liquid Glass, and system chrome are copyrighted.
 This project does **not** use them.
@@ -30,7 +34,8 @@ About page: [about.html](about.html)
 - Weather, Clock, Writer, Reminders, Messages, Contacts, Pulse
 - Preview, Voice Pad, Phone, Flows, Camera, Sketch, Radio, Board
 - Studio, Journal, System, Brief, Harbor catalog
-- Aura helper (`⌘/⌃ Space`) with mic + optional demo API
+- Aura helper (`⌘/⌃ Space` or `⌘/⌃ J`) with mic + optional demo API
 - Spotlight (`⌘/⌃ K`) and lock (`⌘/⌃ L`)
+- Aurora layer: extra phrase matches, time/date, open-app voice, Compass / Timer / Palette mock panels
 
 Horizon layer adds a Harbor mock catalog and a slightly smarter offline Aura phrase book.
