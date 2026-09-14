@@ -1,0 +1,51 @@
+/* Lumen 26 entertainment polish — original glass, not Apple Liquid Glass */
+#lock-screen {
+  position: fixed; inset: 0; z-index: 100;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background:
+    radial-gradient(900px 500px at 50% 20%, rgba(125,211,252,0.28), transparent),
+    linear-gradient(180deg, #0b1220, #1e1b4b 80%);
+  color: #f8fafc;
+}
+#lock-screen.hidden { display: none; }
+.lock-time { font-size: 84px; font-weight: 200; letter-spacing: -2px; }
+.lock-date { opacity: 0.8; margin-bottom: 36px; }
+#unlock-btn {
+  display: flex; align-items: center; gap: 10px;
+  border: 0; border-radius: 999px; padding: 10px 18px;
+  background: rgba(255,255,255,0.16); color: #fff;
+  backdrop-filter: blur(20px);
+}
+.avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: linear-gradient(135deg,#7dd3fc,#818cf8); display: grid; place-items: center;
+}
+#boot-screen {
+  position: fixed; inset: 0; z-index: 200; background: #05070d;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; color: #e2e8f0;
+}
+#boot-screen.hidden { display: none; }
+.boot-name { font-size: 22px; letter-spacing: 0.3em; text-transform: uppercase; margin: 12px 0 24px; }
+.boot-bar { width: 180px; height: 4px; border-radius: 99px; background: #1e293b; overflow: hidden; }
+#boot-fill { height: 100%; width: 0; background: linear-gradient(90deg,#7dd3fc,#a78bfa); }
+.boot-note { max-width: 420px; text-align: center; font-size: 11px; opacity: 0.55; margin-top: 24px; }
+#boot-status { font-size: 13px; opacity: 0.7; margin-top: 10px; }
+.desktop-enter { animation: deskIn 0.45s ease; }
+@keyframes deskIn { from { opacity: 0; transform: scale(1.02); } to { opacity: 1; transform: none; } }
+#dock .dock-item { will-change: transform; }
+.win {
+  position: absolute; min-width: 240px;
+  border-radius: 14px; overflow: hidden; color: #0f172a;
+}
+.win-bar {
+  height: 36px; display: flex; align-items: center; gap: 8px; padding: 0 10px;
+  background: rgba(255,255,255,0.35);
+}
+.win-dots span {
+  display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 4px;
+}
+.win-dots .c { background: #ef4444; }
+.win-dots .m { background: #f59e0b; }
+.win-dots .x { background: #22c55e; }
+.win-body { background: rgba(248,250,252,0.92); height: calc(100% - 36px); overflow: auto; }
+body.tinted .win-body { background: rgba(15,23,42,0.88); color: #f8fafc; }
