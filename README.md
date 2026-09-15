@@ -13,12 +13,23 @@ Aura is a local phrase helper loaded at boot, plus an optional third-party text 
 
 Live: https://carterobviously-creator.github.io/grok-macos/
 
-## Lumen 26 polish
+About page: [about.html](about.html)
 
-- Neighbor-aware dock magnification
-- Lock / boot glass polish
-- Aura shortcuts: dark mode, light mode, lock
-- Scene cycle with Ctrl/Cmd+W
+## Features
+
+- Boot screen that loads a tiny local phrase book
+- Lock screen, desktop icons, widgets
+- Glass surfaces with blur + tint slider + specular highlight
+- Dock hover magnification with neighbor scale
+- Wallpaper scenes with Ctrl/Cmd+W
+- Launchpad (`F4`) and Mission Control (`F3`)
+- Files, Notes, Calculator, Web, Gallery, Settings
+- Calendar, Music, Photos, Terminal, Mail, Maps, Stickies
+- Weather, Clock, Writer, Reminders, Messages, Contacts, Pulse
+- Preview, Voice Pad, Phone, Flows, Camera, Sketch, Radio, Board
+- Compass, Ledger, Timer, Palette (Prism layer)
+- Aura helper (`⌘/⌃ Space`) with mic + optional demo API
+- Spotlight (`⌘/⌃ K`) and lock (`⌘/⌃ L`)
 
 ## Shortcuts
 
@@ -26,5 +37,5 @@ Live: https://carterobviously-creator.github.io/grok-macos/
 - `F4` Launchpad
 - `⌘/Ctrl K` Spotlight
 - `⌘/Ctrl L` Lock
-- `⌘/Ctrl Space` or `J` Aura
+- `⌘/Ctrl Space` Aura
 - `⌘/Ctrl W` wallpaper scene
