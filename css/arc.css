@@ -1,0 +1,60 @@
+/* Lumen Arc layer — original glass polish. Not Apple Liquid Glass. */
+#dock.glass {
+  padding: 8px 10px 10px;
+  gap: 4px;
+  align-items: flex-end;
+}
+#dock .dock-item {
+  transition: transform 0.18s ease, filter 0.18s ease;
+  transform-origin: bottom center;
+}
+#dock .dock-item:hover {
+  transform: scale(1.28) translateY(-6px);
+  filter: brightness(1.08);
+}
+#dock .dock-item.open .dot {
+  opacity: 1;
+  background: #38bdf8;
+}
+#stage-view {
+  position: fixed;
+  inset: 32px 12px 92px;
+  display: none;
+  gap: 12px;
+  z-index: 40;
+}
+body.stage-on #stage-view { display: flex; }
+body.stage-on #window-layer .win { display: none !important; }
+.stage-card {
+  flex: 1;
+  border-radius: 18px;
+  padding: 16px;
+  min-width: 160px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.28);
+  backdrop-filter: blur(22px);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #0f172a;
+}
+.stage-card h3 { margin: 0 0 8px; font-size: 14px; }
+#aura-orb {
+  position: fixed;
+  right: 24px;
+  bottom: 96px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  background: radial-gradient(circle at 30% 30%, #e0f2fe, #818cf8 55%, #6366f1);
+  box-shadow: 0 8px 24px rgba(99,102,241,0.45);
+  z-index: 80;
+}
+#aura-orb.pulse { animation: orbPulse 1.4s ease-in-out infinite; }
+@keyframes orbPulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+body.arc-dusk #wallpaper {
+  background: linear-gradient(160deg, #1e1b4b, #312e81 40%, #7c3aed 80%, #fb7185);
+}
