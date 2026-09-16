@@ -7,8 +7,7 @@ Entertainment only.
 Not Apple.
 Not Siri.
 Not Apple Intelligence.
-Not the App Store.
-**
+Not the App Store.**
 
 Apple product names, official icons, official wallpapers, Liquid Glass, and system chrome are copyrighted.
 This project does **not** use them.
@@ -26,7 +25,7 @@ About page: [about.html](about.html)
 
 - Boot screen that loads a tiny local phrase book
 - Lock screen, desktop icons, widgets
-- Glass surfaces with blur + tint slider + specular highlight
+- Glass surfaces with blur + continuous tint slider + specular highlight
 - Dock hover magnification with neighbor scale
 - Wallpaper scenes with Ctrl/Cmd+W and dusk wash with Ctrl/Cmd+D
 - Launchpad (`F4`) and Mission Control (`F3`)
@@ -37,6 +36,3 @@ About page: [about.html](about.html)
 - Studio, Journal, System, Brief, Harbor catalog
 - Compass, Ledger, Timer, Palette, Stage, Bridge
 - Aura helper (`⌘/⌃ Space`) with mic + optional demo API
-- Spotlight (`⌘/⌃ K`) and lock (`⌘/⌃ L`)
-
-Arc layer adds Stage view, a floating Aura orb, and a Bridge status board.

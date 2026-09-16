@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="css/prism.css" />
   <link rel="stylesheet" href="css/arc.css" />
   <link rel="stylesheet" href="css/gate.css" />
+  <link rel="stylesheet" href="css/lumen27.css" />
 </head>
 <body>
   <div id="boot-screen">
@@ -57,6 +58,7 @@
       <span class="avatar">U</span>
       <span>User · Click to enter</span>
     </button>
+    <p class="lock-hint">Aura phrase book loads at boot · entertainment mock</p>
   </div>
 
   <div id="desktop" class="hidden">
@@ -87,7 +89,7 @@
     <div id="widgets" class="glass">
       <div class="wid-clock" id="wid-clock">--:--</div>
       <div class="wid-weather">Clear · 72° mock</div>
-      <div class="wid-hint">F3 Mission · F4 Launch · ⌘K Search · ⌘L Lock · ⌘Space Aura · ⌘W Scene · ⌘D Dusk · Stage app</div>
+      <div class="wid-hint">F3 Mission · F4 Launch · ⌘K Search · ⌘L Lock · ⌘Space Aura · ⌘W Scene · ⌘D Dusk</div>
     </div>
     <div id="window-layer"></div>
     <div id="mission" class="hidden"></div>
@@ -108,8 +110,8 @@
       </div>
       <label class="cc-slider">Display <input id="bright" type="range" min="40" max="100" value="92"></label>
       <label class="cc-slider">Sound <input id="vol" type="range" min="0" max="100" value="55"></label>
-      <label class="cc-slider">Glass tint <input id="tint" type="range" min="0" max="1" step="0.1" value="0"></label>
-      <p class="cc-hint">Lumen · Aura local helper</p>
+      <label class="cc-slider">Glass tint <input id="tint" type="range" min="0" max="1" step="0.01" value="0.2"></label>
+      <p class="cc-hint">Lumen · Aura local helper · original glass CSS</p>
     </aside>
 
     <aside id="notify-drawer" class="hidden glass">
@@ -169,6 +171,7 @@
   <script src="js/prism.js"></script>
   <script src="js/arc.js"></script>
   <script src="js/gate.js"></script>
+  <script src="js/lumen27.js"></script>
   <script src="js/boot.js"></script>
 </body>
 </html>

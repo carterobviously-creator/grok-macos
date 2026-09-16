@@ -1,0 +1,56 @@
+:root {
+  --glass-alpha: 0.18;
+  --glass-blur: 36px;
+  --glass-sat: 210%;
+  --glass-ink: #0f172a;
+}
+.glass {
+  background:
+    linear-gradient(180deg, rgba(255,255,255, calc(0.28 + var(--glass-alpha))), rgba(255,255,255, calc(0.04 + var(--glass-alpha) * 0.4))),
+    rgba(248,250,252, var(--glass-alpha));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+}
+body.tinted {
+  --glass-ink: #f8fafc;
+}
+.traffic span {
+  transition: transform 0.18s cubic-bezier(.2,1.4,.3,1);
+}
+.traffic:hover span {
+  transform: scale(1.12);
+}
+.traffic span:active {
+  transform: translateY(3px) scale(0.92);
+}
+#dock .dock-item {
+  transform-origin: 50% 100%;
+  will-change: transform;
+}
+#wallpaper {
+  transition: filter 0.4s ease, background 0.8s ease;
+}
+.lock-hint {
+  margin-top: 18px;
+  font-size: 12px;
+  opacity: 0.7;
+  letter-spacing: 0.04em;
+}
+#notify-drawer .note-card {
+  background: rgba(255,255,255,0.28);
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+#aura-orb {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #67e8f9;
+  box-shadow: 0 0 10px #67e8f9;
+  display: inline-block;
+  margin-right: 6px;
+  animation: orb 1.8s ease-in-out infinite;
+}
+@keyframes orb {
+  50% { transform: scale(1.35); opacity: 0.7; }
+}
