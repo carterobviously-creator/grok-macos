@@ -1,0 +1,37 @@
+/* Lumen 28 — original glass polish. Not a product clone. */
+#wallpaper {
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(125,211,252,.38), transparent 42%),
+    radial-gradient(ellipse at 88% 78%, rgba(167,139,250,.34), transparent 48%),
+    radial-gradient(ellipse at 50% 100%, rgba(56,189,248,.18), transparent 50%),
+    linear-gradient(168deg, #0b1224 0%, #172554 46%, #312e81 100%);
+}
+#dock.glass {
+  border-radius: 22px;
+  padding: 8px 12px;
+  background: rgba(18, 24, 38, 0.38);
+  backdrop-filter: blur(28px) saturate(1.45);
+  -webkit-backdrop-filter: blur(28px) saturate(1.45);
+}
+#assistant.glass, #spotlight.glass, #control-center.glass, #notify-drawer.glass {
+  backdrop-filter: blur(32px) saturate(1.4);
+  -webkit-backdrop-filter: blur(32px) saturate(1.4);
+  border: 1px solid rgba(255,255,255,.18);
+}
+#aura-mic.listening {
+  animation: lumen-pulse 1s ease-in-out infinite;
+}
+@keyframes lumen-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(125,211,252,.5); }
+  50% { box-shadow: 0 0 0 8px rgba(125,211,252,0); }
+}
+.lumen28-badge {
+  position: fixed;
+  right: 14px;
+  bottom: 88px;
+  z-index: 20;
+  font-size: 11px;
+  letter-spacing: .04em;
+  color: rgba(224,242,254,.72);
+  pointer-events: none;
+}
