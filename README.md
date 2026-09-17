@@ -36,3 +36,4 @@ About page: [about.html](about.html)
 - Studio, Journal, System, Brief, Harbor catalog
 - Compass, Ledger, Timer, Palette, Stage, Bridge
 - Aura helper (`⌘/⌃ Space`) with mic + optional demo API
+- Ember polish: live lock clock, extra glass highlight, richer Aura phrases
