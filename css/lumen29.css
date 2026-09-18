@@ -1,0 +1,7 @@
+.lumen29-badge{position:fixed;right:14px;bottom:88px;z-index:40;font-size:11px;letter-spacing:.04em;color:rgba(255,255,255,.72);text-shadow:0 1px 8px rgba(0,0,0,.4);pointer-events:none}
+.dock-item.bounce{animation:l29bounce .55s ease}
+@keyframes l29bounce{0%{transform:translateY(0) scale(1)}35%{transform:translateY(-18px) scale(1.08)}70%{transform:translateY(-4px)}100%{transform:translateY(0)}}
+.app-beacon .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.app-drift textarea{width:100%;min-height:160px;background:rgba(0,0,0,.25);color:#fff;border:0;border-radius:10px;padding:12px}
+.app-quilt .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.app-quilt .cell{aspect-ratio:1;border-radius:10px;background:linear-gradient(135deg,#67e8f9,#818cf8)}
