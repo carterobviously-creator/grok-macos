@@ -13,8 +13,8 @@ Apple product names, official icons, official wallpapers, Liquid Glass, and syst
 This project does **not** use them.
 Icons are original SVGs.
 Wallpaper is an original CSS gradient.
-Aura is a local phrase helper loaded at boot, plus an optional third-party text demo.
-Settings can turn off the optional demo.
+Aura is a local phrase helper loaded at boot.
+Settings can turn off the optional third-party text demo.
 It is not a product AI and not an Apple assistant.
 
 Live: https://carterobviously-creator.github.io/grok-macos/
@@ -35,6 +35,9 @@ About page: [about.html](about.html)
 - Preview, Voice Pad, Phone, Flows, Camera, Sketch, Radio, Board
 - Studio, Journal, System, Brief, Harbor catalog
 - Compass, Ledger, Timer, Palette, Stage, Bridge
-- Beacon, Drift, Quilt, Atlas, Orbit, Echo
+- Atlas, Orbit, Echo, Nova, Tide, Spark Pad
 - Aura helper (`⌘/⌃ Space`) with mic + optional demo API
-- Lumen 30: extra glass polish and three new original apps
+
+## Why original icons
+
+Official system icons are not free for cloning a desktop. Lumen uses original SVG marks so the mock stays legal to host.

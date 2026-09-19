@@ -1,0 +1,52 @@
+/* Lumen 31 polish — original glass mock, not a product clone */
+.win {
+  box-shadow: 0 28px 70px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.28);
+  border: 1px solid rgba(255,255,255,.22);
+}
+.win .titlebar {
+  background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.04));
+}
+#dock.glass {
+  backdrop-filter: blur(28px) saturate(1.35);
+  -webkit-backdrop-filter: blur(28px) saturate(1.35);
+  border: 1px solid rgba(255,255,255,.28);
+  box-shadow: 0 18px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.4);
+}
+#dock .dock-item {
+  transition: transform .16s cubic-bezier(.2,.8,.2,1);
+}
+#dock .dock-item:hover {
+  transform: translateY(-10px) scale(1.18);
+}
+#assistant {
+  border: 1px solid rgba(196,181,253,.35);
+  box-shadow: 0 24px 60px rgba(76,29,149,.28);
+}
+#aura-mic.listening {
+  animation: pulse-mic .8s ease infinite;
+}
+@keyframes pulse-mic {
+  0%,100% { box-shadow: 0 0 0 0 rgba(167,139,250,.55); }
+  50% { box-shadow: 0 0 0 10px rgba(167,139,250,0); }
+}
+.lumen31-badge {
+  position: fixed;
+  right: 14px;
+  bottom: 86px;
+  font-size: 11px;
+  opacity: .55;
+  pointer-events: none;
+  z-index: 20;
+}
+.app-nova, .app-tide, .app-sparkpad { padding: 14px; }
+.app-tide .wave {
+  height: 90px;
+  border-radius: 12px;
+  background: linear-gradient(90deg,#38bdf8,#818cf8,#c4b5fd);
+  background-size: 200% 100%;
+  animation: tide 6s linear infinite;
+}
+@keyframes tide {
+  0% { background-position: 0 0; }
+  100% { background-position: 200% 0; }
+}
