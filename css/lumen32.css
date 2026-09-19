@@ -1,0 +1,48 @@
+/* Lumen 32 — extra glass polish, original mock surfaces */
+:root {
+  --l32-glass: color-mix(in srgb, #e8f4ff 18%, transparent);
+  --l32-edge: rgba(255, 255, 255, 0.38);
+}
+#dock.glass,
+#control-center.glass,
+#assistant.glass,
+#spotlight.glass,
+#notify-drawer.glass,
+#widgets.glass {
+  box-shadow:
+    0 12px 40px rgba(8, 16, 40, 0.28),
+    inset 0 1px 0 var(--l32-edge),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+}
+#dock .dock-item:hover .icon-wrap,
+.desk-icon:hover .icon-wrap {
+  transform: translateY(-6px) scale(1.08);
+  filter: drop-shadow(0 10px 12px rgba(20, 40, 80, 0.35));
+}
+.win.l32-pop {
+  animation: l32pop 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@keyframes l32pop {
+  from { opacity: 0; transform: scale(0.96) translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.l32-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+  padding: 12px;
+}
+.l32-card {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 14px;
+  padding: 12px;
+  backdrop-filter: blur(18px);
+}
+.l32-card h4 { margin: 0 0 6px; font-size: 13px; }
+.l32-card p, .l32-card button { font-size: 12px; }
+#aura-mic.listening { animation: l32pulse 0.8s ease-in-out infinite; }
+@keyframes l32pulse {
+  50% { transform: scale(1.12); filter: drop-shadow(0 0 8px #7dd3fc); }
+}
+.boot-note { max-width: 420px; text-align: center; opacity: 0.75; font-size: 11px; }
