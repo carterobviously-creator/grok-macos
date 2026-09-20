@@ -1,0 +1,47 @@
+/* Lumen 34 polish — original glass mock, not Apple chrome */
+.lumen34-chiprow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 10px 4px;
+}
+.lumen34-chip {
+  border: 0;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 11px;
+  background: rgba(255,255,255,.38);
+  color: #0f172a;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+.lumen34-chip:hover { background: rgba(255,255,255,.55); }
+#dock.lumen34-glow {
+  box-shadow: 0 12px 40px rgba(15,23,42,.28), inset 0 1px 0 rgba(255,255,255,.45);
+}
+#assistant.lumen34-pulse header strong {
+  background: linear-gradient(90deg,#7dd3fc,#a78bfa,#f9a8d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lumen34-orb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #a78bfa;
+  box-shadow: 0 0 10px #c4b5fd;
+  display: inline-block;
+  margin-right: 6px;
+  animation: lumen34spin 2.4s linear infinite;
+}
+@keyframes lumen34spin {
+  0% { transform: scale(1); opacity: .7; }
+  50% { transform: scale(1.25); opacity: 1; }
+  100% { transform: scale(1); opacity: .7; }
+}
+.lumen34-card {
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.22);
+}
