@@ -1,0 +1,45 @@
+/* Lumen 33 — original glass polish, not Apple Liquid Glass */
+#assistant {
+  width: 360px;
+  height: 460px;
+  border-radius: 22px;
+  overflow: hidden;
+}
+#assistant header {
+  background: linear-gradient(180deg, rgba(255,255,255,0.22), transparent);
+}
+#aura-mode {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(37,99,235,0.16);
+  font-size: 11px !important;
+}
+.msg.bot {
+  backdrop-filter: blur(8px);
+}
+#dock {
+  gap: 10px;
+  padding: 10px 16px 12px;
+}
+.dock-item .icon {
+  border-radius: 16px;
+  box-shadow:
+    0 12px 22px rgba(0,0,0,0.32),
+    inset 0 1px 0 rgba(255,255,255,.55),
+    inset 0 -8px 12px rgba(255,255,255,0.08);
+}
+#wallpaper.bloom {
+  background:
+    radial-gradient(1000px 560px at 12% 18%, rgba(125,211,252,0.48), transparent 50%),
+    radial-gradient(820px 480px at 88% 12%, rgba(196,181,253,0.42), transparent 46%),
+    linear-gradient(180deg, #16324f, #0b1220 55%, #0a0f1a);
+}
+.lumen33-chip {
+  display: inline-block;
+  margin: 4px 4px 0 0;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(37,99,235,0.16);
+  font-size: 11px;
+  cursor: pointer;
+}
