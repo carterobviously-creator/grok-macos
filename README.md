@@ -36,8 +36,9 @@ About page: [about.html](about.html)
 - Studio, Journal, System, Brief, Harbor catalog
 - Compass, Ledger, Timer, Palette, Stage, Bridge
 - Atlas, Orbit, Echo, Nova, Tide, Spark Pad
+- Beacon (Lumen 36)
 - Aura helper (`⌘/⌃ Space`) with mic + optional demo API
-- Lumen 35 polish: extra original apps and stronger local replies
+- Lumen 36 polish: Beacon / Ledger / Tide plus stronger local replies
 
 ## Why original icons
 
