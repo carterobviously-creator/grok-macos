@@ -37,6 +37,7 @@ About page: [about.html](about.html)
 - Compass, Ledger, Timer, Palette, Stage, Bridge
 - Atlas, Orbit, Echo, Nova, Tide, Spark Pad
 - Aura helper (`⌘/⌃ Space`) with mic + optional demo API
+- Lumen 35 polish: extra original apps and stronger local replies
 
 ## Why original icons
 
