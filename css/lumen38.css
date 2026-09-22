@@ -1,0 +1,58 @@
+/* Lumen 38 — original glass polish. Not Apple Liquid Glass. */
+:root {
+  --l38-spec: rgba(255,255,255,.48);
+  --l38-glow: rgba(125,211,252,.28);
+}
+#dock.lumen38-glow {
+  box-shadow: 0 20px 56px rgba(8,12,24,.5), 0 0 0 1px rgba(255,255,255,.08), inset 0 1px 0 var(--l38-spec);
+}
+#assistant.lumen38-orb {
+  box-shadow: 0 24px 60px rgba(8,12,24,.5), 0 0 40px var(--l38-glow);
+}
+.lumen38-card {
+  padding: 16px 18px;
+  line-height: 1.5;
+}
+.lumen38-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.lumen38-chip {
+  border: 0;
+  border-radius: 999px;
+  padding: 7px 13px;
+  background: rgba(255,255,255,.16);
+  color: inherit;
+  cursor: pointer;
+}
+.lumen38-chip:hover { background: rgba(255,255,255,.28); }
+.lumen38-meter {
+  height: 9px;
+  border-radius: 99px;
+  background: rgba(255,255,255,.12);
+  overflow: hidden;
+  margin: 12px 0;
+}
+.lumen38-meter span {
+  display: block;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(90deg,#67e8f9,#818cf8,#c4b5fd);
+}
+#wallpaper.lumen38-wash {
+  filter: saturate(1.1) contrast(1.05);
+}
+.lumen38-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
+.lumen38-tile {
+  background: rgba(255,255,255,.1);
+  border-radius: 12px;
+  padding: 10px;
+  min-height: 52px;
+}

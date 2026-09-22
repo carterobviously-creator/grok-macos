@@ -38,8 +38,9 @@ About page: [about.html](about.html)
 - Atlas, Orbit, Echo, Nova, Tide, Spark Pad
 - Beacon (Lumen 36)
 - Lantern, Quarry, Drift, Loom (Lumen 37)
+- Kiln, Rivulet, Atlas Pad, Ember Box (Lumen 38)
 - Aura helper (`⌘/⌃ Space`) with mic + optional demo API
-- Lumen 37 polish: extra original apps and stronger local replies
+- Lumen 38 polish: extra original apps and stronger local replies
 
 ## Why original icons
 
