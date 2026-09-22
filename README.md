@@ -37,8 +37,9 @@ About page: [about.html](about.html)
 - Compass, Ledger, Timer, Palette, Stage, Bridge
 - Atlas, Orbit, Echo, Nova, Tide, Spark Pad
 - Beacon (Lumen 36)
+- Lantern, Quarry, Drift, Loom (Lumen 37)
 - Aura helper (`⌘/⌃ Space`) with mic + optional demo API
-- Lumen 36 polish: Beacon / Ledger / Tide plus stronger local replies
+- Lumen 37 polish: extra original apps and stronger local replies
 
 ## Why original icons
 
