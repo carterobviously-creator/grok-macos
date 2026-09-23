@@ -1,0 +1,40 @@
+/* Lumen 39 original polish. Not Apple chrome. */
+.lumen39-card {
+  padding: 16px 18px;
+  line-height: 1.45;
+}
+.lumen39-card textarea {
+  width: 100%;
+  min-height: 160px;
+  border: 0;
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(255,255,255,.12);
+  color: inherit;
+  resize: vertical;
+}
+.lumen39-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+.lumen39-chip {
+  border: 0;
+  border-radius: 999px;
+  padding: 6px 12px;
+  background: rgba(255,255,255,.16);
+  color: inherit;
+  cursor: pointer;
+}
+#dock.lumen39-glow {
+  box-shadow: 0 18px 40px rgba(8,12,28,.35), inset 0 1px 0 rgba(255,255,255,.28);
+}
+#assistant.lumen39-orb header strong::after {
+  content: " 39";
+  font-weight: 500;
+  opacity: .55;
+  font-size: .75em;
+}
+#wallpaper.lumen39-wash {
+  filter: saturate(1.04) contrast(1.03);
+}

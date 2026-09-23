@@ -31,17 +31,10 @@ About page: [about.html](about.html)
 - Launchpad (`F4`) and Mission Control (`F3`)
 - Files, Notes, Calculator, Web, Gallery, Settings
 - Calendar, Music, Photos, Terminal, Mail, Maps, Stickies
-- Weather, Clock, Writer, Reminders, Messages, Contacts, Pulse
-- Preview, Voice Pad, Phone, Flows, Camera, Sketch, Radio, Board
-- Studio, Journal, System, Brief, Harbor catalog
-- Compass, Ledger, Timer, Palette, Stage, Bridge
-- Atlas, Orbit, Echo, Nova, Tide, Spark Pad
-- Beacon (Lumen 36)
-- Lantern, Quarry, Drift, Loom (Lumen 37)
-- Kiln, Rivulet, Atlas Pad, Ember Box (Lumen 38)
 - Aura helper (`⌘/⌃ Space`) with mic + optional demo API
-- Lumen 38 polish: extra original apps and stronger local replies
+- Lumen 39 polish: Quill pad and stronger local replies
 
 ## Why original icons
 
-Official system icons are not free for cloning a desktop. Lumen uses original SVG marks so the mock stays legal to host.
+Official system icons are not free for cloning a desktop.
+Lumen uses original SVG marks so the mock stays legal to host.
