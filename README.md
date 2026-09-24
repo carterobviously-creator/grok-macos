@@ -32,7 +32,8 @@ About page: [about.html](about.html)
 - Files, Notes, Calculator, Web, Gallery, Settings
 - Calendar, Music, Photos, Terminal, Mail, Maps, Stickies
 - Aura helper (`⌘/⌃ Space`) with mic + optional demo API
-- Lumen 40 polish: Nimbus mock weather pad and stronger local replies
+- Lumen 40: Nimbus mock weather pad
+- Lumen 41: Shelf mock catalog (opens apps already in the tab)
 
 ## Why original icons
 

@@ -1,0 +1,43 @@
+/* Lumen 41 — original mock styles. Not Apple Liquid Glass. */
+.lumen41-card {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 280px;
+}
+.lumen41-hero {
+  border-radius: 16px;
+  padding: 16px 18px;
+  background: linear-gradient(135deg, rgba(125,211,252,.35), rgba(129,140,248,.28), rgba(196,181,253,.22));
+  border: 1px solid rgba(255,255,255,.18);
+}
+.lumen41-hero h3 { margin: 0 0 4px; font-weight: 600; }
+.lumen41-hero p { margin: 0; opacity: .82; font-size: 13px; }
+.lumen41-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.lumen41-tile {
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 12px;
+  text-align: left;
+  background: rgba(255,255,255,.08);
+  color: inherit;
+  cursor: pointer;
+}
+.lumen41-tile:hover { background: rgba(255,255,255,.14); }
+.lumen41-tile b { display: block; font-size: 13px; }
+.lumen41-tile span { font-size: 11px; opacity: .7; }
+.lumen41-status { font-size: 12px; opacity: .75; margin: 0; }
+#dock.lumen41-glow {
+  box-shadow: 0 12px 40px rgba(15,23,42,.35), inset 0 1px 0 rgba(255,255,255,.28);
+}
+#assistant.lumen41-orb header {
+  letter-spacing: .02em;
+}
+#wallpaper.lumen41-wash {
+  filter: saturate(1.05) contrast(1.02);
+}
