@@ -1,0 +1,60 @@
+/* Lumen 42 — original mock styles. Not Apple Liquid Glass. */
+.lumen42-card {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 300px;
+}
+.lumen42-hero {
+  border-radius: 18px;
+  padding: 18px;
+  background:
+    radial-gradient(120% 80% at 10% 0%, rgba(125,211,252,.4), transparent 55%),
+    radial-gradient(90% 70% at 100% 20%, rgba(167,139,250,.32), transparent 50%),
+    rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.16);
+}
+.lumen42-hero h3 { margin: 0 0 6px; }
+.lumen42-hero p { margin: 0; font-size: 13px; opacity: .82; }
+.lumen42-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.lumen42-row button {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: rgba(255,255,255,.12);
+  color: inherit;
+  cursor: pointer;
+}
+.lumen42-row button:hover { background: rgba(255,255,255,.2); }
+.lumen42-log {
+  flex: 1;
+  min-height: 120px;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: rgba(0,0,0,.18);
+  font-size: 13px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+.lumen42-notches {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  opacity: .65;
+  margin-top: -6px;
+  padding: 0 2px;
+}
+#dock.lumen42-glow {
+  backdrop-filter: blur(28px) saturate(1.35);
+}
+#assistant.lumen42-orb {
+  box-shadow: 0 18px 50px rgba(15,23,42,.4), inset 0 1px 0 rgba(255,255,255,.32);
+}
+#wallpaper.lumen42-wash {
+  filter: saturate(1.08) contrast(1.03);
+}
