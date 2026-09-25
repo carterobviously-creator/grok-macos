@@ -1,0 +1,37 @@
+/* Lumen 43 — original glass mock. Not Apple Liquid Glass. */
+.lumen43-dock {
+  box-shadow: 0 18px 50px rgba(8, 12, 28, 0.35), inset 0 1px 0 rgba(255,255,255,0.38);
+}
+.lumen43-orb header {
+  background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.04));
+}
+.lumen43-card {
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+}
+.lumen43-hero h3 { margin: 0 0 4px; }
+.lumen43-hero p { margin: 0; opacity: 0.8; font-size: 13px; }
+.lumen43-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.lumen43-row button {
+  border: 0;
+  border-radius: 12px;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.16);
+  color: inherit;
+  cursor: pointer;
+}
+.lumen43-log {
+  min-height: 72px;
+  border-radius: 12px;
+  padding: 10px;
+  background: rgba(0,0,0,0.18);
+  white-space: pre-wrap;
+}
+#wallpaper.lumen43-wash::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(1200px 500px at 70% 10%, rgba(125,211,252,0.16), transparent 60%);
+}
