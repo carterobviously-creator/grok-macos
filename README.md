@@ -32,7 +32,7 @@ About page: [about.html](about.html)
 - Files, Notes, Calculator, Web, Gallery, Settings
 - Calendar, Music, Photos, Terminal, Mail, Maps, Stickies
 - Aura helper (`⌘/⌃ Space`) with mic + optional demo API
-- Lumen 43 polish: Studio app and stronger local Aura replies
+- Lumen 44 polish: Nexus pad and stronger local replies
 
 ## Why original icons
 

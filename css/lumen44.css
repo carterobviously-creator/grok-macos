@@ -1,0 +1,60 @@
+/* Lumen 44 — original glass polish. Not Liquid Glass. */
+#wallpaper.lumen44-wash {
+  background:
+    radial-gradient(1200px 700px at 18% 12%, rgba(125, 211, 252, 0.38), transparent 55%),
+    radial-gradient(900px 600px at 82% 18%, rgba(167, 139, 250, 0.32), transparent 50%),
+    radial-gradient(800px 500px at 50% 92%, rgba(56, 189, 248, 0.22), transparent 55%),
+    linear-gradient(160deg, #0b1220 0%, #1e1b4b 48%, #0f172a 100%);
+}
+#dock.lumen44-dock {
+  box-shadow:
+    0 18px 40px rgba(8, 12, 24, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.38);
+}
+#assistant.lumen44-orb header {
+  letter-spacing: 0.02em;
+}
+.lumen44-card {
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+}
+.lumen44-hero h3 {
+  margin: 0 0 6px;
+  font-weight: 600;
+}
+.lumen44-hero p,
+.lumen44-log {
+  margin: 0;
+  opacity: 0.86;
+  line-height: 1.45;
+}
+.lumen44-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.lumen44-row button {
+  border: 0;
+  border-radius: 12px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.16);
+  color: inherit;
+  cursor: pointer;
+}
+.lumen44-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.lumen44-tile {
+  border-radius: 14px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  min-height: 72px;
+}
+.lumen44-tile small {
+  display: block;
+  opacity: 0.7;
+  margin-top: 4px;
+}
