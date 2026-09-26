@@ -1,0 +1,61 @@
+/* Lumen 45 glass wash. Original mock styling. */
+.lumen45-wash {
+  background-image:
+    radial-gradient(1200px 700px at 18% 8%, rgba(125, 211, 252, 0.38), transparent 58%),
+    radial-gradient(900px 620px at 86% 18%, rgba(167, 139, 250, 0.32), transparent 60%),
+    radial-gradient(700px 500px at 50% 92%, rgba(56, 189, 248, 0.18), transparent 55%);
+}
+.lumen45-dock {
+  box-shadow: 0 18px 50px rgba(8, 12, 28, 0.35), inset 0 1px 0 rgba(255,255,255,0.38);
+}
+.lumen45-orb {
+  border-radius: 22px;
+}
+.lumen45-card {
+  padding: 16px 18px 20px;
+}
+.lumen45-hero h3 {
+  margin: 0 0 6px;
+  font-size: 22px;
+}
+.lumen45-hero p {
+  margin: 0 0 16px;
+  opacity: 0.78;
+  font-size: 13px;
+}
+.lumen45-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.lumen45-tile {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 14px;
+  padding: 12px;
+  min-height: 72px;
+}
+.lumen45-tile small {
+  display: block;
+  margin-top: 6px;
+  opacity: 0.72;
+}
+.lumen45-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+.lumen45-row button {
+  flex: 1;
+  border: 0;
+  border-radius: 12px;
+  padding: 9px 10px;
+  background: rgba(255,255,255,0.18);
+  color: inherit;
+  cursor: pointer;
+}
+.lumen45-log {
+  margin: 12px 0 0;
+  font-size: 12px;
+  opacity: 0.7;
+}
