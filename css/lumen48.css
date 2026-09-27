@@ -1,0 +1,62 @@
+/* Lumen 48 — original glass polish, not Apple chrome */
+#stage-rail {
+  position: fixed;
+  left: 10px;
+  top: 52px;
+  bottom: 92px;
+  width: 72px;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 8px;
+  z-index: 40;
+  border-radius: 18px;
+}
+body.stage-on #stage-rail { display: flex; }
+.stage-thumb {
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(160deg, rgba(255,255,255,.18), rgba(255,255,255,.04));
+  border: 1px solid rgba(255,255,255,.22);
+  color: #eef4ff;
+  font-size: 10px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.journal {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+  gap: 8px;
+  padding: 10px;
+}
+.journal textarea {
+  resize: none;
+  border: 0;
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(8,12,22,.45);
+  color: #f4f7ff;
+  font: 15px/1.5 ui-rounded, system-ui, sans-serif;
+}
+.journal-toolbar {
+  display: flex;
+  gap: 8px;
+}
+.journal-toolbar button {
+  border: 0;
+  border-radius: 10px;
+  padding: 6px 10px;
+  background: rgba(255,255,255,.14);
+  color: #fff;
+  cursor: pointer;
+}
+#aura-log .aura-chip {
+  display: inline-block;
+  margin: 4px 4px 0 0;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(125,211,252,.16);
+  font-size: 11px;
+}
