@@ -1,0 +1,30 @@
+/* Lumen 47 — original mock polish. Not Apple UI. */
+#wallpaper {
+  background:
+    radial-gradient(1200px 700px at 18% 12%, rgba(125,211,252,.42), transparent 55%),
+    radial-gradient(900px 600px at 82% 78%, rgba(167,139,250,.38), transparent 50%),
+    linear-gradient(165deg, #1b2450 0%, #31407a 42%, #5b4a8a 78%, #2a3a68 100%);
+}
+body.dusk #wallpaper {
+  filter: saturate(.85) brightness(.72);
+}
+#dock {
+  backdrop-filter: blur(28px) saturate(1.35);
+  -webkit-backdrop-filter: blur(28px) saturate(1.35);
+}
+#dock .dock-item:hover {
+  transform: translateY(-10px) scale(1.22);
+}
+#assistant {
+  box-shadow: 0 24px 60px rgba(8,10,30,.45), inset 0 1px 0 rgba(255,255,255,.32);
+}
+#aura-mic.listening {
+  animation: pulse-mic .8s ease-in-out infinite;
+}
+@keyframes pulse-mic {
+  50% { transform: scale(1.12); filter: brightness(1.3); }
+}
+.lock-time {
+  font-weight: 600;
+  letter-spacing: -.02em;
+}
