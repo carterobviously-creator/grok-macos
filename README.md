@@ -30,9 +30,9 @@ About page: [about.html](about.html)
 - Wallpaper scenes with Ctrl/Cmd+W and dusk wash with Ctrl/Cmd+D
 - Launchpad (`F4`) and Mission Control (`F3`)
 - Files, Notes, Calculator, Web, Gallery, Settings
-- Calendar, Music, Photos, Terminal, Mail, Maps, Stickies
+- Calendar, Music, Photos, Terminal, Mail, Maps, Stickies, Journal
 - Aura helper (`⌘/⌃ Space`) with mic + optional demo API
-- Lumen 49: Sky and Clock pads, live mock weather widget
+- Lumen 50 polish: stage rail, Aura chips, Journal pad
 
 ## Why original icons
 
