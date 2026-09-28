@@ -1,0 +1,41 @@
+/* Lumen 49 — original glass polish, not Apple chrome */
+.sky-app {
+  padding: 18px 20px;
+  min-height: 280px;
+  background: linear-gradient(165deg, rgba(125,211,252,.18), rgba(129,140,248,.12) 50%, rgba(15,23,42,.35));
+}
+.sky-now {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.sky-temp { font-size: 56px; font-weight: 520; letter-spacing: -2px; }
+.sky-meta { opacity: .78; font-size: 14px; }
+.sky-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-top: 22px;
+}
+.sky-card {
+  text-align: center;
+  padding: 10px 6px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  font-size: 12px;
+}
+.clock-app {
+  display: grid;
+  place-items: center;
+  min-height: 260px;
+  padding: 24px;
+}
+.clock-big {
+  font-size: 64px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -1px;
+  font-weight: 480;
+}
+.clock-sub { opacity: .7; margin-top: 8px; }
+.wid-weather { transition: opacity .3s ease; }
