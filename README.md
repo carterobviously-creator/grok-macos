@@ -33,6 +33,7 @@ About page: [about.html](about.html)
 - Calendar, Music, Photos, Terminal, Mail, Maps, Stickies, Journal
 - Aura helper (`⌘/⌃ Space`) with mic + optional demo API
 - Lumen 50 polish: stage rail, Aura chips, Journal pad
+- Lumen 52: extra glass glow and Aura suggestion chips
 
 ## Why original icons
 
