@@ -32,10 +32,9 @@ About page: [about.html](about.html)
 - Files, Notes, Calculator, Web, Gallery, Settings
 - Calendar, Music, Photos, Terminal, Mail, Maps, Stickies, Journal
 - Aura helper (`⌘/⌃ Space`) with mic + optional demo API
-- Lumen 50 polish: stage rail, Aura chips, Journal pad
-- Lumen 52: extra glass glow and Aura suggestion chips
+- Lumen 50–52 polish: stage rail, Aura chips, Journal pad
+- Lumen 53: live card, extra Aura chips, Journal hook, stronger glass sheen
 
 ## Why original icons
 
 Official system icons are not free for cloning a desktop.
-Lumen uses original SVG marks so the mock stays legal to host.
