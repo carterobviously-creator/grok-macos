@@ -1,0 +1,61 @@
+/* Lumen 54 — extra mock polish. Original chrome only. */
+:root {
+  --l54-spec: rgba(255,255,255,.42);
+}
+#dock.glass {
+  backdrop-filter: blur(32px) saturate(1.55);
+}
+#assistant.glass,
+#spotlight.glass,
+#control-center.glass {
+  backdrop-filter: blur(30px) saturate(1.45);
+}
+.l54-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 6px 10px 8px;
+}
+.l54-chip {
+  border: 0;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font: 12px/1.2 system-ui, sans-serif;
+  background: rgba(255,255,255,.2);
+  cursor: pointer;
+}
+.l54-chip:hover { background: rgba(255,255,255,.36); }
+.l54-stage {
+  position: absolute;
+  left: 14px;
+  bottom: 88px;
+  z-index: 6;
+  padding: 8px 12px;
+  border-radius: 14px;
+  font: 12px/1.4 system-ui, sans-serif;
+}
+.l54-stage b { display:block; }
+.app-pad.l54 { padding: 12px 14px; }
+.app-pad.l54 textarea, .app-pad.l54 input {
+  width: 100%;
+  margin: 6px 0;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(15,23,42,.28);
+  color: inherit;
+  padding: 8px;
+  font: 13px/1.4 system-ui, sans-serif;
+}
+.l54-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 8px;
+}
+.l54-card {
+  padding: 10px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.12);
+}
+.icon {
+  box-shadow: inset 0 1px 0 var(--l54-spec);
+}

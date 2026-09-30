@@ -31,9 +31,10 @@ About page: [about.html](about.html)
 - Launchpad (`F4`) and Mission Control (`F3`)
 - Files, Notes, Calculator, Web, Gallery, Settings
 - Calendar, Music, Photos, Terminal, Mail, Maps, Stickies, Journal
+- Planner, Vault, Voice Lab (Lumen 54)
 - Aura helper (`⌘/⌃ Space`) with mic + optional demo API
-- Lumen 50–52 polish: stage rail, Aura chips, Journal pad
-- Lumen 53: live card, extra Aura chips, Journal hook, stronger glass sheen
+- Lumen 50–53 polish: stage rail, Aura chips, Journal pad, live card
+- Lumen 54: extra glass sheen, Planner/Vault/Lab, more Aura chips
 
 ## Why original icons
 
