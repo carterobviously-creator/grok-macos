@@ -33,10 +33,12 @@ About page: [about.html](about.html)
 - Calendar, Music, Photos, Terminal, Mail, Maps, Stickies, Journal
 - Planner, Vault, Voice Lab (Lumen 54)
 - Studio pad (Lumen 55)
+- Orbit pad (Lumen 56)
 - Aura helper (`⌘/⌃ Space`) with mic + optional demo API
 - Lumen 50–53 polish: stage rail, Aura chips, Journal pad, live card
 - Lumen 54: extra glass sheen, Planner/Vault/Lab, more Aura chips
 - Lumen 55: Studio canvas, extra chips, dock rim sheen
+- Lumen 56: Orbit scratch pad, extra Aura phrases, dock/window sheen
 
 ## Why original icons
 
