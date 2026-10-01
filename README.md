@@ -32,10 +32,14 @@ About page: [about.html](about.html)
 - Files, Notes, Calculator, Web, Gallery, Settings
 - Calendar, Music, Photos, Terminal, Mail, Maps, Stickies, Journal
 - Planner, Vault, Voice Lab (Lumen 54)
+- Studio pad (Lumen 55)
 - Aura helper (`⌘/⌃ Space`) with mic + optional demo API
 - Lumen 50–53 polish: stage rail, Aura chips, Journal pad, live card
 - Lumen 54: extra glass sheen, Planner/Vault/Lab, more Aura chips
+- Lumen 55: Studio canvas, extra chips, dock rim sheen
 
 ## Why original icons
 
 Official system icons are not free for cloning a desktop.
+Apple icons and wallpapers are not royalty-free.
+This mock keeps original marks so it can stay public.
