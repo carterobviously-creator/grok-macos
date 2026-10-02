@@ -1,0 +1,30 @@
+.shelf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.shelf-card {
+  padding: 12px; border-radius: 16px;
+  background: rgba(255,255,255,0.35);
+  border: 1px solid rgba(255,255,255,0.45);
+}
+.shelf-card p { margin: 6px 0 10px; font-size: 12px; opacity: 0.8; }
+.shelf-card button {
+  border: 0; border-radius: 999px; padding: 6px 12px;
+  background: #0f172a; color: #fff;
+}
+#aura-orb {
+  width: 54px; height: 54px; border-radius: 50%; margin: 8px auto 0;
+  background: radial-gradient(circle at 35% 30%, #fff, #c4b5fd 40%, #6d28d9);
+  box-shadow: 0 0 24px rgba(167,139,250,0.65);
+  animation: auraPulse 2.4s ease-in-out infinite;
+}
+@keyframes auraPulse {
+  50% { transform: scale(1.06); filter: saturate(1.2); }
+}
+.mind-note { font-size: 11px; opacity: 0.7; margin-top: 8px; }
+body.shelf-page {
+  margin: 0; min-height: 100vh; color: #f8fafc;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(800px 400px at 20% 10%, rgba(125,211,252,0.45), transparent),
+    linear-gradient(180deg, #1e3a5f, #0b1220);
+}
+.shelf-wrap { max-width: 760px; margin: 0 auto; padding: 40px 20px; }
+.shelf-wrap a { color: #bae6fd; }

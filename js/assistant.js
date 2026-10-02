@@ -96,6 +96,7 @@ const Aura = {
     if (/thank/.test(q)) return "You are welcome.";
     const near = AuraModel.nearest(q);
     if (near) return near;
+    if (window.TinyMind && TinyMind.ready) return TinyMind.reply(q);
     const bits = q.replace(/[^a-z0-9\s]/g, "").split(/\s+/).filter(Boolean);
     if (bits.length) {
       return "I heard \"" + bits.slice(0, 8).join(" ") + "\". Try open notes, remind me to…, what time is it, or help.";

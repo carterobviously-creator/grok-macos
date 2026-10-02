@@ -1,0 +1,20 @@
+{
+  "name": "lumen-tiny-mind",
+  "lines": [
+    "lumen is a browser desktop mock with original glass chrome",
+    "aura is a local helper loaded at boot not a branded assistant",
+    "open files to browse the mock volume",
+    "open notes to write text stored in this browser",
+    "open gallery to add mock apps to the dock",
+    "open shelf to install original tools",
+    "press command space to talk to aura",
+    "press f3 for mission control and f4 for launchpad",
+    "glass tint lives in the control menu",
+    "wallpaper scenes cycle with command w",
+    "this page is entertainment only and not an apple product",
+    "icons here are original svg marks not official system icons",
+    "ask for the time the date or a small math problem",
+    "reminders and notes stay on this device",
+    "the tiny mind is a bigram model trained on these lines"
+  ]
+}

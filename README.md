@@ -39,6 +39,7 @@ About page: [about.html](about.html)
 - Lumen 54: extra glass sheen, Planner/Vault/Lab, more Aura chips
 - Lumen 55: Studio canvas, extra chips, dock rim sheen
 - Lumen 56: Orbit scratch pad, extra Aura phrases, dock/window sheen
+- Lumen 57: Shelf catalog page, dock installs, tiny bigram mind loaded at boot
 
 ## Why original icons
 

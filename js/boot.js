@@ -4,7 +4,7 @@
   const steps = [
     [10, "Loading shell…"],
     [28, "Preparing glass surfaces…"],
-    [46, "Loading tiny Aura helper…"],
+    [46, "Loading tiny language model…"],
     [67, "Wiring offline phrase book…"],
     [84, "Mounting mock volumes…"],
     [100, "Ready"]
@@ -15,6 +15,7 @@
     fill.style.width = step[0] + "%";
     status.textContent = step[1];
     if (step[0] >= 46 && typeof AuraModel !== "undefined") AuraModel.load();
+    if (step[0] >= 46 && typeof TinyMind !== "undefined") TinyMind.load().catch(() => {});
     i += 1;
     if (i >= steps.length) {
       clearInterval(t);
@@ -29,6 +30,6 @@
     document.getElementById("lock-screen").classList.add("hidden");
     document.getElementById("desktop").classList.remove("hidden");
     Desktop.start();
-    Desktop.addAura("bot", "Aura online. Local phrase book loaded. Demo replies are on unless you turn them off in Settings. Press Command-K or Ctrl-K to search. F3 Mission Control. F4 Launchpad. Mic to speak.");
+    Desktop.addAura("bot", "Aura online. Tiny mind loaded at boot. Demo replies are on unless you turn them off in Settings. Press Command-K or Ctrl-K to search. F3 Mission Control. F4 Launchpad. Mic to speak.");
   };
 })();
