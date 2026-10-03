@@ -47,3 +47,5 @@ About page: [about.html](about.html)
 Official system icons are not free for cloning a desktop.
 Apple icons and wallpapers are not royalty-free.
 This mock keeps original marks so it can stay public.
+
+- Harbor pass: glass dock magnification, speaking orb, boot phrase-mind line. Official Apple icons are not used.
