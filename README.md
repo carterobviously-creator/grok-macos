@@ -49,3 +49,5 @@ Apple icons and wallpapers are not royalty-free.
 This mock keeps original marks so it can stay public.
 
 - Harbor pass: glass dock magnification, speaking orb, boot phrase-mind line. Official Apple icons are not used.
+
+- Lumen 59: Harbor catalog with Get, Messages, Draw, Pages, boot-loaded mini-mind.json, glass polish. Original icons only.

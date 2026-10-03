@@ -1,0 +1,12 @@
+{
+  "name": "lumen-mini",
+  "version": "59",
+  "note": "Original phrase weights for the entertainment mock. Not a product model.",
+  "replies": [
+    ["weather", "Mock forecast: clear, 72 degrees in Ridge City."],
+    ["battery", "Battery widget is a mock reading."],
+    ["glass", "Glass tint lives in Control Center."],
+    ["wallpaper", "Press Command-W or Control-W to change the scene."],
+    ["help", "Ask me to open Harbor, Messages, Notes, Draw, or the clock."]
+  ]
+}
