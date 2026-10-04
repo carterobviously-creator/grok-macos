@@ -86,13 +86,18 @@
     };
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
+  function bootLayer() {
     loadMind();
     hijack();
-    const timer = setInterval(() => {
-      hijack();
-      patchAsk();
-      if (window.Desktop && Desktop.__gate) clearInterval(timer);
-    }, 200);
-  });
+    patchAsk();
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", bootLayer);
+  else bootLayer();
+  let n = 0;
+  const timer = setInterval(() => {
+    hijack();
+    patchAsk();
+    n += 1;
+    if (n > 20) clearInterval(timer);
+  }, 300);
 })();
