@@ -23,7 +23,7 @@
   }
 
   function hijack() {
-    if (!window.Apps || !window.Windows || Windows.__gatePages) return;
+    if (typeof Apps === "undefined" || typeof Windows === "undefined" || Windows.__gatePages) return;
     Windows.__gatePages = true;
     const orig = Windows.create.bind(Windows);
     Windows.create = function (id, title, w, h, html, dark) {
