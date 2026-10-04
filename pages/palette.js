@@ -1,0 +1,2 @@
+const colors=["#0ea5e9","#6366f1","#a78bfa","#fb7185","#34d399","#fbbf24"];
+document.getElementById("g").innerHTML=colors.map(c=>'<button style="margin:6px;padding:16px;border:0;border-radius:12px;color:#fff;background:'+c+'">'+c+'</button>').join("");
