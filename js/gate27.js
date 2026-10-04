@@ -23,11 +23,20 @@
   }
 
   function hijack() {
-    if (!window.Apps || !window.Windows) return;
+    if (!window.Apps || !window.Windows || Windows.__gatePages) return;
+    Windows.__gatePages = true;
+    const orig = Windows.create.bind(Windows);
+    Windows.create = function (id, title, w, h, html, dark) {
+      if (pages[id]) {
+        if (Windows.list[id] && Windows.close) Windows.close(id);
+        const spec = pages[id];
+        return orig(id, spec[0], spec[2], spec[3], frame(spec[1]), dark);
+      }
+      return orig(id, title, w, h, html, dark);
+    };
     Object.keys(pages).forEach((id) => {
       Apps[id] = function () {
-        const spec = pages[id];
-        Windows.create(id, spec[0], spec[2], spec[3], frame(spec[1]));
+        Windows.create(id);
       };
     });
   }
