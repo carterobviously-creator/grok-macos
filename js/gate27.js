@@ -15,7 +15,9 @@
     maps: ["Maps", "pages/maps.html", 640, 420],
     terminal: ["Terminal", "pages/terminal.html", 640, 400],
     weather: ["Weather", "pages/weather.html", 360, 280],
-    reminders: ["Reminders", "pages/reminders.html", 420, 380]
+    reminders: ["Reminders", "pages/reminders.html", 420, 380],
+    timer: ["Timer", "pages/timer.html", 320, 240],
+    quiz: ["Quiz", "pages/quiz.html", 380, 280]
   };
 
   function frame(src) {
@@ -63,7 +65,9 @@
       const res = await fetch("data/tiny-mind.json");
       const mind = await res.json();
       window.LumenMind = mind;
-      if (status) status.textContent = "Helper ready · " + mind.name;
+      const extra = await fetch("data/mind60.json");
+      if (extra.ok) window.LumenMind60 = await extra.json();
+      if (status) status.textContent = "Helper ready \u00b7 " + (window.LumenMind60 ? window.LumenMind60.name : mind.name);
       if (fill) fill.style.width = "100%";
     } catch (err) {
       if (status) status.textContent = "Helper ready offline";
@@ -82,7 +86,6 @@
     } else if (orb) orb.remove();
   }
 
-  const origAsk = () => {};
   function patchAsk() {
     if (!window.Desktop || Desktop.__gate) return;
     Desktop.__gate = true;
@@ -99,6 +102,9 @@
     loadMind();
     hijack();
     patchAsk();
+    const s = document.createElement("script");
+    s.src = "js/lumen60-boot.js";
+    document.body.appendChild(s);
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", bootLayer);
   else bootLayer();
