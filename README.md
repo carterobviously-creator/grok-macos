@@ -1,16 +1,21 @@
 # Lumen Desktop
 
-Browser desktop mock for entertainment.
+A **browser mock** of a glass-style desktop.
+Entertainment only.
+
+**Not macOS. Not Apple. Not Siri. Not Apple Intelligence. Not the App Store.**
+
+Apple product names, official icons, official wallpapers, and system chrome are copyrighted. This project does **not** use them. Icons are original SVGs. Wallpaper is an original CSS gradient.
+
+Aura is a local phrase helper loaded at boot. Settings can turn off the optional third-party text demo. It is not a product AI and not an Apple assistant.
 
 Live: https://carterobviously-creator.github.io/grok-macos/
 
-Not macOS. Not Apple. Not Siri. Not Apple Intelligence. Not the App Store.
+Shelf page: [pages/catalog.html](pages/catalog.html)
 
-Icons and the ridge wallpaper are original. App windows load separate HTML pages under `pages/`. The boot screen fetches `data/tiny-mind.json`, a tiny local phrase table. Ask (Aura) can open those apps, save notes, and do light math. Saying "hey siri" is accepted only as a wake phrase for this local helper.
+## Lumen 60
 
-## Pages
-
-- `index.html` desktop shell
-- `pages/*.html` Files, Notes, Calculator, Web, Gallery, Settings, Calendar, Music, Photos, Mail, Maps, Terminal, Weather, Reminders
-- `css/gate27.css` glass layer
-- `js/gate27.js` page windows and boot helper
+- Phrase book at `data/mind60.json`
+- Timer, Quiz, Palette, Ledger inside Gallery
+- Glass wash in `css/lumen60.css`
+- Separate shelf page with its own JS

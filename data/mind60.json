@@ -1,0 +1,9 @@
+{
+  "name": "lumen-phrase-book-60",
+  "phrases": [
+    {"q": "hello", "a": "Hi. I am Aura, a local helper loaded at boot. I can open apps, do math, take notes, and answer short questions."},
+    {"q": "weather", "a": "Mock forecast only: clear, 72 degrees. This page does not call a weather service."},
+    {"q": "joke", "a": "A window walked into a dock. The dock said, you are already open."},
+    {"q": "who are you", "a": "Aura is a small on-page helper inside Lumen, a fan desktop mock. Not Siri. Not Apple Intelligence."}
+  ]
+}
