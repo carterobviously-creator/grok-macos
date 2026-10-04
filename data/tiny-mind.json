@@ -1,0 +1,6 @@
+{
+  "name": "lumen-ask-tiny",
+  "version": "0.3",
+  "note": "Local phrase table loaded at boot. Not a foundation model and not Apple Intelligence.",
+  "facts": ["Lumen is a browser desktop mock.", "Icons and wallpaper are original.", "Ask can open apps, do math, and save notes."]
+}
