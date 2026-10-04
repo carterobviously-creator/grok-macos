@@ -1,0 +1,4 @@
+const apps=[["calendar","Calendar","Month grid"],["music","Music","Player chrome"],["photos","Photos","Color tiles"],["mail","Mail","Sample inbox"],["maps","Maps","Decorative map"],["terminal","Terminal","Command toy"],["weather","Weather","Mock forecast"],["reminders","Reminders","Local checklist"],["timer","Timer","Countdown"],["quiz","Quiz","Three questions"],["palette","Palette","Color chips"],["ledger","Ledger","Expense list"]];
+const box=document.getElementById("list");
+box.innerHTML=apps.map(([id,name,blurb])=>'<article class="card row"><div><b>'+name+'</b><div>'+blurb+'</div></div><button data-id="'+id+'">Get</button></article>').join("");
+box.onclick=(e)=>{ if(e.target.tagName!=="BUTTON") return; parent.postMessage({type:"install", id:e.target.dataset.id}, "*"); e.target.textContent="Added"; };
