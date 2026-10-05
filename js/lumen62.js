@@ -76,7 +76,7 @@
   }
 
   function hook() {
-    if (window.Apps) Object.assign(Apps, extra);
+    if (typeof Apps !== 'undefined') Object.assign(Apps, extra);
     if (window.Desktop && Desktop.labels) {
       Desktop.labels.catalog = "Catalog";
       Desktop.labels.tasks = "Tasks";
@@ -104,7 +104,9 @@
     }
     loadMind();
   }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", hook);
-  else hook();
+  function boot(){ try { hook(); } catch(e) { console.error(e); } }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+  setTimeout(boot, 400);
   window.Lumen62 = extra;
 })();
