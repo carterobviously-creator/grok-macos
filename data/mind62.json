@@ -1,0 +1,11 @@
+{
+  "name": "mind62",
+  "phrases": [
+    {"k": "open catalog", "a": "Opening Catalog."},
+    {"k": "open tasks", "a": "Opening Tasks."},
+    {"k": "open timer", "a": "Opening Timer."},
+    {"k": "open canvas", "a": "Opening Canvas."},
+    {"k": "glass", "a": "Glass is an original blur surface, not a product material."},
+    {"k": "who are you", "a": "I am Aura, a local helper in the Lumen entertainment mock."}
+  ]
+}

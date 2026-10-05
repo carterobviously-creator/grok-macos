@@ -19,3 +19,10 @@ Shelf page: [pages/catalog.html](pages/catalog.html)
 - Timer, Quiz, Palette, Ledger inside Gallery
 - Glass wash in `css/lumen60.css`
 - Separate shelf page with its own JS
+
+## Lumen 62
+
+- Catalog, Tasks, Timer, and Canvas
+- Phrase book at data/mind62.json loaded on the boot screen
+- Page: catalog.html
+- Original icons only
