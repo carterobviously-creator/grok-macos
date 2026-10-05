@@ -1,0 +1,81 @@
+/* Lumen 61 — glass wash, dock lift, window chrome. Original look, not a product UI. */
+:root {
+  --glass-blur: 28px;
+  --glass-sat: 1.4;
+  --glass-alpha: 0.42;
+  --dock-lift: 1;
+}
+#menubar {
+  background: linear-gradient(180deg, rgba(255,255,255,0.38), rgba(255,255,255,0.12));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  border-bottom: 1px solid rgba(255,255,255,0.28);
+}
+#dock {
+  background: rgba(255,255,255,var(--glass-alpha));
+  backdrop-filter: blur(32px) saturate(1.6);
+  -webkit-backdrop-filter: blur(32px) saturate(1.6);
+  border: 1px solid rgba(255,255,255,0.45);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.55);
+  padding: 8px 10px 10px;
+  border-radius: 22px;
+}
+#dock button {
+  transition: transform 0.16s ease, filter 0.16s ease;
+  transform-origin: bottom center;
+}
+#dock button:hover { transform: translateY(-10px) scale(1.18); filter: brightness(1.05); }
+#dock button.running::after {
+  content: "";
+  display: block;
+  width: 4px; height: 4px; border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  margin: 3px auto 0;
+}
+.win {
+  border-radius: 14px !important;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.4);
+  overflow: hidden;
+}
+.win .titlebar {
+  background: linear-gradient(180deg, rgba(246,246,248,0.92), rgba(232,232,236,0.86));
+  backdrop-filter: blur(16px);
+}
+.traffic { transition: transform 0.12s ease; }
+.traffic:active { transform: scale(0.86); }
+#assistant, #control-center, #notify-drawer, #spotlight, #widgets {
+  border: 1px solid rgba(255,255,255,0.4);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.22);
+}
+#ask-orb {
+  position: fixed; left: 50%; bottom: 108px; transform: translateX(-50%);
+  width: 86px; height: 86px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff, #7dd3fc 28%, #6366f1 62%, #0f172a 100%);
+  box-shadow: 0 0 40px rgba(99,102,241,0.55);
+  z-index: 80; border: 0; cursor: pointer;
+  display: none;
+}
+#ask-orb.show { display: block; animation: orbPulse 1.6s ease-in-out infinite; }
+@keyframes orbPulse {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.06); }
+}
+#ask-panel {
+  position: fixed; left: 50%; bottom: 204px; transform: translateX(-50%);
+  width: min(520px, 92vw); z-index: 81;
+  padding: 14px 16px; border-radius: 20px;
+  background: rgba(15,23,42,0.55); color: #f8fafc;
+  backdrop-filter: blur(24px) saturate(1.4);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+#ask-panel.hidden { display: none; }
+#ask-panel p { margin: 6px 0; line-height: 1.4; }
+.store-card button.got { background: #0f172a; color: #fff; }
+#wallpaper.ridge {
+  background:
+    linear-gradient(180deg, rgba(15,23,42,0.15), rgba(15,23,42,0.05)),
+    url("../assets/ridge-dawn.jpg") center/cover no-repeat,
+    radial-gradient(1200px 700px at 70% 20%, #fb923c, transparent 55%),
+    linear-gradient(180deg, #1e3a8a, #0f172a);
+}
+.icon-svg { width: 52px; height: 52px; border-radius: 12px; display: block; }
