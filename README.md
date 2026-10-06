@@ -12,6 +12,13 @@ Live: https://carterobviously-creator.github.io/grok-macos/
 
 Shelf page: [pages/shelf.html](pages/shelf.html)
 
+## Lumen 64
+
+- Phrase book at data/mind64.json loaded on the boot screen
+- Shelf, Dice, and Compass mock apps with original marks
+- Aura can open those apps from typed or spoken phrases
+- Official Apple icons are not included
+
 ## Lumen 63
 
 - Phrase book at data/mind63.json loaded on the boot screen
