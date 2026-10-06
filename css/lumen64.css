@@ -1,0 +1,6 @@
+.shelf-grid,.dice-row{display:grid;gap:10px}
+.shelf-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
+.shelf-card{border-radius:16px;padding:12px;background:rgba(255,255,255,.35);text-align:center}
+.shelf-mark{width:42px;height:42px;margin:0 auto 8px;border-radius:12px;display:grid;place-items:center;color:#fff;font-weight:700}
+.dice-face{font-size:48px;text-align:center}
+.compass-ring{width:160px;height:160px;margin:12px auto;border-radius:50%;border:8px solid rgba(125,211,252,.8);display:grid;place-items:center;background:radial-gradient(circle,#e0f2fe,#818cf8)}
