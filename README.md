@@ -1,28 +1,23 @@
 # Lumen Desktop
 
-A **browser mock** of a glass-style desktop.
-Entertainment only.
+A browser mock of a glass-style desktop. Entertainment only.
 
 **Not macOS. Not Apple. Not Siri. Not Apple Intelligence. Not the App Store.**
 
-Apple product names, official icons, official wallpapers, and system chrome are copyrighted. This project does **not** use them. Icons are original SVGs. Wallpaper is an original CSS gradient.
+Apple product names, official icons, official wallpapers, and system chrome are copyrighted. This project does not use them. Icons are original SVGs. Wallpaper is an original CSS gradient.
 
-Aura is a local phrase helper loaded at boot. Settings can turn off the optional third-party text demo. It is not a product AI and not an Apple assistant.
+Aura is a local phrase helper loaded at boot, with an optional third-party text demo. It is not a product AI and not an Apple assistant.
 
 Live: https://carterobviously-creator.github.io/grok-macos/
 
-Shelf page: [pages/catalog.html](pages/catalog.html)
+Shelf page: [pages/shelf.html](pages/shelf.html)
 
-## Lumen 60
+## Lumen 63
 
-- Phrase book at `data/mind60.json`
-- Timer, Quiz, Palette, Ledger inside Gallery
-- Glass wash in `css/lumen60.css`
-- Separate shelf page with its own JS
-
-## Lumen 62
-
-- Catalog, Tasks, Timer, and Canvas
-- Phrase book at data/mind62.json loaded on the boot screen
-- Page: catalog.html
+- Phrase book at data/mind63.json loaded on the boot screen
+- Gallery search and categories, with Get adding a dock icon
+- Messages thread that calls Aura
+- Music plays a short original tone
+- Weather fetches a public forecast
+- Files can add a name saved in this browser
 - Original icons only

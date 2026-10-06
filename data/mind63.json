@@ -1,0 +1,21 @@
+{
+  "name": "mind63",
+  "lines": [
+    "open files",
+    "open notes",
+    "open gallery",
+    "open weather",
+    "what time is it",
+    "remind me to stretch",
+    "note buy milk",
+    "tell a joke",
+    "play a tone",
+    "help"
+  ],
+  "facts": {
+    "name": "Aura",
+    "desk": "Lumen",
+    "weather": "clear mock until live fetch",
+    "battery": "84%"
+  }
+}
