@@ -6,32 +6,14 @@ A browser mock of a glass-style desktop. Entertainment only.
 
 Apple product names, official icons, official wallpapers, and system chrome are copyrighted. This project does not use them. Icons are original SVGs. Wallpaper is an original CSS gradient.
 
-Aura is a local phrase helper loaded at boot, with an optional third-party text demo. It is not a product AI and not an Apple assistant.
+Aura is a local phrase helper. Lumen 66 loads a tiny bag-of-words file at boot (`data/mind66.json`). An optional third-party text demo can still be toggled in Settings. It is not a product AI and not an Apple assistant.
 
 Live: https://carterobviously-creator.github.io/grok-macos/
 
-Shelf page: [pages/shelf.html](pages/shelf.html)
+## Lumen 66
 
-## Lumen 64
-
-- Phrase book at data/mind64.json loaded on the boot screen
-- Shelf, Dice, and Compass mock apps with original marks
-- Aura can open those apps from typed or spoken phrases
+- Boot loads `data/mind66.json`
+- Aura chips and a cosine match against that file
+- Original glass CSS only
+- Atlas page at `pages/atlas.html`
 - Official Apple icons are not included
-
-## Lumen 63
-
-- Phrase book at data/mind63.json loaded on the boot screen
-- Gallery search and categories, with Get adding a dock icon
-- Messages thread that calls Aura
-- Music plays a short original tone
-- Weather fetches a public forecast
-- Files can add a name saved in this browser
-- Original icons only
-
-## Lumen 65
-
-- Glass dock hover, ridge wallpaper, window open animation
-- Boot loads data/mind65.json
-- Ask orb uses speech plus the existing Aura text helper
-- Original icons only. Not Apple.
