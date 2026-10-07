@@ -1,0 +1,40 @@
+/* Lumen 66 — glass polish and boot-loaded micro helper. Original marks only. */
+#aura-orb {
+  position: fixed;
+  right: 22px;
+  bottom: 92px;
+  z-index: 40;
+  width: 54px;
+  height: 54px;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  background: radial-gradient(circle at 35% 30%, #e0f2fe, #6366f1 55%, #312e81);
+  box-shadow: 0 10px 30px rgba(49, 46, 129, 0.35), inset 0 1px 0 rgba(255,255,255,.7);
+}
+#aura-orb.listening { outline: 3px solid #a5f3fc; }
+.glass {
+  background: rgba(255,255,255,.42);
+  border: 1px solid rgba(255,255,255,.55);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, .18), inset 0 1px 0 rgba(255,255,255,.65);
+  backdrop-filter: blur(22px) saturate(1.4);
+}
+#dock .dock-item {
+  transition: transform .16s ease;
+}
+#wallpaper.ridge66 {
+  background:
+    radial-gradient(900px 420px at 70% 20%, rgba(255,255,255,.35), transparent 60%),
+    linear-gradient(180deg, #7dd3fc 0%, #818cf8 42%, #1e1b4b 100%);
+}
+.l66-chip {
+  display: inline-block;
+  margin: 4px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.5);
+  background: rgba(255,255,255,.35);
+  cursor: pointer;
+}
