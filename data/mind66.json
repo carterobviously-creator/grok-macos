@@ -1,0 +1,25 @@
+{
+  "name": "lumen-micro-66",
+  "note": "Tiny local bag-of-words helper. Not a product model and not Apple Intelligence.",
+  "intents": [
+    {"q": "open notes write something", "reply": "Opening Notes.", "app": "notes"},
+    {"q": "open files finder documents", "reply": "Opening Files.", "app": "finder"},
+    {"q": "open calculator math", "reply": "Opening Calculator.", "app": "calc"},
+    {"q": "open web browser", "reply": "Opening Web.", "app": "web"},
+    {"q": "open gallery shelf store", "reply": "Opening Gallery.", "app": "store"},
+    {"q": "open mail inbox", "reply": "Opening Mail.", "app": "mail"},
+    {"q": "open calendar month", "reply": "Opening Calendar.", "app": "calendar"},
+    {"q": "open music player", "reply": "Opening Music.", "app": "music"},
+    {"q": "open photos gallery", "reply": "Opening Photos.", "app": "photos"},
+    {"q": "open terminal shell", "reply": "Opening Terminal.", "app": "terminal"},
+    {"q": "open settings prefs", "reply": "Opening Settings.", "app": "settings"},
+    {"q": "open maps place", "reply": "Opening Maps.", "app": "maps"},
+    {"q": "open messages chat", "reply": "Opening Messages.", "app": "messages"},
+    {"q": "open sketch draw", "reply": "Opening Sketch.", "app": "sketch"},
+    {"q": "open weather forecast", "reply": "Opening Weather.", "app": "weather"},
+    {"q": "open reminders list", "reply": "Opening Reminders.", "app": "reminders"},
+    {"q": "what time is it clock", "reply": "time"},
+    {"q": "tell a joke funny", "reply": "Why did the dock bounce? It saw a new icon."},
+    {"q": "who are you aura help", "reply": "I am Aura inside Lumen, a browser desktop mock. I am not Siri."}
+  ]
+}
