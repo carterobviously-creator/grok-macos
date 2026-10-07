@@ -28,3 +28,10 @@ Shelf page: [pages/shelf.html](pages/shelf.html)
 - Weather fetches a public forecast
 - Files can add a name saved in this browser
 - Original icons only
+
+## Lumen 65
+
+- Glass dock hover, ridge wallpaper, window open animation
+- Boot loads data/mind65.json
+- Ask orb uses speech plus the existing Aura text helper
+- Original icons only. Not Apple.

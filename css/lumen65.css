@@ -1,0 +1,45 @@
+/* Lumen 65 — glass desktop polish. Original marks only. */
+:root { --glass-a: 0.42; --dock-blur: 28px; }
+#wallpaper {
+  background:
+    linear-gradient(180deg, rgba(15,23,42,.15), rgba(15,23,42,.28)),
+    url("../assets/ridge-dawn.jpg") center/cover no-repeat,
+    radial-gradient(1200px 700px at 70% 20%, #7dd3fc, transparent 55%),
+    linear-gradient(160deg, #0f172a, #1e3a5f 40%, #b45309 100%);
+}
+#menubar {
+  background: rgba(255,255,255,var(--glass-a));
+  backdrop-filter: blur(22px) saturate(1.4);
+  border-bottom: 1px solid rgba(255,255,255,.28);
+  color: #0f172a;
+}
+#dock {
+  background: rgba(255,255,255,.28);
+  border: 1px solid rgba(255,255,255,.45);
+  box-shadow: 0 12px 40px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.6);
+  backdrop-filter: blur(var(--dock-blur)) saturate(1.6);
+  border-radius: 22px;
+  padding: 6px 10px;
+}
+#dock button {
+  transition: transform .16s ease;
+}
+#dock button:hover { transform: translateY(-10px) scale(1.16); }
+.window {
+  border-radius: 14px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.28);
+  overflow: hidden;
+  animation: winIn .22s ease;
+}
+@keyframes winIn { from { transform: scale(.96); opacity: 0; } to { transform: none; opacity: 1; } }
+#assistant { border-radius: 18px; }
+#aura-orb {
+  position: fixed; right: 22px; bottom: 92px; z-index: 40;
+  width: 54px; height: 54px; border-radius: 50%; border: 0; cursor: pointer;
+  background: radial-gradient(circle at 35% 30%, #fff, #67e8f9 40%, #6366f1 78%);
+  box-shadow: 0 8px 24px rgba(79,70,229,.45);
+}
+#aura-orb.listening { animation: pulse 1s infinite; }
+@keyframes pulse { 50% { transform: scale(1.08); } }
+.store-card button.got { background: #0f172a; color: #fff; }
+#boot-screen { background: #05070d; }
