@@ -1,0 +1,32 @@
+{
+  "name": "ridge-67",
+  "kind": "tiny-bag-of-words",
+  "note": "Local phrase table loaded at boot. Not Apple Intelligence.",
+  "intents": [
+    {"q": "hello hi hey aura", "reply": "Hi. I am Aura, the on-page helper. Ask me to open an app or tell the time."},
+    {"q": "what time is it clock", "reply": "time"},
+    {"q": "what is the date today", "reply": "date"},
+    {"q": "open notes", "app": "notes", "reply": "Opening Notes."},
+    {"q": "open files finder", "app": "finder", "reply": "Opening Files."},
+    {"q": "open gallery store", "app": "store", "reply": "Opening Gallery."},
+    {"q": "open calculator calc", "app": "calc", "reply": "Opening Calculator."},
+    {"q": "open web browser", "app": "web", "reply": "Opening Web."},
+    {"q": "open settings", "app": "settings", "reply": "Opening Settings."},
+    {"q": "open music", "app": "music", "reply": "Opening Music."},
+    {"q": "open mail", "app": "mail", "reply": "Opening Mail."},
+    {"q": "open calendar", "app": "calendar", "reply": "Opening Calendar."},
+    {"q": "open weather", "app": "weather", "reply": "Opening Weather."},
+    {"q": "open terminal", "app": "terminal", "reply": "Opening Terminal."},
+    {"q": "open messages", "app": "messages", "reply": "Opening Messages."},
+    {"q": "open news", "app": "news", "reply": "Opening News."},
+    {"q": "open stocks", "app": "stocks", "reply": "Opening Markets."},
+    {"q": "open books", "app": "books", "reply": "Opening Books."},
+    {"q": "open podcasts", "app": "podcasts", "reply": "Opening Podcasts."},
+    {"q": "play chess", "app": "chess", "reply": "Opening Chess."},
+    {"q": "tell a joke", "reply": "Why did the window minimize? It needed a little space."},
+    {"q": "who are you", "reply": "Aura is a local helper inside this entertainment desktop. Not Siri."},
+    {"q": "help what can you do", "reply": "Try: open notes, what time is it, tell a joke, open gallery, open chess."},
+    {"q": "lock the screen", "reply": "lock"},
+    {"q": "liquid glass", "reply": "Glass is CSS blur and a soft highlight. It is original styling, not a system material."}
+  ]
+}

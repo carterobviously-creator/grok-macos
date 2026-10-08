@@ -1,0 +1,36 @@
+/* Lumen 67 glass extras. Original styling only. */
+#boot-screen.l67 .boot-bar { box-shadow: 0 0 24px rgba(125, 211, 252, 0.45); }
+.ridge67 {
+  background:
+    radial-gradient(900px 520px at 18% 80%, rgba(251, 191, 36, 0.35), transparent 60%),
+    radial-gradient(700px 480px at 78% 22%, rgba(125, 211, 252, 0.35), transparent 55%),
+    linear-gradient(160deg, #1e3a5f 0%, #7c5c8a 42%, #e7b07a 100%) !important;
+}
+.l67-orb {
+  width: 72px; height: 72px; border-radius: 50%; margin: 8px auto 4px;
+  background: radial-gradient(circle at 35% 30%, #fff, #93c5fd 40%, #6366f1 72%, #1e1b4b);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.45);
+  animation: l67pulse 2.4s ease-in-out infinite;
+}
+.l67-orb.talk { animation-duration: 0.6s; }
+@keyframes l67pulse {
+  0%, 100% { transform: scale(1); filter: saturate(1); }
+  50% { transform: scale(1.06); filter: saturate(1.3); }
+}
+#l67-chips, #l66-chips { display: flex; gap: 6px; flex-wrap: wrap; padding: 0 10px 8px; }
+.l67-chip, .l66-chip {
+  border: 0; border-radius: 999px; padding: 4px 10px; font-size: 12px;
+  background: rgba(255,255,255,0.55); color: #0f172a; cursor: pointer;
+}
+.dock-item { transition: transform 0.12s ease; }
+.dock-item.mag { transform: translateY(-10px) scale(1.28); }
+.news-list, .book-list { display: grid; gap: 8px; padding: 12px; }
+.news-list article, .book-list article {
+  background: rgba(255,255,255,0.55); border-radius: 12px; padding: 10px;
+}
+.stock-row { display: flex; justify-content: space-between; padding: 8px 12px; border-bottom: 1px solid rgba(15,23,42,0.08); }
+.up { color: #059669; } .down { color: #e11d48; }
+#chess-board { display: grid; grid-template-columns: repeat(8, 36px); gap: 0; margin: 12px; }
+#chess-board button { width: 36px; height: 36px; border: 0; font-size: 20px; }
+#chess-board button.dark { background: #94a3b8; }
+#chess-board button.lite { background: #f8fafc; }
