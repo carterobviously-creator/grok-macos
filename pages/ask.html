@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lumen Ask</title>
+  <link rel="stylesheet" href="../css/reset.css" />
+  <style>
+    body { margin: 0; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at 50% 20%, #312e81, #0f172a 60%); color: #f8fafc; }
+    main { max-width: 640px; margin: 0 auto; padding: 28px 16px 48px; }
+    #log { min-height: 240px; background: rgba(255,255,255,.08); border-radius: 18px; padding: 12px; }
+    .me { text-align: right; color: #bae6fd; }
+    form { display: flex; gap: 8px; margin-top: 12px; }
+    input, button { border-radius: 12px; border: 0; padding: 10px 12px; }
+    input { flex: 1; }
+    a { color: #7dd3fc; }
+    .orb { width: 72px; height: 72px; border-radius: 50%; margin: 12px auto;
+      background: conic-gradient(#7dd3fc, #818cf8, #e9d5ff, #7dd3fc); animation: spin 5s linear infinite; }
+    @keyframes spin { to { transform: rotate(1turn); } }
+  </style>
+</head>
+<body>
+  <main>
+    <p><a href="../index.html">Back to desktop</a></p>
+    <div class="orb" aria-hidden="true"></div>
+    <h1>Ask</h1>
+    <p>Voice and text helper for this mock. It loads a tiny note file, then can ask a public text demo. It is not Siri.</p>
+    <div id="log"></div>
+    <form id="f">
+      <button type="button" id="mic">Mic</button>
+      <input id="q" placeholder="Ask to open notes, or ask a question" />
+      <button>Send</button>
+    </form>
+  </main>
+  <script src="../js/model.js"></script>
+  <script src="../js/mind.js"></script>
+  <script src="../js/assistant.js"></script>
+  <script>
+    const log = document.getElementById("log");
+    function add(cls, text) {
+      const p = document.createElement("p");
+      p.className = cls;
+      p.textContent = text;
+      log.appendChild(p);
+    }
+    document.getElementById("f").onsubmit = async (e) => {
+      e.preventDefault();
+      const q = document.getElementById("q").value.trim();
+      if (!q) return;
+      document.getElementById("q").value = "";
+      add("me", q);
+      const a = await Aura.reply(q);
+      add("bot", a);
+      Aura.speak(a);
+    };
+    document.getElementById("mic").onclick = () => {
+      Aura.listen(async (said) => {
+        add("me", said);
+        const a = await Aura.reply(said);
+        add("bot", a);
+        Aura.speak(a);
+      });
+    };
+    fetch("../data/mind68.json").then((r) => r.json()).then(() => add("bot", "Mini model 68 loaded."));
+  </script>
+</body>
+</html>

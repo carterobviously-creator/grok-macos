@@ -1,0 +1,12 @@
+{
+  "name": "lumen-ask-68",
+  "dim": 8,
+  "docs": [
+    {"q": "how do i change the wallpaper", "a": "Open Settings, or press the wallpaper chip in Control Center. Wallpapers here are original gradients, not Apple photos."},
+    {"q": "install an app from the gallery", "a": "Open Gallery and press Get. The app is added to the dock and opens. This is a local mock catalog, not a real store."},
+    {"q": "what is liquid glass", "a": "In this mock, liquid glass is frosted blur, a soft rim light, and a moving highlight on the dock, menu bar, and windows."},
+    {"q": "tell me about this desktop", "a": "This is Lumen, a fan desktop for entertainment. It is not macOS, not Siri, and not Apple Intelligence."},
+    {"q": "how do I lock the screen", "a": "Press Control or Command L, or choose Lock from the round menu."},
+    {"q": "search for an app", "a": "Press Control or Command K for search, or F4 for Launchpad."}
+  ]
+}

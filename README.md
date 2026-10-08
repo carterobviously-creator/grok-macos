@@ -1,19 +1,17 @@
 # Lumen Desktop
 
-A browser mock of a glass-style desktop. Entertainment only.
+Browser mock of a glass-style desktop. Entertainment only.
 
 **Not macOS. Not Apple. Not Siri. Not Apple Intelligence. Not the App Store.**
 
-Apple product names, official icons, official wallpapers, and system chrome are copyrighted. This project does not use them. Icons are original SVGs. Wallpaper is an original CSS gradient.
+Official Apple icons, wallpapers, and system chrome are copyrighted and are not used here. Icons are original SVGs. Wallpapers are original gradients.
 
-Aura is a local phrase helper. Lumen 67 loads a tiny bag-of-words file at boot (`data/mind67.json`) and matches questions with cosine similarity. Speech uses the browser voice when you allow the mic. It is not a product AI and not an Apple assistant.
+Ask is a voice and text helper. Boot loads `data/mind68.json`. Longer answers can use a public text demo in the browser. Speech uses the browser mic and voice when you allow them.
 
 Live: https://carterobviously-creator.github.io/grok-macos/
 
-## Lumen 67
+## Pages
 
-- Boot loads `data/mind67.json`
-- Aura orb, chips, and dock magnification
-- News, Markets, Books, Podcasts, and Chess from Launchpad
-- Notes page at `pages/ridge.html`
-- Official Apple icons are not included
+- `index.html` desktop
+- `pages/gallery.html` catalog
+- `pages/ask.html` voice helper
