@@ -1,0 +1,26 @@
+{
+  "name": "lumen-helper-69",
+  "intents": [
+    {"q": "open notes", "app": "notes", "reply": "Opening Notes."},
+    {"q": "open files", "app": "finder", "reply": "Opening Files."},
+    {"q": "open calculator", "app": "calc", "reply": "Opening Calculator."},
+    {"q": "open web", "app": "web", "reply": "Opening Web."},
+    {"q": "open gallery", "app": "store", "reply": "Opening Gallery."},
+    {"q": "open settings", "app": "settings", "reply": "Opening Settings."},
+    {"q": "open music", "app": "music", "reply": "Opening Music."},
+    {"q": "open mail", "app": "mail", "reply": "Opening Mail."},
+    {"q": "open maps", "app": "maps", "reply": "Opening Maps."},
+    {"q": "open photos", "app": "photos", "reply": "Opening Photos."},
+    {"q": "open terminal", "app": "terminal", "reply": "Opening Terminal."},
+    {"q": "open calendar", "app": "calendar", "reply": "Opening Calendar."},
+    {"q": "open chess", "app": "chess", "reply": "Opening Chess."},
+    {"q": "open news", "app": "news", "reply": "Opening News."},
+    {"q": "open tv", "app": "tv", "reply": "Opening Screen."},
+    {"q": "open canvas", "app": "canvas", "reply": "Opening Canvas."},
+    {"q": "what time is it", "reply": "time"},
+    {"q": "what is the date", "reply": "date"},
+    {"q": "tell a joke", "reply": "Why did the dock bounce? It saw a new icon."},
+    {"q": "lock the screen", "reply": "lock"},
+    {"q": "who are you", "reply": "I am Aura, a local helper in this Lumen fan mock. I am not Siri and this is not macOS."}
+  ]
+}

@@ -1,0 +1,64 @@
+/* Lumen 69 glass pass. Entertainment mock. Not Apple, not Siri, not Apple Intelligence. */
+.ridge69 {
+  background:
+    radial-gradient(900px 540px at 12% 88%, rgba(251, 191, 36, 0.38), transparent 58%),
+    radial-gradient(780px 520px at 82% 18%, rgba(125, 211, 252, 0.4), transparent 55%),
+    radial-gradient(640px 420px at 60% 70%, rgba(196, 181, 253, 0.28), transparent 60%),
+    linear-gradient(165deg, #16324f 0%, #5b4d86 42%, #e7b07a 100%) !important;
+}
+.glass, #dock, #assistant, .window {
+  background: rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(28px) saturate(1.4);
+  -webkit-backdrop-filter: blur(28px) saturate(1.4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65), 0 18px 40px rgba(15, 23, 42, 0.18);
+}
+.l69-orb {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  margin: 10px auto 4px;
+  background: radial-gradient(circle at 32% 28%, #fff, #bae6fd 36%, #6366f1 70%, #1e1b4b);
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.45);
+  animation: l69pulse 2.6s ease-in-out infinite;
+}
+.l69-orb.talk { animation-duration: 0.45s; }
+@keyframes l69pulse { 50% { transform: scale(1.07); } }
+#l69-chips { display: flex; gap: 6px; flex-wrap: wrap; padding: 0 12px 8px; }
+.l69-chip {
+  border: 0;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.62);
+  cursor: pointer;
+}
+.news-list article, .book-list article {
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 12px;
+  padding: 10px;
+  margin: 8px;
+}
+.stock-row { display: flex; justify-content: space-between; padding: 8px 12px; }
+.up { color: #059669; }
+.down { color: #e11d48; }
+#chess-board { display: grid; grid-template-columns: repeat(8, 34px); margin: 12px auto; }
+#chess-board button { width: 34px; height: 34px; border: 0; font-size: 16px; }
+#chess-board .dark { background: #94a3b8; }
+#chess-board .lite { background: #f8fafc; }
+#canvas-pad { width: calc(100% - 24px); height: 280px; margin: 12px; border-radius: 12px; background: #fff; touch-action: none; }
+.screen-stage {
+  margin: 12px;
+  height: 220px;
+  border-radius: 16px;
+  background: linear-gradient(120deg, #0f172a, #334155 40%, #6366f1);
+  position: relative;
+  overflow: hidden;
+}
+.screen-stage span {
+  position: absolute;
+  inset: 30% 18%;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.18);
+  animation: drift 4s ease-in-out infinite;
+}
+@keyframes drift { 50% { transform: translateX(12px); } }
