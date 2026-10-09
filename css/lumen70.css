@@ -1,0 +1,46 @@
+/* Lumen 70 glass wash. Original surfaces. */
+#wallpaper.ridge70 {
+  background:
+    radial-gradient(900px 520px at 18% 20%, rgba(125, 211, 252, 0.55), transparent 60%),
+    radial-gradient(700px 480px at 82% 18%, rgba(196, 181, 253, 0.45), transparent 62%),
+    radial-gradient(800px 500px at 60% 88%, rgba(251, 113, 133, 0.28), transparent 60%),
+    linear-gradient(165deg, #0b1220 0%, #1e293b 42%, #312e81 100%);
+}
+#wallpaper.ridge70::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), transparent 30%, rgba(0,0,0,0.18));
+  pointer-events: none;
+}
+.l70-chip {
+  border: 0;
+  border-radius: 999px;
+  padding: 6px 10px;
+  margin: 4px 4px 0 0;
+  background: rgba(255,255,255,0.22);
+  color: inherit;
+  cursor: pointer;
+}
+#l70-chips { padding: 0 12px 8px; }
+.glass, #dock, .window, #assistant, #control-center {
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(22px) saturate(1.4);
+  -webkit-backdrop-filter: blur(22px) saturate(1.4);
+  border: 1px solid rgba(255,255,255,0.28);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.35);
+}
+#dock .dock-item.mag { transform: translateY(-10px) scale(1.22); }
+.store-card {
+  background: rgba(255,255,255,0.55);
+  border-radius: 16px;
+  padding: 12px;
+}
+.store-card button, .pad button {
+  border: 0;
+  border-radius: 10px;
+  padding: 6px 10px;
+  background: #4f46e5;
+  color: #fff;
+  cursor: pointer;
+}

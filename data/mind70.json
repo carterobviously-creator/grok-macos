@@ -1,0 +1,26 @@
+{
+  "name": "lumen-helper-70",
+  "note": "Tiny local phrase table loaded at boot. Not a product model.",
+  "intents": [
+    {"q": "what time is it now", "reply": "time"},
+    {"q": "tell me the date today", "reply": "date"},
+    {"q": "what is the weather outside", "reply": "weather"},
+    {"q": "lock the screen", "reply": "lock"},
+    {"q": "open notes", "app": "notes", "reply": "Opening Notes."},
+    {"q": "open files", "app": "finder", "reply": "Opening Files."},
+    {"q": "open the shelf catalog", "app": "shelf", "reply": "Opening Shelf."},
+    {"q": "open timer", "app": "timer", "reply": "Opening Timer."},
+    {"q": "open studio", "app": "studio", "reply": "Opening Studio."},
+    {"q": "open settings", "app": "settings", "reply": "Opening Settings."},
+    {"q": "open calculator", "app": "calc", "reply": "Opening Calculator."},
+    {"q": "open web browser", "app": "web", "reply": "Opening Web."},
+    {"q": "open calendar", "app": "calendar", "reply": "Opening Calendar."},
+    {"q": "open mail", "app": "mail", "reply": "Opening Mail."},
+    {"q": "open messages", "app": "messages", "reply": "Opening Messages."},
+    {"q": "open chess", "app": "chess", "reply": "Opening Chess."},
+    {"q": "open canvas", "app": "canvas", "reply": "Opening Canvas."},
+    {"q": "tell a joke", "reply": "Why did the dock lean over? The icons were too close."},
+    {"q": "who are you", "reply": "I am Aura, a local helper in this Lumen desk mock. I am not Siri and this is not Apple Intelligence."},
+    {"q": "help me", "reply": "Try weather, open timer, open shelf, or a short math question. Longer answers can use the optional text demo in Settings."}
+  ]
+}
