@@ -8,12 +8,13 @@ Official Apple icons, wallpapers, Liquid Glass trademarks, and system chrome are
 
 Aura is a local helper that loads a tiny phrase model at boot. It can open mock apps, save notes, add reminders, do simple math, speak, and optionally use a public text demo for longer answers. It is not a product AI and not an Apple assistant.
 
-## Lumen 71 refinements
-- Dynamic Liquid Glass slider in Control Center that adjusts blur, opacity, saturation, and specular highlights across glass surfaces
-- Consistent modern window corner radii
-- Enhanced liquid-style wallpaper animation
-- Boot screen loads tiny local model
-- Aura already supports local TinyMind + optional cloud AI replies (pollinations demo)
+## Lumen 72 refinements
+- Restored and expanded original SVG icon set in icons.js (colorful squircle-style marks, not official artwork)
+- Stronger Liquid Glass specular and dynamic slider support
+- Aura helper continues to load tiny local model at boot + optional public AI demo replies
+- Boot, lock, dock, and windows polished for closer glass desktop feel
+
+Entertainment only. Original assets. Not macOS / Siri / Apple Intelligence.
 
 Live: https://carterobviously-creator.github.io/grok-macos/
 
