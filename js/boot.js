@@ -4,7 +4,7 @@
   const steps = [
     [10, "Loading shell…"],
     [28, "Preparing glass surfaces…"],
-    [46, "Loading tiny language model…"],
+    [46, "Loading tiny local LLM phrase model…"],
     [67, "Wiring offline phrase book…"],
     [84, "Mounting mock volumes…"],
     [100, "Ready"]
