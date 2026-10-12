@@ -1,0 +1,77 @@
+/* Lumen 74 refinements — enhanced liquid glass for entertainment mock
+   Original CSS only. Not macOS Liquid Glass. */
+.glass {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.08)),
+    rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.65);
+  box-shadow:
+    0 24px 70px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.8),
+    inset 0 -1px 0 rgba(255,255,255,0.2);
+  backdrop-filter: blur(48px) saturate(240%);
+  -webkit-backdrop-filter: blur(48px) saturate(240%);
+  position: relative;
+  overflow: hidden;
+}
+.glass::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 40%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.35), transparent);
+  border-radius: inherit;
+}
+.glass::after {
+  content: "";
+  pointer-events: none;
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(125deg, rgba(255,255,255,0.4), transparent 35%, transparent 65%, rgba(255,255,255,0.15));
+  opacity: var(--specular, 0.8);
+}
+#dock {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.4);
+  backdrop-filter: blur(50px) saturate(200%);
+  -webkit-backdrop-filter: blur(50px) saturate(200%);
+}
+.dock-item {
+  transition: transform 0.22s cubic-bezier(.25,.8,.25,1), filter 0.2s;
+}
+.dock-item:hover {
+  transform: translateY(-18px) scale(1.35);
+  filter: drop-shadow(0 12px 20px rgba(0,0,0,0.4));
+}
+#menubar {
+  background: rgba(15,23,42,0.12);
+  backdrop-filter: blur(60px) saturate(250%);
+  -webkit-backdrop-filter: blur(60px) saturate(250%);
+}
+#wallpaper {
+  background:
+    radial-gradient(1400px 700px at 12% 8%, rgba(125,211,252,0.55), transparent 52%),
+    radial-gradient(1100px 650px at 88% 18%, rgba(167,139,250,0.5), transparent 48%),
+    radial-gradient(900px 750px at 50% 92%, rgba(56,189,248,0.3), transparent 50%),
+    linear-gradient(180deg, #1e40af 0%, #0f172a 45%, #020617 100%);
+  animation: wallshift 40s ease-in-out infinite alternate;
+}
+@keyframes wallshift {
+  0% { filter: hue-rotate(0deg) saturate(1); }
+  100% { filter: hue-rotate(18deg) saturate(1.1); }
+}
+.icon {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.6);
+  border-radius: 16px;
+}
+#control-center, #notify-drawer, #spotlight, #assistant {
+  border-radius: 24px;
+}
+.cc-tile {
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.4);
+}
+.cc-tile.on {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  box-shadow: 0 4px 12px rgba(37,99,235,0.4);
+}

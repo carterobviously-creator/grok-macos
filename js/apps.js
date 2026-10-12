@@ -73,8 +73,8 @@ const Apps = {
       '<label><input type="checkbox" id="alt-wall"> Warm wallpaper</label>' +
       '<label>Dock scale <input id="dock-scale" type="range" min="0.8" max="1.3" step="0.05" value="1"></label>' +
       '<h3>Aura helper</h3>' +
-      '<label><input type="checkbox" id="aura-cloud"' + (cloudOn ? " checked" : "") + '> Use optional public text demo for longer answers</label>' +
-      '<p>Local phrase helper always works. The demo API is a third-party text endpoint, not Apple Intelligence and not Siri.</p>' +
+      '<label><input type="checkbox" id="aura-cloud"' + (cloudOn ? " checked" : "") + '> Use optional public AI text demo for longer answers</label>' +
+      '<p>Local phrase helper always works. The demo API is a third-party text endpoint for entertainment AI replies, not Apple Intelligence and not Siri.</p>' +
       '<p>Lumen is an original entertainment mock. Original icons and wallpaper only.</p></div>');
     document.getElementById("alt-wall").onchange = (e) => {
       document.getElementById("wallpaper").classList.toggle("alt", e.target.checked);
@@ -85,30 +85,39 @@ const Apps = {
     document.getElementById("aura-cloud").onchange = (e) => {
       localStorage.setItem("lumen-aura-cloud", e.target.checked ? "1" : "0");
       Desktop.refreshAuraMode();
-      Desktop.toast(e.target.checked ? "Aura demo API on" : "Aura offline only");
+      Desktop.toast(e.target.checked ? "Aura AI demo on" : "Aura offline only");
     };
   },
   store() {
     const cards = [
-      ["photos", "Photos", "Look through color tiles."],
-      ["terminal", "Terminal", "Tiny command toy."],
+      ["photos", "Photos", "Browse color tiles and mock albums."],
+      ["terminal", "Terminal", "Tiny command line toy with Aura integration."],
       ["calendar", "Calendar", "This month at a glance."],
-      ["music", "Music", "Fake player chrome."],
-      ["mail", "Mail", "Sample inbox."],
-      ["maps", "Maps", "A decorative map."],
-      ["stickies", "Stickies", "Yellow note pad."],
+      ["music", "Music", "Fake player with demo track."],
+      ["mail", "Mail", "Sample inbox for entertainment."],
+      ["maps", "Maps", "Decorative map mock."],
+      ["stickies", "Stickies", "Yellow note pad stored locally."],
       ["weather", "Weather", "Mock forecast card."],
-      ["clock", "Clock", "World clocks."],
-      ["writer", "Writer", "Plain text pad."],
-      ["reminders", "Reminders", "Checklist stored locally."],
-      ["preview", "Preview", "Look at a sample image card."],
-      ["voice", "Voice Pad", "Type a line and hear it."]
+      ["clock", "Clock", "Local time display."],
+      ["writer", "Writer", "Plain text editor."],
+      ["reminders", "Reminders", "Checklist stored in browser."],
+      ["preview", "Preview", "Sample image preview."],
+      ["voice", "Voice Pad", "Type and speak lines."],
+      ["messages", "Messages", "Mock chat thread."],
+      ["contacts", "Contacts", "Sample contacts list."],
+      ["activity", "Pulse", "Decorative system meters."],
+      ["phone", "Phone", "Keypad mock."],
+      ["flows", "Flows", "Simple shortcut buttons."],
+      ["camera", "Camera", "Viewfinder mock."],
+      ["sketch", "Sketch", "Basic drawing canvas."],
+      ["radio", "Radio", "Station card mock."],
+      ["board", "Board", "Tic-tac-toe game."]
     ];
-    Windows.create("store", "Gallery", 560, 440,
-      '<div class="store-grid">' +
+    Windows.create("store", "Gallery", 640, 480,
+      '<div class="store-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;padding:16px">' +
       cards.map((c) =>
-        '<div class="store-card"><strong>' + c[1] + "</strong><p>" + c[2] +
-        '</p><button data-app="' + c[0] + '">Get</button></div>'
+        '<div class="store-card glass" style="padding:12px;border-radius:16px"><strong>' + c[1] + "</strong><p style='font-size:13px;opacity:0.85;margin:6px 0'>" + c[2] +
+        '</p><button data-app="' + c[0] + '" style="background:#2563eb;color:#fff;border:0;padding:6px 12px;border-radius:8px;cursor:pointer">Get</button></div>'
       ).join("") +
       "</div>");
     document.querySelectorAll(".store-card button").forEach((b) => {

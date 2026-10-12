@@ -70,9 +70,10 @@
   <link rel="stylesheet" href="css/lumen69.css" />
   <link rel="stylesheet" href="css/lumen70.css" />
   <link rel="stylesheet" href="css/lumen71.css" />
+  <link rel="stylesheet" href="css/lumen74.css" />
   <style>
-    :root { --glass-opacity: 0.18; --glass-blur: 40px; }
-    .glass { backdrop-filter: blur(var(--glass-blur)) saturate(220%); -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(220%); }
+    :root { --glass-opacity: 0.18; --glass-blur: 48px; --specular: 0.85; }
+    .glass { backdrop-filter: blur(var(--glass-blur)) saturate(240%); -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(240%); }
   </style>
 </head>
 <body>
@@ -94,7 +95,7 @@
     <p class="boot-name">Lumen</p>
     <div class="boot-bar"><div id="boot-fill"></div></div>
     <p id="boot-status">Loading tiny LLM…</p>
-    <p class="boot-note">Fan desktop for entertainment. Not affiliated with Apple. Original icons and wallpaper only. Aura is a local helper, not Siri and not Apple Intelligence.</p>
+    <p class="boot-note">Fan desktop for entertainment. Not affiliated with Apple. Original icons and wallpaper only. Aura is a local helper plus optional AI demo, not Siri and not Apple Intelligence.</p>
   </div>
 
   <div id="lock-screen" class="hidden">
@@ -104,7 +105,7 @@
       <span class="avatar">U</span>
       <span>User · Click to enter</span>
     </button>
-    <p class="lock-hint">Aura phrase book loads at boot · entertainment mock</p>
+    <p class="lock-hint">Aura phrase book + tiny LLM loads at boot · entertainment mock</p>
   </div>
 
   <div id="desktop" class="hidden">
@@ -157,7 +158,7 @@
       <label class="cc-slider">Display <input id="bright" type="range" min="40" max="100" value="92"></label>
       <label class="cc-slider">Sound <input id="vol" type="range" min="0" max="100" value="55"></label>
       <label class="cc-slider">Liquid Glass <input id="tint" type="range" min="0" max="1" step="0.01" value="0.2"></label>
-      <p class="cc-hint">Lumen · Aura local helper · original glass CSS</p>
+      <p class="cc-hint">Lumen · Aura local + AI demo · original glass CSS</p>
     </aside>
 
     <aside id="notify-drawer" class="hidden glass">
