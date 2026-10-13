@@ -1,9 +1,98 @@
-/* Lumen 75 enhancements — original entertainment mock refinements.
-   Not macOS / Siri / Apple. */
+/* Lumen 75 + cleanup — fix overlaps, disable voice, keep glass polish.
+   Not macOS / Siri / Apple. Entertainment mock only. */
 (function () {
   if (typeof Desktop === "undefined") return;
 
-  // Enhanced dock magnification with neighbor scaling
+  // ---- Disable Aura voice completely (user request) ----
+  if (typeof Aura !== "undefined") {
+    Aura.speak = function () {}; // no-op, never speaks
+  }
+  // Also never auto-speak from mic
+  const origAsk = Desktop.askAura;
+  Desktop.askAura = async function (text, speak) {
+    return origAsk.call(this, text, false); // force no speak
+  };
+
+  // ---- Clean up overlapping version badges / floating labels ----
+  function cleanupClutter() {
+    // Hide common version/status badges that stack on each other
+    const selectors = [
+      '[class*="lumen-badge"]',
+      '[class*="version-badge"]',
+      '[id*="lumen-badge"]',
+      '[id*="status-badge"]',
+      '.lumen-toast-version',
+      '.dev-badge',
+      '.build-tag'
+    ];
+    selectors.forEach((sel) => {
+      document.querySelectorAll(sel).forEach((el) => {
+        el.style.display = "none";
+        el.remove();
+      });
+    });
+
+    // Remove any fixed/absolute elements that look like version labels
+    // (small rounded pills with "Lumen XX" text that accumulate)
+    document.querySelectorAll("body *").forEach((el) => {
+      if (el === document.body || el === document.documentElement) return;
+      const style = window.getComputedStyle(el);
+      if ((style.position === "fixed" || style.position === "absolute") &&
+          el.textContent &&
+          /Lumen\s*\d+|original mock|Aura local|desktop mock/i.test(el.textContent) &&
+          el.offsetWidth < 320 && el.offsetHeight < 60 &&
+          !el.closest("#widgets") &&
+          !el.closest("#menubar") &&
+          !el.closest("#dock") &&
+          !el.closest("#assistant") &&
+          !el.closest("#toast") &&
+          !el.closest("#control-center") &&
+          !el.closest("#notify-drawer") &&
+          !el.closest("#spotlight") &&
+          !el.closest("#launchpad") &&
+          !el.closest("#window-layer")) {
+        el.style.display = "none";
+        try { el.remove(); } catch (e) {}
+      }
+    });
+  }
+
+  // Run cleanup after start and periodically for a short time
+  const origStart = Desktop.start;
+  Desktop.start = function () {
+    origStart.call(this);
+    setTimeout(cleanupClutter, 200);
+    setTimeout(cleanupClutter, 800);
+    setTimeout(cleanupClutter, 2000);
+  };
+
+  // Also inject CSS to force-hide leftover badges
+  const hideStyle = document.createElement("style");
+  hideStyle.textContent = `
+    /* Hide accumulated version / status pills that cause overlap */
+    body > div:not(#boot-screen):not(#lock-screen):not(#desktop),
+    #desktop > div[style*="position: fixed"],
+    #desktop > div[style*="position: absolute"] {
+      /* leave core UI alone */
+    }
+    .lumen-badge, .version-badge, .dev-badge, .build-tag,
+    [class*="lumen-"][class*="badge"],
+    [id^="lumen-"][id$="-badge"] {
+      display: none !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+    /* Keep only one clean widget */
+    #widgets {
+      z-index: 8;
+    }
+    /* Prevent dock and desk icons from stacking weirdly */
+    #dock { z-index: 50; }
+    #desk-icons { z-index: 8; }
+  `;
+  document.head.appendChild(hideStyle);
+
+  // ---- Dock magnification (kept) ----
   const originalRender = Desktop.renderDock;
   Desktop.renderDock = function () {
     originalRender.call(this);
@@ -12,8 +101,8 @@
       item.addEventListener("mouseenter", () => {
         items.forEach((it, j) => {
           const dist = Math.abs(i - j);
-          const scale = dist === 0 ? 1.4 : dist === 1 ? 1.15 : 1;
-          const y = dist === 0 ? -10 : dist === 1 ? -4 : 0;
+          const scale = dist === 0 ? 1.35 : dist === 1 ? 1.12 : 1;
+          const y = dist === 0 ? -8 : dist === 1 ? -3 : 0;
           it.style.transform = `scale(${scale}) translateY(${y}px)`;
         });
       });
@@ -23,7 +112,7 @@
     });
   };
 
-  // Wallpaper cycle with original scenes
+  // Wallpaper cycle
   const walls = ["", "alt", "dusk", "mint"];
   let wallIdx = 0;
   document.addEventListener("keydown", (e) => {
@@ -31,39 +120,27 @@
       e.preventDefault();
       wallIdx = (wallIdx + 1) % walls.length;
       const w = document.getElementById("wallpaper");
-      w.className = walls[wallIdx];
-      Desktop.toast("Wallpaper: " + (walls[wallIdx] || "default"));
+      if (w) {
+        w.className = walls[wallIdx];
+        Desktop.toast("Wallpaper: " + (walls[wallIdx] || "default"));
+      }
     }
   });
 
-  // Better Aura greeting on unlock already handled; add orb pulse
+  // Soft Aura indicator (no voice)
   const style = document.createElement("style");
   style.textContent = `
     #assistant header strong::before {
       content: "";
       display: inline-block;
-      width: 10px; height: 10px;
+      width: 8px; height: 8px;
       border-radius: 50%;
       background: radial-gradient(circle, #a5b4fc, #4f46e5);
       margin-right: 6px;
-      animation: auraPulse 1.8s infinite;
-    }
-    @keyframes auraPulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.3); opacity: 0.7; }
+      vertical-align: middle;
     }
   `;
   document.head.appendChild(style);
 
-  // Extra Aura local phrases
-  const origLocal = Aura.localReply;
-  Aura.localReply = function (text) {
-    const q = text.toLowerCase();
-    if (/weather|temp/.test(q)) return "Mock conditions: clear skies, 72°. This is not live weather.";
-    if (/battery|power/.test(q)) return "Battery mock at 84%. Charging simulation available in Settings.";
-    if (/screenshot|capture/.test(q)) return "Screenshot mock ready. In a real system this would capture the screen.";
-    return origLocal.call(this, text);
-  };
-
-  console.log("Lumen 75 enhancements loaded — entertainment mock only.");
+  console.log("Lumen 75 cleanup loaded — voice disabled, clutter removed.");
 })();
