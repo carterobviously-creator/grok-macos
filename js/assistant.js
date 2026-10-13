@@ -86,10 +86,10 @@ const Aura = {
     if (/who|what are you|siri|apple intelligence|apple|macos/.test(q)) {
       return "This is Lumen, a fan-made browser desktop mock for entertainment. Aura is a local phrase helper plus optional public AI demo. It is not Siri, not Apple Intelligence, and not affiliated with Apple.";
     }
-    if (/weather|forecast|temperature/.test(q)) return "Mock forecast: " + (AuraModel.facts.weather || "clear, 72°") + ".";
+    if (/weather|forecast|temperature/.test(q)) return "Mock forecast: " + (AuraModel.facts.weather || "clear, 72\u00b0") + ".";
     if (/joke|funny/.test(q)) return "Why did the desktop go to therapy? It had too many unresolved windows.";
     if (/help|what can|commands/.test(q)) {
-      return "Try: open notes, open files, remind me to stretch, note buy milk, what is 15 times 7, what time is it, tell a joke, or just chat. Press ⌘Space anytime. Demo AI replies stay on unless turned off in Settings.";
+      return "Try: open notes, open files, remind me to stretch, note buy milk, what is 15 times 7, what time is it, tell a joke, or just chat. Press \u2318Space anytime. Demo AI replies stay on unless turned off in Settings.";
     }
     if (/thank/.test(q)) return "You're welcome! Anything else?";
     const near = AuraModel.nearest(q);
@@ -97,7 +97,7 @@ const Aura = {
     if (window.TinyMind && TinyMind.ready) return TinyMind.reply(q);
     const bits = q.replace(/[^a-z0-9\s]/g, "").split(/\s+/).filter(Boolean);
     if (bits.length) {
-      return "I heard \"" + bits.slice(0, 8).join(" ") + "\". Try open notes, remind me to…, what time is it, or help.";
+      return "I heard \"" + bits.slice(0, 8).join(" ") + "\". Try open notes, remind me to\u2026, what time is it, or help.";
     }
     return "Try asking to open an app, the time, or help.";
   },
@@ -127,16 +127,9 @@ const Aura = {
     const cloud = await this.cloudReply(text);
     return cloud || local;
   },
+  // Voice disabled permanently — user preference (unsettling)
   speak(text) {
-    if (!window.speechSynthesis) return;
-    const vol = document.getElementById("vol");
-    if (vol && Number(vol.value) === 0) return;
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.rate = 1.0;
-    u.pitch = 1.05;
-    if (vol) u.volume = Number(vol.value) / 100;
-    window.speechSynthesis.speak(u);
+    // intentionally empty — no speech synthesis
   },
   listen(onText) {
     const Rec = window.SpeechRecognition || window.webkitSpeechRecognition;
