@@ -16,13 +16,14 @@ This project uses original SVG icons, original CSS glass surfaces, and original 
 It can open mock apps, save notes, add reminders, do simple math, speak, and optionally use a public text demo (AI) for longer answers.
 It is not a product AI and not an Apple assistant.
 
-## Lumen 75 refinements
-- Further polished liquid glass with stronger specular highlights, dynamic reflections, and improved blur
-- Enhanced dock magnification with neighbor scaling and smoother hover animations
+## Lumen 76 refinements
+- Enhanced liquid glass with stronger specular highlights, dynamic reflections, improved blur and refraction layers
+- Smoother dock magnification with neighbor scaling and hover animations
+- Higher-detail original SVG app icons with better gradients and depth
 - Wallpaper scene cycling (⌘W) with original gradient scenes
-- Aura orb pulse animation and additional local phrase responses
-- Continued support for tiny local LLM phrase model at boot + optional third-party AI text endpoint
+- Aura orb + tiny local LLM phrase model at boot + optional third-party AI text endpoint (pollinations)
 - Gallery (App Store mock), Notes, Files, Calculator, Terminal, and many other working mock apps remain fully functional
+- Better control center glass intensity slider
 
 Entertainment only.
 Original assets.
