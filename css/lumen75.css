@@ -1,4 +1,4 @@
-/* Lumen 75 — refined liquid glass surfaces, dock, and micro-animations.
+/* Lumen 75 — glass polish + hide overlapping clutter.
    Original CSS only. Entertainment mock. Not macOS. */
 
 .glass {
@@ -93,3 +93,41 @@
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.04); }
 }
+
+/* ========== HIDE OVERLAPPING CLUTTER ========== */
+/* Version / status pills that older scripts inject */
+body > div:not(#boot-screen):not(#lock-screen):not(#desktop) {
+  display: none !important;
+}
+
+/* Common badge patterns */
+.lumen-badge,
+.version-badge,
+.dev-badge,
+.build-tag,
+[class*="lumen-"][class*="badge"],
+[id^="lumen-"][id*="badge"],
+[class*="status-pill"],
+[class*="ready-badge"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Force-hide fixed pills with Lumen version text that float around */
+#desktop > div[style*="position: fixed"],
+#desktop > div[style*="position: absolute"] {
+  /* only hide if they look like version labels - handled more in JS */
+}
+
+/* Keep core UI clean */
+#widgets { z-index: 8; }
+#dock { z-index: 50; }
+#desk-icons { z-index: 8; }
+#menubar { z-index: 40; }
+#assistant { z-index: 60; }
+#toast { z-index: 70; }
