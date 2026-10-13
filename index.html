@@ -71,8 +71,9 @@
   <link rel="stylesheet" href="css/lumen70.css" />
   <link rel="stylesheet" href="css/lumen71.css" />
   <link rel="stylesheet" href="css/lumen74.css" />
+  <link rel="stylesheet" href="css/lumen75.css" />
   <style>
-    :root { --glass-opacity: 0.18; --glass-blur: 48px; --specular: 0.85; }
+    :root { --glass-opacity: 0.18; --glass-blur: 52px; --specular: 0.9; }
     .glass { backdrop-filter: blur(var(--glass-blur)) saturate(240%); -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(240%); }
   </style>
 </head>
@@ -95,7 +96,7 @@
     <p class="boot-name">Lumen</p>
     <div class="boot-bar"><div id="boot-fill"></div></div>
     <p id="boot-status">Loading tiny LLM…</p>
-    <p class="boot-note">Fan desktop for entertainment. Not affiliated with Apple. Original icons and wallpaper only. Aura is a local helper plus optional AI demo, not Siri and not Apple Intelligence.</p>
+    <p class="boot-note">Entertainment desktop mock. Not affiliated with Apple. Original icons, glass, and wallpaper only. Aura is a local helper + optional AI demo.</p>
   </div>
 
   <div id="lock-screen" class="hidden">
@@ -105,7 +106,7 @@
       <span class="avatar">U</span>
       <span>User · Click to enter</span>
     </button>
-    <p class="lock-hint">Aura phrase book + tiny LLM loads at boot · entertainment mock</p>
+    <p class="lock-hint">Aura + tiny LLM loaded · entertainment mock</p>
   </div>
 
   <div id="desktop" class="hidden">
@@ -136,7 +137,7 @@
     <div id="widgets" class="glass">
       <div class="wid-clock" id="wid-clock">--:--</div>
       <div class="wid-weather">Clear · 72° mock</div>
-      <div class="wid-hint">F3 Mission · F4 Launch · ⌘K Search · ⌘L Lock · ⌘Space Aura · ⌘W Scene · ⌘D Dusk</div>
+      <div class="wid-hint">F3 Mission · F4 Launch · ⌘K Search · ⌘L Lock · ⌘Space Aura · ⌘W Scene</div>
     </div>
     <div id="window-layer"></div>
     <div id="mission" class="hidden"></div>
@@ -166,7 +167,7 @@
       <p>Gallery has mock apps you can add to the dock.</p>
       <p>Ask Aura to open Notes, or hold the mic and speak.</p>
       <p>Press F3 for Mission Control. ⌘L locks the desktop.</p>
-      <p>Shelf installs dock shortcuts. Ctrl/Cmd-Space opens the speaking orb. Original icons and wallpaper only.</p>
+      <p>⌘W cycles original wallpaper scenes. Original icons only.</p>
     </aside>
 
     <div id="spotlight" class="hidden glass">
@@ -266,5 +267,6 @@
   <script src="js/lumen71.js"></script>
   <script src="js/lumen72.js"></script>
   <script src="js/lumen73.js"></script>
+  <script src="js/lumen75.js"></script>
 </body>
 </html>
