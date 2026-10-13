@@ -1,98 +1,91 @@
-/* Lumen 75 + cleanup — fix overlaps, disable voice, keep glass polish.
-   Not macOS / Siri / Apple. Entertainment mock only. */
+/* Lumen 75 cleanup — remove overlapping badges, disable voice.
+   Entertainment mock only. Not macOS. */
 (function () {
   if (typeof Desktop === "undefined") return;
 
-  // ---- Disable Aura voice completely (user request) ----
+  // ---- Voice completely disabled ----
   if (typeof Aura !== "undefined") {
-    Aura.speak = function () {}; // no-op, never speaks
+    Aura.speak = function () {};
   }
-  // Also never auto-speak from mic
   const origAsk = Desktop.askAura;
-  Desktop.askAura = async function (text, speak) {
-    return origAsk.call(this, text, false); // force no speak
+  Desktop.askAura = async function (text) {
+    return origAsk.call(this, text, false);
   };
 
-  // ---- Clean up overlapping version badges / floating labels ----
-  function cleanupClutter() {
-    // Hide common version/status badges that stack on each other
-    const selectors = [
-      '[class*="lumen-badge"]',
-      '[class*="version-badge"]',
-      '[id*="lumen-badge"]',
-      '[id*="status-badge"]',
-      '.lumen-toast-version',
-      '.dev-badge',
-      '.build-tag'
-    ];
-    selectors.forEach((sel) => {
-      document.querySelectorAll(sel).forEach((el) => {
-        el.style.display = "none";
-        el.remove();
-      });
-    });
+  // ---- Aggressive clutter remover ----
+  function isClutter(el) {
+    if (!el || !el.textContent) return false;
+    if (el.closest("#widgets") || el.closest("#menubar") || el.closest("#dock") ||
+        el.closest("#assistant") || el.closest("#toast") || el.closest("#control-center") ||
+        el.closest("#notify-drawer") || el.closest("#spotlight") || el.closest("#launchpad") ||
+        el.closest("#window-layer") || el.closest("#desk-icons") || el.closest("#mission") ||
+        el.closest("#ctx") || el.id === "wallpaper" || el.id === "desktop") {
+      return false;
+    }
+    const t = el.textContent.trim();
+    if (t.length > 80) return false;
+    return /Lumen\s*\d+|original mock|Aura local|Glass mock|phrase helper|ready ·|desktop mock|original icons/i.test(t);
+  }
 
-    // Remove any fixed/absolute elements that look like version labels
-    // (small rounded pills with "Lumen XX" text that accumulate)
-    document.querySelectorAll("body *").forEach((el) => {
-      if (el === document.body || el === document.documentElement) return;
-      const style = window.getComputedStyle(el);
-      if ((style.position === "fixed" || style.position === "absolute") &&
-          el.textContent &&
-          /Lumen\s*\d+|original mock|Aura local|desktop mock/i.test(el.textContent) &&
-          el.offsetWidth < 320 && el.offsetHeight < 60 &&
-          !el.closest("#widgets") &&
-          !el.closest("#menubar") &&
-          !el.closest("#dock") &&
-          !el.closest("#assistant") &&
-          !el.closest("#toast") &&
-          !el.closest("#control-center") &&
-          !el.closest("#notify-drawer") &&
-          !el.closest("#spotlight") &&
-          !el.closest("#launchpad") &&
-          !el.closest("#window-layer")) {
+  function cleanupClutter() {
+    // Walk all elements and remove clutter pills
+    const all = document.querySelectorAll("#desktop *");
+    all.forEach((el) => {
+      if (isClutter(el)) {
+        el.style.display = "none";
+        el.style.visibility = "hidden";
+        el.style.opacity = "0";
+        el.style.pointerEvents = "none";
+        try { el.remove(); } catch (e) {}
+      }
+    });
+    // Also check direct children of body
+    document.querySelectorAll("body > div").forEach((el) => {
+      if (el.id !== "boot-screen" && el.id !== "lock-screen" && el.id !== "desktop") {
         el.style.display = "none";
         try { el.remove(); } catch (e) {}
       }
     });
   }
 
-  // Run cleanup after start and periodically for a short time
   const origStart = Desktop.start;
   Desktop.start = function () {
     origStart.call(this);
-    setTimeout(cleanupClutter, 200);
-    setTimeout(cleanupClutter, 800);
-    setTimeout(cleanupClutter, 2000);
+    setTimeout(cleanupClutter, 100);
+    setTimeout(cleanupClutter, 500);
+    setTimeout(cleanupClutter, 1500);
+    setTimeout(cleanupClutter, 3000);
+    // Keep cleaning for a bit in case late scripts inject more
+    let n = 0;
+    const iv = setInterval(() => {
+      cleanupClutter();
+      n++;
+      if (n > 8) clearInterval(iv);
+    }, 800);
   };
 
-  // Also inject CSS to force-hide leftover badges
+  // CSS hammer
   const hideStyle = document.createElement("style");
   hideStyle.textContent = `
-    /* Hide accumulated version / status pills that cause overlap */
-    body > div:not(#boot-screen):not(#lock-screen):not(#desktop),
-    #desktop > div[style*="position: fixed"],
-    #desktop > div[style*="position: absolute"] {
-      /* leave core UI alone */
-    }
+    /* Force-hide version / status floating pills */
     .lumen-badge, .version-badge, .dev-badge, .build-tag,
     [class*="lumen-"][class*="badge"],
-    [id^="lumen-"][id$="-badge"] {
+    [id*="lumen-"][id*="badge"],
+    [class*="status-pill"], [class*="ready-badge"] {
       display: none !important;
       visibility: hidden !important;
+      opacity: 0 !important;
       pointer-events: none !important;
+      height: 0 !important; width: 0 !important; overflow: hidden !important;
     }
-    /* Keep only one clean widget */
-    #widgets {
-      z-index: 8;
-    }
-    /* Prevent dock and desk icons from stacking weirdly */
+    #widgets { z-index: 8; }
     #dock { z-index: 50; }
     #desk-icons { z-index: 8; }
+    #assistant { z-index: 60; }
   `;
   document.head.appendChild(hideStyle);
 
-  // ---- Dock magnification (kept) ----
+  // Dock magnification
   const originalRender = Desktop.renderDock;
   Desktop.renderDock = function () {
     originalRender.call(this);
@@ -127,20 +120,5 @@
     }
   });
 
-  // Soft Aura indicator (no voice)
-  const style = document.createElement("style");
-  style.textContent = `
-    #assistant header strong::before {
-      content: "";
-      display: inline-block;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #a5b4fc, #4f46e5);
-      margin-right: 6px;
-      vertical-align: middle;
-    }
-  `;
-  document.head.appendChild(style);
-
-  console.log("Lumen 75 cleanup loaded — voice disabled, clutter removed.");
+  console.log("Lumen 75 cleanup — voice off, clutter removed.");
 })();
