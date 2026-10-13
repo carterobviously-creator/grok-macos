@@ -1,0 +1,95 @@
+/* Lumen 75 — refined liquid glass surfaces, dock, and micro-animations.
+   Original CSS only. Entertainment mock. Not macOS. */
+
+.glass {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(var(--glass-blur, 50px)) saturate(220%) contrast(1.05);
+  -webkit-backdrop-filter: blur(var(--glass-blur, 50px)) saturate(220%) contrast(1.05);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18),
+              inset 0 1px 0 rgba(255, 255, 255, 0.35),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, transparent 40%, rgba(255,255,255,0.05) 100%);
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: var(--specular, 0.8);
+}
+
+#dock {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 24px;
+  z-index: 50;
+  transition: transform 0.25s ease;
+}
+
+.dock-item {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.2s;
+  position: relative;
+}
+
+.dock-item:hover {
+  transform: scale(1.35) translateY(-8px);
+  z-index: 2;
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.25));
+}
+
+.dock-item .icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#wallpaper {
+  animation: wallshift 40s ease-in-out infinite alternate;
+}
+
+@keyframes wallshift {
+  0% { filter: hue-rotate(0deg) saturate(1); }
+  100% { filter: hue-rotate(8deg) saturate(1.08); }
+}
+
+#assistant {
+  width: 380px;
+  max-height: 520px;
+  border-radius: 24px;
+  bottom: 90px;
+  right: 24px;
+  animation: auraIn 0.35s ease;
+}
+
+@keyframes auraIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: none; }
+}
+
+.boot-logo svg {
+  filter: drop-shadow(0 0 20px rgba(125, 211, 252, 0.4));
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
