@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lumen Desktop — Entertainment Mock</title>
+  <title>Lumen Desktop — macOS-style Entertainment Mock</title>
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/boot.css" />
   <link rel="stylesheet" href="css/desktop.css" />
@@ -71,12 +71,12 @@
   <link rel="stylesheet" href="css/lumen70.css" />
   <link rel="stylesheet" href="css/lumen71.css" />
   <link rel="stylesheet" href="css/lumen74.css" />
-  <link rel="stylesheet" href="css/lumen75.css?v=77" />
+  <link rel="stylesheet" href="css/lumen75.css?v=78" />
   <link rel="stylesheet" href="css/lumen76.css" />
   <style>
-    :root { --glass-opacity: 0.18; --glass-blur: 52px; --specular: 0.9; }
-    .glass { backdrop-filter: blur(var(--glass-blur)) saturate(240%); -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(240%); }
-    /* Exact badge elements that overlap */
+    :root { --glass-opacity: 0.16; --glass-blur: 48px; --specular: 0.85; }
+    .glass { backdrop-filter: blur(var(--glass-blur)) saturate(230%); -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(230%); }
+    /* Hide clutter badges */
     .lumen29-badge, .lumen30-badge, .lumen31-badge,
     .lumen-badge, .version-badge, .dev-badge, .build-tag,
     [class^="lumen"][class*="-badge"], [class*="lumen"][class*="badge"],
@@ -114,7 +114,7 @@
     <p class="boot-name">Lumen</p>
     <div class="boot-bar"><div id="boot-fill"></div></div>
     <p id="boot-status">Loading tiny LLM…</p>
-    <p class="boot-note">Entertainment desktop mock. Not affiliated with Apple. Original icons, glass, and wallpaper only. Aura is a local helper + optional AI demo.</p>
+    <p class="boot-note">Entertainment desktop mock inspired by macOS Liquid Glass. Not affiliated with Apple. Original icons, glass, and wallpaper only. Mock Siri helper + optional AI demo.</p>
   </div>
 
   <div id="lock-screen" class="hidden">
@@ -124,7 +124,7 @@
       <span class="avatar">U</span>
       <span>User · Click to enter</span>
     </button>
-    <p class="lock-hint">Aura + tiny LLM loaded · entertainment mock</p>
+    <p class="lock-hint">Mock Siri + tiny LLM loaded · entertainment mock</p>
   </div>
 
   <div id="desktop" class="hidden">
@@ -155,7 +155,7 @@
     <div id="widgets" class="glass">
       <div class="wid-clock" id="wid-clock">--:--</div>
       <div class="wid-weather">Clear · 72° mock</div>
-      <div class="wid-hint">F3 Mission · F4 Launch · ⌘K Search · ⌘L Lock · ⌘Space Aura · ⌘W Scene</div>
+      <div class="wid-hint">F3 Mission · F4 Launch · ⌘K Search · ⌘L Lock · ⌘Space Siri · ⌘W Scene</div>
     </div>
     <div id="window-layer"></div>
     <div id="mission" class="hidden"></div>
@@ -177,13 +177,13 @@
       <label class="cc-slider">Display <input id="bright" type="range" min="40" max="100" value="92"></label>
       <label class="cc-slider">Sound <input id="vol" type="range" min="0" max="100" value="55"></label>
       <label class="cc-slider">Liquid Glass <input id="tint" type="range" min="0" max="1" step="0.01" value="0.2"></label>
-      <p class="cc-hint">Lumen · Aura local + AI demo · original glass CSS</p>
+      <p class="cc-hint">Lumen · Mock Siri local + AI demo · original glass CSS</p>
     </aside>
 
     <aside id="notify-drawer" class="hidden glass">
       <h4>Notifications</h4>
       <p>Gallery has mock apps you can add to the dock.</p>
-      <p>Ask Aura to open Notes, or use the mic to type by voice (no spoken replies).</p>
+      <p>Ask the mock Siri to open Notes, or use the mic for voice input.</p>
       <p>Press F3 for Mission Control. ⌘L locks the desktop.</p>
       <p>⌘W cycles original wallpaper scenes. Original icons only.</p>
     </aside>
@@ -195,14 +195,14 @@
 
     <div id="assistant" class="hidden glass">
       <header>
-        <strong>Aura</strong>
+        <strong>Siri</strong>
         <span id="aura-mode">Offline</span>
         <button type="button" id="close-aura">✕</button>
       </header>
       <div id="aura-log"></div>
       <form id="aura-form">
-        <button type="button" id="aura-mic" title="Speak to type (no voice reply)">🎙</button>
-        <input id="aura-input" placeholder="Ask Aura…" autocomplete="off" />
+        <button type="button" id="aura-mic" title="Speak to type">🎙</button>
+        <input id="aura-input" placeholder="Ask Siri…" autocomplete="off" />
         <button type="submit">Send</button>
       </form>
     </div>
@@ -213,7 +213,7 @@
   <script src="js/icons.js"></script>
   <script src="js/model.js"></script>
   <script src="js/mind.js"></script>
-  <script src="js/assistant.js?v=77"></script>
+  <script src="js/assistant.js?v=78"></script>
   <script src="js/windows.js"></script>
   <script src="js/apps.js"></script>
   <script src="js/desktop.js"></script>
@@ -285,13 +285,12 @@
   <script src="js/lumen71.js"></script>
   <script src="js/lumen72.js"></script>
   <script src="js/lumen73.js"></script>
-  <script src="js/lumen75.js?v=77"></script>
+  <script src="js/lumen75.js?v=78"></script>
   <script src="js/lumen76.js"></script>
   <script>
   (function () {
     function nukeClutter() {
       if (typeof Aura !== "undefined") Aura.speak = function () {};
-      // Exact known badges
       [".lumen29-badge",".lumen30-badge",".lumen31-badge",
        "#l54-stage","#l55-stage","#status-strip",
        "[class^=lumen][class*=-badge]","[id^=l5][id$=-stage]"].forEach(function(sel){
@@ -300,7 +299,6 @@
           try { el.remove(); } catch(e){}
         });
       });
-      // Text-based fallback
       document.querySelectorAll("#desktop *").forEach(function (el) {
         if (!el.textContent) return;
         if (el.closest("#widgets") || el.closest("#menubar") || el.closest("#dock") ||
