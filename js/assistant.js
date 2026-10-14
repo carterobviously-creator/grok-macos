@@ -44,22 +44,16 @@ const Aura = {
       { re: /calc|calculator/, id: "calc", msg: "Opening Calculator." },
       { re: /web|browser|safari/, id: "web", msg: "Opening Web." },
       { re: /settings|prefs|preferences/, id: "settings", msg: "Opening Settings." },
-      { re: /store|gallery|app store/, id: "store", msg: "Opening Gallery." },
-      { re: /calendar/, id: "calendar", msg: "Opening Calendar." },
+      { re: /store|gallery|app store/, id: "gallery", msg: "Opening Gallery." },
       { re: /music/, id: "music", msg: "Opening Music." },
-      { re: /photo/, id: "photos", msg: "Opening Photos." },
-      { re: /term|terminal/, id: "terminal", msg: "Opening Terminal." },
-      { re: /mail|email/, id: "mail", msg: "Opening Mail." },
-      { re: /map/, id: "maps", msg: "Opening Maps." },
-      { re: /sticky/, id: "stickies", msg: "Opening Stickies." },
+      { re: /photos|photos/, id: "photos", msg: "Opening Photos." },
+      { re: /mail/, id: "mail", msg: "Opening Mail." },
+      { re: /maps/, id: "maps", msg: "Opening Maps." },
+      { re: /terminal/, id: "terminal", msg: "Opening Terminal." },
+      { re: /calendar/, id: "calendar", msg: "Opening Calendar." },
+      { re: /reminders/, id: "reminders", msg: "Opening Reminders." },
       { re: /weather/, id: "weather", msg: "Opening Weather." },
-      { re: /clock/, id: "clock", msg: "Opening Clock." },
-      { re: /writer|text/, id: "writer", msg: "Opening Writer." },
-      { re: /remind/, id: "reminders", msg: "Opening Reminders." },
-      { re: /message|chat/, id: "messages", msg: "Opening Messages." },
-      { re: /contact|people/, id: "contacts", msg: "Opening Contacts." },
-      { re: /pulse|activity/, id: "activity", msg: "Opening Pulse." },
-      { re: /preview/, id: "preview", msg: "Opening Preview." },
+      { re: /tv/, id: "tv", msg: "Opening TV." },
       { re: /voice/, id: "voice", msg: "Opening Voice Pad." },
       { re: /phone|call/, id: "phone", msg: "Opening Phone." },
       { re: /flow|shortcut/, id: "flows", msg: "Opening Flows." },
@@ -102,7 +96,7 @@ const Aura = {
     return "Try asking to open an app, the time, or help.";
   },
   async cloudReply(text) {
-    const prompt = "You are Aura, a concise, friendly assistant inside Lumen, a fan-made browser desktop mock (entertainment only, not affiliated with Apple). Do not claim to be Siri, Apple Intelligence, or macOS. Answer in 1-3 short sentences. Be helpful and light.\nUser: " + text;
+    const prompt = "You are Aura, a concise, friendly, helpful assistant inside Lumen Desktop, a high-fidelity browser mock of a modern desktop OS for entertainment only. Never claim to be Siri, Apple Intelligence, macOS, or affiliated with Apple. Answer helpfully in 1-3 short sentences. Use natural conversational tone.\nUser: " + text;
     const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
     const ctrl = new AbortController();
     const t = setTimeout(() => ctrl.abort(), 12000);
@@ -127,9 +121,13 @@ const Aura = {
     const cloud = await this.cloudReply(text);
     return cloud || local;
   },
-  // Voice disabled permanently — user preference (unsettling)
   speak(text) {
-    // intentionally empty — no speech synthesis
+    if (window.speechSynthesis && localStorage.getItem("lumen-aura-voice") !== "0") {
+      const u = new SpeechSynthesisUtterance(text);
+      u.rate = 1.05;
+      u.pitch = 1.0;
+      speechSynthesis.speak(u);
+    }
   },
   listen(onText) {
     const Rec = window.SpeechRecognition || window.webkitSpeechRecognition;

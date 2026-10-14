@@ -1,34 +1,25 @@
 # Lumen Desktop
 
-A **browser mock** of a glass-style desktop.
-Entertainment only.
+A **browser mock** of a modern glass-style desktop OS.
 
-**Not macOS.
-Not Apple.
-Not Siri.
-Not Apple Intelligence.
-Not the App Store.
-**
+**Entertainment only.**
 
-Official Apple icons, wallpapers, Liquid Glass trademarks, and system chrome are copyrighted.
-This project uses original SVG icons, original CSS glass surfaces, and original wallpaper scenes.
+**Not macOS. Not Apple. Not Siri. Not Apple Intelligence. Not the App Store.**
 
-It can open mock apps, save notes, add reminders, do simple math, speak, and optionally use a public text demo (AI) for longer answers.
-It is not a product AI and not an Apple assistant.
+Official Apple icons, wallpapers, Liquid Glass trademarks, and system chrome are copyrighted. This project uses original SVG icons, original CSS glass surfaces, and original wallpaper scenes.
 
-## Lumen 76 refinements
-- Enhanced liquid glass with stronger specular highlights, dynamic reflections, improved blur and refraction layers
-- Smoother dock magnification with neighbor scaling and hover animations
-- Higher-detail original SVG app icons with better gradients and depth
-- Wallpaper scene cycling (⌘W) with original gradient scenes
-- Aura orb + tiny local LLM phrase model at boot + optional third-party AI text endpoint (pollinations)
-- Gallery (App Store mock), Notes, Files, Calculator, Terminal, and many other working mock apps remain fully functional
-- Better control center glass intensity slider
+Aura is a local helper with a tiny LLM phrase model loaded at boot, plus optional third-party AI text endpoint (pollinations) for longer conversational answers. It can open mock apps, save notes, add reminders, do simple math, and speak (optional).
 
-Entertainment only.
-Original assets.
-Not macOS / Siri / Apple Intelligence.
+## Latest refinements
+- Enhanced Aura with optional speech synthesis
+- Improved AI prompt for more natural responses while keeping clear disclaimers
+- High-detail original SVG app icons with depth and gradients
+- Liquid glass effects with specular highlights, blur, and refraction
+- Full working mock apps: Notes, Files, Calculator, Terminal, Gallery, Calendar, Music, Photos, and more
+- Dock magnification, Mission Control, Launchpad, Control Center with glass intensity
+
+Entertainment only. Original assets. Not affiliated with Apple.
 
 Live: https://carterobviously-creator.github.io/grok-macos/
 
-About page: [about.html](about.html)
+About: [about.html](about.html)
