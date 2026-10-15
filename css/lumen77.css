@@ -1,0 +1,65 @@
+/* lumen77.css — Enhanced Liquid Glass polish for Lumen Desktop mock
+   More realistic specular, refraction hints, better menu/dock, for entertainment only.
+   Not affiliated with Apple. Original CSS only. */
+:root {
+  --glass-opacity: 0.12;
+  --glass-blur: 64px;
+  --specular: 0.95;
+  --accent: #0a84ff;
+}
+.glass, #menubar, #dock, #control-center, #notify-drawer, #spotlight, #assistant, .window, #launchpad {
+  background: rgba(255, 255, 255, var(--glass-opacity));
+  backdrop-filter: blur(var(--glass-blur)) saturate(220%) brightness(1.05);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(220%) brightness(1.05);
+  border: 0.5px solid rgba(255,255,255,0.18);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(0,0,0,0.05);
+  border-radius: 16px;
+}
+#menubar {
+  background: rgba(255,255,255,0.08);
+  border-radius: 0;
+  border-bottom: 0.5px solid rgba(255,255,255,0.12);
+  height: 28px;
+  font-size: 13px;
+}
+#dock {
+  bottom: 8px;
+  background: rgba(255,255,255,0.1);
+  padding: 6px 10px;
+  border-radius: 22px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.3);
+}
+.icon, .glass-icon {
+  transition: transform 0.2s cubic-bezier(0.2,0.8,0.2,1), filter 0.2s;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+.icon:hover, .dock-icon:hover {
+  transform: scale(1.18) translateY(-4px);
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4)) brightness(1.05);
+}
+.window {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.traffic-lights {
+  background: rgba(255,255,255,0.15);
+  border-radius: 10px;
+}
+/* Specular highlight for glass */
+.glass::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 40%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.25), transparent);
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: var(--specular);
+}
+#wallpaper {
+  background: radial-gradient(ellipse at 30% 40%, #1e3a8a 0%, #0f172a 50%, #020617 100%),
+              url('assets/ridge-dawn.jpg') center/cover no-repeat;
+  filter: saturate(1.2) contrast(1.05);
+}
+/* Better lock screen time */
+.lock-time { font-size: 96px; font-weight: 300; letter-spacing: -2px; text-shadow: 0 4px 20px rgba(0,0,0,0.4); }
