@@ -4,7 +4,7 @@ const Aura = {
     return localStorage.getItem("lumen-aura-cloud") !== "0";
   },
   shouldStayLocal(q) {
-    return /open |launch |start |show |what time|what is [0-9]|calculate|mission|help\b|who are you|what are you|lock/.test(q.toLowerCase());
+    return /open |launch |start |show |what time|what is [0-9]|calculate|mission|help\b|who are you|what are you|lock|remind|note /.test(q.toLowerCase());
   },
   localReply(text) {
     const q = text.toLowerCase().trim();
@@ -13,8 +13,8 @@ const Aura = {
       const extra = VistaAura.extra(text);
       if (extra) return extra;
     }
-    if (/(hello|hi|hey|good morning|good evening|siri)/.test(q)) {
-      return "Hi! I'm the mock Siri-style helper in this Lumen desktop. I can open apps, take notes, set reminders, do math, tell the time, or chat with a tiny local model plus optional AI. Entertainment mock only.";
+    if (/(hello|hi|hey|good morning|good evening|siri|aura)/.test(q)) {
+      return "Hi! I'm Aura, the mock assistant in this Lumen desktop. I can open apps, take notes, set reminders, do math, tell the time, or chat. Entertainment mock only \u2014 not the real Siri.";
     }
     if (/time|clock/.test(q) && !/open/.test(q)) return "It is " + new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
     if (/date|today/.test(q)) {
@@ -82,16 +82,16 @@ const Aura = {
     return "Try asking to open an app, the time, or help.";
   },
   async cloudReply(text) {
-    const prompt = "You are Aura, a concise, friendly, helpful AI assistant inside Lumen Desktop, a high-fidelity browser entertainment mock of a modern glass desktop OS inspired by recent macOS designs. Never claim to be the real Siri, Apple Intelligence, macOS, or affiliated with Apple. Keep answers short (1-3 sentences), natural, and helpful. Entertainment purposes only.\nUser: " + text;
+    const prompt = "You are Aura, a concise, friendly, helpful AI assistant inside Lumen Desktop, a high-fidelity browser entertainment mock of a modern glass desktop OS inspired by recent macOS Liquid Glass designs (Golden Gate refinements). Never claim to be the real Siri, Apple Intelligence, macOS, or affiliated with Apple. Keep answers short (1-3 sentences), natural, and helpful. Entertainment purposes only.\nUser: " + text;
     const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
     const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), 15000);
+    const t = setTimeout(() => ctrl.abort(), 12000);
     try {
       const r = await fetch(url, { signal: ctrl.signal });
       clearTimeout(t);
       if (!r.ok) return null;
       const out = (await r.text()).trim();
-      return out ? out.slice(0, 800) : null;
+      return out ? out.slice(0, 600) : null;
     } catch (e) {
       clearTimeout(t);
       return null;
@@ -109,9 +109,11 @@ const Aura = {
   },
   speak(text) {
     if (window.speechSynthesis && localStorage.getItem("lumen-aura-voice") !== "0") {
+      speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(text);
-      u.rate = 1.05;
-      u.pitch = 1.0;
+      u.rate = 1.02;
+      u.pitch = 1.05;
+      u.volume = 0.9;
       speechSynthesis.speak(u);
     }
   },
@@ -131,6 +133,7 @@ const Aura = {
       onText(said);
     };
     rec.onend = () => { if (mic) mic.classList.remove("listening"); };
+    rec.onerror = () => { if (mic) mic.classList.remove("listening"); };
     rec.start();
   }
 };
