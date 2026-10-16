@@ -82,16 +82,16 @@ const Aura = {
     return "Try asking to open an app, the time, or help.";
   },
   async cloudReply(text) {
-    const prompt = "You are a concise, friendly, helpful assistant inside Lumen Desktop, a high-fidelity browser mock of a modern desktop OS for entertainment only. Never claim to be the real Siri, Apple Intelligence, macOS, or affiliated with Apple. Answer helpfully in 1-3 short sentences. Use natural conversational tone.\nUser: " + text;
+    const prompt = "You are Aura, a concise, friendly, helpful AI assistant inside Lumen Desktop, a high-fidelity browser entertainment mock of a modern glass desktop OS inspired by recent macOS designs. Never claim to be the real Siri, Apple Intelligence, macOS, or affiliated with Apple. Keep answers short (1-3 sentences), natural, and helpful. Entertainment purposes only.\nUser: " + text;
     const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
     const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), 12000);
+    const t = setTimeout(() => ctrl.abort(), 15000);
     try {
       const r = await fetch(url, { signal: ctrl.signal });
       clearTimeout(t);
       if (!r.ok) return null;
       const out = (await r.text()).trim();
-      return out ? out.slice(0, 700) : null;
+      return out ? out.slice(0, 800) : null;
     } catch (e) {
       clearTimeout(t);
       return null;
