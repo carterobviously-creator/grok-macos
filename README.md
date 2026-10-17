@@ -6,13 +6,14 @@ A **browser mock** of a modern glass-style desktop OS inspired by recent macOS L
 
 **Not macOS. Not Apple. Not the real Siri. Not Apple Intelligence. Not the App Store.**
 
-Official Apple icons, wallpapers, Liquid Glass trademarks, and system chrome are copyrighted. This project uses original SVG icons (squircles with layered glass highlights), original CSS glass surfaces with specular and blur, and original wallpaper scenes.
+Official Apple icons, wallpapers, Liquid Glass trademarks, and system chrome are copyrighted. This project uses original SVG icons (squircles with layered glass highlights), original CSS glass surfaces with specular and blur, and original wallpaper scenes. No official Apple assets are used.
 
 The assistant (Aura / mock Siri) is a local helper with a tiny LLM phrase model loaded at boot, plus optional third-party AI text endpoint (pollinations) for longer conversational answers. It can open mock apps, save notes, add reminders, do simple math, and speak (optional).
 
-## Recent refinements (Lumen 77)
-- Stronger Liquid Glass specular highlights, blur, and saturation
+## Recent refinements (Lumen 78)
+- Enhanced Liquid Glass specular highlights, blur, saturation, and dock magnification
 - Improved Aura AI prompt for more natural, concise mock assistant replies and better app launching
+- Higher-detail original SVG icons with layered glass effects
 - Boot screen with detailed tiny local LLM phrase model load animation
 - Full set of working mock apps with separate HTML/CSS/JS pages
 - Dock magnification, Launchpad, Mission Control, Spotlight-style search, Control Center

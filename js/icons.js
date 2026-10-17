@@ -6,25 +6,25 @@ const Icons = {
     return `<div class="icon glass-icon" style="background:${bg || 'linear-gradient(145deg,#64748b,#334155)'}; border-radius:22%; box-shadow:0 8px 20px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.55), inset 0 -1px 0 rgba(0,0,0,.15)">${inner}<span class="spec"></span></div>`;
   },
   finder() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><rect x="7" y="9" width="30" height="26" rx="7" fill="#fff" opacity="0.95"/><path d="M13 17h18M13 23h14M13 29h10" stroke="#0ea5e9" stroke-width="2.4" stroke-linecap="round"/></svg>', "linear-gradient(160deg,#7dd3fc,#0284c7 60%,#0369a1)");
+    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><rect x="7" y="9" width="30" height="26" rx="7" fill="#fff" opacity="0.95"/><path d="M13 17h18M13 23h14M13 29h10" stroke="#0ea5e9" stroke-width="2.4" stroke-linecap="round"/><circle cx="32" cy="14" r="3" fill="#38bdf8"/></svg>', "linear-gradient(160deg,#7dd3fc,#0284c7 60%,#0369a1)");
   },
   notes() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><rect x="8" y="6" width="28" height="32" rx="7" fill="#fff"/><path d="M15 15h14M15 21h14M15 27h10" stroke="#f59e0b" stroke-width="2.3" stroke-linecap="round"/><circle cx="33" cy="11" r="4.5" fill="#fbbf24"/></svg>', "linear-gradient(160deg,#fef9c3,#f59e0b 55%,#d97706)");
+    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><rect x="8" y="6" width="28" height="32" rx="7" fill="#fff"/><path d="M15 15h14M15 21h14M15 27h10" stroke="#f59e0b" stroke-width="2.3" stroke-linecap="round"/><circle cx="33" cy="11" r="4.5" fill="#fbbf24"/><path d="M30 8l2 2 4-4" stroke="#fff" stroke-width="1.5" fill="none"/></svg>', "linear-gradient(160deg,#fef9c3,#f59e0b 55%,#d97706)");
   },
   calc() {
     return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><rect x="7" y="5" width="30" height="34" rx="8" fill="#fff"/><rect x="11" y="9" width="22" height="8" rx="3" fill="#1e293b"/><g fill="#475569"><circle cx="15" cy="23" r="2.6"/><circle cx="22" cy="23" r="2.6"/><circle cx="29" cy="23" r="2.6"/><circle cx="15" cy="30" r="2.6"/><circle cx="22" cy="30" r="2.6"/><circle cx="29" cy="30" r="2.6"/></g></svg>', "linear-gradient(160deg,#f1f5f9,#94a3b8 50%,#64748b)");
   },
   web() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="15" fill="none" stroke="#fff" stroke-width="2.8"/><path d="M22 7c5.5 6.5 5.5 21 0 30M7 22h30" stroke="#fff" stroke-width="2.2"/></svg>', "linear-gradient(160deg,#67e8f9,#0891b2 60%,#0e7490)");
+    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="15" fill="none" stroke="#fff" stroke-width="2.8"/><path d="M22 7c5.5 6.5 5.5 21 0 30M7 22h30" stroke="#fff" stroke-width="2.2"/><circle cx="22" cy="22" r="4" fill="#fff" opacity="0.3"/></svg>', "linear-gradient(160deg,#67e8f9,#0891b2 60%,#0e7490)");
   },
   store() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><path d="M9 15l4-7h18l4 7v20H9z" fill="#fff"/><circle cx="22" cy="25" r="5.5" fill="#a855f7"/><path d="M15 15h14" stroke="#c084fc" stroke-width="2"/></svg>', "linear-gradient(160deg,#e9d5ff,#7c3aed 55%,#6d28d9)");
+    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><path d="M9 15l4-7h18l4 7v20H9z" fill="#fff"/><circle cx="22" cy="25" r="5.5" fill="#a855f7"/><path d="M15 15h14" stroke="#c084fc" stroke-width="2"/><path d="M18 22l3 3 5-5" stroke="#fff" stroke-width="1.8" fill="none"/></svg>', "linear-gradient(160deg,#e9d5ff,#7c3aed 55%,#6d28d9)");
   },
   settings() {
     return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="7.5" fill="#fff"/><path d="M22 5v6.5M22 32.5v6.5M5 22h6.5M32.5 22h6.5M9.5 9.5l4.6 4.6M30 30l4.6 4.6M9.5 34.5l4.6-4.6M30 14l4.6-4.6" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg>', "linear-gradient(160deg,#e4e4e7,#52525b 50%,#3f3f46)");
   },
   aura() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="14" fill="none" stroke="#fff" stroke-width="2.8"/><circle cx="22" cy="22" r="7.5" fill="#fff"/><path d="M22 4v6M22 34v6M4 22h6M34 22h6" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>', "linear-gradient(160deg,#c7d2fe,#4f46e5 55%,#4338ca)");
+    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="14" fill="none" stroke="#fff" stroke-width="2.8"/><circle cx="22" cy="22" r="7.5" fill="#fff"/><path d="M22 4v6M22 34v6M4 22h6M34 22h6" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><circle cx="22" cy="22" r="3" fill="#a78bfa"/></svg>', "linear-gradient(160deg,#c7d2fe,#4f46e5 55%,#4338ca)");
   },
   launch() {
     return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><rect x="6" y="6" width="13" height="13" rx="4" fill="#fff"/><rect x="25" y="6" width="13" height="13" rx="4" fill="#e0e7ff"/><rect x="6" y="25" width="13" height="13" rx="4" fill="#e0e7ff"/><rect x="25" y="25" width="13" height="13" rx="4" fill="#fff"/></svg>', "linear-gradient(160deg,#a5b4fc,#6366f1 50%,#4f46e5)");
