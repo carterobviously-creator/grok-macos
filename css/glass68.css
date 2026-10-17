@@ -85,3 +85,21 @@
   border: 1px solid rgba(255,255,255,0.5);
 }
 #boot-screen .boot-logo svg { filter: drop-shadow(0 10px 24px rgba(125, 211, 252, 0.45)); }
+
+/* Additional Liquid Glass polish for Lumen 77+ */
+.glass, #menubar, #dock, .win, #assistant, #control-center, #spotlight {
+  backdrop-filter: blur(32px) saturate(200%) brightness(1.05);
+  -webkit-backdrop-filter: blur(32px) saturate(200%) brightness(1.05);
+  background: linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.08));
+  border: 1px solid rgba(255,255,255,0.35);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.55);
+}
+#dock .dock-item:hover {
+  transform: translateY(-12px) scale(1.22);
+  filter: brightness(1.08);
+}
+.win {
+  border-radius: 18px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.win:hover { box-shadow: 0 28px 70px rgba(15,23,42,0.32), inset 0 1px 0 #fff; }
