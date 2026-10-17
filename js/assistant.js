@@ -4,7 +4,7 @@ const Aura = {
     return localStorage.getItem("lumen-aura-cloud") !== "0";
   },
   shouldStayLocal(q) {
-    return /open |launch |start |show |what time|what is [0-9]|calculate|mission|help\b|who are you|what are you|lock|remind|note /.test(q.toLowerCase());
+    return /open |launch |start |show |what time|what is [0-9]|calculate|mission|help\b|who are you|what are you|lock|remind|note |weather|battery|joke|settings|files|notes|calc|web|store|calendar|music|photos|mail|maps|terminal/.test(q.toLowerCase());
   },
   localReply(text) {
     const q = text.toLowerCase().trim();
@@ -13,8 +13,8 @@ const Aura = {
       const extra = VistaAura.extra(text);
       if (extra) return extra;
     }
-    if (/(hello|hi|hey|good morning|good evening|siri|aura)/.test(q)) {
-      return "Hi! I'm Aura, the mock assistant in this Lumen desktop. I can open apps, take notes, set reminders, do math, tell the time, or chat. Entertainment mock only \u2014 not the real Siri.";
+    if (/(hello|hi|hey|good morning|good evening|siri|aura|hey aura)/.test(q)) {
+      return "Hi! I'm Aura, your mock assistant in Lumen Desktop. I can open apps, take notes, set reminders, do math, tell the time, check mock weather, or chat. Entertainment only — not the real Siri or Apple Intelligence.";
     }
     if (/time|clock/.test(q) && !/open/.test(q)) return "It is " + new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
     if (/date|today/.test(q)) {
@@ -36,104 +36,93 @@ const Aura = {
       if (typeof Desktop !== "undefined") Desktop.openApp("notes");
       return "Saved that in Notes.";
     }
-    const math = AuraModel.math(q);
+    const math = AuraModel.math && AuraModel.math(q);
     if (math && /(what is|whats|calculate|plus|minus|times|divided|how much)/.test(q)) return math;
     const map = [
       { re: /files|finder/, id: "finder", msg: "Opening Files." },
       { re: /notes/, id: "notes", msg: "Opening Notes." },
       { re: /calc|calculator/, id: "calc", msg: "Opening Calculator." },
       { re: /web|browser|safari/, id: "web", msg: "Opening Web." },
-      { re: /settings|prefs|preferences/, id: "settings", msg: "Opening Settings." },
-      { re: /store|gallery|app store/, id: "store", msg: "Opening Gallery." },
+      { re: /store|gallery|app store|apps/, id: "store", msg: "Opening Gallery." },
+      { re: /settings|preferences/, id: "settings", msg: "Opening Settings." },
+      { re: /calendar/, id: "calendar", msg: "Opening Calendar." },
       { re: /music/, id: "music", msg: "Opening Music." },
       { re: /photos/, id: "photos", msg: "Opening Photos." },
+      { re: /terminal|term/, id: "terminal", msg: "Opening Terminal." },
       { re: /mail/, id: "mail", msg: "Opening Mail." },
       { re: /maps/, id: "maps", msg: "Opening Maps." },
-      { re: /terminal/, id: "terminal", msg: "Opening Terminal." },
-      { re: /calendar/, id: "calendar", msg: "Opening Calendar." },
-      { re: /reminders/, id: "reminders", msg: "Opening Reminders." },
       { re: /weather/, id: "weather", msg: "Opening Weather." },
-      { re: /launch/, id: "launch", msg: "Opening Launchpad." },
+      { re: /reminders/, id: "reminders", msg: "Opening Reminders." },
+      { re: /launchpad|launch/, id: "launch", msg: "Opening Launchpad." },
       { re: /mission/, id: "mission", msg: "Opening Mission Control." }
     ];
     for (const item of map) {
-      if (item.re.test(q) && (/open|launch|start|show|go to/.test(q) || q.split(" ").length < 5)) {
+      if (item.re.test(q) && (item.id === "mission" || q.split(" ").length < 6)) {
         if (item.id === "mission" && typeof Desktop !== "undefined") Desktop.toggleMission();
         else if (typeof Desktop !== "undefined") Desktop.openApp(item.id);
         return item.msg;
       }
     }
-    if (/who|what are you|siri|apple intelligence|apple|macos/.test(q)) {
-      return "This is Lumen, a fan-made browser desktop mock for entertainment. The helper is a local phrase model plus optional public AI demo. It is not the real Siri, not Apple Intelligence, and not affiliated with Apple.";
+    if (/who|what are you|siri|apple intelligence|apple|macos|lumen/.test(q)) {
+      return "This is Lumen Desktop, a fan-made browser entertainment mock of a modern glass-style OS. Aura is a local phrase model plus optional public AI demo. Not the real Siri, not Apple Intelligence, not affiliated with Apple.";
     }
-    if (/weather|forecast|temperature/.test(q)) return "Mock forecast: " + (AuraModel.facts.weather || "clear, 72\u00b0") + ".";
+    if (/weather|forecast|temperature/.test(q)) return "Mock forecast: " + (AuraModel.facts.weather || "clear, 72°") + ".";
     if (/joke|funny/.test(q)) return "Why did the desktop go to therapy? It had too many unresolved windows.";
     if (/help|what can|commands/.test(q)) {
-      return "Try: open notes, open files, remind me to stretch, note buy milk, what is 15 times 7, what time is it, tell a joke, or just chat. Press Command-Space anytime. Demo AI replies stay on unless turned off in Settings.";
+      return "Try: open notes, open files, remind me to stretch, note buy milk, what is 15 times 7, what time is it, tell a joke, open store, or just chat. Press Command-Space anytime. Demo AI replies stay on unless turned off in Settings.";
     }
     if (/thank/.test(q)) return "You're welcome! Anything else?";
-    const near = AuraModel.nearest(q);
+    const near = AuraModel.nearest && AuraModel.nearest(q);
     if (near) return near;
     if (window.TinyMind && TinyMind.ready) return TinyMind.reply(q);
     const bits = q.replace(/[^a-z0-9\s]/g, "").split(/\s+/).filter(Boolean);
     if (bits.length) {
-      return "I heard \"" + bits.slice(0, 8).join(" ") + "\". Try open notes, remind me to\u2026, what time is it, or help.";
+      return "I heard \"" + bits.slice(0, 8).join(" ") + "\". Try open notes, remind me to…, what time is it, or help.";
     }
     return "Try asking to open an app, the time, or help.";
   },
   async cloudReply(text) {
-    const prompt = "You are Aura, a concise, friendly, helpful AI assistant inside Lumen Desktop, a high-fidelity browser entertainment mock of a modern glass desktop OS inspired by recent macOS Liquid Glass designs (Golden Gate refinements). Never claim to be the real Siri, Apple Intelligence, macOS, or affiliated with Apple. Keep answers short (1-3 sentences), natural, and helpful. Entertainment purposes only.\nUser: " + text;
+    const prompt = "You are Aura, a concise, friendly, helpful AI assistant inside Lumen Desktop, a high-fidelity browser entertainment mock of a modern glass desktop OS inspired by recent macOS Liquid Glass designs (Golden Gate refinements). Never claim to be the real Siri, Apple Intelligence, macOS, or affiliated with Apple. Keep answers short (1-3 sentences), natural, and helpful. Entertainment purposes only. Respond as if you are a local system assistant.\nUser: " + text;
     const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
     const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), 12000);
+    const t = setTimeout(() => ctrl.abort(), 15000);
     try {
       const r = await fetch(url, { signal: ctrl.signal });
       clearTimeout(t);
       if (!r.ok) return null;
       const out = (await r.text()).trim();
-      return out ? out.slice(0, 600) : null;
+      return out ? out.slice(0, 800) : null;
     } catch (e) {
       clearTimeout(t);
       return null;
     }
   },
   async reply(text) {
-    if (!AuraModel.ready) await AuraModel.load();
-    if (window.TinyMind && !TinyMind.ready) {
-      try { await TinyMind.load(); } catch (e) {}
+    if (this.shouldStayLocal(text)) return this.localReply(text);
+    if (this.cloudEnabled()) {
+      const cloud = await this.cloudReply(text);
+      if (cloud) return cloud;
     }
-    const local = this.localReply(text);
-    if (this.shouldStayLocal(text) || !this.cloudEnabled()) return local;
-    const cloud = await this.cloudReply(text);
-    return cloud || local;
+    return this.localReply(text);
   },
-  speak(text) {
-    if (window.speechSynthesis && localStorage.getItem("lumen-aura-voice") !== "0") {
-      speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(text);
-      u.rate = 1.02;
-      u.pitch = 1.05;
-      u.volume = 0.9;
-      speechSynthesis.speak(u);
-    }
-  },
-  listen(onText) {
-    const Rec = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (!Rec) {
-      if (typeof Desktop !== "undefined") Desktop.toast("Speech recognition is not available in this browser.");
+  listen(cb) {
+    if (!("webkitSpeechRecognition" in window) && !("SpeechRecognition" in window)) {
+      alert("Speech recognition not supported in this browser.");
       return;
     }
+    const Rec = window.SpeechRecognition || window.webkitSpeechRecognition;
     const rec = new Rec();
     rec.lang = "en-US";
     rec.interimResults = false;
-    const mic = document.getElementById("aura-mic");
-    if (mic) mic.classList.add("listening");
-    rec.onresult = (e) => {
-      const said = e.results[0][0].transcript;
-      onText(said);
-    };
-    rec.onend = () => { if (mic) mic.classList.remove("listening"); };
-    rec.onerror = () => { if (mic) mic.classList.remove("listening"); };
+    rec.onresult = (e) => cb(e.results[0][0].transcript);
+    rec.onerror = () => {};
     rec.start();
+  },
+  speak(text) {
+    if (!window.speechSynthesis || this.speaking) return;
+    this.speaking = true;
+    const u = new SpeechSynthesisUtterance(text);
+    u.onend = () => { this.speaking = false; };
+    window.speechSynthesis.speak(u);
   }
 };
