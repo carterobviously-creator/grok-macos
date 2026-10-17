@@ -64,15 +64,15 @@
 
 .glass {
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.42), rgba(255,255,255,0.08)),
-    rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.48);
+    linear-gradient(180deg, rgba(255,255,255,0.45), rgba(255,255,255,0.10)),
+    rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.52);
   box-shadow:
-    0 22px 64px rgba(0,0,0,0.35),
-    inset 0 1px 0 rgba(255,255,255,0.65),
-    inset 0 -1px 0 rgba(255,255,255,0.12);
-  backdrop-filter: blur(44px) saturate(230%);
-  -webkit-backdrop-filter: blur(44px) saturate(230%);
+    0 24px 70px rgba(0,0,0,0.38),
+    inset 0 1px 0 rgba(255,255,255,0.70),
+    inset 0 -1px 0 rgba(255,255,255,0.14);
+  backdrop-filter: blur(48px) saturate(240%);
+  -webkit-backdrop-filter: blur(48px) saturate(240%);
   position: relative;
   overflow: hidden;
 }
@@ -81,17 +81,17 @@
   pointer-events: none;
   position: absolute; inset: 0;
   border-radius: inherit;
-  background: linear-gradient(125deg, rgba(255,255,255,0.32), transparent 30%, transparent 70%, rgba(255,255,255,0.10));
+  background: linear-gradient(125deg, rgba(255,255,255,0.35), transparent 32%, transparent 68%, rgba(255,255,255,0.12));
 }
 .glass-icon { position: relative; overflow: hidden; }
 .glass-icon .spec {
   position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
-  background: linear-gradient(135deg, rgba(255,255,255,0.45) 0%, transparent 42%, transparent 58%, rgba(255,255,255,0.18) 100%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.50) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.20) 100%);
 }
 body.tinted .glass {
-  background: linear-gradient(180deg, rgba(30,41,80,0.68), rgba(15,23,42,0.52));
+  background: linear-gradient(180deg, rgba(30,41,80,0.72), rgba(15,23,42,0.55));
   color: #f8fafc;
-  border-color: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.20);
 }
 
 #dock {
@@ -107,7 +107,7 @@ body.tinted .glass {
   transition: transform 0.18s cubic-bezier(.25,.8,.25,1);
   cursor: pointer;
 }
-.dock-item:hover { transform: translateY(-18px) scale(1.32); }
+.dock-item:hover { transform: translateY(-20px) scale(1.38); }
 .dock-item .icon {
   width: 56px; height: 56px; border-radius: 22%;
   display: grid; place-items: center;
@@ -130,7 +130,7 @@ body.tinted #control-center, body.tinted #notify-drawer { color: #f8fafc; }
 .cc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .cc-tile {
   border: 0; border-radius: 18px; padding: 18px 12px;
-  background: rgba(255,255,255,0.48); color: #0f172a; font-weight: 500;
+  background: rgba(255,255,255,0.50); color: #0f172a; font-weight: 500;
 }
 .cc-tile.on { background: #2563eb; color: #fff; }
 .cc-slider { display: block; margin-top: 14px; font-size: 13px; }
