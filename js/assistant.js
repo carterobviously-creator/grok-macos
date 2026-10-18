@@ -82,16 +82,16 @@ const Aura = {
     return "Try asking to open an app, the time, or help.";
   },
   async cloudReply(text) {
-    const prompt = "You are Aura, a concise, friendly, helpful AI assistant inside Lumen Desktop, a high-fidelity browser entertainment mock of a modern glass desktop OS inspired by recent macOS Liquid Glass designs (Golden Gate refinements). Never claim to be the real Siri, Apple Intelligence, macOS, or affiliated with Apple. Keep answers short (1-3 sentences), natural, and helpful. Entertainment purposes only. Respond as if you are a local system assistant.\nUser: " + text;
+    const prompt = "You are Aura, a concise, friendly, helpful AI assistant inside Lumen Desktop, a high-fidelity browser entertainment mock of a modern glass desktop OS inspired by recent macOS Liquid Glass designs (Golden Gate refinements). Never claim to be the real Siri, Apple Intelligence, macOS, or affiliated with Apple. Keep answers short (1-3 sentences), natural, witty when appropriate, and helpful. Entertainment purposes only. Respond as if you are a local system assistant that can control mock apps.\nUser: " + text;
     const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
     const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), 12000);
+    const t = setTimeout(() => ctrl.abort(), 14000);
     try {
       const r = await fetch(url, { signal: ctrl.signal });
       clearTimeout(t);
       if (!r.ok) return null;
       const out = (await r.text()).trim();
-      return out ? out.slice(0, 600) : null;
+      return out ? out.slice(0, 700) : null;
     } catch (e) {
       clearTimeout(t);
       return null;
@@ -122,7 +122,8 @@ const Aura = {
     if (!window.speechSynthesis || this.speaking) return;
     this.speaking = true;
     const u = new SpeechSynthesisUtterance(text);
-    u.rate = 1.05;
+    u.rate = 1.02;
+    u.pitch = 1.05;
     u.onend = () => { this.speaking = false; };
     window.speechSynthesis.speak(u);
   }
