@@ -11,16 +11,18 @@
   <link rel="stylesheet" href="css/glass68.css" />
   <link rel="stylesheet" href="css/extras.css" />
   <style>
-    /* Enhanced Liquid Glass refinements for mock */
+    /* Enhanced Liquid Glass refinements for Lumen 79 */
     .glass, .dock, .menu-bar, .window, .control-center, .assistant, .launchpad {
-      backdrop-filter: blur(28px) saturate(180%);
-      -webkit-backdrop-filter: blur(28px) saturate(180%);
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.28);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.4);
+      backdrop-filter: blur(40px) saturate(220%) brightness(1.05);
+      -webkit-backdrop-filter: blur(40px) saturate(220%) brightness(1.05);
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.35);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.55), inset 0 -1px 0 rgba(0,0,0,0.1);
     }
-    .icon { transition: transform 0.15s cubic-bezier(0.2,0.8,0.2,1); }
-    .dock .icon:hover { transform: scale(1.25) translateY(-8px); }
+    .icon { transition: transform 0.18s cubic-bezier(0.2,0.85,0.2,1), filter 0.2s; }
+    .dock .icon:hover { transform: scale(1.32) translateY(-12px); filter: brightness(1.1); }
+    .glass-icon .spec { position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(135deg, rgba(255,255,255,0.45) 0%, transparent 50%); pointer-events: none; }
+    .glass-icon .highlight { position: absolute; top: 4%; left: 8%; width: 40%; height: 25%; border-radius: 50%; background: rgba(255,255,255,0.35); filter: blur(4px); pointer-events: none; }
     #wallpaper { background: url('assets/ridge-dawn.jpg') center/cover no-repeat fixed; }
   </style>
 </head>
