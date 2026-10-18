@@ -1,60 +1,60 @@
 /* Original high-detail SVG icons for Lumen Desktop entertainment mock.
    Layered glass-style approximations of modern desktop aesthetics only — not official Apple artwork.
-   Entertainment only. Not affiliated with Apple. */
+   Entertainment only. Not affiliated with Apple. Enhanced for Lumen 79 with richer gradients and highlights. */
 const Icons = {
   svg(inner, bg) {
-    return `<div class="icon glass-icon" style="background:${bg || 'linear-gradient(145deg,#64748b,#334155)'}; border-radius:22%; box-shadow:0 8px 20px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.55), inset 0 -1px 0 rgba(0,0,0,.15)">${inner}<span class="spec"></span></div>`;
+    return `<div class="icon glass-icon" style="background:${bg || 'linear-gradient(145deg,#64748b,#334155)'}; border-radius:22%; box-shadow:0 10px 24px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.65), inset 0 -2px 4px rgba(0,0,0,.2), 0 0 0 1px rgba(255,255,255,.1)">${inner}<span class="spec"></span><span class="highlight"></span></div>`;
   },
   finder() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><rect x="7" y="9" width="30" height="26" rx="7" fill="#fff" opacity="0.95"/><path d="M13 17h18M13 23h14M13 29h10" stroke="#0ea5e9" stroke-width="2.4" stroke-linecap="round"/><circle cx="32" cy="14" r="3" fill="#38bdf8"/></svg>', "linear-gradient(160deg,#7dd3fc,#0284c7 60%,#0369a1)");
+    return this.svg('<svg width="48" height="48" viewBox="0 0 48 48"><rect x="6" y="8" width="36" height="32" rx="8" fill="#fff" opacity="0.96"/><path d="M14 18h20M14 24h16M14 30h12" stroke="#0ea5e9" stroke-width="2.6" stroke-linecap="round"/><circle cx="36" cy="14" r="4" fill="#38bdf8"/><circle cx="36" cy="14" r="2" fill="#fff" opacity="0.7"/></svg>', "linear-gradient(155deg,#bae6fd,#0284c7 55%,#075985)");
   },
   notes() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><rect x="8" y="6" width="28" height="32" rx="7" fill="#fff"/><path d="M15 15h14M15 21h14M15 27h10" stroke="#f59e0b" stroke-width="2.3" stroke-linecap="round"/><circle cx="33" cy="11" r="4.5" fill="#fbbf24"/><path d="M30 8l2 2 4-4" stroke="#fff" stroke-width="1.5" fill="none"/></svg>', "linear-gradient(160deg,#fef9c3,#f59e0b 55%,#d97706)");
+    return this.svg('<svg width="48" height="48" viewBox="0 0 48 48"><rect x="7" y="5" width="34" height="38" rx="8" fill="#fff"/><path d="M16 16h16M16 22h16M16 28h12" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/><circle cx="36" cy="12" r="5" fill="#fbbf24"/><path d="M33 9l2.5 2.5 5-5" stroke="#fff" stroke-width="1.8" fill="none"/></svg>', "linear-gradient(155deg,#fef9c3,#f59e0b 50%,#b45309)");
   },
   calc() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><rect x="7" y="5" width="30" height="34" rx="8" fill="#fff"/><rect x="11" y="9" width="22" height="8" rx="3" fill="#1e293b"/><g fill="#475569"><circle cx="15" cy="23" r="2.6"/><circle cx="22" cy="23" r="2.6"/><circle cx="29" cy="23" r="2.6"/><circle cx="15" cy="30" r="2.6"/><circle cx="22" cy="30" r="2.6"/><circle cx="29" cy="30" r="2.6"/></g></svg>', "linear-gradient(160deg,#f1f5f9,#94a3b8 50%,#64748b)");
+    return this.svg('<svg width="48" height="48" viewBox="0 0 48 48"><rect x="6" y="4" width="36" height="40" rx="9" fill="#fff"/><rect x="10" y="8" width="28" height="10" rx="4" fill="#1e293b"/><g fill="#64748b"><circle cx="16" cy="26" r="3"/><circle cx="24" cy="26" r="3"/><circle cx="32" cy="26" r="3"/><circle cx="16" cy="34" r="3"/><circle cx="24" cy="34" r="3"/><circle cx="32" cy="34" r="3"/></g></svg>', "linear-gradient(155deg,#f8fafc,#94a3b8 48%,#475569)");
   },
   web() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="15" fill="none" stroke="#fff" stroke-width="2.8"/><path d="M22 7c5.5 6.5 5.5 21 0 30M7 22h30" stroke="#fff" stroke-width="2.2"/><circle cx="22" cy="22" r="4" fill="#fff" opacity="0.3"/></svg>', "linear-gradient(160deg,#67e8f9,#0891b2 60%,#0e7490)");
+    return this.svg('<svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="16" fill="none" stroke="#fff" stroke-width="3"/><path d="M24 8c6 7 6 22 0 32M8 24h32" stroke="#fff" stroke-width="2.4"/><circle cx="24" cy="24" r="5" fill="#fff" opacity="0.25"/></svg>', "linear-gradient(155deg,#a5f3fc,#0891b2 58%,#155e75)");
   },
   store() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><path d="M9 15l4-7h18l4 7v20H9z" fill="#fff"/><circle cx="22" cy="25" r="5.5" fill="#a855f7"/><path d="M15 15h14" stroke="#c084fc" stroke-width="2"/><path d="M18 22l3 3 5-5" stroke="#fff" stroke-width="1.8" fill="none"/></svg>', "linear-gradient(160deg,#e9d5ff,#7c3aed 55%,#6d28d9)");
+    return this.svg('<svg width="48" height="48" viewBox="0 0 48 48"><path d="M8 16l5-8h22l5 8v24H8z" fill="#fff"/><circle cx="24" cy="28" r="6" fill="#a855f7"/><path d="M16 16h16" stroke="#c084fc" stroke-width="2.2"/><path d="M20 25l3.5 3.5 6-6" stroke="#fff" stroke-width="2" fill="none"/></svg>', "linear-gradient(155deg,#f3e8ff,#7c3aed 52%,#5b21b6)");
   },
   settings() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="7.5" fill="#fff"/><path d="M22 5v6.5M22 32.5v6.5M5 22h6.5M32.5 22h6.5M9.5 9.5l4.6 4.6M30 30l4.6 4.6M9.5 34.5l4.6-4.6M30 14l4.6-4.6" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg>', "linear-gradient(160deg,#e4e4e7,#52525b 50%,#3f3f46)");
+    return this.svg('<svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="8.5" fill="#fff"/><path d="M24 4v8M24 36v8M4 24h8M36 24h8M10 10l6 6M32 32l6 6M10 38l6-6M32 16l6-6" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/></svg>', "linear-gradient(155deg,#e4e4e7,#52525b 48%,#27272a)");
   },
   aura() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="14" fill="none" stroke="#fff" stroke-width="2.8"/><circle cx="22" cy="22" r="7.5" fill="#fff"/><path d="M22 4v6M22 34v6M4 22h6M34 22h6" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><circle cx="22" cy="22" r="3" fill="#a78bfa"/></svg>', "linear-gradient(160deg,#c7d2fe,#4f46e5 55%,#4338ca)");
+    return this.svg('<svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="15" fill="none" stroke="#fff" stroke-width="3"/><circle cx="24" cy="24" r="8" fill="#fff"/><path d="M24 3v7M24 38v7M3 24h7M38 24h7" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="24" cy="24" r="3.5" fill="#a78bfa"/></svg>', "linear-gradient(155deg,#c7d2fe,#4f46e5 52%,#3730a3)");
   },
   launch() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><rect x="6" y="6" width="13" height="13" rx="4" fill="#fff"/><rect x="25" y="6" width="13" height="13" rx="4" fill="#e0e7ff"/><rect x="6" y="25" width="13" height="13" rx="4" fill="#e0e7ff"/><rect x="25" y="25" width="13" height="13" rx="4" fill="#fff"/></svg>', "linear-gradient(160deg,#a5b4fc,#6366f1 50%,#4f46e5)");
+    return this.svg('<svg width="48" height="48" viewBox="0 0 48 48"><rect x="5" y="5" width="15" height="15" rx="5" fill="#fff"/><rect x="28" y="5" width="15" height="15" rx="5" fill="#e0e7ff"/><rect x="5" y="28" width="15" height="15" rx="5" fill="#e0e7ff"/><rect x="28" y="28" width="15" height="15" rx="5" fill="#fff"/></svg>', "linear-gradient(155deg,#a5b4fc,#6366f1 48%,#4338ca)");
   },
   calendar() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><rect x="7" y="9" width="30" height="26" rx="7" fill="#fff"/><rect x="7" y="9" width="30" height="10" fill="#ef4444"/><text x="22" y="31" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="700">12</text></svg>', "linear-gradient(160deg,#fecaca,#dc2626 55%,#b91c1c)");
+    return this.svg('<svg width="48" height="48" viewBox="0 0 48 48"><rect x="6" y="8" width="36" height="32" rx="8" fill="#fff"/><rect x="6" y="8" width="36" height="12" fill="#ef4444"/><text x="24" y="34" text-anchor="middle" fill="#1e293b" font-size="16" font-weight="700">12</text></svg>', "linear-gradient(155deg,#fecaca,#dc2626 52%,#991b1b)");
   },
   music() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><path d="M15 11v20a7 7 0 11-3.5-6V11l18-3.5v18a7 7 0 11-3.5-6V7z" fill="#fff"/></svg>', "linear-gradient(160deg,#f9a8d4,#db2777 55%,#be185d)");
+    return this.svg('<svg width="48" height="48" viewBox="0 0 48 48"><path d="M16 12v22a8 8 0 11-4-7V12l20-4v20a8 8 0 11-4-7V8z" fill="#fff"/></svg>', "linear-gradient(155deg,#f9a8d4,#db2777 52%,#9d174d)");
   },
   photos() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="28" rx="7" fill="#fff"/><circle cx="16" cy="17" r="5.5" fill="#fbbf24"/><path d="M11 29l8-8 7 7 9-9 6 10z" fill="#38bdf8"/></svg>', "linear-gradient(160deg,#86efac,#16a34a 55%,#15803d)");
+    return this.svg('<svg width="48" height="48" viewBox="0 0 48 48"><rect x="5" y="7" width="38" height="34" rx="8" fill="#fff"/><circle cx="17" cy="18" r="6" fill="#fbbf24"/><path d="M12 32l9-9 8 8 10-10 7 11z" fill="#38bdf8"/></svg>', "linear-gradient(155deg,#86efac,#16a34a 52%,#14532d)");
   },
   terminal() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><rect x="6" y="7" width="32" height="30" rx="7" fill="#0f172a"/><path d="M13 17l7 7-7 7M23 31h12" stroke="#4ade80" stroke-width="2.4" stroke-linecap="round"/></svg>', "linear-gradient(160deg,#1e293b,#020617)");
+    return this.svg('<svg width="48" height="48" viewBox="0 0 48 48"><rect x="5" y="6" width="38" height="36" rx="8" fill="#0f172a"/><path d="M14 18l8 8-8 8M26 34h14" stroke="#4ade80" stroke-width="2.6" stroke-linecap="round"/></svg>', "linear-gradient(155deg,#1e293b,#020617)");
   },
   mail() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><rect x="6" y="12" width="32" height="22" rx="6" fill="#fff"/><path d="M6 15l16 11 16-11" fill="none" stroke="#3b82f6" stroke-width="2.4"/></svg>', "linear-gradient(160deg,#93c5fd,#2563eb 55%,#1d4ed8)");
+    return this.svg('<svg width="48" height="48" viewBox="0 0 48 48"><rect x="5" y="12" width="38" height="26" rx="7" fill="#fff"/><path d="M5 16l19 13 19-13" fill="none" stroke="#3b82f6" stroke-width="2.6"/></svg>', "linear-gradient(155deg,#93c5fd,#2563eb 52%,#1e40af)");
   },
   maps() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><path d="M22 7l15 9v20l-15-9-15 9V16z" fill="#fff"/><circle cx="22" cy="20" r="3.8" fill="#ef4444"/></svg>', "linear-gradient(160deg,#4ade80,#15803d 55%,#166534)");
+    return this.svg('<svg width="48" height="48" viewBox="0 0 48 48"><path d="M24 6l18 10v22l-18-10-18 10V16z" fill="#fff"/><circle cx="24" cy="22" r="4.2" fill="#ef4444"/></svg>', "linear-gradient(155deg,#4ade80,#15803d 52%,#14532d)");
   },
   trash() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><path d="M11 15h22l-2 22H13z" fill="#fff"/><path d="M15 11h14M13 15h18" stroke="#64748b" stroke-width="2.4" stroke-linecap="round"/></svg>', "linear-gradient(160deg,#e2e8f0,#94a3b8)");
+    return this.svg('<svg width="48" height="48" viewBox="0 0 48 48"><path d="M12 16h24l-2.5 24H14.5z" fill="#fff"/><path d="M16 12h16M14 16h20" stroke="#64748b" stroke-width="2.6" stroke-linecap="round"/></svg>', "linear-gradient(155deg,#e2e8f0,#94a3b8)");
   },
   reminders() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><rect x="9" y="8" width="26" height="28" rx="7" fill="#fff"/><path d="M15 17h14M15 24h10M15 31h8" stroke="#22c55e" stroke-width="2.3" stroke-linecap="round"/><circle cx="33" cy="13" r="5.2" fill="#22c55e"/></svg>', "linear-gradient(160deg,#bbf7d0,#16a34a 55%,#15803d)");
+    return this.svg('<svg width="48" height="48" viewBox="0 0 48 48"><rect x="8" y="7" width="32" height="34" rx="8" fill="#fff"/><path d="M16 18h16M16 26h12M16 34h10" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/><circle cx="36" cy="14" r="5.5" fill="#22c55e"/></svg>', "linear-gradient(155deg,#bbf7d0,#16a34a 52%,#14532d)");
   },
   weather() {
-    return this.svg('<svg width="44" height="44" viewBox="0 0 44 44"><circle cx="19" cy="19" r="8.5" fill="#fbbf24"/><path d="M13 29c0-4.2 3.2-7.5 7.2-7.5s7.2 3.3 7.2 7.5H13z" fill="#e2e8f0"/></svg>', "linear-gradient(160deg,#fef08a,#f59e0b 55%,#d97706)");
+    return this.svg('<svg width="48" height="48" viewBox="0 0 48 48"><circle cx="20" cy="20" r="9" fill="#fbbf24"/><path d="M14 32c0-4.5 3.5-8 8-8s8 3.5 8 8H14z" fill="#e2e8f0"/></svg>', "linear-gradient(155deg,#fef08a,#f59e0b 52%,#b45309)");
   }
 };
-Icons.settings = Icons.settings || function() { return Icons.svg('<circle cx="22" cy="22" r="10" fill="#fff"/>', '#64748b'); };
+Icons.settings = Icons.settings || function() { return Icons.svg('<circle cx="24" cy="24" r="11" fill="#fff"/>', '#64748b'); };
