@@ -64,7 +64,7 @@ const Aura = {
       }
     }
     if (/who|what are you|siri|apple intelligence|apple|macos|lumen/.test(q)) {
-      return "This is Lumen Desktop, a fan-made browser entertainment mock of a modern glass-style OS. Aura is a local phrase model plus optional public AI demo. Not the real Siri, not Apple Intelligence, not affiliated with Apple.";
+      return "This is Lumen Desktop, a fan-made browser entertainment mock of a modern glass-style OS inspired by Liquid Glass (Golden Gate style). Aura is a local phrase model plus optional public AI demo. Not the real Siri, not Apple Intelligence, not affiliated with Apple.";
     }
     if (/weather|forecast|temperature/.test(q)) return "Mock forecast: " + (AuraModel.facts.weather || "clear, 72°") + ".";
     if (/joke|funny/.test(q)) return "Why did the desktop go to therapy? It had too many unresolved windows.";
