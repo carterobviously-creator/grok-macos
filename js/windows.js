@@ -24,7 +24,7 @@ const Windows = {
       '<div class="win-title">' + title + "</div></div>" +
       '<div class="win-body">' + html + "</div>" +
       '<div class="win-resize"></div>';
-    document.getElementById("window-layer").appendChild(el);
+    document.getElementById("windows").appendChild(el);
     this.list[id] = el;
     this.bind(el, id);
     this.focus(id);
@@ -100,7 +100,6 @@ const Windows = {
     el.style.display = "";
     el.style.zIndex = ++this.z;
     el.classList.add("active");
-    document.getElementById("app-title").textContent = el.querySelector(".win-title").textContent;
   },
   close(id) {
     const el = this.list[id];

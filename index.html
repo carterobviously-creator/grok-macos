@@ -11,19 +11,20 @@
   <link rel="stylesheet" href="css/glass68.css" />
   <link rel="stylesheet" href="css/extras.css" />
   <style>
-    /* Enhanced Liquid Glass refinements for Lumen 79 */
-    .glass, .dock, .menu-bar, .window, .control-center, .assistant, .launchpad {
-      backdrop-filter: blur(40px) saturate(220%) brightness(1.05);
-      -webkit-backdrop-filter: blur(40px) saturate(220%) brightness(1.05);
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.35);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.55), inset 0 -1px 0 rgba(0,0,0,0.1);
+    /* Lumen 80 Liquid Glass refinements inspired by Golden Gate style */
+    .glass, .dock, .menu-bar, .window, .win, .control-center, .assistant, .launchpad {
+      backdrop-filter: blur(48px) saturate(240%) brightness(1.08);
+      -webkit-backdrop-filter: blur(48px) saturate(240%) brightness(1.08);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.4);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.65), inset 0 -1px 0 rgba(0,0,0,0.15);
     }
-    .icon { transition: transform 0.18s cubic-bezier(0.2,0.85,0.2,1), filter 0.2s; }
-    .dock .icon:hover { transform: scale(1.32) translateY(-12px); filter: brightness(1.1); }
-    .glass-icon .spec { position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(135deg, rgba(255,255,255,0.45) 0%, transparent 50%); pointer-events: none; }
-    .glass-icon .highlight { position: absolute; top: 4%; left: 8%; width: 40%; height: 25%; border-radius: 50%; background: rgba(255,255,255,0.35); filter: blur(4px); pointer-events: none; }
+    .icon { transition: transform 0.2s cubic-bezier(0.22,1,0.36,1), filter 0.2s; }
+    .dock .dock-item:hover { transform: scale(1.45) translateY(-16px); filter: brightness(1.15); }
+    .glass-icon .spec { position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(135deg, rgba(255,255,255,0.55) 0%, transparent 45%); pointer-events: none; }
+    .glass-icon .highlight { position: absolute; top: 6%; left: 10%; width: 35%; height: 22%; border-radius: 50%; background: rgba(255,255,255,0.4); filter: blur(3px); pointer-events: none; }
     #wallpaper { background: url('assets/ridge-dawn.jpg') center/cover no-repeat fixed; }
+    .menu-bar { height: 28px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; font-size: 13px; color: #f8fafc; }
   </style>
 </head>
 <body>
@@ -63,6 +64,13 @@
       </div>
     </div>
     <div id="menu-pop" class="menu-pop hidden"></div>
+
+    <!-- Widgets -->
+    <div id="widgets" class="glass">
+      <div id="wid-clock" class="wid-clock">12:00</div>
+      <div class="wid-weather">Clear · 72°</div>
+      <div class="wid-hint">⌘Space Aura · F4 Launchpad</div>
+    </div>
 
     <!-- Desktop icons -->
     <div id="desk-icons" class="desk-icons"></div>
@@ -117,6 +125,7 @@
 
     <!-- Context menu -->
     <div id="ctx" class="ctx hidden"></div>
+    <div id="toast" class="toast glass hidden"></div>
   </div>
 
   <!-- Core scripts -->
@@ -128,6 +137,7 @@
   <script src="js/assistant.js"></script>
   <script src="js/boot.js"></script>
   <script src="js/enhance.js"></script>
+  <script src="js/windows.js"></script>
   <!-- Additional feature modules -->
   <script src="js/gate27.js"></script>
   <script src="js/glass68.js"></script>
