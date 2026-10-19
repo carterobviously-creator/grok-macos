@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Lumen Desktop · Entertainment Mock</title>
+  <title>Lumen Desktop · Golden Gate Inspired Mock</title>
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/boot.css" />
   <link rel="stylesheet" href="css/desktop.css" />
   <link rel="stylesheet" href="css/windows.css" />
   <link rel="stylesheet" href="css/glass68.css" />
+  <link rel="stylesheet" href="css/lumen81.css" />
   <link rel="stylesheet" href="css/extras.css" />
   <style>
     /* Lumen 80 Liquid Glass refinements inspired by Golden Gate style */
@@ -23,7 +24,7 @@
     .dock .dock-item:hover { transform: scale(1.45) translateY(-16px); filter: brightness(1.15); }
     .glass-icon .spec { position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(135deg, rgba(255,255,255,0.55) 0%, transparent 45%); pointer-events: none; }
     .glass-icon .highlight { position: absolute; top: 6%; left: 10%; width: 35%; height: 22%; border-radius: 50%; background: rgba(255,255,255,0.4); filter: blur(3px); pointer-events: none; }
-    #wallpaper { background: url('assets/ridge-dawn.jpg') center/cover no-repeat fixed; }
+    /* #wallpaper overridden by lumen81.css for dynamic gradient */
     .menu-bar { height: 28px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; font-size: 13px; color: #f8fafc; }
   </style>
 </head>
@@ -32,7 +33,7 @@
   <div id="boot-screen" class="boot">
     <div class="boot-logo">Lumen</div>
     <div class="boot-bar"><div id="boot-fill" class="boot-fill"></div></div>
-    <div id="boot-status">Starting…</div>
+    <div id="boot-status">Initializing Lumen shell…</div>
   </div>
 
   <!-- Lock screen -->
