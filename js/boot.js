@@ -2,8 +2,8 @@
   const fill = document.getElementById("boot-fill");
   const status = document.getElementById("boot-status");
   const steps = [
-    [8, "Initializing Lumen shell…"],
-    [22, "Loading Liquid Glass surfaces…"],
+    [8, "Initializing Lumen shell (Golden Gate style)…"],
+    [22, "Loading enhanced Liquid Glass surfaces…"],
     [38, "Preparing original icons & wallpaper…"],
     [52, "Loading tiny local LLM phrase model…"],
     [68, "Wiring offline phrase book & Aura…"],
@@ -27,7 +27,6 @@
       }, 420);
     }
   }, 420);
-
   const unlock = document.getElementById("unlock-btn");
   if (unlock) unlock.onclick = () => {
     document.getElementById("lock-screen").classList.add("hidden");
