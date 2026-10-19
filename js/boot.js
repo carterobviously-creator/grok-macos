@@ -28,12 +28,13 @@
     }
   }, 420);
   const unlock = document.getElementById("unlock-btn");
-  if (unlock) unlock.onclick = () => {
-    document.getElementById("lock-screen").classList.add("hidden");
-    document.getElementById("desktop").classList.remove("hidden");
-    if (typeof Desktop !== "undefined") Desktop.start();
-    if (typeof Desktop !== "undefined" && Desktop.addAura) {
-      Desktop.addAura("bot", "Aura online. Tiny mind loaded at boot. Demo AI replies are available. Press ⌘Space anytime. F3 Mission Control · F4 Launchpad · Mic for voice.");
-    }
-  };
+  if (unlock)
+    unlock.onclick = () => {
+      document.getElementById("lock-screen").classList.add("hidden");
+      document.getElementById("desktop").classList.remove("hidden");
+      if (typeof Desktop !== "undefined") Desktop.start();
+      if (typeof Desktop !== "undefined" && Desktop.addAura) {
+        Desktop.addAura("bot", "Aura online. Tiny mind loaded at boot. Demo AI replies are available. Press ⌘Space anytime. F3 Mission Control · F4 Launchpad · Mic for voice.");
+      }
+    };
 })();

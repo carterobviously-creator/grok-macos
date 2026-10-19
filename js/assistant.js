@@ -4,7 +4,7 @@ const Aura = {
     return localStorage.getItem("lumen-aura-cloud") !== "0";
   },
   shouldStayLocal(q) {
-    return /open |launch |start |show |what time|what is [0-9]|calculate|mission|help\b|who are you|what are you|lock|remind|note |weather|battery|joke|settings|files|notes|calc|web|store|calendar|music|photos|mail|maps|terminal/.test(q.toLowerCase());
+    return /open |launch |start |show |what time|what is [0-9]|calculate|mission|help\\b|who are you|what are you|lock|remind|note |weather|battery|joke|settings|files|notes|calc|web|store|calendar|music|photos|mail|maps|terminal|reminders/.test(q.toLowerCase());
   },
   localReply(text) {
     const q = text.toLowerCase().trim();
@@ -29,10 +29,10 @@ const Aura = {
       if (typeof Desktop !== "undefined") Desktop.openApp("reminders");
       return "Added reminder: " + remind[1];
     }
-    const note = q.match(/(?:note|write down|save)\s+(.+)/);
+    const note = q.match(/(?:note|write down|save)\\s+(.+)/);
     if (note) {
       const prev = localStorage.getItem("lumen-note") || "";
-      localStorage.setItem("lumen-note", prev + (prev ? "\n" : "") + note[1]);
+      localStorage.setItem("lumen-note", prev + (prev ? "\\n" : "") + note[1]);
       if (typeof Desktop !== "undefined") Desktop.openApp("notes");
       return "Saved that in Notes.";
     }
@@ -75,14 +75,14 @@ const Aura = {
     const near = AuraModel.nearest && AuraModel.nearest(q);
     if (near) return near;
     if (window.TinyMind && TinyMind.ready) return TinyMind.reply(q);
-    const bits = q.replace(/[^a-z0-9\s]/g, "").split(/\s+/).filter(Boolean);
+    const bits = q.replace(/[^a-z0-9\\s]/g, "").split(/\\s+/).filter(Boolean);
     if (bits.length) {
-      return "I heard \"" + bits.slice(0, 8).join(" ") + "\". Try open notes, remind me to…, what time is it, or help.";
+      return "I heard \\\"" + bits.slice(0, 8).join(" ") + "\\\". Try open notes, remind me to…, what time is it, or help.";
     }
     return "Try asking to open an app, the time, or help.";
   },
   async cloudReply(text) {
-    const prompt = "You are Aura, a concise, friendly, helpful AI assistant inside Lumen Desktop, a high-fidelity browser entertainment mock of a modern glass desktop OS inspired by recent macOS Liquid Glass designs (Golden Gate refinements). Never claim to be the real Siri, Apple Intelligence, macOS, or affiliated with Apple. Keep answers short (1-3 sentences), natural, witty when appropriate, and helpful. Entertainment purposes only. Respond as if you are a local system assistant that can control mock apps.\nUser: " + text;
+    const prompt = "You are Aura, a concise, friendly, helpful AI assistant inside Lumen Desktop, a high-fidelity browser entertainment mock of a modern glass desktop OS inspired by recent macOS Liquid Glass designs (Golden Gate refinements). Never claim to be the real Siri, Apple Intelligence, macOS, or affiliated with Apple. Keep answers short (1-3 sentences), natural, witty when appropriate, and helpful. You can control mock apps like opening Notes or Files. Entertainment purposes only.\\nUser: " + text;
     const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
     const ctrl = new AbortController();
     const t = setTimeout(() => ctrl.abort(), 14000);
