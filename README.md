@@ -10,14 +10,13 @@ Official Apple icons, wallpapers, Liquid Glass trademarks, and system chrome are
 
 The assistant (Aura / mock Siri) is a local helper with a tiny LLM phrase model loaded at boot, plus optional third-party AI text endpoint (pollinations.ai) for longer conversational answers. It can open mock apps, save notes, add reminders, do simple math, and speak (optional).
 
-## Recent refinements (Lumen 82)
+## Recent refinements (Lumen 83)
 
 - Enhanced Liquid Glass: higher blur/saturation (56px / 260%), better specular highlights, refined dock magnification
-- Dynamic Golden Gate-inspired original wallpaper gradients (no copyrighted assets)
-- Improved boot sequence messaging and tiny local phrase model load
-- Higher-detail original SVG icons with layered glass effects
+- Improved original SVG icons with deeper layered glass effects
 - Better Aura AI responses (local + cloud demo with stronger prompts)
 - Full working mock apps, widgets, Control Center glass intensity slider
+- Tiny local phrase model load on boot screen
 
 ## Features
 
