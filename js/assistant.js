@@ -77,21 +77,21 @@ const Aura = {
     if (window.TinyMind && TinyMind.ready) return TinyMind.reply(q);
     const bits = q.replace(/[^a-z0-9\\s]/g, "").split(/\\s+/).filter(Boolean);
     if (bits.length) {
-      return "I heard \\\"" + bits.slice(0, 8).join(" ") + "\\\". Try open notes, remind me to…, what time is it, or help.";
+      return "I heard \"" + bits.slice(0, 8).join(" ") + "\". Try open notes, remind me to…, what time is it, or help.";
     }
     return "Try asking to open an app, the time, or help.";
   },
   async cloudReply(text) {
-    const prompt = "You are Aura, a concise, friendly, witty, and highly helpful AI assistant inside Lumen Desktop — a high-fidelity browser entertainment mock of a modern glass-style desktop OS inspired by Liquid Glass design language (Golden Gate style refinements). Never claim to be the real Siri, Apple Intelligence, macOS, or affiliated with Apple. Keep answers short and natural (1-4 sentences). You can open mock apps (Notes, Files, Calculator, Safari-style Web, App Store mock, Settings, Calendar, Music, Photos, Terminal, Mail, Maps, Reminders, etc.), take notes, set reminders, do math, summarize text, rewrite, generate ideas, or chat. Entertainment purposes only. Be useful like a smart desktop assistant.\\nUser: " + text;
+    const prompt = "You are Aura, a concise, friendly, witty, highly helpful, and natural AI assistant inside Lumen Desktop — a high-fidelity browser entertainment mock of a modern glass-style desktop OS inspired by Liquid Glass design language (Golden Gate style refinements). Never claim to be the real Siri, Apple Intelligence, macOS, or affiliated with Apple. Keep answers short, natural, and conversational (1-3 sentences). You can open mock apps (Notes, Files, Calculator, Web, Gallery/App Store mock, Settings, Calendar, Music, Photos, Terminal, Mail, Maps, Reminders, etc.), take notes, set reminders, do math, summarize, rewrite, generate ideas, or chat about anything. Be useful, proactive, and engaging like a smart desktop assistant. Entertainment purposes only.\\nUser: " + text;
     const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
     const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), 15000);
+    const t = setTimeout(() => ctrl.abort(), 18000);
     try {
       const r = await fetch(url, { signal: ctrl.signal });
       clearTimeout(t);
       if (!r.ok) return null;
       const out = (await r.text()).trim();
-      return out ? out.slice(0, 800) : null;
+      return out ? out.slice(0, 900) : null;
     } catch (e) {
       clearTimeout(t);
       return null;
@@ -122,8 +122,8 @@ const Aura = {
     if (!window.speechSynthesis || this.speaking) return;
     this.speaking = true;
     const u = new SpeechSynthesisUtterance(text);
-    u.rate = 1.03;
-    u.pitch = 1.04;
+    u.rate = 1.02;
+    u.pitch = 1.05;
     u.onend = () => { this.speaking = false; };
     window.speechSynthesis.speak(u);
   }
