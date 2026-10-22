@@ -8,20 +8,14 @@ A **browser mock** of a modern glass-style desktop OS inspired by recent macOS L
 
 Official Apple icons, wallpapers, Liquid Glass trademarks, and system chrome are copyrighted. This project uses original SVG icons (squircles with layered glass highlights), original CSS glass surfaces with specular and blur, and original wallpaper scenes. No official Apple assets are used. Changed enough from any real OS to be a distinct entertainment mock.
 
-The assistant (Aura / mock Siri) is a local helper with a tiny LLM phrase model loaded at boot, plus optional third-party AI text endpoint (pollinations.ai) for longer conversational answers. It can open mock apps, save notes, add reminders, do simple math, and speak (optional).
+The assistant (Aura / mock Siri) is a local helper with a tiny LLM phrase model loaded at boot, plus optional third-party AI text endpoint (pollinations.ai) for longer conversational answers. It can open mock apps, save notes, add reminders, do simple math, rewrite, summarize, generate ideas, and speak (optional).
 
-## Recent refinements (Lumen 86)
+## Recent refinements (Lumen 87)
 
-* Deeper Liquid Glass: 90px blur, higher saturation (350%), stronger specular highlights and depth, smoother dock magnification & refined window chrome
-* Enhanced Aura AI: improved system prompt for more natural, helpful, witty, and engaging responses (local phrase model + optional pollinations.ai cloud with longer timeout)
-* Better overall fidelity, animations, and polish while remaining an original entertainment mock (no official Apple assets)
-* Tiny local phrase model load on boot screen remains
-
-## Previous refinements (Lumen 85)
-
-* Deeper Liquid Glass: 80px blur, higher saturation (320%), improved specular highlights, stronger dock magnification & window chrome with better shadows
-* Refined Aura AI: longer timeout, stronger system prompt for more natural, helpful, witty responses (still local phrase model + optional pollinations.ai cloud)
-* Better overall fidelity while remaining an original entertainment mock (no official Apple assets)
+* Even deeper Liquid Glass: 100px blur, higher saturation (380%), stronger dynamic specular highlights, improved depth shadows, smoother dock magnification (1.8x) & refined window chrome
+* Enhanced Aura AI: stronger system prompt for more natural, helpful, witty, proactive responses (local phrase model + optional pollinations.ai cloud with longer timeout). Better support for rewrite, summarize, ideas.
+* Polished icons with better layered highlights and gradients (still original SVGs only)
+* Smoother animations, better overall fidelity while remaining an original entertainment mock (no official Apple assets)
 * Tiny local phrase model load on boot screen remains
 
 ## Features

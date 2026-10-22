@@ -4,7 +4,7 @@ const Aura = {
     return localStorage.getItem("lumen-aura-cloud") !== "0";
   },
   shouldStayLocal(q) {
-    return /open |launch |start |show |what time|what is [0-9]|calculate|mission|help\\b|who are you|what are you|lock|remind|note |weather|battery|joke|settings|files|notes|calc|web|store|calendar|music|photos|mail|maps|terminal|reminders|siri|aura/.test(q.toLowerCase());
+    return /open |launch |start |show |what time|what is [0-9]|calculate|mission|help\\b|who are you|what are you|lock|remind|note |weather|battery|joke|settings|files|notes|calc|web|store|calendar|music|photos|mail|maps|terminal|reminders|siri|aura|rewrite|summarize|ideas/.test(q.toLowerCase());
   },
   localReply(text) {
     const q = text.toLowerCase().trim();
@@ -14,7 +14,7 @@ const Aura = {
       if (extra) return extra;
     }
     if (/(hello|hi|hey|good morning|good evening|siri|aura|hey aura|hey siri)/.test(q)) {
-      return "Hi! I'm Aura, your entertainment mock assistant in Lumen Desktop. I can open apps, take notes, set reminders, do math, tell the time, check mock weather, or chat. Not the real Siri or Apple Intelligence.";
+      return "Hi! I'm Aura, your entertainment mock assistant in Lumen Desktop. I can open apps, take notes, set reminders, do math, rewrite text, summarize, generate ideas, tell the time, check mock weather, or chat. Not the real Siri or Apple Intelligence.";
     }
     if (/time|clock/.test(q) && !/open/.test(q)) return "The time is " + new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
     if (/date|today/.test(q)) {
@@ -38,6 +38,9 @@ const Aura = {
     }
     const math = AuraModel.math && AuraModel.math(q);
     if (math && /(what is|whats|calculate|plus|minus|times|divided|how much)/.test(q)) return math;
+    if (/rewrite|improve|make better/.test(q)) return "I can help rewrite text if you paste it, or try the optional AI demo for more advanced rewriting.";
+    if (/summarize|summary/.test(q)) return "Paste some text and I'll summarize it with the demo AI, or keep it local for simple tasks.";
+    if (/ideas|suggest|generate/.test(q)) return "Tell me a topic and I can generate ideas (better with demo AI on).";
     const map = [
       { re: /files|finder/, id: "finder", msg: "Opening Files." },
       { re: /notes/, id: "notes", msg: "Opening Notes." },
@@ -69,7 +72,7 @@ const Aura = {
     if (/weather|forecast|temperature/.test(q)) return "Mock weather: " + (AuraModel.facts.weather || "clear, 72°") + ".";
     if (/joke|funny/.test(q)) return "Why did the desktop go to therapy? Too many unresolved windows and a bad case of window anxiety.";
     if (/help|what can|commands/.test(q)) {
-      return "Try: open notes, open files, remind me to stretch, note buy milk, what is 15 times 7, what time is it, tell a joke, open store, or just chat. Press ⌘Space anytime. Demo AI replies stay on unless turned off in Settings.";
+      return "Try: open notes, open files, remind me to stretch, note buy milk, what is 15 times 7, what time is it, tell a joke, rewrite this: ..., summarize, generate ideas for..., open store, or just chat. Press ⌘Space anytime. Demo AI replies stay on unless turned off in Settings.";
     }
     if (/thank/.test(q)) return "You're welcome! Anything else I can help with?";
     const near = AuraModel.nearest && AuraModel.nearest(q);
@@ -77,21 +80,21 @@ const Aura = {
     if (window.TinyMind && TinyMind.ready) return TinyMind.reply(q);
     const bits = q.replace(/[^a-z0-9\\s]/g, "").split(/\\s+/).filter(Boolean);
     if (bits.length) {
-      return "I heard \"" + bits.slice(0, 8).join(" ") + "\". Try open notes, remind me to…, what time is it, or help.";
+      return "I heard \"" + bits.slice(0, 8).join(" ") + "\". Try open notes, remind me to…, what time is it, rewrite, or help.";
     }
-    return "Try asking to open an app, the time, or help.";
+    return "Try asking to open an app, the time, rewrite text, or help.";
   },
   async cloudReply(text) {
-    const prompt = "You are Aura, a concise, friendly, witty, highly helpful, and natural AI assistant inside Lumen Desktop — a high-fidelity browser entertainment mock of a modern glass-style desktop OS inspired by Liquid Glass design language (Golden Gate style refinements). Never claim to be the real Siri, Apple Intelligence, macOS, or affiliated with Apple. Keep answers short, natural, and conversational (1-3 sentences). You can open mock apps (Notes, Files, Calculator, Web, Gallery/App Store mock, Settings, Calendar, Music, Photos, Terminal, Mail, Maps, Reminders, etc.), take notes, set reminders, do math, summarize, rewrite, generate ideas, or chat about anything. Be useful, proactive, and engaging like a smart desktop assistant. Entertainment purposes only.\\nUser: " + text;
+    const prompt = "You are Aura, a concise, friendly, witty, highly helpful, proactive, and natural AI assistant inside Lumen Desktop — a high-fidelity browser entertainment mock of a modern glass-style desktop OS inspired by Liquid Glass design language (Golden Gate style refinements). Never claim to be the real Siri, Apple Intelligence, macOS, or affiliated with Apple. Keep answers short, natural, and conversational (1-4 sentences). You can open mock apps (Notes, Files, Calculator, Web, Gallery/App Store mock, Settings, Calendar, Music, Photos, Terminal, Mail, Maps, Reminders, etc.), take notes, set reminders, do math, rewrite or improve text, summarize, generate ideas, or chat about anything. Be useful, proactive, and engaging like a smart desktop assistant. Entertainment purposes only.\\nUser: " + text;
     const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
     const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), 18000);
+    const t = setTimeout(() => ctrl.abort(), 22000);
     try {
       const r = await fetch(url, { signal: ctrl.signal });
       clearTimeout(t);
       if (!r.ok) return null;
       const out = (await r.text()).trim();
-      return out ? out.slice(0, 900) : null;
+      return out ? out.slice(0, 1000) : null;
     } catch (e) {
       clearTimeout(t);
       return null;
@@ -122,8 +125,8 @@ const Aura = {
     if (!window.speechSynthesis || this.speaking) return;
     this.speaking = true;
     const u = new SpeechSynthesisUtterance(text);
-    u.rate = 1.02;
-    u.pitch = 1.05;
+    u.rate = 1.03;
+    u.pitch = 1.06;
     u.onend = () => { this.speaking = false; };
     window.speechSynthesis.speak(u);
   }
