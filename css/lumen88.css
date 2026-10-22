@@ -1,0 +1,67 @@
+/* Lumen 88 - Golden Gate refined Liquid Glass polish
+   Original entertainment mock only. Not Apple. */
+:root {
+  --glass-blur: 80px;
+  --glass-sat: 320%;
+  --glass-opacity: 0.12;
+  --corner: 18px;
+  --dock-scale: 1.65;
+}
+.glass, .dock, .menu-bar, .window, .win, .control-center, .assistant, .launchpad, .spotlight, .notify {
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat)) brightness(1.15);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat)) brightness(1.15);
+  background: rgba(255,255,255,var(--glass-opacity));
+  border: 1px solid rgba(255,255,255,0.55);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.45), inset 0 2px 0 rgba(255,255,255,0.85), inset 0 -2px 0 rgba(0,0,0,0.2);
+  border-radius: var(--corner);
+}
+.dock {
+  border-radius: 32px;
+  padding: 8px 14px 10px;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.dock .dock-item:hover {
+  transform: scale(var(--dock-scale)) translateY(-28px);
+  filter: brightness(1.25) drop-shadow(0 12px 24px rgba(0,0,0,0.45));
+}
+.window, .win {
+  border-radius: 16px;
+  overflow: hidden;
+}
+.traffic {
+  display: flex; gap: 6px; padding: 10px 12px;
+}
+.traffic span {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  border: 1px solid rgba(0,0,0,0.2);
+  backdrop-filter: blur(4px);
+}
+.traffic .r { background: #ff5f57; }
+.traffic .y { background: #febc2e; }
+.traffic .g { background: #28c840; }
+.menu-bar {
+  height: 32px;
+  font-size: 13.5px;
+  font-weight: 500;
+  background: rgba(255,255,255,0.06);
+}
+body.tinted .glass {
+  --glass-opacity: 0.22;
+  --glass-blur: 60px;
+}
+.glass-icon {
+  position: relative;
+  overflow: hidden;
+}
+.glass-icon .spec {
+  position: absolute; inset: 0; border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255,255,255,0.75) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.25) 100%);
+  pointer-events: none;
+}
+.glass-icon .highlight {
+  position: absolute; top: 2%; left: 5%; width: 50%; height: 30%; border-radius: 50%;
+  background: rgba(255,255,255,0.7); filter: blur(6px); pointer-events: none;
+}

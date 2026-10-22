@@ -10,22 +10,13 @@ Official Apple icons, wallpapers, Liquid Glass trademarks, and system chrome are
 
 The assistant (Aura / mock Siri) is a local helper with a tiny LLM phrase model loaded at boot, plus optional third-party AI text endpoint (pollinations.ai) for longer conversational answers. It can open mock apps, save notes, add reminders, do simple math, rewrite, summarize, generate ideas, and speak (optional).
 
-## Recent refinements (Lumen 87)
+## Recent refinements (Lumen 88)
 
-* Even deeper Liquid Glass: 100px blur, higher saturation (380%), stronger dynamic specular highlights, improved depth shadows, smoother dock magnification (1.8x) & refined window chrome
-* Enhanced Aura AI: stronger system prompt for more natural, helpful, witty, proactive responses (local phrase model + optional pollinations.ai cloud with longer timeout). Better support for rewrite, summarize, ideas.
-* Polished icons with better layered highlights and gradients (still original SVGs only)
-* Smoother animations, better overall fidelity while remaining an original entertainment mock (no official Apple assets)
-* Tiny local phrase model load on boot screen remains
-
-## Features
-
-- Boot screen with tiny local LLM load
-- Lock screen, desktop with widgets, dock magnification, Launchpad, Mission Control, Spotlight-style search
-- Control Center with Liquid Glass intensity slider
-- Full working mock apps: Files, Notes, Calculator, Web, Gallery (app store mock), Settings, Calendar, Music, Photos, Terminal, Mail, Maps, Stickies, Weather, Clock, Writer, Reminders, and more
-- Siri-style AI assistant (local + optional cloud) with speech input/output
-- Original high-detail icons and glass effects
+* Golden Gate style Liquid Glass refinements: adjustable intensity, stronger specular highlights, refined corner radii, playful traffic-light style controls, smoother dock magnification
+* Enhanced Aura AI: better system prompt for natural, helpful, witty responses (local + optional cloud)
+* Polished original layered icons with improved depth and gradients
+* Boot screen with tiny local model load remains
+* Working mock apps: Files, Notes, Calculator, Web, Gallery, Settings, Calendar, Music, Photos, Terminal, Mail, Maps, Reminders, Weather, and more
 
 Entertainment only. Original assets. Not affiliated with Apple. For entertainment purposes only.
 
