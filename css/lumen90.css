@@ -1,0 +1,18 @@
+/* Lumen 90 refinements: deeper Liquid Glass for Golden Gate style mock */
+.glass, .dock, .menu-bar, .window, .win, .control-center, .assistant, .launchpad, .spotlight, .notify {
+  backdrop-filter: blur(120px) saturate(400%) brightness(1.25);
+  -webkit-backdrop-filter: blur(120px) saturate(400%) brightness(1.25);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.7);
+  box-shadow: 0 50px 120px rgba(0,0,0,0.6), inset 0 4px 0 rgba(255,255,255,0.95), inset 0 -5px 0 rgba(0,0,0,0.35);
+}
+.dock .dock-item:hover {
+  transform: scale(1.9) translateY(-40px);
+  filter: brightness(1.4) drop-shadow(0 16px 32px rgba(0,0,0,0.55));
+}
+.wallpaper {
+  animation: wallshift 60s ease-in-out infinite alternate;
+}
+@keyframes wallshift {
+  to { filter: hue-rotate(12deg) saturate(1.1) brightness(1.05); }
+}
