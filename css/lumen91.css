@@ -1,0 +1,31 @@
+/* Lumen 91 refinements: deeper Liquid Glass, sharper specular, better icon depth, smoother animations */
+.glass-icon .depth {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.15) 100%);
+  pointer-events: none;
+}
+.glass, .dock, .menu-bar, .window, .win, .control-center, .assistant, .launchpad, .spotlight, .notify, .menu-pop {
+  backdrop-filter: blur(110px) saturate(420%) brightness(1.25);
+  -webkit-backdrop-filter: blur(110px) saturate(420%) brightness(1.25);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.7);
+  box-shadow: 0 48px 120px rgba(0,0,0,0.62), inset 0 4px 0 rgba(255,255,255,0.95), inset 0 -6px 0 rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.18);
+}
+.dock .dock-item {
+  transition: transform 0.42s cubic-bezier(0.12, 1.05, 0.25, 1), filter 0.42s;
+}
+.dock .dock-item:hover {
+  transform: scale(1.95) translateY(-42px);
+  filter: brightness(1.4) drop-shadow(0 18px 36px rgba(0,0,0,0.55));
+}
+.icon {
+  transition: transform 0.45s cubic-bezier(0.12, 1.1, 0.28, 1), filter 0.45s;
+}
+.window, .win {
+  border-radius: 22px;
+}
+.assistant {
+  border-radius: 28px;
+}
