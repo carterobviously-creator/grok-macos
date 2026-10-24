@@ -1,22 +1,23 @@
 # Lumen Desktop
 
-A **browser mock** of a modern glass-style desktop OS inspired by recent macOS Liquid Glass design (macOS 27 Golden Gate refinements).
+A **high-fidelity browser mock** of a modern glass-style desktop OS inspired by recent macOS Liquid Glass design language (Golden Gate style refinements).
 
 **Entertainment only.**
 
 **Not macOS. Not Apple. Not the real Siri. Not Apple Intelligence. Not the App Store.**
 
-Official Apple icons, wallpapers, Liquid Glass trademarks, and system chrome are copyrighted. This project uses original SVG icons (squircles with layered glass highlights), original CSS glass surfaces with specular and blur, and original wallpaper scenes. No official Apple assets are used. Changed enough from any real OS to be a distinct entertainment mock.
+Official Apple icons, wallpapers, Liquid Glass trademarks, system chrome, and product names are copyrighted by Apple. This project uses **original SVG icons** (layered glass squircles with specular highlights and depth), original CSS glass surfaces with high blur/saturation and specular effects, and original wallpaper scenes. No official Apple assets are used. Changed enough from any real OS to be a distinct entertainment mock.
 
-The assistant (Aura / mock Siri) is a local helper with a tiny LLM phrase model loaded at boot, plus optional third-party AI text endpoint (pollinations.ai) for longer conversational answers. It can open mock apps, save notes, add reminders, do simple math, rewrite, summarize, generate ideas, and speak (optional).
+The assistant (**Aura** / mock Siri) loads a tiny local LLM phrase model at boot, plus optional third-party AI text endpoint (pollinations.ai) for longer conversational answers. It can open mock apps, save notes, add reminders, do math, rewrite, summarize, generate ideas, control the desktop, and speak (optional). Voice input supported where the browser allows.
 
-## Recent refinements (Lumen 88)
+## Features
 
-* Golden Gate style Liquid Glass refinements: adjustable intensity, stronger specular highlights, refined corner radii, playful traffic-light style controls, smoother dock magnification
-* Enhanced Aura AI: better system prompt for natural, helpful, witty responses (local + optional cloud)
-* Polished original layered icons with improved depth and gradients
-* Boot screen with tiny local model load remains
-* Working mock apps: Files, Notes, Calculator, Web, Gallery, Settings, Calendar, Music, Photos, Terminal, Mail, Maps, Reminders, Weather, and more
+- Boot screen with tiny local model load
+- Lock screen, desktop with widgets, dock magnification, Launchpad, Mission Control, Spotlight-style search
+- Control Center with Liquid Glass intensity & brightness
+- Full working mock apps: Files, Notes, Calculator, Web, Gallery (app store mock), Settings, Calendar, Music, Photos, Terminal, Mail, Maps, Stickies, Weather, Clock, Writer, Reminders, Messages, Contacts, Sketch, Board, and more
+- Siri-style AI assistant (local + optional cloud) with speech input/output
+- Original high-detail icons and advanced Liquid Glass effects (100px+ blur, high saturation, specular highlights)
 
 Entertainment only. Original assets. Not affiliated with Apple. For entertainment purposes only.
 

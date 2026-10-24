@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Lumen Desktop · Golden Gate Inspired Mock</title>
+  <meta name="description" content="Entertainment browser mock of a modern Liquid Glass desktop OS. Not macOS, not Apple. Original assets only." />
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/boot.css" />
   <link rel="stylesheet" href="css/desktop.css" />
@@ -15,25 +16,25 @@
   <link rel="stylesheet" href="css/lumen90.css" />
   <link rel="stylesheet" href="css/extras.css" />
   <style>
-    /* Lumen 88: Golden Gate refined Liquid Glass - 100px blur, 380% saturation, stronger specular, better depth */
+    /* Enhanced Liquid Glass for Lumen mock */
     .glass, .dock, .menu-bar, .window, .win, .control-center, .assistant, .launchpad, .spotlight, .notify {
-      backdrop-filter: blur(100px) saturate(380%) brightness(1.2);
-      -webkit-backdrop-filter: blur(100px) saturate(380%) brightness(1.2);
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.65);
-      box-shadow: 0 40px 100px rgba(0,0,0,0.58), inset 0 3px 0 rgba(255,255,255,0.92), inset 0 -4px 0 rgba(0,0,0,0.3), 0 0 0 0.8px rgba(255,255,255,0.15);
-      transition: backdrop-filter 0.35s ease, background 0.35s, box-shadow 0.35s, transform 0.35s;
+      backdrop-filter: blur(120px) saturate(400%) brightness(1.25);
+      -webkit-backdrop-filter: blur(120px) saturate(400%) brightness(1.25);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.7);
+      box-shadow: 0 50px 120px rgba(0,0,0,0.6), inset 0 4px 0 rgba(255,255,255,0.95), inset 0 -5px 0 rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.2);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
-    .icon { transition: transform 0.38s cubic-bezier(0.15,1,0.3,1), filter 0.38s; }
-    .dock .dock-item:hover { transform: scale(1.85) translateY(-36px); filter: brightness(1.35) drop-shadow(0 14px 28px rgba(0,0,0,0.5)); }
-    .glass-icon .spec { position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(135deg, rgba(255,255,255,0.88) 0%, transparent 35%, transparent 65%, rgba(255,255,255,0.3) 100%); pointer-events: none; }
-    .glass-icon .highlight { position: absolute; top: 1%; left: 4%; width: 55%; height: 35%; border-radius: 50%; background: rgba(255,255,255,0.78); filter: blur(8px); pointer-events: none; }
-    .menu-bar { height: 34px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; font-size: 14px; color: #f8fafc; letter-spacing: 0.02em; font-weight: 500; }
-    .wallpaper { background: url('assets/ridge-dawn.jpg') center/cover no-repeat, linear-gradient(180deg, #1e3a5f 0%, #0f172a 100%); animation: wallshift 45s ease-in-out infinite alternate; }
-    @keyframes wallshift { to { filter: hue-rotate(8deg) saturate(1.08) brightness(1.03); } }
-    .dock { border-radius: 36px; padding: 10px 16px 12px; }
-    .window, .win { border-radius: 20px; }
-    .assistant { border-radius: 24px; }
+    .icon { transition: transform 0.4s cubic-bezier(0.15,1,0.3,1), filter 0.4s; }
+    .dock .dock-item:hover { transform: scale(1.9) translateY(-40px); filter: brightness(1.4) drop-shadow(0 18px 36px rgba(0,0,0,0.55)); }
+    .glass-icon .spec { position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, transparent 30%, transparent 70%, rgba(255,255,255,0.25) 100%); pointer-events: none; }
+    .glass-icon .highlight { position: absolute; top: 2%; left: 6%; width: 50%; height: 30%; border-radius: 50%; background: rgba(255,255,255,0.85); filter: blur(6px); pointer-events: none; }
+    .menu-bar { height: 36px; display: flex; align-items: center; justify-content: space-between; padding: 0 22px; font-size: 14px; color: #f8fafc; letter-spacing: 0.01em; font-weight: 500; }
+    .wallpaper { background: url('assets/ridge-dawn.jpg') center/cover no-repeat, linear-gradient(180deg, #1e3a5f 0%, #0f172a 100%); animation: wallshift 40s ease-in-out infinite alternate; }
+    @keyframes wallshift { to { filter: hue-rotate(6deg) saturate(1.1) brightness(1.05); } }
+    .dock { border-radius: 40px; padding: 12px 18px 14px; }
+    .window, .win { border-radius: 22px; }
+    .assistant { border-radius: 28px; }
   </style>
 </head>
 <body>
@@ -99,7 +100,7 @@
     <!-- Notifications -->
     <div id="notify-drawer" class="notify glass hidden"></div>
 
-    <!-- Spotlight / Siri search -->
+    <!-- Spotlight / Aura search -->
     <div id="spotlight" class="spotlight glass hidden">
       <input id="spot-input" placeholder="Search or ask Aura…" />
       <div id="spot-results"></div>
