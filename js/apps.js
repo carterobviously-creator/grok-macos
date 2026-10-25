@@ -67,15 +67,15 @@ const Apps = {
     document.getElementById("urlbar").addEventListener("keydown", (e) => { if (e.key === "Enter") go(); });
   },
   settings() {
-    const cloudOn = localStorage.getItem("lumen-aura-cloud") === "1";
-    Windows.create("settings", "Settings", 520, 400,
+    const cloudOn = localStorage.getItem("lumen-aura-cloud") !== "0";
+    Windows.create("settings", "Settings", 520, 420,
       '<div class="pad settings"><h3>Appearance</h3>' +
       '<label><input type="checkbox" id="alt-wall"> Warm wallpaper</label>' +
       '<label>Dock scale <input id="dock-scale" type="range" min="0.8" max="1.3" step="0.05" value="1"></label>' +
       '<h3>Aura helper</h3>' +
       '<label><input type="checkbox" id="aura-cloud"' + (cloudOn ? " checked" : "") + '> Use optional public AI text demo for longer answers</label>' +
       '<p>Local phrase helper always works. The demo API is a third-party text endpoint for entertainment AI replies, not Apple Intelligence and not Siri.</p>' +
-      '<p>Lumen is an original entertainment mock. Original icons and wallpaper only.</p></div>');
+      '<p>Lumen is an original entertainment mock. Original icons and wallpaper only. For entertainment purposes only.</p></div>');
     document.getElementById("alt-wall").onchange = (e) => {
       document.getElementById("wallpaper").classList.toggle("alt", e.target.checked);
     };
@@ -138,7 +138,7 @@ const Apps = {
   },
   music() {
     Windows.create("music", "Music", 360, 380,
-      '<div class="music"><div class="art"></div><strong>Night Drive</strong><p>Demo track \u00b7 Lumen Radio</p><input type="range" min="0" max="100" value="22"></div>');
+      '<div class="music"><div class="art"></div><strong>Night Drive</strong><p>Demo track · Lumen Radio</p><input type="range" min="0" max="100" value="22"></div>');
   },
   photos() {
     const tiles = ["#fb7185", "#60a5fa", "#34d399", "#fbbf24", "#a78bfa", "#f472b6"]
@@ -147,7 +147,7 @@ const Apps = {
   },
   terminal() {
     Windows.create("terminal", "Terminal", 560, 320,
-      '<div class="term" id="term"><div id="tout">Lumen shell 0.8 \u2014 type help</div><div>$ <input id="tin"></div></div>', true);
+      '<div class="term" id="term"><div id="tout">Lumen shell 0.9 — type help</div><div>$ <input id="tin"></div></div>', true);
     const out = document.getElementById("tout");
     const tin = document.getElementById("tin");
     tin.focus();
@@ -193,7 +193,7 @@ const Apps = {
   },
   weather() {
     Windows.create("weather", "Weather", 360, 280,
-      '<div class="pad"><h2>72\u00b0</h2><p>Clear \u00b7 mock city</p><p>High 76 \u00b7 Low 58</p><p>This is not live weather data.</p></div>');
+      '<div class="pad"><h2>72°</h2><p>Clear · mock city</p><p>High 76 · Low 58</p><p>This is not live weather data.</p></div>');
   },
   clock() {
     Windows.create("clock", "Clock", 360, 240,
