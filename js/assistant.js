@@ -4,7 +4,7 @@ const Aura = {
     return localStorage.getItem("lumen-aura-cloud") !== "0";
   },
   shouldStayLocal(q) {
-    return /open |launch |start |show |what time|what is [0-9]|calculate|mission|help\\b|who are you|what are you|lock|remind|note |weather|battery|joke|settings|files|notes|calc|web|store|calendar|music|photos|mail|maps|terminal|reminders|siri|aura|rewrite|summarize|ideas|hello|hi /.test(q.toLowerCase());
+    return /open |launch |start |show |what time|what is [0-9]|calculate|mission|help\b|who are you|what are you|lock|remind|note |weather|battery|joke|settings|files|notes|calc|web|store|calendar|music|photos|mail|maps|terminal|reminders|siri|aura|rewrite|summarize|ideas|hello|hi |hey |good morning|good evening|thank/.test(q.toLowerCase());
   },
   localReply(text) {
     const q = text.toLowerCase().trim();
@@ -16,7 +16,9 @@ const Aura = {
     if (/(hello|hi|hey|good morning|good evening|siri|aura|hey aura|hey siri)/.test(q)) {
       return "Hi! I'm Aura, your entertainment mock assistant in Lumen Desktop. I can open apps, take notes, set reminders, do math, rewrite text, summarize, generate ideas, tell the time, check mock weather, or chat. Not the real Siri or Apple Intelligence.";
     }
-    if (/time|clock/.test(q) && !/open/.test(q)) return "The time is " + new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+    if (/time|clock/.test(q) && !/open/.test(q)) {
+      return "The time is " + new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+    }
     if (/date|today/.test(q)) {
       return "Today is " + new Date().toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric", year: "numeric" });
     }
@@ -29,18 +31,24 @@ const Aura = {
       if (typeof Desktop !== "undefined") Desktop.openApp("reminders");
       return "Reminder added: " + remind[1];
     }
-    const note = q.match(/(?:note|write down|save)\\s+(.+)/);
+    const note = q.match(/(?:note|write down|save)\s+(.+)/);
     if (note) {
       const prev = localStorage.getItem("lumen-note") || "";
-      localStorage.setItem("lumen-note", prev + (prev ? "\\n" : "") + note[1]);
+      localStorage.setItem("lumen-note", prev + (prev ? "\n" : "") + note[1]);
       if (typeof Desktop !== "undefined") Desktop.openApp("notes");
       return "Saved to Notes.";
     }
     const math = AuraModel.math && AuraModel.math(q);
     if (math && /(what is|whats|calculate|plus|minus|times|divided|how much)/.test(q)) return math;
-    if (/rewrite|improve|make better/.test(q)) return "I can help rewrite text if you paste it, or try the optional AI demo for more advanced rewriting.";
-    if (/summarize|summary/.test(q)) return "Paste some text and I'll summarize it with the demo AI, or keep it local for simple tasks.";
-    if (/ideas|suggest|generate/.test(q)) return "Tell me a topic and I can generate ideas (better with demo AI on).";
+    if (/rewrite|improve|make better/.test(q)) {
+      return "Paste the text you want rewritten and I'll improve it. For richer rewrites, turn on the optional AI demo in Settings.";
+    }
+    if (/summarize|summary/.test(q)) {
+      return "Paste some text and I'll summarize it. Longer summaries work best with the optional AI demo enabled.";
+    }
+    if (/ideas|suggest|generate/.test(q)) {
+      return "Tell me a topic and I can generate ideas. Try the optional AI demo in Settings for more creative results.";
+    }
     const map = [
       { re: /files|finder/, id: "finder", msg: "Opening Files." },
       { re: /notes/, id: "notes", msg: "Opening Notes." },
@@ -69,8 +77,12 @@ const Aura = {
     if (/who|what are you|siri|apple intelligence|apple|macos|lumen/.test(q)) {
       return "This is Lumen Desktop — a fan-made browser entertainment mock inspired by modern glass desktop designs (Golden Gate style). Aura is a local phrase model plus optional public AI demo. Not the real Siri, not Apple Intelligence, not affiliated with Apple.";
     }
-    if (/weather|forecast|temperature/.test(q)) return "Mock weather: " + (AuraModel.facts.weather || "clear, 72°") + ".";
-    if (/joke|funny/.test(q)) return "Why did the desktop go to therapy? Too many unresolved windows and a bad case of window anxiety.";
+    if (/weather|forecast|temperature/.test(q)) {
+      return "Mock weather: " + (AuraModel.facts.weather || "clear, 72°") + ".";
+    }
+    if (/joke|funny/.test(q)) {
+      return "Why did the desktop go to therapy? Too many unresolved windows and a bad case of window anxiety.";
+    }
     if (/help|what can|commands/.test(q)) {
       return "Try: open notes, open files, remind me to stretch, note buy milk, what is 15 times 7, what time is it, tell a joke, rewrite this: ..., summarize, generate ideas for..., open store, or just chat. Press ⌘Space anytime. Demo AI replies stay on unless turned off in Settings.";
     }
@@ -78,14 +90,14 @@ const Aura = {
     const near = AuraModel.nearest && AuraModel.nearest(q);
     if (near) return near;
     if (window.TinyMind && TinyMind.ready) return TinyMind.reply(q);
-    const bits = q.replace(/[^a-z0-9\\s]/g, "").split(/\\s+/).filter(Boolean);
+    const bits = q.replace(/[^a-z0-9\s]/g, "").split(/\s+/).filter(Boolean);
     if (bits.length) {
       return "I heard \"" + bits.slice(0, 8).join(" ") + "\". Try open notes, remind me to…, what time is it, rewrite, or help.";
     }
     return "Try asking to open an app, the time, rewrite text, or help.";
   },
   async cloudReply(text) {
-    const prompt = "You are Aura, a concise, friendly, witty, highly helpful, proactive, natural, and slightly playful AI assistant inside Lumen Desktop — a high-fidelity browser entertainment mock of a modern glass-style desktop OS inspired by Liquid Glass design language (Golden Gate style refinements). Never claim to be the real Siri, Apple Intelligence, macOS, or affiliated with Apple. Keep answers short, natural, and conversational (1-4 sentences). You can open mock apps (Notes, Files, Calculator, Web, Gallery/App Store mock, Settings, Calendar, Music, Photos, Terminal, Mail, Maps, Reminders, etc.), take notes, set reminders, do math, rewrite or improve text, summarize, generate ideas, or chat about anything. Be useful, proactive, and engaging like a smart desktop assistant. Entertainment purposes only.\\nUser: " + text;
+    const prompt = "You are Aura, a concise, friendly, witty, highly helpful, proactive, natural, and slightly playful AI assistant inside Lumen Desktop — a high-fidelity browser entertainment mock of a modern glass-style desktop OS inspired by Liquid Glass design language (Golden Gate style refinements). Never claim to be the real Siri, Apple Intelligence, macOS, or affiliated with Apple. Keep answers short, natural, and conversational (1-4 sentences). You can open mock apps (Notes, Files, Calculator, Web, Gallery/App Store mock, Settings, Calendar, Music, Photos, Terminal, Mail, Maps, Reminders, etc.), take notes, set reminders, do math, rewrite or improve text, summarize, generate ideas, or chat about anything. Be useful, proactive, and engaging like a smart desktop assistant. Entertainment purposes only.\nUser: " + text;
     const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
     const ctrl = new AbortController();
     const t = setTimeout(() => ctrl.abort(), 22000);

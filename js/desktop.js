@@ -87,6 +87,12 @@ const Desktop = {
     document.getElementById("spot-input").addEventListener("input", (e) => this.search(e.target.value));
     document.getElementById("lp-search").addEventListener("input", (e) => this.fillLaunch(e.target.value));
     document.getElementById("lumen-menu").onclick = () => this.toggleSpot();
+    document.querySelectorAll(".menu-item").forEach((item) => {
+      item.onclick = (e) => {
+        e.stopPropagation();
+        this.showMenu(item.dataset.menu, item);
+      };
+    });
     document.getElementById("wallpaper").addEventListener("contextmenu", (e) => {
       e.preventDefault();
       const ctx = document.getElementById("ctx");
@@ -113,16 +119,10 @@ const Desktop = {
     });
     document.addEventListener("click", (e) => {
       if (!e.target.closest("#ctx")) document.getElementById("ctx").classList.add("hidden");
-      if (!e.target.closest(".menu-items") && !e.target.closest("#menu-pop")) {
+      if (!e.target.closest(".menu-item") && !e.target.closest("#menu-pop")) {
         const pop = document.getElementById("menu-pop");
         if (pop) pop.classList.add("hidden");
       }
-    });
-    document.querySelectorAll(".menu-items button").forEach((b) => {
-      b.onclick = (e) => {
-        e.stopPropagation();
-        this.showMenu(b.dataset.menu, b);
-      };
     });
   },
   showMenu(key, btn) {
@@ -137,13 +137,13 @@ const Desktop = {
     const r = btn.getBoundingClientRect();
     pop.style.position = "absolute";
     pop.style.left = r.left + "px";
-    pop.style.top = "30px";
+    pop.style.top = "36px";
     pop.style.zIndex = "95";
     pop.style.minWidth = "180px";
     pop.style.padding = "6px";
-    pop.style.borderRadius = "12px";
+    pop.style.borderRadius = "14px";
     pop.style.color = "#0f172a";
-    pop.innerHTML = items.map((t) => "<button style='display:block;width:100%;text-align:left;border:0;background:none;padding:8px 10px;border-radius:8px'>" + t + "</button>").join("");
+    pop.innerHTML = items.map((t) => "<button style='display:block;width:100%;text-align:left;border:0;background:none;padding:8px 12px;border-radius:8px;cursor:pointer'>" + t + "</button>").join("");
     pop.classList.remove("hidden");
     pop.querySelectorAll("button").forEach((item) => {
       item.onclick = () => {

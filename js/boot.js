@@ -3,12 +3,12 @@
   const status = document.getElementById("boot-status");
   const steps = [
     [8, "Initializing Lumen shell (Golden Gate style)…"],
-    [22, "Loading enhanced Liquid Glass surfaces…"],
-    [38, "Preparing original icons & wallpaper…"],
-    [52, "Loading tiny local LLM phrase model…"],
-    [68, "Wiring offline phrase book & Aura…"],
-    [82, "Mounting mock volumes & apps…"],
-    [94, "Finalizing desktop…"],
+    [20, "Loading enhanced Liquid Glass surfaces…"],
+    [34, "Preparing original icons & wallpaper…"],
+    [48, "Loading tiny local LLM phrase model…"],
+    [62, "Wiring offline phrase book & Aura…"],
+    [76, "Mounting mock volumes & apps…"],
+    [90, "Finalizing desktop chrome…"],
     [100, "Ready"]
   ];
   let i = 0;
@@ -16,8 +16,8 @@
     const step = steps[i];
     if (fill) fill.style.width = step[0] + "%";
     if (status) status.textContent = step[1];
-    if (step[0] >= 52 && typeof AuraModel !== "undefined") AuraModel.load();
-    if (step[0] >= 52 && typeof TinyMind !== "undefined") TinyMind.load().catch(() => {});
+    if (step[0] >= 48 && typeof AuraModel !== "undefined") AuraModel.load();
+    if (step[0] >= 48 && typeof TinyMind !== "undefined") TinyMind.load().catch(() => {});
     i += 1;
     if (i >= steps.length) {
       clearInterval(t);
@@ -26,7 +26,7 @@
         document.getElementById("lock-screen").classList.remove("hidden");
       }, 420);
     }
-  }, 420);
+  }, 380);
   const unlock = document.getElementById("unlock-btn");
   if (unlock)
     unlock.onclick = () => {
@@ -34,7 +34,7 @@
       document.getElementById("desktop").classList.remove("hidden");
       if (typeof Desktop !== "undefined") Desktop.start();
       if (typeof Desktop !== "undefined" && Desktop.addAura) {
-        Desktop.addAura("bot", "Aura online. Tiny mind loaded at boot. Demo AI replies are available. Press ⌘Space anytime. F3 Mission Control · F4 Launchpad · Mic for voice.");
+        Desktop.addAura("bot", "Aura online. Tiny mind loaded at boot. Demo AI replies available. Press ⌘Space anytime. F3 Mission Control · F4 Launchpad · Mic for voice.");
       }
     };
 })();

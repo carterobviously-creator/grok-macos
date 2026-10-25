@@ -16,25 +16,73 @@
   <link rel="stylesheet" href="css/lumen90.css" />
   <link rel="stylesheet" href="css/extras.css" />
   <style>
-    /* Enhanced Liquid Glass for Lumen mock */
-    .glass, .dock, .menu-bar, .window, .win, .control-center, .assistant, .launchpad, .spotlight, .notify {
-      backdrop-filter: blur(140px) saturate(450%) brightness(1.25);
-      -webkit-backdrop-filter: blur(140px) saturate(450%) brightness(1.25);
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.7);
-      box-shadow: 0 50px 120px rgba(0,0,0,0.6), inset 0 4px 0 rgba(255,255,255,0.95), inset 0 -5px 0 rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.2);
-      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* High-fidelity Liquid Glass for Lumen entertainment mock */
+    .glass, .dock, .menu-bar, .window, .win, .control-center, .assistant, .launchpad, .spotlight, .notify, #widgets, #ctx, #toast {
+      backdrop-filter: blur(160px) saturate(480%) brightness(1.28) contrast(1.05);
+      -webkit-backdrop-filter: blur(160px) saturate(480%) brightness(1.28) contrast(1.05);
+      background: linear-gradient(165deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.06) 45%, rgba(255,255,255,0.04) 100%);
+      border: 1px solid rgba(255,255,255,0.72);
+      box-shadow:
+        0 55px 140px rgba(0,0,0,0.62),
+        inset 0 5px 0 rgba(255,255,255,0.95),
+        inset 0 -6px 0 rgba(0,0,0,0.32),
+        0 0 0 1px rgba(255,255,255,0.18),
+        inset 0 0 40px rgba(255,255,255,0.08);
+      transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .icon { transition: transform 0.4s cubic-bezier(0.15,1,0.3,1), filter 0.4s; }
-    .dock .dock-item:hover { transform: scale(1.9) translateY(-40px); filter: brightness(1.4) drop-shadow(0 18px 36px rgba(0,0,0,0.55)); }
-    .glass-icon .spec { position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, transparent 30%, transparent 70%, rgba(255,255,255,0.25) 100%); pointer-events: none; }
-    .glass-icon .highlight { position: absolute; top: 2%; left: 6%; width: 50%; height: 30%; border-radius: 50%; background: rgba(255,255,255,0.85); filter: blur(6px); pointer-events: none; }
-    .menu-bar { height: 36px; display: flex; align-items: center; justify-content: space-between; padding: 0 22px; font-size: 14px; color: #f8fafc; letter-spacing: 0.01em; font-weight: 500; }
-    .wallpaper { background: url('assets/golden-abstract.jpg') center/cover no-repeat, linear-gradient(180deg, #1e3a5f 0%, #0f172a 100%); animation: wallshift 40s ease-in-out infinite alternate; }
-    @keyframes wallshift { to { filter: hue-rotate(6deg) saturate(1.1) brightness(1.05); } }
-    .dock { border-radius: 40px; padding: 12px 18px 14px; }
-    .window, .win { border-radius: 22px; }
-    .assistant { border-radius: 28px; }
+    .icon {
+      transition: transform 0.42s cubic-bezier(0.15, 1.1, 0.3, 1), filter 0.42s;
+    }
+    .dock .dock-item:hover {
+      transform: scale(1.95) translateY(-44px);
+      filter: brightness(1.45) drop-shadow(0 22px 42px rgba(0,0,0,0.6));
+    }
+    .dock .dock-item:hover + .dock-item {
+      transform: scale(1.25) translateY(-12px);
+    }
+    .dock .dock-item:has(+ .dock-item:hover) {
+      transform: scale(1.25) translateY(-12px);
+    }
+    .glass-icon .spec {
+      position: absolute; inset: 0; border-radius: inherit;
+      background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, transparent 28%, transparent 72%, rgba(255,255,255,0.28) 100%);
+      pointer-events: none;
+    }
+    .glass-icon .highlight {
+      position: absolute; top: 3%; left: 8%; width: 48%; height: 28%;
+      border-radius: 50%; background: rgba(255,255,255,0.9);
+      filter: blur(7px); pointer-events: none;
+    }
+    .menu-bar {
+      height: 36px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 22px; font-size: 14px; color: #f8fafc;
+      letter-spacing: 0.01em; font-weight: 500;
+    }
+    .wallpaper {
+      background: url('assets/golden-abstract.jpg') center/cover no-repeat,
+                  linear-gradient(180deg, #1e3a5f 0%, #0f172a 100%);
+      animation: wallshift 42s ease-in-out infinite alternate;
+    }
+    @keyframes wallshift {
+      to { filter: hue-rotate(7deg) saturate(1.12) brightness(1.06); }
+    }
+    .dock {
+      border-radius: 42px;
+      padding: 14px 20px 16px;
+    }
+    .window, .win {
+      border-radius: 24px;
+    }
+    .assistant {
+      border-radius: 30px;
+    }
+    /* Soft edge glow on active windows */
+    .win.active {
+      box-shadow:
+        0 60px 150px rgba(0,0,0,0.55),
+        0 0 0 1px rgba(255,255,255,0.35),
+        inset 0 4px 0 rgba(255,255,255,0.9);
+    }
   </style>
 </head>
 <body>
@@ -79,7 +127,7 @@
     <div id="widgets" class="glass">
       <div id="wid-clock" class="wid-clock">12:00</div>
       <div class="wid-weather">Clear · 72°</div>
-      <div class="wid-hint">⌘Space Aura · F4 Launchpad</div>
+      <div class="wid-hint">⌘Space Aura · F4 Launchpad · F3 Mission</div>
     </div>
 
     <!-- Desktop icons -->
@@ -93,12 +141,18 @@
       <div class="cc-tile">Wi-Fi</div>
       <div class="cc-tile">Bluetooth</div>
       <div class="cc-tile">Focus</div>
+      <div class="cc-tile">AirDrop</div>
       <label>Brightness <input id="bright" type="range" min="50" max="130" value="100"></label>
-      <label>Glass intensity <input id="tint" type="range" min="0" max="1" step="0.05" value="0.5"></label>
+      <label>Glass intensity <input id="tint" type="range" min="0" max="1" step="0.05" value="0.55"></label>
+      <label>Volume <input id="vol" type="range" min="0" max="100" value="70"></label>
     </div>
 
     <!-- Notifications -->
-    <div id="notify-drawer" class="notify glass hidden"></div>
+    <div id="notify-drawer" class="notify glass hidden">
+      <h4 style="margin:0 0 10px">Notifications</h4>
+      <p style="font-size:13px;opacity:0.9;margin:0 0 8px">Lumen is ready · entertainment mock</p>
+      <p style="font-size:13px;opacity:0.75;margin:0">Aura loaded a tiny local model at boot.</p>
+    </div>
 
     <!-- Spotlight / Aura search -->
     <div id="spotlight" class="spotlight glass hidden">
@@ -138,7 +192,7 @@
     <div id="toast" class="toast glass hidden"></div>
   </div>
 
-  <!-- Core scripts -->
+  <!-- Core scripts (separate files) -->
   <script src="js/model.js"></script>
   <script src="js/icons.js"></script>
   <script src="js/mind.js"></script>
@@ -148,7 +202,7 @@
   <script src="js/boot.js"></script>
   <script src="js/enhance.js"></script>
   <script src="js/windows.js"></script>
-  <!-- Additional feature modules -->
+  <!-- Feature modules -->
   <script src="js/gate27.js"></script>
   <script src="js/glass68.js"></script>
   <script src="js/golden.js"></script>
