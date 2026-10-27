@@ -2,14 +2,14 @@
   const fill = document.getElementById("boot-fill");
   const status = document.getElementById("boot-status");
   const steps = [
-    [8, "Initializing Lumen shell (Golden Gate style)…"],
+    [8, "Initializing Lumen shell (Golden Gate 27 style)…"],
     [20, "Loading enhanced Liquid Glass surfaces…"],
     [34, "Preparing original icons & wallpaper…"],
-    [48, "Loading tiny local LLM phrase model…"],
-    [62, "Wiring offline phrase book & Aura…"],
+    [48, "Loading tiny local LLM phrase model for Aura…"],
+    [62, "Wiring offline phrase book & AI endpoint…"],
     [76, "Mounting mock volumes & apps…"],
     [90, "Finalizing desktop chrome…"],
-    [100, "Ready"]
+    [100, "Ready — Aura Intelligence online"]
   ];
   let i = 0;
   const t = setInterval(() => {
@@ -34,7 +34,7 @@
       document.getElementById("desktop").classList.remove("hidden");
       if (typeof Desktop !== "undefined") Desktop.start();
       if (typeof Desktop !== "undefined" && Desktop.addAura) {
-        Desktop.addAura("bot", "Aura online. Tiny mind loaded at boot. Demo AI replies available. Press ⌘Space anytime. F3 Mission Control · F4 Launchpad · Mic for voice.");
+        Desktop.addAura("bot", "Aura online. Tiny local model loaded at boot + AI replies enabled. Press ⌘Space anytime. F3 Mission Control · F4 Launchpad · Mic for voice.");
       }
     };
 })();
