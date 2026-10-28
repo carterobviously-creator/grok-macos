@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Lumen Desktop · Golden Gate 27 Inspired Mock · Lumen 94</title>
+  <meta name="description" content="Entertainment browser mock of a modern Liquid Glass desktop OS inspired by macOS Golden Gate 27. Not macOS, not Apple. Original assets only. AI assistant Aura with tiny local model." />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/boot.css" />
+  <link rel="stylesheet" href="css/desktop.css" />
+  <link rel="stylesheet" href="css/windows.css" />
+  <link rel="stylesheet" href="css/glass68.css" />
+  <link rel="stylesheet" href="css/lumen81.css" />
+  <link rel="stylesheet" href="css/lumen82.css" />
+  <link rel="stylesheet" href="css/lumen88.css" />
+  <link rel="stylesheet" href="css/lumen90.css" />
+  <link rel="stylesheet" href="css/extras.css" />
+  <style>
+    /* Enhanced Liquid Glass for Lumen 94 entertainment mock — refined refraction, specular & dynamic highlights */
+    .glass, .dock, .menu-bar, .window, .win, .control-center, .assistant, .launchpad, .spotlight, .notify, #widgets, #ctx, #toast {
+      backdrop-filter: blur(240px) saturate(620%) brightness(1.42) contrast(1.15) hue-rotate(0deg);
+      -webkit-backdrop-filter: blur(240px) saturate(620%) brightness(1.42) contrast(1.15);
+      background: linear-gradient(155deg, rgba(255,255,255,0.32) 0%, rgba(255,255,255,0.1) 38%, rgba(255,255,255,0.04) 100%);
+      border: 1px solid rgba(255,255,255,0.82);
+      box-shadow:
+        0 52px 140px rgba(0,0,0,0.58),
+        inset 0 7px 0 rgba(255,255,255,0.95),
+        inset 0 -5px 0 rgba(0,0,0,0.32),
+        0 0 0 1px rgba(255,255,255,0.25),
+        inset 0 0 56px rgba(255,255,255,0.15),
+        0 0 100px rgba(125,211,252,0.18);
+      transition: all 0.42s cubic-bezier(0.18, 1.08, 0.32, 1);
+    }
+    .glass:hover, .win:hover {
+      box-shadow:
+        0 56px 150px rgba(0,0,0,0.62),
+        inset 0 8px 0 rgba(255,255,255,0.98),
+        0 0 0 1px rgba(255,255,255,0.35),
+        inset 0 0 70px rgba(255,255,255,0.22);
+    }
+    .icon {
+      transition: transform 0.48s cubic-bezier(0.15, 1.15, 0.3, 1), filter 0.48s;
+    }
+    .dock .dock-item:hover {
+      transform: scale(1.95) translateY(-42px);
+      filter: brightness(1.65) drop-shadow(0 32px 56px rgba(0,0,0,0.6));
+      z-index: 10;
+    }
+    .dock .dock-item:hover + .dock-item {
+      transform: scale(1.32) translateY(-14px);
+    }
+    .dock .dock-item:has(+ .dock-item:hover) {
+      transform: scale(1.32) translateY(-14px);
+    }
+    .glass-icon .spec {
+      position: absolute; inset: 0; border-radius: inherit;
+      background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, transparent 26%, transparent 74%, rgba(255,255,255,0.32) 100%);
+      pointer-events: none;
+    }
+    .glass-icon .highlight {
+      position: absolute; top: 2%; left: 6%; width: 52%; height: 32%;
+      border-radius: 50%; background: rgba(255,255,255,0.95);
+      filter: blur(8px); pointer-events: none;
+    }
+    .menu-bar {
+      height: 38px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; font-size: 14.5px; color: #f8fafc;
+      letter-spacing: 0.015em; font-weight: 500;
+    }
+    .wallpaper {
+      background: url('assets/golden-abstract.jpg') center/cover no-repeat,
+                  linear-gradient(180deg, #1e3a5f 0%, #0f172a 100%);
+      animation: wallshift 48s ease-in-out infinite alternate;
+    }
+    @keyframes wallshift {
+      to { filter: hue-rotate(9deg) saturate(1.15) brightness(1.08); }
+    }
+    .dock {
+      border-radius: 46px;
+      padding: 16px 22px 18px;
+    }
+    .window, .win {
+      border-radius: 26px;
+    }
+    .assistant {
+      border-radius: 32px;
+    }
+    /* Soft edge glow on active windows */
+    .win.active {
+      box-shadow:
+        0 68px 170px rgba(0,0,0,0.58),
+        0 0 0 1px rgba(255,255,255,0.4),
+        inset 0 5px 0 rgba(255,255,255,0.92);
+    }
+  </style>
+</head>
+<body>
+  <!-- Boot screen with tiny LLM load -->
+  <div id="boot-screen" class="boot">
+    <div class="boot-logo">Lumen</div>
+    <div class="boot-bar"><div id="boot-fill" class="boot-fill"></div></div>
+    <div id="boot-status">Initializing Lumen shell… Loading tiny model…</div>
+  </div>
+
+  <!-- Lock screen -->
+  <div id="lock-screen" class="lock hidden">
+    <div id="lock-time" class="lock-time">12:00</div>
+    <div id="lock-date" class="lock-date">Wednesday</div>
+    <button id="unlock-btn" class="unlock">Unlock</button>
+  </div>
+
+  <!-- Main desktop -->
+  <div id="desktop" class="desktop hidden">
+    <div id="wallpaper" class="wallpaper"></div>
+
+    <!-- Menu bar -->
+    <div class="menu-bar glass">
+      <div class="menu-left">
+        <span id="lumen-menu">Lumen</span>
+        <span class="menu-item" data-menu="file">File</span>
+        <span class="menu-item" data-menu="edit">Edit</span>
+        <span class="menu-item" data-menu="view">View</span>
+        <span class="menu-item" data-menu="go">Go</span>
+        <span class="menu-item" data-menu="window">Window</span>
+        <span class="menu-item" data-menu="help">Help</span>
+      </div>
+      <div class="menu-right">
+        <span id="cc-toggle">◉</span>
+        <span id="notify-toggle">🔔</span>
+        <span id="clock">12:00</span>
+      </div>
+    </div>
+    <div id="menu-pop" class="menu-pop hidden"></div>
+
+    <!-- Widgets -->
+    <div id="widgets" class="glass">
+      <div id="wid-clock" class="wid-clock">12:00</div>
+      <div class="wid-weather">Clear · 72°</div>
+      <div class="wid-hint">⌘Space Aura · F4 Launchpad · F3 Mission</div>
+    </div>
+
+    <!-- Desktop icons -->
+    <div id="desk-icons" class="desk-icons"></div>
+
+    <!-- Dock -->
+    <div id="dock" class="dock glass"></div>
+
+    <!-- Control Center -->
+    <div id="control-center" class="control-center glass hidden">
+      <div class="cc-tile">Wi-Fi</div>
+      <div class="cc-tile">Bluetooth</div>
+      <div class="cc-tile">Focus</div>
+      <div class="cc-tile">AirDrop</div>
+      <label>Brightness <input id="bright" type="range" min="50" max="130" value="100"></label>
+      <label>Glass intensity <input id="tint" type="range" min="0" max="1" step="0.05" value="0.55"></label>
+      <label>Volume <input id="vol" type="range" min="0" max="100" value="70"></label>
+    </div>
+
+    <!-- Notifications -->
+    <div id="notify-drawer" class="notify glass hidden">
+      <h4 style="margin:0 0 10px">Notifications</h4>
+      <p style="font-size:13px;opacity:0.9;margin:0 0 8px">Lumen is ready · entertainment mock</p>
+      <p style="font-size:13px;opacity:0.75;margin:0">Aura loaded a tiny local model at boot.</p>
+    </div>
+
+    <!-- Spotlight / Aura search -->
+    <div id="spotlight" class="spotlight glass hidden">
+      <input id="spot-input" placeholder="Search or ask Aura…" />
+      <div id="spot-results"></div>
+    </div>
+
+    <!-- Launchpad -->
+    <div id="launchpad" class="launchpad hidden">
+      <input id="lp-search" placeholder="Search apps" />
+      <div id="lp-grid"></div>
+    </div>
+
+    <!-- Mission Control -->
+    <div id="mission" class="mission hidden"></div>
+
+    <!-- Windows container -->
+    <div id="windows" class="windows"></div>
+
+    <!-- Aura / mock Siri -->
+    <div id="assistant" class="assistant glass hidden">
+      <div class="aura-header">
+        <span>Aura</span>
+        <button id="close-aura">✕</button>
+      </div>
+      <div id="aura-log" class="aura-log"></div>
+      <form id="aura-form">
+        <input id="aura-input" placeholder="Ask Aura…" autocomplete="off" />
+        <button type="button" id="aura-mic">🎤</button>
+        <button type="submit">→</button>
+      </form>
+      <div id="aura-mode" class="small">Local + optional AI</div>
+    </div>
+
+    <!-- Context menu -->
+    <div id="ctx" class="ctx hidden"></div>
+    <div id="toast" class="toast glass hidden"></div>
+  </div>
+
+  <!-- Core scripts (separate files) -->
+  <script src="js/model.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/mind.js"></script>
+  <script src="js/apps.js"></script>
+  <script src="js/desktop.js"></script>
+  <script src="js/assistant.js"></script>
+  <script src="js/boot.js"></script>
+  <script src="js/enhance.js"></script>
+  <script src="js/windows.js"></script>
+  <!-- Feature modules -->
+  <script src="js/gate27.js"></script>
+  <script src="js/glass68.js"></script>
+  <script src="js/golden.js"></script>
+  <script src="js/lumen59.js"></script>
+  <script src="js/lumen70.js"></script>
+</body>
+</html>
