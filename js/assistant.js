@@ -33,7 +33,7 @@ const Aura = {
     if (q.includes("weather")) return "Clear skies around 72° on this mock desktop. (Simulated weather data.)";
     if (q.includes("open ") || q.includes("launch ") || q.includes("start ")) {
       const app = q.replace(/open |launch |start /g, "").trim();
-      const map = {files: "finder", notes: "notes", calc: "calc", calculator: "calc", web: "web", browser: "web", safari: "web", gallery: "store", store: "store", "app store": "store", settings: "settings", terminal: "terminal", music: "music", photos: "photos", calendar: "calendar", mail: "mail", maps: "maps", reminders: "reminders"};
+      const map = {files: "finder", notes: "notes", calc: "calc", calculator: "calc", web: "web", browser: "web", safari: "web", gallery: "store", store: "store", "app store": "store", settings: "settings", terminal: "terminal", music: "music", photos: "photos", calendar: "calendar", mail: "mail", maps: "maps", reminders: "reminders", messages: "messages", contacts: "contacts"};
       const id = map[app] || app;
       if (Desktop && Desktop.openApp) {
         setTimeout(() => Desktop.openApp(id), 200);
@@ -58,7 +58,7 @@ const Aura = {
         const res = await fetch(url, { method: "GET" });
         if (res.ok) {
           const answer = (await res.text()).trim();
-          if (answer && answer.length > 5) return answer;
+          if (answer && answer.length > 5 && !answer.toLowerCase().includes("error")) return answer;
         }
       } catch (e) {
         console.warn("Cloud AI unavailable", e);
