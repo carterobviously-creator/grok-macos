@@ -2,7 +2,7 @@
   const fill = document.getElementById("boot-fill");
   const status = document.getElementById("boot-status");
   const steps = [
-    [8, "Initializing Lumen shell (Golden Gate 27 inspired)…"],
+    [8, "Initializing Lumen shell (Golden Gate 27.2 inspired)…"],
     [18, "Loading enhanced Liquid Glass surfaces & refraction…"],
     [32, "Preparing original detailed icons & dynamic wallpaper…"],
     [46, "Loading tiny local LLM phrase model for Aura…"],

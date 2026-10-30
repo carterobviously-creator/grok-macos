@@ -53,12 +53,12 @@ const Aura = {
     // Cloud AI via free public text endpoint for full conversational "Intelligence"
     if (this.cloudEnabled()) {
       try {
-        const prompt = "You are Aura, a helpful, witty, concise, and intelligent desktop assistant in Lumen Desktop — an entertainment mock inspired by the latest Liquid Glass desktop OS (macOS Golden Gate 27 / Tahoe style, but original and not affiliated with Apple). Respond naturally and helpfully. You can suggest opening apps or controlling the mock. Never claim to be the real Siri or Apple Intelligence. Keep responses under 150 words. User query: " + text;
+        const prompt = "You are Aura, a helpful, witty, concise, and intelligent desktop assistant in Lumen Desktop — an entertainment mock inspired by the latest Liquid Glass desktop OS (macOS Golden Gate 27.2 / Tahoe style, but original and not affiliated with Apple). Respond naturally and helpfully. You can suggest opening apps or controlling the mock. Never claim to be the real Siri or Apple Intelligence. Keep responses under 150 words. Be engaging. User query: " + text;
         const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
-        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(8000) });
+        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(10000) });
         if (res.ok) {
           let answer = (await res.text()).trim();
-          if (answer && answer.length > 5 && !answer.toLowerCase().includes("error") && !answer.toLowerCase().includes("sorry")) {
+          if (answer && answer.length > 5 && !answer.toLowerCase().includes("error") && !answer.toLowerCase().includes("sorry, i cannot")) {
             return answer;
           }
         }
