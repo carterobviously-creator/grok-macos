@@ -48,7 +48,7 @@ const Aura = {
         return "That's " + res + ".";
       } catch (e) {}
     }
-    if (q.includes("help")) return "I can open apps (say 'open notes'), tell the time or date, do math, answer questions, summarize text, generate ideas, and control the mock desktop. Voice input available via the mic. This is an entertainment mock with AI assistance — not the real Siri.";
+    if (q.includes("help") || q.includes("what can you do")) return "I can open apps (say open notes or open settings), tell the time or date, do math, answer questions with AI, manage notes, control the desktop, and more. Voice input supported where available. This is an entertainment mock — not the real Siri.";
 
     // Cloud AI via free public text endpoint for full conversational "Intelligence"
     if (this.cloudEnabled()) {

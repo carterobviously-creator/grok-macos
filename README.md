@@ -20,6 +20,8 @@ No official Apple trademarks or copyrighted assets are used. Icons are original 
 
 Live: https://carterobviously-creator.github.io/grok-macos/
 
+**Latest refinements (Lumen 95):** Enhanced Liquid Glass refraction & specular highlights, improved Aura AI responses, and polished desktop interactions. Still original assets only for entertainment.
+
 All apps and interactions are functional mocks for entertainment. Enjoy the desktop experience!
 
 ## Structure
