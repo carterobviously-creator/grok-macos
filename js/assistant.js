@@ -1,7 +1,7 @@
 // Aura — enhanced mock Siri / Apple Intelligence inspired assistant for Lumen Desktop
 // Entertainment mock only. Not Siri. Not Apple Intelligence.
 // Uses local phrase book + free text endpoint (pollinations.ai) for conversational AI replies.
-// Tiny local model simulated at boot. Improved natural responses, reliability, and error handling for Lumen 99.
+// Tiny local model simulated at boot. Improved natural responses, reliability, and error handling for Lumen 100.
 
 const Aura = {
   ready: false,
@@ -10,7 +10,7 @@ const Aura = {
   load() {
     this.ready = true;
     this.setCloud(true);
-    console.log("Aura tiny model + cloud ready (Lumen 99)");
+    console.log("Aura tiny model + cloud ready (Lumen 100)");
   },
 
   cloudEnabled() {
@@ -56,7 +56,7 @@ const Aura = {
       try {
         const prompt = "You are Aura, a helpful, witty, concise, and intelligent desktop assistant in Lumen Desktop — an entertainment mock inspired by the latest Liquid Glass desktop OS (macOS Golden Gate 27.2 / Tahoe style, but original and not affiliated with Apple). Respond naturally and helpfully. You can suggest opening apps or controlling the mock. Never claim to be the real Siri or Apple Intelligence. Keep responses under 150 words. Be engaging and friendly. User query: " + text;
         const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
-        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(15000) });
+        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(18000) });
         if (res.ok) {
           let answer = (await res.text()).trim();
           if (answer && answer.length > 5 && !answer.toLowerCase().includes("error") && !answer.toLowerCase().includes("sorry, i cannot") && !answer.toLowerCase().includes("unable to")) {
@@ -80,7 +80,7 @@ const Aura = {
     u.volume = 0.9;
     // Prefer a natural voice if available
     const voices = speechSynthesis.getVoices();
-    const preferred = voices.find(v => v.lang.startsWith("en") && (v.name.includes("Samantha") || v.name.includes("Google") || v.name.includes("Natural")));
+    const preferred = voices.find(v => v.lang.startsWith("en") && (v.name.includes("Samantha") || v.name.includes("Google") || v.name.includes("Natural") || v.name.includes("Alex")));
     if (preferred) u.voice = preferred;
     speechSynthesis.speak(u);
   },
