@@ -1,7 +1,7 @@
 // Aura — enhanced mock Siri / Apple Intelligence inspired assistant for Lumen Desktop
 // Entertainment mock only. Not Siri. Not Apple Intelligence.
 // Uses local phrase book + free text endpoint (pollinations.ai) for conversational AI replies.
-// Tiny local model simulated at boot. Improved natural responses and error handling.
+// Tiny local model simulated at boot. Improved natural responses, reliability, and error handling for Lumen 99.
 
 const Aura = {
   ready: false,
@@ -10,7 +10,7 @@ const Aura = {
   load() {
     this.ready = true;
     this.setCloud(true);
-    console.log("Aura tiny model + cloud ready");
+    console.log("Aura tiny model + cloud ready (Lumen 99)");
   },
 
   cloudEnabled() {
@@ -27,13 +27,14 @@ const Aura = {
     if (!q) return "How can I help you today?";
 
     // Enhanced local fast responses
-    if (q.includes("hello") || q.includes("hi ") || q === "hi" || q.includes("hey")) return "Hello! I'm Aura, your intelligent helper on Lumen Desktop. What can I do for you today?";
+    if (q.includes("hello") || q.includes("hi ") || q === "hi" || q.includes("hey") || q.includes("good morning") || q.includes("good evening")) 
+      return "Hello! I'm Aura, your intelligent helper on Lumen Desktop. What can I do for you today?";
     if (q.includes("time")) return "It's " + new Date().toLocaleTimeString([], {hour: "numeric", minute: "2-digit"}) + ".";
     if (q.includes("date") || q.includes("day")) return "Today is " + new Date().toLocaleDateString(undefined, {weekday: "long", month: "long", day: "numeric", year: "numeric"}) + ".";
     if (q.includes("weather")) return "Currently clear skies with a high of 72°. Perfect day to explore the desktop! (Simulated weather data for this mock.)";
     if (q.includes("open ") || q.includes("launch ") || q.includes("start ")) {
       const app = q.replace(/open |launch |start /g, "").trim();
-      const map = {files: "finder", notes: "notes", calc: "calc", calculator: "calc", web: "web", browser: "web", safari: "web", gallery: "store", store: "store", "app store": "store", settings: "settings", terminal: "terminal", music: "music", photos: "photos", calendar: "calendar", mail: "mail", maps: "maps", reminders: "reminders", messages: "messages", contacts: "contacts", weather: "weather", stickies: "stickies"};
+      const map = {files: "finder", notes: "notes", calc: "calc", calculator: "calc", web: "web", browser: "web", safari: "web", gallery: "store", store: "store", "app store": "store", settings: "settings", terminal: "terminal", music: "music", photos: "photos", calendar: "calendar", mail: "mail", maps: "maps", reminders: "reminders", messages: "messages", contacts: "contacts", weather: "weather", stickies: "stickies", clock: "clock", writer: "writer"};
       const id = map[app] || app;
       if (typeof Desktop !== "undefined" && Desktop.openApp) {
         setTimeout(() => Desktop.openApp(id), 180);
@@ -53,9 +54,9 @@ const Aura = {
     // Cloud AI via free public text endpoint for full conversational "Intelligence"
     if (this.cloudEnabled()) {
       try {
-        const prompt = "You are Aura, a helpful, witty, concise, and intelligent desktop assistant in Lumen Desktop — an entertainment mock inspired by the latest Liquid Glass desktop OS (macOS Golden Gate 27.2 / Tahoe style, but original and not affiliated with Apple). Respond naturally and helpfully. You can suggest opening apps or controlling the mock. Never claim to be the real Siri or Apple Intelligence. Keep responses under 150 words. Be engaging. User query: " + text;
+        const prompt = "You are Aura, a helpful, witty, concise, and intelligent desktop assistant in Lumen Desktop — an entertainment mock inspired by the latest Liquid Glass desktop OS (macOS Golden Gate 27.2 / Tahoe style, but original and not affiliated with Apple). Respond naturally and helpfully. You can suggest opening apps or controlling the mock. Never claim to be the real Siri or Apple Intelligence. Keep responses under 150 words. Be engaging and friendly. User query: " + text;
         const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
-        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(12000) });
+        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(15000) });
         if (res.ok) {
           let answer = (await res.text()).trim();
           if (answer && answer.length > 5 && !answer.toLowerCase().includes("error") && !answer.toLowerCase().includes("sorry, i cannot") && !answer.toLowerCase().includes("unable to")) {
@@ -77,6 +78,10 @@ const Aura = {
     u.rate = 1.05;
     u.pitch = 1.05;
     u.volume = 0.9;
+    // Prefer a natural voice if available
+    const voices = speechSynthesis.getVoices();
+    const preferred = voices.find(v => v.lang.startsWith("en") && (v.name.includes("Samantha") || v.name.includes("Google") || v.name.includes("Natural")));
+    if (preferred) u.voice = preferred;
     speechSynthesis.speak(u);
   },
 
