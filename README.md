@@ -1,4 +1,4 @@
-# Lumen Desktop · Golden Gate 27.2 Inspired Mock · Lumen 101
+# Lumen Desktop · Golden Gate 27.2 Inspired Mock · Lumen 102
 
 A **high-fidelity browser entertainment mock** of a modern Liquid Glass desktop OS, refined to capture the look and feel of the latest macOS Golden Gate 27 / Tahoe design language (updated through 27.2).
 
@@ -8,7 +8,7 @@ A **high-fidelity browser entertainment mock** of a modern Liquid Glass desktop 
 
 No official Apple trademarks or copyrighted assets are used. Icons are original layered SVG glass approximations with specular highlights, depth, and refined details. Surfaces use advanced CSS Liquid Glass effects (blur, saturation, refraction, dynamic speculars, and physics). Changed enough from the real OS to be a distinct mock.
 
-**Aura** (mock Siri / Apple Intelligence) loads a tiny local phrase model at boot and uses a free third-party AI endpoint (pollinations.ai) for natural conversational replies. It can open apps, manage notes/reminders, do math, answer questions, speak, and respond to voice. Voice input supported where the browser allows. Enhanced for better reliability and more natural responses.
+**Aura** (mock Siri / Apple Intelligence) loads a tiny local phrase model at boot and uses a free third-party AI endpoint (pollinations.ai) for natural conversational replies. It can open apps, manage notes/reminders, do math, answer questions, speak, and respond to voice. Voice input supported where the browser allows. Enhanced for better reliability, more local commands (glass, volume, apps), and natural responses.
 
 ## Key Features
 - Realistic boot screen with tiny LLM load simulation
@@ -20,7 +20,7 @@ No official Apple trademarks or copyrighted assets are used. Icons are original 
 
 Live: https://carterobviously-creator.github.io/grok-macos/
 
-**Latest refinements (Lumen 101):** Further enhanced Aura AI with better prompts, more local commands (e.g. volume), improved reliability, and natural responses. Continued Liquid Glass polish and dock physics. All still original assets for entertainment.
+**Latest refinements (Lumen 102):** Further enhanced Aura AI with better prompts, more local commands (e.g. volume, glass intensity, open apps), improved reliability, and natural responses. Continued Liquid Glass polish and dock physics. All still original assets for entertainment.
 
 All apps and interactions are functional mocks for entertainment. Enjoy the desktop experience!
 
