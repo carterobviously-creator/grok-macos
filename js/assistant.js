@@ -1,7 +1,7 @@
 // Aura — enhanced mock Siri / Apple Intelligence inspired assistant for Lumen Desktop
 // Entertainment mock only. Not Siri. Not Apple Intelligence.
 // Uses local phrase book + free text endpoint (pollinations.ai) for conversational AI replies.
-// Tiny local model simulated at boot. Improved natural responses, reliability, and error handling for Lumen 100.
+// Tiny local model simulated at boot. Improved natural responses, reliability, and error handling for Lumen 101.
 
 const Aura = {
   ready: false,
@@ -10,7 +10,7 @@ const Aura = {
   load() {
     this.ready = true;
     this.setCloud(true);
-    console.log("Aura tiny model + cloud ready (Lumen 100)");
+    console.log("Aura tiny model + cloud ready (Lumen 101)");
   },
 
   cloudEnabled() {
@@ -34,12 +34,15 @@ const Aura = {
     if (q.includes("weather")) return "Currently clear skies with a high of 72°. Perfect day to explore the desktop! (Simulated weather data for this mock.)";
     if (q.includes("open ") || q.includes("launch ") || q.includes("start ")) {
       const app = q.replace(/open |launch |start /g, "").trim();
-      const map = {files: "finder", notes: "notes", calc: "calc", calculator: "calc", web: "web", browser: "web", safari: "web", gallery: "store", store: "store", "app store": "store", settings: "settings", terminal: "terminal", music: "music", photos: "photos", calendar: "calendar", mail: "mail", maps: "maps", reminders: "reminders", messages: "messages", contacts: "contacts", weather: "weather", stickies: "stickies", clock: "clock", writer: "writer"};
+      const map = {files: "finder", notes: "notes", calc: "calc", calculator: "calc", web: "web", browser: "web", safari: "web", gallery: "store", store: "store", "app store": "store", settings: "settings", terminal: "terminal", music: "music", photos: "photos", calendar: "calendar", mail: "mail", maps: "maps", reminders: "reminders", messages: "messages", contacts: "contacts", weather: "weather", stickies: "stickies", clock: "clock", writer: "writer", trash: "trash"};
       const id = map[app] || app;
       if (typeof Desktop !== "undefined" && Desktop.openApp) {
         setTimeout(() => Desktop.openApp(id), 180);
         return "Opening " + (Desktop.labels[id] || app) + " for you.";
       }
+    }
+    if (q.includes("volume") || q.includes("sound")) {
+      return "You can adjust volume in Control Center. Current mock volume is around 70%.";
     }
     if (q.includes("note") || q.includes("remind")) return "I can help with notes and reminders. Try saying 'open notes' or tell me what to save.";
     if (/what is \d+ [\+\-\*\/] \d+/.test(q) || /\d+ [\+\-\*\/] \d+/.test(q) || /calculate/.test(q)) {
@@ -56,7 +59,7 @@ const Aura = {
       try {
         const prompt = "You are Aura, a helpful, witty, concise, and intelligent desktop assistant in Lumen Desktop — an entertainment mock inspired by the latest Liquid Glass desktop OS (macOS Golden Gate 27.2 / Tahoe style, but original and not affiliated with Apple). Respond naturally and helpfully. You can suggest opening apps or controlling the mock. Never claim to be the real Siri or Apple Intelligence. Keep responses under 150 words. Be engaging and friendly. User query: " + text;
         const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
-        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(18000) });
+        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(20000) });
         if (res.ok) {
           let answer = (await res.text()).trim();
           if (answer && answer.length > 5 && !answer.toLowerCase().includes("error") && !answer.toLowerCase().includes("sorry, i cannot") && !answer.toLowerCase().includes("unable to")) {
