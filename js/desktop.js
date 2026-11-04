@@ -35,7 +35,7 @@ const Desktop = {
       document.getElementById("wallpaper").style.filter = "brightness(" + (e.target.value / 92) + ")";
     };
     document.getElementById("tint").oninput = (e) => {
-      document.body.classList.toggle("tinted", Number(e.target.value) > 0.45);
+      this.setGlass(Number(e.target.value));
     };
     document.getElementById("close-aura").onclick = () =>
       document.getElementById("assistant").classList.add("hidden");
@@ -124,6 +124,12 @@ const Desktop = {
         if (pop) pop.classList.add("hidden");
       }
     });
+  },
+  setGlass(intensity) {
+    document.body.classList.toggle("tinted", intensity > 0.45);
+    const tint = document.getElementById("tint");
+    if (tint) tint.value = intensity;
+    // Optional further visual tweaks could go here
   },
   showMenu(key, btn) {
     let pop = document.getElementById("menu-pop");
