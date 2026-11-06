@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Lumen Desktop · Golden Gate 27.2 Inspired Mock · Lumen 110</title>
-  <meta name="description" content="Entertainment browser mock of a modern Liquid Glass desktop OS inspired by macOS Golden Gate 27.2. Not macOS, not Apple. Original assets only. AI assistant Aura with tiny local model." />
+  <title>Lumen Desktop · Golden Gate 27.3 Inspired Mock · Lumen 111</title>
+  <meta name="description" content="Entertainment browser mock of a modern Liquid Glass desktop OS inspired by macOS Golden Gate 27.3. Not macOS, not Apple. Original assets only. AI assistant Aura with tiny local model." />
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/boot.css" />
   <link rel="stylesheet" href="css/desktop.css" />
@@ -16,51 +16,51 @@
   <link rel="stylesheet" href="css/lumen90.css" />
   <link rel="stylesheet" href="css/extras.css" />
   <style>
-    /* Lumen 110: Ultra-refined Liquid Glass — deeper refraction, dynamic speculars, vibrant highlights for 27.2-inspired look. Enhanced Aura with more commands and reliability. */
+    /* Lumen 111: Ultra-refined Liquid Glass — deeper refraction, dynamic speculars, vibrant highlights for 27.3-inspired look. Enhanced Aura with more commands and reliability. */
     .glass, .dock, .menu-bar, .window, .win, .control-center, .assistant, .launchpad, .spotlight, .notify, #widgets, #ctx, #toast {
-      backdrop-filter: blur(480px) saturate(1020%) brightness(1.82) contrast(1.42) hue-rotate(0.3deg);
-      -webkit-backdrop-filter: blur(440px) saturate(920%) brightness(1.75) contrast(1.35);
-      background: linear-gradient(155deg, rgba(255,255,255,0.58) 0%, rgba(255,255,255,0.30) 40%, rgba(255,255,255,0.10) 100%);
-      border: 1px solid rgba(255,255,255,0.98);
+      backdrop-filter: blur(500px) saturate(1050%) brightness(1.85) contrast(1.45) hue-rotate(0.4deg);
+      -webkit-backdrop-filter: blur(460px) saturate(950%) brightness(1.78) contrast(1.38);
+      background: linear-gradient(155deg, rgba(255,255,255,0.60) 0%, rgba(255,255,255,0.32) 40%, rgba(255,255,255,0.12) 100%);
+      border: 1px solid rgba(255,255,255,0.99);
       box-shadow:
-        0 100px 240px rgba(0,0,0,0.80),
-        inset 0 18px 0 rgba(255,255,255,0.998),
-        inset 0 -14px 0 rgba(0,0,0,0.50),
-        0 0 0 2.2px rgba(255,255,255,0.52),
-        inset 0 0 140px rgba(255,255,255,0.38),
-        0 0 210px rgba(125,211,252,0.48);
-      transition: all 0.45s cubic-bezier(0.12, 1.25, 0.26, 1);
+        0 110px 250px rgba(0,0,0,0.82),
+        inset 0 20px 0 rgba(255,255,255,0.999),
+        inset 0 -16px 0 rgba(0,0,0,0.52),
+        0 0 0 2.3px rgba(255,255,255,0.55),
+        inset 0 0 150px rgba(255,255,255,0.40),
+        0 0 220px rgba(125,211,252,0.50);
+      transition: all 0.4s cubic-bezier(0.12, 1.25, 0.26, 1);
     }
     .glass:hover, .win:hover {
       box-shadow:
-        0 110px 260px rgba(0,0,0,0.85),
-        inset 0 22px 0 rgba(255,255,255,1),
-        0 0 0 2.2px rgba(255,255,255,0.70),
-        inset 0 0 150px rgba(255,255,255,0.45);
+        0 120px 270px rgba(0,0,0,0.87),
+        inset 0 24px 0 rgba(255,255,255,1),
+        0 0 0 2.3px rgba(255,255,255,0.72),
+        inset 0 0 160px rgba(255,255,255,0.48);
     }
     .icon {
-      transition: transform 0.55s cubic-bezier(0.08, 1.32, 0.22, 1), filter 0.55s;
+      transition: transform 0.5s cubic-bezier(0.08, 1.32, 0.22, 1), filter 0.5s;
     }
     .dock .dock-item:hover {
-      transform: scale(2.5) translateY(-70px);
-      filter: brightness(2.2) drop-shadow(0 60px 100px rgba(0,0,0,0.85));
+      transform: scale(2.6) translateY(-75px);
+      filter: brightness(2.3) drop-shadow(0 65px 110px rgba(0,0,0,0.87));
       z-index: 15;
     }
     .dock .dock-item:hover + .dock-item {
-      transform: scale(1.7) translateY(-32px);
+      transform: scale(1.8) translateY(-35px);
     }
     .dock .dock-item:has(+ .dock-item:hover) {
-      transform: scale(1.7) translateY(-32px);
+      transform: scale(1.8) translateY(-35px);
     }
     .glass-icon .spec {
       position: absolute; inset: 0; border-radius: inherit;
-      background: linear-gradient(135deg, rgba(255,255,255,1) 0%, transparent 26%, transparent 74%, rgba(255,255,255,0.55) 100%);
+      background: linear-gradient(135deg, rgba(255,255,255,1) 0%, transparent 26%, transparent 74%, rgba(255,255,255,0.58) 100%);
       pointer-events: none;
     }
     .glass-icon .highlight {
       position: absolute; top: -3%; left: 5%; width: 65%; height: 45%;
-      border-radius: 50%; background: rgba(255,255,255,0.998);
-      filter: blur(16px); pointer-events: none;
+      border-radius: 50%; background: rgba(255,255,255,0.999);
+      filter: blur(18px); pointer-events: none;
     }
     .menu-bar {
       height: 38px; display: flex; align-items: center; justify-content: space-between;
@@ -73,23 +73,23 @@
       animation: wallshift 48s ease-in-out infinite alternate;
     }
     @keyframes wallshift {
-      to { filter: hue-rotate(18deg) saturate(1.35) brightness(1.18); }
+      to { filter: hue-rotate(20deg) saturate(1.38) brightness(1.20); }
     }
     .dock {
-      border-radius: 48px;
+      border-radius: 50px;
       padding: 16px 22px 18px;
     }
     .window, .win {
-      border-radius: 28px;
+      border-radius: 30px;
     }
     .assistant {
-      border-radius: 36px;
+      border-radius: 38px;
     }
     .win.active {
       box-shadow:
-        0 120px 280px rgba(0,0,0,0.80),
-        0 0 0 2.2px rgba(255,255,255,0.65),
-        inset 0 15px 0 rgba(255,255,255,0.998);
+        0 130px 290px rgba(0,0,0,0.82),
+        0 0 0 2.3px rgba(255,255,255,0.68),
+        inset 0 16px 0 rgba(255,255,255,0.999);
     }
   </style>
 </head>
