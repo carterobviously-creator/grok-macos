@@ -1,6 +1,6 @@
-# Lumen Desktop · Golden Gate 27.2 Inspired Mock · Lumen 110
+# Lumen Desktop · Golden Gate 27.3 Inspired Mock · Lumen 111
 
-A **high-fidelity browser entertainment mock** of a modern Liquid Glass desktop OS, refined to capture the look and feel of the latest macOS Golden Gate 27 / Tahoe design language (updated through 27.2).
+A **high-fidelity browser entertainment mock** of a modern Liquid Glass desktop OS, refined to capture the look and feel of the latest macOS Golden Gate 27 / Tahoe design language (updated through 27.3 beta).
 
 **Entertainment purposes only.**
 
@@ -8,7 +8,7 @@ A **high-fidelity browser entertainment mock** of a modern Liquid Glass desktop 
 
 No official Apple trademarks or copyrighted assets are used. Icons are original layered SVG glass approximations with specular highlights, depth, and refined details — carefully designed to evoke the style without copying proprietary artwork. Surfaces use advanced CSS Liquid Glass effects (blur, saturation, refraction, dynamic speculars, and physics). Changed enough from the real OS to be a distinct mock.
 
-**Aura** (mock Siri / Apple Intelligence) loads a tiny local phrase model at boot and uses a free third-party AI endpoint (pollinations.ai) for natural conversational replies. It can open apps, manage notes/reminders, do math, answer questions, speak, control glass/volume, and respond to voice. Voice input supported where the browser allows. Enhanced for better reliability, more local commands, and natural responses.
+**Aura** (mock Siri / Apple Intelligence) loads a tiny local phrase model at boot and uses a free third-party AI endpoint (pollinations.ai) for natural conversational replies. It can open apps, manage notes/reminders, do math, answer questions, speak, control glass/volume, and respond to voice. Voice input supported where the browser allows. Enhanced for better reliability, more local commands, and natural responses. Now with improved prompts for more helpful, context-aware replies.
 
 ## Key Features
 - Realistic boot screen with tiny LLM load simulation
@@ -20,7 +20,7 @@ No official Apple trademarks or copyrighted assets are used. Icons are original 
 
 Live: https://carterobviously-creator.github.io/grok-macos/
 
-**Latest refinements (Lumen 110):** Further enhanced Liquid Glass with deeper refraction, brighter speculars, and smoother transitions. Higher-detail original SVG icons with better layering. Improved Aura AI prompts for more natural, helpful responses. Better dock magnification physics and window interactions. All original assets for entertainment.
+**Latest refinements (Lumen 111):** Further enhanced Liquid Glass with deeper refraction, brighter speculars, and smoother transitions for 27.3-inspired look. Higher-detail original SVG icons with better layering. Improved Aura AI prompts for more natural, helpful, and context-aware responses. Better dock magnification physics and window interactions. All original assets for entertainment.
 
 All apps and interactions are functional mocks for entertainment. Enjoy the desktop experience!
 
