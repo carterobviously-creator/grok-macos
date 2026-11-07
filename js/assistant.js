@@ -1,7 +1,7 @@
 // Aura — enhanced mock Siri / Apple Intelligence inspired assistant for Lumen Desktop
 // Entertainment mock only. Not Siri. Not Apple Intelligence.
 // Uses local phrase book + free text endpoint (pollinations.ai) for conversational AI replies.
-// Tiny local model simulated at boot. Improved natural responses, reliability, and error handling for Lumen 113 (27.3 inspired).
+// Tiny local model simulated at boot. Improved natural responses, reliability, and error handling for Lumen 114 (27.3 / Golden Gate inspired).
 
 const Aura = {
   ready: false,
@@ -10,7 +10,7 @@ const Aura = {
   load() {
     this.ready = true;
     this.setCloud(true);
-    console.log("Aura tiny model + cloud ready (Lumen 113)");
+    console.log("Aura tiny model + cloud ready (Lumen 114)");
   },
 
   cloudEnabled() {
@@ -41,6 +41,21 @@ const Aura = {
         return "Opening " + (Desktop.labels[id] || app) + " for you.";
       }
     }
+    if (q.includes("volume up") || q.includes("louder")) {
+      const vol = document.getElementById("vol");
+      if (vol) { vol.value = Math.min(100, parseInt(vol.value) + 10); vol.dispatchEvent(new Event("input")); }
+      return "Volume increased.";
+    }
+    if (q.includes("volume down") || q.includes("quieter")) {
+      const vol = document.getElementById("vol");
+      if (vol) { vol.value = Math.max(0, parseInt(vol.value) - 10); vol.dispatchEvent(new Event("input")); }
+      return "Volume decreased.";
+    }
+    if (q.includes("glass more") || q.includes("more glass")) {
+      const tint = document.getElementById("tint");
+      if (tint) { tint.value = Math.min(1, parseFloat(tint.value) + 0.1); tint.dispatchEvent(new Event("input")); }
+      return "Liquid Glass intensity increased.";
+    }
     if (q.includes("volume") || q.includes("sound")) {
       return "You can adjust volume in Control Center. Current mock volume is around 70%. Try the slider there!";
     }
@@ -65,7 +80,7 @@ const Aura = {
     // Cloud AI via free public text endpoint for full conversational "Intelligence"
     if (this.cloudEnabled()) {
       try {
-        const prompt = "You are Aura, a helpful, witty, concise, and intelligent desktop assistant in Lumen Desktop — an entertainment mock inspired by the latest Liquid Glass desktop OS (macOS Golden Gate 27.3 / Tahoe style, but original and not affiliated with Apple). Respond naturally and helpfully like a modern Siri AI with personality. You can suggest opening apps or controlling the mock. Never claim to be the real Siri or Apple Intelligence. Keep responses under 120 words. Be engaging, friendly, and practical. User query: " + text;
+        const prompt = "You are Aura, a helpful, witty, concise, and intelligent desktop assistant in Lumen Desktop — an entertainment mock inspired by the latest Liquid Glass desktop OS (macOS Golden Gate 27.3 style, original and not affiliated with Apple). Respond naturally and helpfully like a modern Siri AI with personality, short answers when appropriate, and offer to open apps or control settings. Never claim to be the real Siri or Apple Intelligence. Keep responses under 100 words. Be engaging, friendly, practical, and a bit playful. User query: " + text;
         const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
         const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(20000) });
         if (res.ok) {
