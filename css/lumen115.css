@@ -1,0 +1,27 @@
+/* Lumen 115: Even deeper Liquid Glass refinements for better speculars, refraction, and dock magnetism. Enhanced for 27.3+ inspired look while remaining original. */
+.glass, .dock, .menu-bar, .window, .win, .control-center, .assistant, .launchpad, .spotlight, .notify, #widgets {
+  backdrop-filter: blur(560px) saturate(1120%) brightness(1.92) contrast(1.52) hue-rotate(0.3deg);
+  -webkit-backdrop-filter: blur(520px) saturate(1020%) brightness(1.86) contrast(1.44);
+  background: linear-gradient(160deg, rgba(255,255,255,0.68) 0%, rgba(255,255,255,0.38) 38%, rgba(255,255,255,0.12) 100%);
+  border: 1.2px solid rgba(255,255,255,0.99);
+  box-shadow:
+    0 120px 280px rgba(0,0,0,0.86),
+    inset 0 24px 0 rgba(255,255,255,0.999),
+    inset 0 -20px 0 rgba(0,0,0,0.56),
+    0 0 0 2.6px rgba(255,255,255,0.62),
+    inset 0 0 180px rgba(255,255,255,0.46),
+    0 0 260px rgba(125,211,252,0.62);
+}
+.dock .dock-item:hover {
+  transform: scale(2.8) translateY(-82px);
+  filter: brightness(2.45) drop-shadow(0 72px 125px rgba(0,0,0,0.92));
+}
+.icon {
+  transition: transform 0.48s cubic-bezier(0.06, 1.38, 0.2, 1), filter 0.48s;
+}
+.wallpaper {
+  animation: wallshift 56s ease-in-out infinite alternate;
+}
+@keyframes wallshift {
+  to { filter: hue-rotate(28deg) saturate(1.48) brightness(1.28); }
+}
