@@ -1,7 +1,7 @@
 // Aura — enhanced mock Siri / Apple Intelligence inspired assistant for Lumen Desktop
 // Entertainment mock only. Not Siri. Not Apple Intelligence.
 // Uses local phrase book + free text endpoint (pollinations.ai) for conversational AI replies.
-// Tiny local model simulated at boot. Improved natural responses, reliability, and error handling for Lumen 114 (27.3 / Golden Gate inspired).
+// Tiny local model simulated at boot. Improved natural responses for Lumen 116 (27.3+ / Golden Gate inspired).
 
 const Aura = {
   ready: false,
@@ -10,7 +10,7 @@ const Aura = {
   load() {
     this.ready = true;
     this.setCloud(true);
-    console.log("Aura tiny model + cloud ready (Lumen 114)");
+    console.log("Aura tiny model + cloud ready (Lumen 116)");
   },
 
   cloudEnabled() {
@@ -80,9 +80,9 @@ const Aura = {
     // Cloud AI via free public text endpoint for full conversational "Intelligence"
     if (this.cloudEnabled()) {
       try {
-        const prompt = "You are Aura, the intelligent AI helper built into Lumen Desktop (an entertainment-only browser mock inspired by modern Liquid Glass desktop design, not affiliated with Apple). Act like a modern, helpful voice assistant: concise when possible, proactive with suggestions, able to open apps or adjust settings. Never claim to be Siri or Apple Intelligence. Be friendly, practical, slightly witty. Keep replies under 80 words. User: " + text;
+        const prompt = "You are Aura, a helpful, concise, friendly AI assistant in Lumen Desktop, an entertainment browser mock of a modern desktop OS with Liquid Glass design inspired by recent macOS styles (not affiliated with Apple). Respond like a modern voice assistant: short, useful, slightly witty, proactive. Never say you are Siri or Apple Intelligence. Keep under 60 words. Offer to open apps or adjust settings if relevant. User query: " + text;
         const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
-        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(20000) });
+        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(15000) });
         if (res.ok) {
           let answer = (await res.text()).trim();
           if (answer && answer.length > 5 && !answer.toLowerCase().includes("error") && !answer.toLowerCase().includes("sorry, i cannot") && !answer.toLowerCase().includes("unable to")) {
@@ -104,7 +104,6 @@ const Aura = {
     u.rate = 1.05;
     u.pitch = 1.05;
     u.volume = 0.9;
-    // Prefer a natural voice if available
     const voices = speechSynthesis.getVoices();
     const preferred = voices.find(v => v.lang.startsWith("en") && (v.name.includes("Samantha") || v.name.includes("Google") || v.name.includes("Natural") || v.name.includes("Alex")));
     if (preferred) u.voice = preferred;
@@ -132,7 +131,6 @@ const Aura = {
   }
 };
 
-// Auto-load compatibility
 if (typeof AuraModel === "undefined") {
   window.AuraModel = { load() { Aura.load(); }, ready: true };
 }
