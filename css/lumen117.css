@@ -1,0 +1,24 @@
+/* Lumen 117: Further Liquid Glass refinements for closer Golden Gate 27.3+ feel */
+.glass, .dock, .menu-bar, .window, .win, .control-center, .assistant, .launchpad, .spotlight, .notify, #widgets, #ctx, #toast {
+  backdrop-filter: blur(560px) saturate(1150%) brightness(1.95) contrast(1.55) hue-rotate(0.5deg);
+  -webkit-backdrop-filter: blur(520px) saturate(1050%) brightness(1.88) contrast(1.48);
+  background: linear-gradient(160deg, rgba(255,255,255,0.68) 0%, rgba(255,255,255,0.38) 40%, rgba(255,255,255,0.14) 100%);
+  border: 1px solid rgba(255,255,255,1);
+  box-shadow:
+    0 125px 280px rgba(0,0,0,0.88),
+    inset 0 25px 0 rgba(255,255,255,1),
+    inset 0 -20px 0 rgba(0,0,0,0.58),
+    0 0 0 2.8px rgba(255,255,255,0.65),
+    inset 0 0 180px rgba(255,255,255,0.48),
+    0 0 260px rgba(125,211,252,0.62);
+}
+.dock .dock-item:hover {
+  transform: scale(2.75) translateY(-85px);
+  filter: brightness(2.5) drop-shadow(0 75px 130px rgba(0,0,0,0.92));
+}
+.wallpaper {
+  animation: wallshift 50s ease-in-out infinite alternate;
+}
+@keyframes wallshift {
+  to { filter: hue-rotate(25deg) saturate(1.45) brightness(1.25); }
+}
