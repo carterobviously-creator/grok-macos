@@ -1,7 +1,7 @@
 // Aura — enhanced mock Siri / Apple Intelligence inspired assistant for Lumen Desktop
 // Entertainment mock only. Not Siri. Not Apple Intelligence.
 // Uses local phrase book + free text endpoint (pollinations.ai) for conversational AI replies.
-// Tiny local model simulated at boot. Improved natural responses for Lumen 117 (27.3+ / Golden Gate inspired).
+// Tiny local model simulated at boot. Improved natural responses for Lumen 118 (27.3+ / Golden Gate inspired).
 
 const Aura = {
   ready: false,
@@ -10,7 +10,7 @@ const Aura = {
   load() {
     this.ready = true;
     this.setCloud(true);
-    console.log("Aura tiny model + cloud ready (Lumen 117)");
+    console.log("Aura tiny model + cloud ready (Lumen 118)");
   },
 
   cloudEnabled() {
@@ -27,14 +27,14 @@ const Aura = {
     if (!q) return "How can I help you today?";
 
     // Enhanced local fast responses
-    if (q.includes("hello") || q.includes("hi ") || q === "hi" || q.includes("hey") || q.includes("good morning") || q.includes("good evening")) 
+    if (q.includes("hello") || q.includes("hi ") || q === "hi" || q.includes("hey") || q.includes("good morning") || q.includes("good evening") || q.includes("good afternoon")) 
       return "Hello! I'm Aura, your intelligent helper on Lumen Desktop. What can I do for you today?";
     if (q.includes("time")) return "It's " + new Date().toLocaleTimeString([], {hour: "numeric", minute: "2-digit"}) + ".";
     if (q.includes("date") || q.includes("day")) return "Today is " + new Date().toLocaleDateString(undefined, {weekday: "long", month: "long", day: "numeric", year: "numeric"}) + ".";
     if (q.includes("weather")) return "Currently clear skies with a high of 72°. Perfect day to explore the desktop! (Simulated weather data for this mock.)";
     if (q.includes("open ") || q.includes("launch ") || q.includes("start ")) {
       const app = q.replace(/open |launch |start /g, "").trim();
-      const map = {files: "finder", notes: "notes", calc: "calc", calculator: "calc", web: "web", browser: "web", safari: "web", gallery: "store", store: "store", "app store": "store", settings: "settings", terminal: "terminal", music: "music", photos: "photos", calendar: "calendar", mail: "mail", maps: "maps", reminders: "reminders", messages: "messages", contacts: "contacts", weather: "weather", stickies: "stickies", clock: "clock", writer: "writer", trash: "trash", aura: "aura"};
+      const map = {files: "finder", notes: "notes", calc: "calc", calculator: "calc", web: "web", browser: "web", safari: "web", gallery: "store", store: "store", "app store": "store", settings: "settings", terminal: "terminal", music: "music", photos: "photos", calendar: "calendar", mail: "mail", maps: "maps", reminders: "reminders", messages: "messages", contacts: "contacts", weather: "weather", stickies: "stickies", clock: "clock", writer: "writer", trash: "trash", aura: "aura", launchpad: "launch"};
       const id = map[app] || app;
       if (typeof Desktop !== "undefined" && Desktop.openApp) {
         setTimeout(() => Desktop.openApp(id), 180);
@@ -51,10 +51,15 @@ const Aura = {
       if (vol) { vol.value = Math.max(0, parseInt(vol.value) - 10); vol.dispatchEvent(new Event("input")); }
       return "Volume decreased.";
     }
-    if (q.includes("glass more") || q.includes("more glass")) {
+    if (q.includes("glass more") || q.includes("more glass") || q.includes("increase glass")) {
       const tint = document.getElementById("tint");
       if (tint) { tint.value = Math.min(1, parseFloat(tint.value) + 0.1); tint.dispatchEvent(new Event("input")); }
       return "Liquid Glass intensity increased.";
+    }
+    if (q.includes("glass less") || q.includes("less glass") || q.includes("decrease glass")) {
+      const tint = document.getElementById("tint");
+      if (tint) { tint.value = Math.max(0, parseFloat(tint.value) - 0.1); tint.dispatchEvent(new Event("input")); }
+      return "Liquid Glass intensity decreased.";
     }
     if (q.includes("volume") || q.includes("sound")) {
       return "You can adjust volume in Control Center. Current mock volume is around 70%. Try the slider there!";
@@ -80,9 +85,9 @@ const Aura = {
     // Cloud AI via free public text endpoint for full conversational "Intelligence"
     if (this.cloudEnabled()) {
       try {
-        const prompt = "You are Aura, a helpful, concise, friendly AI assistant in Lumen Desktop, an entertainment browser mock of a modern desktop OS with Liquid Glass design inspired by recent macOS styles (not affiliated with Apple). Respond like a modern voice assistant: short, useful, slightly witty, proactive. Never say you are Siri or Apple Intelligence. Keep under 60 words. Offer to open apps or adjust settings if relevant. User query: " + text;
+        const prompt = "You are Aura, a helpful, concise, friendly, slightly witty AI assistant in Lumen Desktop, an entertainment browser mock of a modern desktop OS with Liquid Glass design inspired by recent macOS styles (Golden Gate / 27.3+). Respond like a modern voice assistant: short, useful, proactive, natural. Never claim to be Siri or Apple Intelligence. Keep under 50 words. Offer to open apps or adjust settings if relevant. User query: " + text;
         const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
-        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(15000) });
+        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(12000) });
         if (res.ok) {
           let answer = (await res.text()).trim();
           if (answer && answer.length > 5 && !answer.toLowerCase().includes("error") && !answer.toLowerCase().includes("sorry, i cannot") && !answer.toLowerCase().includes("unable to")) {
@@ -105,7 +110,7 @@ const Aura = {
     u.pitch = 1.05;
     u.volume = 0.9;
     const voices = speechSynthesis.getVoices();
-    const preferred = voices.find(v => v.lang.startsWith("en") && (v.name.includes("Samantha") || v.name.includes("Google") || v.name.includes("Natural") || v.name.includes("Alex")));
+    const preferred = voices.find(v => v.lang.startsWith("en") && (v.name.includes("Samantha") || v.name.includes("Google") || v.name.includes("Natural") || v.name.includes("Alex") || v.name.includes("Premium")));
     if (preferred) u.voice = preferred;
     speechSynthesis.speak(u);
   },
