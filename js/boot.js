@@ -2,14 +2,14 @@
   const fill = document.getElementById("boot-fill");
   const status = document.getElementById("boot-status");
   const steps = [
-    [8, "Initializing Lumen shell (Golden Gate 27.3 inspired)…"],
+    [8, "Initializing Lumen shell (Golden Gate 27.2.1 inspired)…"],
     [18, "Loading enhanced Liquid Glass surfaces & refraction…"],
     [32, "Preparing original detailed icons & dynamic wallpaper…"],
     [46, "Loading tiny local LLM phrase model for Aura…"],
     [60, "Wiring offline phrase book & AI endpoint (pollinations)…"],
     [74, "Mounting mock volumes, apps & widgets…"],
     [88, "Finalizing desktop chrome & animations…"],
-    [100, "Ready — Aura Intelligence online (27.3 style)"]
+    [100, "Ready — Aura Intelligence online (27.2.1 style)"]
   ];
   let i = 0;
   const t = setInterval(() => {
@@ -34,7 +34,7 @@
       document.getElementById("desktop").classList.remove("hidden");
       if (typeof Desktop !== "undefined") Desktop.start();
       if (typeof Desktop !== "undefined" && Desktop.addAura) {
-        Desktop.addAura("bot", "Aura online. Tiny local model loaded at boot + AI replies enabled by default. Press ⌘Space anytime. F3 Mission Control · F4 Launchpad · Mic for voice. Entertainment mock only — inspired by Golden Gate 27.3.");
+        Desktop.addAura("bot", "Aura online. Tiny local model loaded at boot + AI replies enabled by default. Press ⌘Space anytime. F3 Mission Control · F4 Launchpad · Mic for voice. Entertainment mock only — inspired by Golden Gate 27.2.1.");
       }
     };
 })();
