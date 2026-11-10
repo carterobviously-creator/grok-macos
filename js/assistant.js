@@ -1,7 +1,7 @@
 // Aura — enhanced mock Siri / Apple Intelligence inspired assistant for Lumen Desktop
 // Entertainment mock only. Not Siri. Not Apple Intelligence.
 // Uses local phrase book + free text endpoint (pollinations.ai) for conversational AI replies.
-// Tiny local model simulated at boot. Improved natural responses for Lumen 118 (27.3+ / Golden Gate inspired).
+// Tiny local model simulated at boot. Improved natural responses for Lumen 119 (27.3+ / Golden Gate inspired).
 
 const Aura = {
   ready: false,
@@ -10,7 +10,7 @@ const Aura = {
   load() {
     this.ready = true;
     this.setCloud(true);
-    console.log("Aura tiny model + cloud ready (Lumen 118)");
+    console.log("Aura tiny model + cloud ready (Lumen 119)");
   },
 
   cloudEnabled() {
@@ -51,7 +51,7 @@ const Aura = {
       if (vol) { vol.value = Math.max(0, parseInt(vol.value) - 10); vol.dispatchEvent(new Event("input")); }
       return "Volume decreased.";
     }
-    if (q.includes("glass more") || q.includes("more glass") || q.includes("increase glass")) {
+    if (q.includes("glass more") || q.includes("more glass") || q.includes("increase glass") || q.includes("brighter glass")) {
       const tint = document.getElementById("tint");
       if (tint) { tint.value = Math.min(1, parseFloat(tint.value) + 0.1); tint.dispatchEvent(new Event("input")); }
       return "Liquid Glass intensity increased.";
@@ -85,9 +85,9 @@ const Aura = {
     // Cloud AI via free public text endpoint for full conversational "Intelligence"
     if (this.cloudEnabled()) {
       try {
-        const prompt = "You are Aura, a helpful, concise, friendly, slightly witty AI assistant in Lumen Desktop, an entertainment browser mock of a modern desktop OS with Liquid Glass design inspired by recent macOS styles (Golden Gate / 27.3+). Respond like a modern voice assistant: short, useful, proactive, natural. Never claim to be Siri or Apple Intelligence. Keep under 50 words. Offer to open apps or adjust settings if relevant. User query: " + text;
+        const prompt = "You are Aura, a helpful, concise, friendly, slightly witty AI assistant in Lumen Desktop, an entertainment browser mock of a modern desktop OS with Liquid Glass design inspired by recent macOS styles (Golden Gate / 27.3+). Respond like a modern voice assistant: short, useful, proactive, natural. Never claim to be Siri or Apple Intelligence. Keep under 40 words. Offer to open apps or adjust settings if relevant. User query: " + text;
         const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
-        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(12000) });
+        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(10000) });
         if (res.ok) {
           let answer = (await res.text()).trim();
           if (answer && answer.length > 5 && !answer.toLowerCase().includes("error") && !answer.toLowerCase().includes("sorry, i cannot") && !answer.toLowerCase().includes("unable to")) {
