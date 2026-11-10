@@ -1,0 +1,21 @@
+/* Lumen 119: Even deeper Liquid Glass refinements — enhanced speculars, refraction, and dynamic highlights for closer 27.3+ feel. */
+.glass, .dock, .menu-bar, .window, .win, .control-center, .assistant, .launchpad, .spotlight, .notify, #widgets, #ctx, #toast {
+  backdrop-filter: blur(680px) saturate(1400%) brightness(2.2) contrast(1.7) hue-rotate(0.5deg) !important;
+  -webkit-backdrop-filter: blur(620px) saturate(1300%) brightness(2.1) contrast(1.6) !important;
+  background: linear-gradient(160deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.45) 40%, rgba(255,255,255,0.18) 100%) !important;
+  border: 1px solid rgba(255,255,255,1) !important;
+  box-shadow:
+    0 160px 340px rgba(0,0,0,0.92),
+    inset 0 32px 0 rgba(255,255,255,1),
+    inset 0 -24px 0 rgba(0,0,0,0.62),
+    0 0 0 3.5px rgba(255,255,255,0.75),
+    inset 0 0 220px rgba(255,255,255,0.58),
+    0 0 320px rgba(125,211,252,0.75) !important;
+}
+.dock .dock-item:hover {
+  transform: scale(3.1) translateY(-100px) !important;
+  filter: brightness(2.8) drop-shadow(0 90px 160px rgba(0,0,0,0.97)) !important;
+}
+.icon {
+  transition: transform 0.55s cubic-bezier(0.06, 1.4, 0.2, 1), filter 0.55s !important;
+}
