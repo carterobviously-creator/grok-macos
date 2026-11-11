@@ -9,7 +9,7 @@
     [60, "Wiring offline phrase book & AI endpoint (pollinations)…"],
     [74, "Mounting mock volumes, apps & widgets…"],
     [88, "Finalizing desktop chrome & animations…"],
-    [100, "Ready — Aura Intelligence online (27.2.1 style)"]
+    [100, "Ready — Aura Intelligence online (27.2.1 style Lumen 121)"]
   ];
   let i = 0;
   const t = setInterval(() => {

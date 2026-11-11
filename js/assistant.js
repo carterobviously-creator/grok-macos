@@ -1,7 +1,7 @@
 // Aura — enhanced mock Siri / Apple Intelligence inspired assistant for Lumen Desktop
 // Entertainment mock only. Not Siri. Not Apple Intelligence.
 // Uses local phrase book + free text endpoint (pollinations.ai) for conversational AI replies.
-// Tiny local model simulated at boot. Improved natural responses for Lumen 120 (27.2.1 / Golden Gate inspired).
+// Tiny local model simulated at boot. Improved natural responses for Lumen 121.
 
 const Aura = {
   ready: false,
@@ -10,7 +10,7 @@ const Aura = {
   load() {
     this.ready = true;
     this.setCloud(true);
-    console.log("Aura tiny model + cloud ready (Lumen 120)");
+    console.log("Aura tiny model + cloud ready (Lumen 121)");
   },
 
   cloudEnabled() {
@@ -60,25 +60,6 @@ const Aura = {
       const tint = document.getElementById("tint");
       if (tint) { tint.value = Math.max(0, parseFloat(tint.value) - 0.1); tint.dispatchEvent(new Event("input")); }
       return "Liquid Glass intensity decreased.";
-    }
-    if (q.includes("volume") || q.includes("sound")) {
-      return "You can adjust volume in Control Center. Current mock volume is around 70%. Try the slider there!";
-    }
-    if (q.includes("glass") || q.includes("tint") || q.includes("opacity")) {
-      if (typeof Desktop !== "undefined" && Desktop.setGlass) {
-        const intensity = q.includes("more") || q.includes("higher") ? 0.8 : q.includes("less") || q.includes("lower") ? 0.3 : 0.55;
-        Desktop.setGlass(intensity);
-        return "Adjusted Liquid Glass intensity. Check Control Center for fine control.";
-      }
-      return "Adjust Liquid Glass intensity in Control Center with the slider. It affects the refraction and specular highlights.";
-    }
-    if (q.includes("note") || q.includes("remind")) return "I can help with notes and reminders. Try saying 'open notes' or tell me what to save.";
-    if (/what is \d+ [\+\-\*\/] \d+/.test(q) || /\d+ [\+\-\*\/] \d+/.test(q) || /calculate/.test(q)) {
-      try {
-        const expr = q.replace(/what is |calculate /g, "").replace(/[^0-9+\-*/(). ]/g, "");
-        const res = Function('"use strict";return (' + expr + ')')();
-        return "That's " + res + ".";
-      } catch (e) {}
     }
     if (q.includes("help") || q.includes("what can you do")) return "I can open apps (say open notes or open settings), tell the time or date, do math, answer questions with AI, manage notes, control the desktop, adjust glass effects, and more. Voice input supported where available. This is an entertainment mock — not the real Siri.";
 
