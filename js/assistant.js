@@ -1,7 +1,8 @@
 // Aura — enhanced mock Siri / Apple Intelligence inspired assistant for Lumen Desktop
 // Entertainment mock only. Not Siri. Not Apple Intelligence.
 // Uses local phrase book + free text endpoint (pollinations.ai) for conversational AI replies.
-// Tiny local model simulated at boot. Improved natural responses for Lumen 121.
+// Tiny local model simulated at boot. Improved natural responses for Lumen 122.
+// Added basic math support and more local commands.
 
 const Aura = {
   ready: false,
@@ -10,7 +11,7 @@ const Aura = {
   load() {
     this.ready = true;
     this.setCloud(true);
-    console.log("Aura tiny model + cloud ready (Lumen 121)");
+    console.log("Aura tiny model + cloud ready (Lumen 122)");
   },
 
   cloudEnabled() {
@@ -61,7 +62,24 @@ const Aura = {
       if (tint) { tint.value = Math.max(0, parseFloat(tint.value) - 0.1); tint.dispatchEvent(new Event("input")); }
       return "Liquid Glass intensity decreased.";
     }
-    if (q.includes("help") || q.includes("what can you do")) return "I can open apps (say open notes or open settings), tell the time or date, do math, answer questions with AI, manage notes, control the desktop, adjust glass effects, and more. Voice input supported where available. This is an entertainment mock — not the real Siri.";
+    if (q.includes("brightness up") || q.includes("brighter")) {
+      const bright = document.getElementById("bright");
+      if (bright) { bright.value = Math.min(130, parseInt(bright.value) + 10); bright.dispatchEvent(new Event("input")); }
+      return "Brightness increased.";
+    }
+    if (q.includes("brightness down") || q.includes("dimmer")) {
+      const bright = document.getElementById("bright");
+      if (bright) { bright.value = Math.max(50, parseInt(bright.value) - 10); bright.dispatchEvent(new Event("input")); }
+      return "Brightness decreased.";
+    }
+    // Simple math support
+    if (/[\d+\-*/().\s]+/.test(q) && q.length < 40 && /[+\-*/]/.test(q)) {
+      try {
+        const result = Function('"use strict"; return (' + q.replace(/[^0-9+\-*/().\s]/g, "") + ')')();
+        if (isFinite(result)) return "That equals " + result + ".";
+      } catch (e) {}
+    }
+    if (q.includes("help") || q.includes("what can you do")) return "I can open apps (say open notes or open settings), tell the time or date, do math, answer questions with AI, manage notes, control the desktop, adjust glass effects, brightness, volume, and more. Voice input supported where available. This is an entertainment mock — not the real Siri.";
 
     // Cloud AI via free public text endpoint for full conversational "Intelligence"
     if (this.cloudEnabled()) {
@@ -81,7 +99,7 @@ const Aura = {
     }
 
     // Fallback local
-    return "I'm here to help! Try 'open notes', ask a question, or 'what's the time'. (Entertainment mock with optional AI replies.)";
+    return "I'm here to help! Try 'open notes', ask a question, 'what's 2+2', or 'what's the time'. (Entertainment mock with optional AI replies.)";
   },
 
   speak(text) {
