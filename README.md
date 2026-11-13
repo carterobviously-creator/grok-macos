@@ -1,4 +1,4 @@
-# Lumen Desktop · Golden Gate 27.2.1 Inspired Mock · Lumen 125
+# Lumen Desktop · Golden Gate 27.2.1 Inspired Mock · Lumen 126
 
 A **high-fidelity browser entertainment mock** of a modern Liquid Glass desktop OS, refined to capture the look and feel of the latest macOS Golden Gate 27.2.1 design language.
 
@@ -20,7 +20,7 @@ No official Apple trademarks or copyrighted assets are used. Icons are original 
 
 Live: https://carterobviously-creator.github.io/grok-macos/
 
-**Latest refinements (Lumen 125):** Further enhanced Aura AI with refined prompts, longer timeout, better fallbacks, and improved reliability. All original assets. Entertainment mock only.
+**Latest refinements (Lumen 126):** Ultra-deep Liquid Glass with enhanced speculars, refraction, and dynamic highlights. Improved Aura AI prompts, longer timeout, better fallbacks, and reliability. All original assets. Entertainment mock only.
 
 All apps and interactions are functional mocks for entertainment. Enjoy the desktop experience!
 

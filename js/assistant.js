@@ -1,7 +1,7 @@
 // Aura — enhanced mock Siri / Apple Intelligence inspired assistant for Lumen Desktop
 // Entertainment mock only. Not Siri. Not Apple Intelligence.
 // Uses local phrase book + free text endpoint (pollinations.ai) for conversational AI replies.
-// Tiny local model simulated at boot. Improved natural responses for Lumen 125.
+// Tiny local model simulated at boot. Improved natural responses for Lumen 126.
 // Better math, more desktop controls, refined AI prompts, stronger fallbacks.
 
 const Aura = {
@@ -11,7 +11,7 @@ const Aura = {
   load() {
     this.ready = true;
     this.setCloud(true);
-    console.log("Aura tiny model + cloud ready (Lumen 125)");
+    console.log("Aura tiny model + cloud ready (Lumen 126)");
   },
 
   cloudEnabled() {
@@ -86,7 +86,7 @@ const Aura = {
       try {
         const prompt = "You are Aura, a helpful, concise, friendly, slightly witty AI assistant in Lumen Desktop, an entertainment browser mock of a modern desktop OS with Liquid Glass design inspired by recent macOS styles (Golden Gate / 27.2.1). Respond like a modern voice assistant: short, useful, proactive, natural. Never claim to be Siri or Apple Intelligence. Keep under 60 words. Offer to open apps or adjust settings if relevant. User query: " + text;
         const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
-        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(18000) });
+        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(20000) });
         if (res.ok) {
           let answer = (await res.text()).trim();
           if (answer && answer.length > 5 && !answer.toLowerCase().includes("error") && !answer.toLowerCase().includes("sorry, i cannot") && !answer.toLowerCase().includes("unable to") && !answer.toLowerCase().includes("i can't")) {
