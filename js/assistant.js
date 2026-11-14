@@ -1,8 +1,8 @@
 // Aura — enhanced mock Siri / Apple Intelligence inspired assistant for Lumen Desktop
 // Entertainment mock only. Not Siri. Not Apple Intelligence.
 // Uses local phrase book + free text endpoint (pollinations.ai) for conversational AI replies.
-// Tiny local model simulated at boot. Improved natural responses for Lumen 126.
-// Better math, more desktop controls, refined AI prompts, stronger fallbacks.
+// Tiny local model simulated at boot. Improved natural responses for Lumen 127.
+// Better math, more desktop controls, refined AI prompts, stronger fallbacks, voice polish.
 
 const Aura = {
   ready: false,
@@ -11,7 +11,7 @@ const Aura = {
   load() {
     this.ready = true;
     this.setCloud(true);
-    console.log("Aura tiny model + cloud ready (Lumen 126)");
+    console.log("Aura tiny model + cloud ready (Lumen 127)");
   },
 
   cloudEnabled() {
@@ -41,6 +41,10 @@ const Aura = {
         setTimeout(() => Desktop.openApp(id), 180);
         return "Opening " + (Desktop.labels[id] || app) + " for you.";
       }
+    }
+    if (q.includes("close all") || q.includes("close windows")) {
+      if (typeof Desktop !== "undefined" && Desktop.closeAll) Desktop.closeAll();
+      return "All windows closed.";
     }
     if (q.includes("volume up") || q.includes("louder")) {
       const vol = document.getElementById("vol");
@@ -79,14 +83,14 @@ const Aura = {
         if (isFinite(result)) return "That equals " + result + ".";
       } catch (e) {}
     }
-    if (q.includes("help") || q.includes("what can you do")) return "I can open apps (say open notes or open settings), tell the time or date, do math, answer questions with AI, manage notes, control the desktop, adjust glass effects, brightness, volume, and more. Voice input supported where available. This is an entertainment mock — not the real Siri.";
+    if (q.includes("help") || q.includes("what can you do")) return "I can open apps (say open notes or open settings), tell the time or date, do math, answer questions with AI, manage notes, control the desktop, adjust glass effects, brightness, volume, close windows, and more. Voice input supported where available. This is an entertainment mock — not the real Siri.";
 
     // Cloud AI via free public text endpoint for full conversational "Intelligence"
     if (this.cloudEnabled()) {
       try {
-        const prompt = "You are Aura, a helpful, concise, friendly, slightly witty AI assistant in Lumen Desktop, an entertainment browser mock of a modern desktop OS with Liquid Glass design inspired by recent macOS styles (Golden Gate / 27.2.1). Respond like a modern voice assistant: short, useful, proactive, natural. Never claim to be Siri or Apple Intelligence. Keep under 60 words. Offer to open apps or adjust settings if relevant. User query: " + text;
+        const prompt = "You are Aura, a helpful, concise, friendly, slightly witty AI assistant in Lumen Desktop, an entertainment browser mock of a modern desktop OS with Liquid Glass design inspired by recent macOS styles (Golden Gate / 27.2.1). Respond like a modern voice assistant: short, useful, proactive, natural. Never claim to be Siri or Apple Intelligence. Keep under 50 words. Offer to open apps or adjust settings if relevant. Current time is " + new Date().toLocaleTimeString() + ". User query: " + text;
         const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
-        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(20000) });
+        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(25000) });
         if (res.ok) {
           let answer = (await res.text()).trim();
           if (answer && answer.length > 5 && !answer.toLowerCase().includes("error") && !answer.toLowerCase().includes("sorry, i cannot") && !answer.toLowerCase().includes("unable to") && !answer.toLowerCase().includes("i can't")) {
@@ -109,7 +113,7 @@ const Aura = {
     u.pitch = 1.05;
     u.volume = 0.9;
     const voices = speechSynthesis.getVoices();
-    const preferred = voices.find(v => v.lang.startsWith("en") && (v.name.includes("Samantha") || v.name.includes("Google") || v.name.includes("Natural") || v.name.includes("Alex") || v.name.includes("Premium")));
+    const preferred = voices.find(v => v.lang.startsWith("en") && (v.name.includes("Samantha") || v.name.includes("Google") || v.name.includes("Natural") || v.name.includes("Alex") || v.name.includes("Premium") || v.name.includes("Enhanced")));
     if (preferred) u.voice = preferred;
     speechSynthesis.speak(u);
   },
