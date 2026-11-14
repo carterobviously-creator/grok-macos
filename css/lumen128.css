@@ -1,0 +1,77 @@
+/* Lumen 128 CSS refinements: Even deeper Liquid Glass with enhanced refraction, dynamic specular highlights, and smoother physics inspired by Golden Gate 27.2.1 refinements. Original effects only. */
+
+.glass, .dock, .menu-bar, .window, .win, .control-center, .assistant, .launchpad, .spotlight, .notify, #widgets, #ctx, #toast {
+  backdrop-filter: blur(800px) saturate(1500%) brightness(2.25) contrast(1.85) hue-rotate(0.5deg);
+  -webkit-backdrop-filter: blur(760px) saturate(1400%) brightness(2.15) contrast(1.75);
+  background: linear-gradient(160deg, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.52) 40%, rgba(255,255,255,0.12) 100%);
+  border: 1.2px solid rgba(255,255,255,0.95);
+  box-shadow:
+    0 180px 380px rgba(0,0,0,0.96),
+    inset 0 36px 0 rgba(255,255,255,1),
+    inset 0 -30px 0 rgba(0,0,0,0.7),
+    0 0 0 4px rgba(255,255,255,0.85),
+    inset 0 0 260px rgba(255,255,255,0.7),
+    0 0 360px rgba(125,211,252,0.85);
+  transition: all 0.42s cubic-bezier(0.08, 1.35, 0.22, 1);
+}
+
+.glass:hover, .win:hover {
+  box-shadow:
+    0 190px 400px rgba(0,0,0,0.98),
+    inset 0 38px 0 rgba(255,255,255,1),
+    0 0 0 4px rgba(255,255,255,0.95),
+    inset 0 0 280px rgba(255,255,255,0.75);
+}
+
+.dock .dock-item:hover {
+  transform: scale(3.3) translateY(-110px);
+  filter: brightness(3) drop-shadow(0 100px 180px rgba(0,0,0,0.98));
+  z-index: 20;
+}
+
+.dock .dock-item:hover + .dock-item,
+.dock .dock-item:has(+ .dock-item:hover) {
+  transform: scale(2.3) translateY(-58px);
+}
+
+.glass-icon .spec {
+  background: linear-gradient(140deg, rgba(255,255,255,1) 0%, transparent 28%, transparent 72%, rgba(255,255,255,0.75) 100%);
+}
+
+.glass-icon .highlight {
+  filter: blur(24px);
+  background: rgba(255,255,255,1);
+}
+
+.menu-bar {
+  height: 40px;
+  font-size: 14px;
+}
+
+.wallpaper {
+  animation: wallshift 60s ease-in-out infinite alternate;
+}
+
+@keyframes wallshift {
+  to { filter: hue-rotate(40deg) saturate(1.7) brightness(1.4); }
+}
+
+.dock {
+  border-radius: 56px;
+  padding: 18px 24px 20px;
+}
+
+.window, .win {
+  border-radius: 36px;
+}
+
+.assistant {
+  border-radius: 44px;
+}
+
+.win.active {
+  box-shadow:
+    0 190px 410px rgba(0,0,0,0.95),
+    0 0 0 4px rgba(255,255,255,0.92),
+    inset 0 28px 0 rgba(255,255,255,1);
+}
