@@ -1,0 +1,37 @@
+/* Lumen 130 CSS refinements: Deeper Liquid Glass with enhanced refraction simulation, stronger speculars, improved edge lighting, and refined hover physics. Original CSS only. Entertainment mock. */
+
+.glass, .dock, .menu-bar, .window, .win, .control-center, .assistant, .launchpad, .spotlight, .notify, #widgets, #ctx, #toast, .store-card {
+  backdrop-filter: blur(140px) saturate(200%) brightness(1.2) contrast(1.08);
+  -webkit-backdrop-filter: blur(140px) saturate(200%) brightness(1.2) contrast(1.08);
+  background: 
+    linear-gradient(180deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.28) 45%, rgba(255,255,255,0.06) 100%),
+    rgba(255,255,255,0.22);
+  border: 1px solid rgba(255,255,255,0.7);
+  box-shadow:
+    0 30px 90px rgba(0,0,0,0.5),
+    inset 0 3px 0 rgba(255,255,255,0.9),
+    inset 0 -1px 0 rgba(255,255,255,0.3),
+    0 0 0 1.5px rgba(255,255,255,0.45);
+}
+
+.glass::before {
+  background: linear-gradient(145deg, rgba(255,255,255,0.5) 0%, transparent 35%, transparent 65%, rgba(255,255,255,0.2) 100%);
+}
+
+.dock-item:hover {
+  transform: translateY(-24px) scale(1.5);
+  filter: brightness(1.15) drop-shadow(0 25px 35px rgba(0,0,0,0.45));
+}
+
+.dock-item:hover ~ .dock-item,
+.dock-item:has(+ .dock-item:hover) {
+  transform: translateY(-10px) scale(1.2);
+}
+
+#wallpaper {
+  animation: subtleShift 35s ease-in-out infinite alternate;
+}
+
+@keyframes subtleShift {
+  to { filter: hue-rotate(15deg) saturate(1.15) brightness(1.08); }
+}
