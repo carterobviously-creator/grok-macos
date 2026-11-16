@@ -1,0 +1,36 @@
+/* Lumen 132: Deeper Liquid Glass with enhanced dynamic refraction, stronger specular highlights, and smoother physics. Improved Aura integration visuals. Original CSS only. */
+.glass, .glass-icon, .dock, .menu-bar, .control-center, .spotlight, .assistant, .windows .window {
+  backdrop-filter: blur(28px) saturate(180%) brightness(1.05);
+  -webkit-backdrop-filter: blur(28px) saturate(180%) brightness(1.05);
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0 0 0.5px rgba(255, 255, 255, 0.12);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.glass:hover, .dock .icon:hover {
+  backdrop-filter: blur(32px) saturate(200%) brightness(1.08);
+  background: rgba(255, 255, 255, 0.24);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.boot, .lock {
+  background: radial-gradient(ellipse at center, #1e293b 0%, #0f172a 70%);
+}
+
+#wallpaper {
+  background-image: url('../assets/golden-abstract.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.92) saturate(1.1);
+}
+
+.aura-log {
+  scrollbar-width: thin;
+}
+
+.dock {
+  border-radius: 28px;
+  padding: 8px 12px;
+}

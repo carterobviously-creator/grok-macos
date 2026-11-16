@@ -1,7 +1,7 @@
 // Aura — enhanced mock Siri / Apple Intelligence inspired assistant for Lumen Desktop
 // Entertainment mock only. Not Siri. Not Apple Intelligence.
 // Uses local phrase book + free text endpoint (pollinations.ai) for conversational AI replies.
-// Tiny local model simulated at boot. Improved natural responses for Lumen 131.
+// Tiny local model simulated at boot. Improved natural responses for Lumen 132.
 // Better math, more desktop controls, refined AI prompts with context, stronger fallbacks, voice polish, notes/reminders integration.
 
 const Aura = {
@@ -11,7 +11,7 @@ const Aura = {
   load() {
     this.ready = true;
     this.setCloud(true);
-    console.log("Aura tiny model + cloud ready (Lumen 131)");
+    console.log("Aura tiny model + cloud ready (Lumen 132)");
   },
 
   cloudEnabled() {
