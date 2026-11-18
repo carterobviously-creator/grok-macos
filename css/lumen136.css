@@ -1,0 +1,41 @@
+/* Lumen 136 refinements: deeper Liquid Glass speculars, smoother dock physics, refined icon depth. Original only. */
+.glass-icon {
+  box-shadow: 0 28px 60px rgba(0,0,0,.62), inset 0 6px 0 rgba(255,255,255,.98), inset 0 -8px 16px rgba(0,0,0,.32), 0 0 0 1.5px rgba(255,255,255,.42);
+}
+.glass-icon .spec {
+  background: linear-gradient(135deg, rgba(255,255,255,0.62) 0%, transparent 38%, transparent 62%, rgba(255,255,255,0.25) 100%);
+}
+.dock-item {
+  transition: transform 0.22s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.dock-item:hover {
+  transform: translateY(-22px) scale(1.42);
+  filter: brightness(1.05);
+}
+#dock {
+  backdrop-filter: blur(56px) saturate(260%);
+  -webkit-backdrop-filter: blur(56px) saturate(260%);
+}
+.glass {
+  backdrop-filter: blur(52px) saturate(250%);
+  -webkit-backdrop-filter: blur(52px) saturate(250%);
+}
+#wallpaper {
+  animation: wallshift 40s ease-in-out infinite alternate;
+}
+@keyframes wallshift {
+  to { filter: hue-rotate(12deg) saturate(1.06); }
+}
+.boot-fill {
+  transition: width 0.4s ease;
+}
+#assistant {
+  backdrop-filter: blur(40px) saturate(200%);
+}
+.msg.bot {
+  background: rgba(255,255,255,0.62);
+  backdrop-filter: blur(12px);
+}
+body.tinted .msg.bot {
+  background: rgba(255,255,255,0.18);
+}

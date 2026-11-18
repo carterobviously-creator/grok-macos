@@ -1,6 +1,6 @@
 /* Enhanced original high-detail SVG icons for Lumen Desktop entertainment mock.
    Layered glass-style approximations with specular depth, refined gradients, and realistic proportions — not official Apple artwork.
-   Changed enough to be a distinct mock. Entertainment only. Not affiliated with Apple. */
+   Changed enough to be a distinct mock. Entertainment only. Not affiliated with Apple. Lumen 136 polish. */
 const Icons = {
   svg(inner, bg) {
     return `<div class="icon glass-icon" style="background:${bg || 'linear-gradient(145deg,#64748b,#334155)'}; border-radius:22%; box-shadow:0 22px 50px rgba(0,0,0,.58), inset 0 5px 0 rgba(255,255,255,.97), inset 0 -6px 14px rgba(0,0,0,.3), 0 0 0 1.4px rgba(255,255,255,.38)">${inner}<span class="spec"></span><span class="highlight"></span></div>`;
