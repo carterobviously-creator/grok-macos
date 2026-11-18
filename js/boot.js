@@ -9,7 +9,7 @@
     [60, "Wiring offline phrase book & AI endpoint (pollinations)…"],
     [74, "Mounting mock volumes, apps & widgets…"],
     [88, "Finalizing desktop chrome & animations…"],
-    [100, "Ready — Aura Intelligence online (Lumen 134)"]
+    [100, "Ready — Aura Intelligence online (Lumen 135)"]
   ];
   let i = 0;
   const t = setInterval(() => {
@@ -34,7 +34,7 @@
       document.getElementById("desktop").classList.remove("hidden");
       if (typeof Desktop !== "undefined") Desktop.start();
       if (typeof Desktop !== "undefined" && Desktop.addAura) {
-        Desktop.addAura("bot", "Aura online. Tiny local model loaded at boot + AI replies enabled by default. Press ⌘Space anytime. F3 Mission Control · F4 Launchpad · Mic for voice. Entertainment mock only — inspired by modern Liquid Glass desktops. Lumen 134 refinements applied.");
+        Desktop.addAura("bot", "Aura online. Tiny local model loaded at boot + AI replies enabled by default. Press ⌘Space anytime. F3 Mission Control · F4 Launchpad · Mic for voice. Entertainment mock only — inspired by modern Liquid Glass desktops. Lumen 135 refinements applied.");
       }
     };
 })();
