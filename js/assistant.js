@@ -1,7 +1,7 @@
 // Aura — enhanced mock Siri / Apple Intelligence inspired assistant for Lumen Desktop
 // Entertainment mock only. Not Siri. Not Apple Intelligence.
 // Uses local phrase book + free text endpoint (pollinations.ai) for conversational AI replies.
-// Tiny local model simulated at boot. Improved natural responses for Lumen 137.
+// Tiny local model simulated at boot. Improved natural responses for Lumen 138.
 // Better math, more desktop controls, refined AI prompts with context, stronger fallbacks, voice polish, notes/reminders integration.
 
 const Aura = {
@@ -11,7 +11,7 @@ const Aura = {
   load() {
     this.ready = true;
     this.setCloud(true);
-    console.log("Aura tiny model + cloud ready (Lumen 137)");
+    console.log("Aura tiny model + cloud ready (Lumen 138)");
   },
 
   cloudEnabled() {
@@ -107,9 +107,9 @@ const Aura = {
     // Cloud AI via free public text endpoint for full conversational "Intelligence"
     if (this.cloudEnabled()) {
       try {
-        const prompt = "You are Aura, a helpful, concise, friendly, slightly witty AI assistant in Lumen Desktop, an entertainment browser mock of a modern desktop OS with Liquid Glass design inspired by recent macOS styles (Golden Gate / 27.2.1). Respond like a modern voice assistant: short, useful, proactive, natural. Never claim to be Siri or Apple Intelligence. Keep under 60 words. Offer to open apps, add notes, or adjust settings if relevant. Current time is " + new Date().toLocaleTimeString() + ". User query: " + text;
+        const prompt = "You are Aura, a helpful, concise, friendly, slightly witty AI assistant in Lumen Desktop, an entertainment browser mock of a modern desktop OS with Liquid Glass design inspired by recent macOS styles (Golden Gate / 27.2.1). Respond like a modern voice assistant: short, useful, proactive, natural. Never claim to be Siri or Apple Intelligence. Keep under 50 words. Offer to open apps, add notes, or adjust settings if relevant. Current time is " + new Date().toLocaleTimeString() + ". User query: " + text;
         const url = "https://text.pollinations.ai/" + encodeURIComponent(prompt);
-        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(25000) });
+        const res = await fetch(url, { method: "GET", signal: AbortSignal.timeout(20000) });
         if (res.ok) {
           let answer = (await res.text()).trim();
           if (answer && answer.length > 5 && !answer.toLowerCase().includes("error") && !answer.toLowerCase().includes("sorry") && !answer.toLowerCase().includes("unable") && !answer.toLowerCase().includes("i can't") && !answer.toLowerCase().includes("rate limit")) {

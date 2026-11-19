@@ -1,0 +1,28 @@
+/* Lumen 138: Deeper glass refinements, enhanced speculars, smoother animations */
+.glass {
+  backdrop-filter: blur(28px) saturate(180%) brightness(1.05);
+  -webkit-backdrop-filter: blur(28px) saturate(180%) brightness(1.05);
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.dock .dock-item {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.2s ease;
+}
+
+.dock .dock-item:hover {
+  transform: scale(1.35) translateY(-12px);
+  filter: drop-shadow(0 12px 16px rgba(0,0,0,0.25));
+}
+
+/* Additional polish for windows and menu */
+.window {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.menu-bar {
+  backdrop-filter: blur(20px) saturate(160%);
+}
