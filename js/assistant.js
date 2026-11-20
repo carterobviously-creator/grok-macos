@@ -1,8 +1,8 @@
 // Aura — enhanced mock Siri / Apple Intelligence inspired assistant for Lumen Desktop
 // Entertainment mock only. Not Siri. Not Apple Intelligence.
 // Uses local phrase book + free text endpoint (pollinations.ai) for conversational AI replies.
-// Tiny local model simulated at boot. Improved natural responses for Lumen 138.
-// Better math, more desktop controls, refined AI prompts with context, stronger fallbacks, voice polish, notes/reminders integration.
+// Tiny local model simulated at boot. Improved natural responses for Lumen 139.
+// Better math, more desktop controls (wallpaper, glass, volume, brightness), refined AI prompts with context, stronger fallbacks, voice polish, notes/reminders integration.
 
 const Aura = {
   ready: false,
@@ -11,7 +11,7 @@ const Aura = {
   load() {
     this.ready = true;
     this.setCloud(true);
-    console.log("Aura tiny model + cloud ready (Lumen 138)");
+    console.log("Aura tiny model + cloud ready (Lumen 139)");
   },
 
   cloudEnabled() {
@@ -76,6 +76,10 @@ const Aura = {
       if (bright) { bright.value = Math.max(50, parseInt(bright.value) - 10); bright.dispatchEvent(new Event("input")); }
       return "Brightness decreased.";
     }
+    if (q.includes("warm wallpaper") || q.includes("alt wallpaper") || q.includes("change wallpaper")) {
+      document.getElementById("wallpaper").classList.toggle("alt");
+      return "Wallpaper style updated.";
+    }
     // Notes integration
     if (q.includes("add to notes") || q.includes("note:")) {
       const noteText = text.replace(/add to notes|note:/i, "").trim();
@@ -102,7 +106,7 @@ const Aura = {
         if (isFinite(result)) return "That equals " + result + ".";
       } catch (e) {}
     }
-    if (q.includes("help") || q.includes("what can you do")) return "I can open apps (say open notes or open settings), tell the time or date, do math, answer questions with AI, manage notes and reminders, control the desktop, adjust glass effects, brightness, volume, close windows, and more. Voice input supported where available. This is an entertainment mock — not the real Siri.";
+    if (q.includes("help") || q.includes("what can you do")) return "I can open apps (say open notes or open settings), tell the time or date, do math, answer questions with AI, manage notes and reminders, control the desktop, adjust glass effects, brightness, volume, change wallpaper, close windows, and more. Voice input supported where available. This is an entertainment mock — not the real Siri.";
 
     // Cloud AI via free public text endpoint for full conversational "Intelligence"
     if (this.cloudEnabled()) {
@@ -122,7 +126,7 @@ const Aura = {
     }
 
     // Fallback local
-    return "I'm here to help! Try 'open notes', ask a question, 'what's 2+2', 'add to notes buy milk', or 'what's the time'. (Entertainment mock with optional AI replies.)";
+    return "I'm here to help! Try 'open notes', ask a question, 'what's 2+2', 'add to notes buy milk', 'change wallpaper', or 'what's the time'. (Entertainment mock with optional AI replies.)";
   },
 
   speak(text) {

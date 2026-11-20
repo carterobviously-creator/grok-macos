@@ -8,7 +8,7 @@ A **high-fidelity browser entertainment mock** of a modern Liquid Glass desktop 
 
 No official Apple trademarks or copyrighted assets are used. Icons are original layered SVG glass approximations with specular highlights, depth, and refined details — carefully designed to evoke the style without copying proprietary artwork. Surfaces use advanced CSS Liquid Glass effects (blur, saturation, refraction simulation, dynamic speculars, and physics). Changed enough from the real OS to be a distinct mock.
 
-**Aura** (mock Siri / Apple Intelligence) loads a tiny local phrase model at boot and uses a free third-party AI endpoint (pollinations.ai) for natural conversational replies. It can open apps, manage notes/reminders, do math, answer questions, speak, control glass/volume/brightness, close windows, and respond to voice. Voice input supported where the browser allows. Enhanced for better reliability, more local commands (including notes and reminders), and natural responses.
+**Aura** (mock Siri / Apple Intelligence) loads a tiny local phrase model at boot and uses a free third-party AI endpoint (pollinations.ai) for natural conversational replies. It can open apps, manage notes/reminders, do math, answer questions, speak, control glass/volume/brightness, close windows, change wallpapers, and respond to voice. Voice input supported where the browser allows. Enhanced for better reliability, more local commands (including notes, reminders, and system controls), and natural responses.
 
 ## Key Features
 - Realistic boot screen with tiny LLM load simulation
@@ -20,7 +20,7 @@ No official Apple trademarks or copyrighted assets are used. Icons are original 
 
 Live: https://carterobviously-creator.github.io/grok-macos/
 
-**Latest refinements (Lumen 139):** Deeper Liquid Glass with enhanced speculars, refraction, and dynamic highlights. Smoother dock magnification and animations. Refined Aura conversational AI with better context-aware prompts, stronger local fallbacks, and improved reliability. Updated boot sequence and visual polish. All original assets. Entertainment mock only.
+**Latest refinements (Lumen 139):** Even deeper Liquid Glass with enhanced speculars, refraction, and dynamic highlights. Smoother dock magnification and animations. Refined Aura conversational AI with better context-aware prompts, stronger local fallbacks, more system controls (wallpaper, glass, volume), and improved reliability. Updated boot sequence and visual polish. All original assets. Entertainment mock only.
 
 All apps and interactions are functional mocks for entertainment. Enjoy the desktop experience!
 
